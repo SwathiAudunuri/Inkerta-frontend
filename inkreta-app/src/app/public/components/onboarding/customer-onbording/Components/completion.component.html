@@ -1,0 +1,28 @@
+<!-- <p>completion works!</p> -->
+<div [style.display]="'flex'" style="margin-top: 110px;">
+    <div  class="col-sm-6">
+        <!-- <div>
+        <h1 class="text-center">Congratulations! </h1>
+        <h1 class="text-center"> Welcome to InKreta</h1>
+        </div> -->
+        <!-- <div class="completion"></div> -->
+        <!-- <img src='../../../assets/11116.jpg' alt="" style='width:100%' /> -->
+    </div>
+    <div class="col-sm-6">
+        <p>Hello <b [style.fontSize]= "'18px'">{{firstname +" "+lastname+","}}</b></p>
+        <p>
+            Congratulations for signing in as our new partner!
+        </p><p>
+            We are excited to have you as a part of the growing InKreta family.
+        </p>
+        <p>You may note the important information about your account.</p>
+        <p ><span [style.color]= "'#008ecc'"><b>InKreta Username:</b></span>  <b>{{userName}}</b></p>
+        <p><span [style.color]= "'#008ecc'"><b>InKreta Email ID:</b></span> <b>{{userName + '@myinkreta.com'}}</b></p>
+        <p>We have sent these details to your registered email address  <b>{{email}}</b> for future reference.</p>
+        <p>Please note that you can complete/update your profile by logging into your InKreta account and selecting Profile Settings.</p>
+        <p>Hope you have a great time with us.</p>
+        <p>Waiting for your first invoice!</p>
+        <p><b>Team InKreta</b></p>
+        <button mat-raised-button color="primary">Home</button>
+    </div>
+</div>

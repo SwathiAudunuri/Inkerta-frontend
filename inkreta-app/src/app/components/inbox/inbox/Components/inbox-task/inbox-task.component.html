@@ -1,0 +1,38 @@
+<div class="m-1 d-flex justify-content-between" style="margin-top: -13px;">
+    <div class="d-flex">
+        <div style="margin-right: 13px;">
+            <!-- <img class="image"  src="../../../../../../assets/task.png"/> -->
+            <img class="image"  src="./assets/task.png"/>
+        </div>
+        <div>
+            <div style="height: 25px;margin-top: 5px;">
+                <p style="color: #000000;">{{data.title}}</p>
+            </div>
+            <div class="d-flex">
+                <div class="d-flex">
+                    <label style="color: #73c0ec;;"><b>{{data.type}}</b></label>
+                    <p style="margin-left: 5px;font-size: 12px;">#{{data.id}}</p>
+                </div>
+                <div style="margin-left: 5px;">
+                    <span class="invoice_status paid" *ngIf="data.status === 'completed'">Completed</span>
+                    <span class="invoice_status unpaid" *ngIf="data.status === 'inprogress'">Inprogress</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div >
+        <div class="d-flex row_data" style="height: 21px;">
+            <label class="w-120">Created On <span>:</span> </label>
+            <p>{{data.createdon}}</p>
+            
+        </div>
+        <div class="d-flex row_data" style="height: 21px;" *ngIf="data.status === 'inprogress'">
+            <label class="w-120">Due Date <span>:</span> </label>
+            <p>{{data.DueDate}}</p>
+        </div>
+        <div class="d-flex row_data" style="height: 21px;" *ngIf="data.status === 'completed'">
+            <label class="w-120">Completed on <span>:</span> </label>
+            <p>{{data.completedon}}</p>
+        </div>
+    </div>
+</div>

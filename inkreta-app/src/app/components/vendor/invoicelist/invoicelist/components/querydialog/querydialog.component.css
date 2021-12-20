@@ -1,0 +1,92 @@
+.vertical_split{
+    display: flex;
+    flex-wrap: wrap;
+}
+.vertical_split >  div{
+    flex: 1;
+    padding: 10px;
+
+}
+.first_bar{
+    border-left: 1px solid #ccc
+}
+
+.mat-dialog-container{
+    padding:0px !important
+}
+.modal-title{
+    font-weight: 500;
+    font-size: medium;
+}
+.btn_response{
+    position: relative;
+    right: inherit;
+}
+.query_btns {
+    display: inline-flex;
+    justify-content: flex-end;
+}
+.div_flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form_elements{
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    padding: 0px 0px 10px 0px !important;
+}
+.form_elements label{
+    width: 100%;
+}
+
+/* .editor{
+
+    height: 200px;
+} */
+ ngx-editor-menu.NgxEditor__MenuBar{
+    flex-wrap: wrap !important;
+    display: none;
+  }
+  .angular-editor-toolbar:nth-child(1){
+    display: none !important;
+    background-color: red ;
+  }
+  .ql-container{
+      height: 50px !important;
+  }
+
+  .NgxEditor{
+      min-height: 200px;
+  }
+
+  .modal-body{
+      padding: 9px;
+      margin-bottom: 10px;
+  }
+  
+  .modal-title {
+    margin-bottom: 10px;
+}
+.modal-content{
+    border: none !important;
+}
+.row {
+    margin: 0 -10px !important;
+}
+.modal-footer{
+   padding: 5px 0px;
+}
+.modal-footer .mat-dialog-actions{
+    padding: 0px;
+    min-height: 0px;
+}
+.cancel_btn{
+    background-color: #eae8e8;
+}
+.p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):hover {
+    background: red !important;
+    color: #495057;
+    height: -23px;
+}

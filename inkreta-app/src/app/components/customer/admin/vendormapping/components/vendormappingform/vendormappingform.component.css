@@ -1,0 +1,30 @@
+.form-row__description{
+    font-size: x-small;
+  }
+  div{
+    width: max-content;
+  }
+ /* *{
+   background-color: aquamarine;
+ } */
+ .example-container {
+  height: 100%;
+    width: 100%;
+    background-color: white;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+.side_window{
+  width: 200px;
+}

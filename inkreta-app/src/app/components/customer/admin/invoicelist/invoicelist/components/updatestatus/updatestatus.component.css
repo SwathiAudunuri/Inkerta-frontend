@@ -1,0 +1,12 @@
+.modal-content{
+    width: 600px;
+    height:fit-content
+}
+.radio_buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+.flex-end{
+    display: flex;
+    justify-content: flex-end;
+}

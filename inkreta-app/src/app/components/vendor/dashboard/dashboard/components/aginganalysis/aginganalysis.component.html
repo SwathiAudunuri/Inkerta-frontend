@@ -1,0 +1,9 @@
+<div class="charts row">
+    <div class="col-md-8"> 
+
+<app-treemap (filterByVendor)="filterByVendor($event)"></app-treemap>
+</div>
+<div class="col-md-4">
+<app-donut [vendor]="vendor"></app-donut>
+</div>
+</div>

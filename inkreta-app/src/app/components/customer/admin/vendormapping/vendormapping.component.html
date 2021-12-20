@@ -1,0 +1,65 @@
+
+<mat-drawer-container class="example-container" autosize>
+    
+  <mat-drawer #drawer1 class="sidenav" mode="side" position="end" style="width: 50%;border:1px solid #dfdfdf ;">
+    
+  <!-- <h1>Hello this is form component</h1> -->
+  <div class="todoForm_block">
+    <mat-card>
+      <div class="divend_button">
+        <h3  style="font-weight: 600;">Add Vendor</h3>
+      <button type="button" class="btn-close" aria-label="Close" (click)="drawer1.toggle()"></button>
+    </div>
+    <form [formGroup]="vendorForm" (ngSubmit)="submitDetails()" >
+     
+         <label>Vendor Code</label>
+    <div  class="col-md-12 add_vendor">
+         <div class="items_flex search ">
+          <div class="input-group search">
+            <input type="text" class="form-control" placeholder="select Vendor Code" [value]="PartnerCode" aria-label="Input group example" aria-describedby="basic-addon1">
+            <span class="input-group-text" id="basic-addon1" (click)="openDialog()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+      </svg>
+            </span>
+          </div>
+         </div>
+        </div>
+        <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <div *ngIf="companyName!=''&&companyName!='undefined'">
+            <label>Company Name</label>
+            <input
+              class="form-control " type="text" placeholder="Company Name"[value]="companyName"
+              disabled aria-label="default input example">
+            </div>
+          </div>
+        </div>
+      </div>
+        
+    
+        <div class="form-group">
+          <div class="mb-3">
+            <label className="pop_label">Description</label>
+            <textarea formControlName="description" class="form-control" id="descriptionid" rows="6"
+               required
+             ></textarea>
+          </div>
+        </div>
+        <div class="add_task_action_btn">
+       
+          <button  class=" btn btn_primary" [disabled]="PartnerCode==='' " type="submit"><span>Add</span></button> 
+         
+          </div>
+    </form>
+    </mat-card>
+  </div>
+  </mat-drawer>
+    <app-vendormappinggrid [drawer1]="drawer1" > </app-vendormappinggrid>
+</mat-drawer-container>
+
+
+    
+
+ 

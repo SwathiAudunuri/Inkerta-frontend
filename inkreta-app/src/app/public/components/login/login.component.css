@@ -1,0 +1,55 @@
+.logincontainer{
+height:100vh;
+display: flex;
+}
+.left-logincontainer{
+    float: left;
+  width: 50%;
+  height: 100%;
+}
+.left-logincontainer img {
+    height: 100%;
+    max-width: 100%;
+    display: block;
+    margin: auto;
+    }
+.right{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+.right-form{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+.logo img{
+    width: auto;
+    height: auto;
+}
+mat-form-field{
+    width: 100%;
+}
+.username{
+    width: 600px;
+    height:20px;
+    margin: 1px;
+}
+.password{
+    width: 600px;
+    height:20px;
+}
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+
+  
+  .ng-invalid{
+      border-left: none;
+  }

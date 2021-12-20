@@ -1,0 +1,99 @@
+
+<!-- <div class="input-group search search_right" style="margin-right: 0px;">
+  <input type="text" [(ngModel)]="searchKey" class="form-control" placeholder="Search" aria-label="Input group example" aria-describedby="basic-addon1" (keyup)= "applyFilter()">
+
+  <span class="input-group-text" id="basic-addon1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+</svg>
+  </span>
+</div> -->
+
+<!-- <mat-form-field class="search  search_right" >
+    <input matInput [(ngModel)]="searchKey" placeholder="search" autocomplete="off" class="searchinput" (keyup)= "applyFilter()"/>
+
+  </mat-form-field> -->
+<table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <!-- <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef> 
+        <mat-checkbox color="primary" (change)="$event ? masterToggle() : null"
+        [checked]="selection.hasValue() && isAllSelected()"
+        [indeterminate]="selection.hasValue() && !isAllSelected()"
+        [aria-label]="checkboxLabel()">
+  
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let element"> 
+        
+        <mat-checkbox  color="primary"  (click)="$event.stopPropagation()"
+        (change)="$event ? selection.toggle(element) : null"
+        [checked]="selection.isSelected(element)"
+        [aria-label]="checkboxLabel(element)">
+  </mat-checkbox>
+  
+      </td>
+  
+    </ng-container> -->
+    <ng-container matColumnDef="InvoiceNo">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> InvoiceNo. </th>
+      <td mat-cell *matCellDef="let element"> {{element.InvoiceNo}} </td>
+    </ng-container>
+   
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="VendorName">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> VendorName </th>
+      <td mat-cell *matCellDef="let element"> {{element.VendorName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Amount">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> Amount </th>
+      <td mat-cell *matCellDef="let element"> {{element.Amount}} </td>
+    </ng-container>
+    <ng-container matColumnDef="DueDate">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> Due date </th>
+      <td mat-cell *matCellDef="let element"> {{element.DueDate}} </td>
+    </ng-container>
+    <!-- <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> 
+        
+        <button mat-button [ngClass]="'MuiIconButton-root'"   (click)="$event.stopPropagation()" [matMenuTriggerFor]="menu">
+          <mat-icon><span class="circle">play_circle_outline</span>
+          </mat-icon></button>
+        <mat-menu #menu="matMenu"  xPosition="after"   >
+          <span *ngFor="let item of element.Action">
+     
+         <button mat-menu-item  class="circle"
+         (click)="openDialog(item)" backdrop="static"
+         >{{item}}</button>
+         </span>
+        </mat-menu>
+      </td>
+    </ng-container> -->
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="StatusOfInv">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> StatusOfInv </th>
+      <td mat-cell *matCellDef="let element"> {{element.StatusOfInv}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row          *matRowDef="let row; columns: displayedColumns;" (click)="invoicedetails(row)"></tr>
+   
+  
+  </table>
+  <mat-paginator [length]="100"
+  [pageSize]=noofrows
+
+  [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>

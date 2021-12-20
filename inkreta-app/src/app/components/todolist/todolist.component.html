@@ -1,0 +1,96 @@
+<!-- <p>todolist form</p> -->
+<mat-drawer-container class="example-container" autosize>
+    
+    <mat-drawer #drawer1 class="sidenav" mode="side" position="end" style="width: 50%;border:1px solid #dfdfdf ;">
+      <div class="todoForm_block"> 
+        <mat-card>
+          <div class="divend_button">
+            <h3 style="font-weight: 600;">Create task</h3>
+            <button type="button" class="btn-close" aria-label="Close" (click)="drawer1.toggle()"></button>
+          <!-- <button mat-flat-button class="flat_button" (click)="drawer1.toggle()">
+          <span class="material-icons" style="    margin: -10px 0px 11px 0px">
+            close
+            </span>
+          </button> -->
+        </div>
+ <!-- <label style="    margin:-1px 96px 0px 15px"><b>Create task</b> </label> -->
+          <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+                
+
+            <!-- <label style="    margin:-1px 96px 0px 15px"><b>Create task</b> </label> -->
+            <div class="form_body">
+            <div class="row">
+                 <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Title</label>
+                    <input
+                      class="form-control" type="text" placeholder="" 
+                      formControlName="title" 
+                      aria-label="default input example">
+                  </div>
+                 </div>
+              </div>
+              
+                
+               
+              <div class="row">
+                   <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Assign to</label>
+                      <select class='form-select form-control' formControlName="assignedTo" >
+                        <option value="Farooq">Farooq</option>
+                        <option value="Swathi">Swathi</option>
+                      </select>
+                    </div>
+                   </div>
+                   <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Priority</label>
+                      <select class='form-select form-control' formControlName="priority" >
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                      </select>
+                    </div>
+                   </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Due Date</label>
+                    <input
+                      class="form-control" type="date" placeholder="" 
+                      formControlName="dueDate" 
+                      aria-label="default input example">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="mb-3">
+                      <label className="pop_label">Description</label>
+                      <textarea formControlName="description" class="form-control" id="descriptionid" rows="6"
+                       ></textarea>
+                    </div>
+                  </div>
+
+                </div>
+              </div> 
+            </div>
+                      <!-- <mat-form-field appearance="fill">
+                        <mat-label>Due date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="dueDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field> -->
+                <div class="add_task_action_btn">
+              <!-- <button mat-flat-button class="button1"><span>Add</span></button>   -->
+              <button  class="btn btn_primary "><span>Add</span></button>  
+              </div>
+        </form>
+    </mat-card>
+    </div>
+    </mat-drawer>
+      <app-updatetodo [drawer1]="drawer1"> </app-updatetodo>
+  </mat-drawer-container>

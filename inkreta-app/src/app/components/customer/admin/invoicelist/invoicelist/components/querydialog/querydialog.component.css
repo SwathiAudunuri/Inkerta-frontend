@@ -1,0 +1,63 @@
+.vertical_split{
+    display: flex;
+
+}
+.vertical_split div{
+    flex: 1;
+    margin:10px;
+
+}
+.first_bar{
+    border-left: 1px solid #ccc
+}
+
+.mat-dialog-container{
+    padding:0px !important
+}
+.modal-title{
+    font-weight: 500;
+    font-size: medium;
+}
+.btn_response{
+    position: relative;
+    right: inherit;
+}
+.query_btns {
+    display: inline-flex;
+    justify-content: flex-end;
+}
+.div_flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form_elements{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form_elements label{
+    width: 100%;
+}
+.form-select{
+    width: 95%;
+}
+.editor{
+
+    height: 200px;
+}
+ ngx-editor-menu.NgxEditor__MenuBar{
+    flex-wrap: wrap !important;
+    display: none;
+  }
+  .angular-editor-toolbar:nth-child(1){
+    display: none !important;
+    background-color: red ;
+  }
+  .ql-container{
+      height: 50px !important;
+  }
+
+  .NgxEditor{
+      min-height: 200px;
+  }

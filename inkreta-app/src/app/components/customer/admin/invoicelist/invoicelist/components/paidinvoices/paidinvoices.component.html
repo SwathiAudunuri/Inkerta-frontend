@@ -1,0 +1,87 @@
+<mat-form-field class="search" >
+    <input matInput [(ngModel)]="searchKey" placeholder="search" autocomplete="off" class="searchinput" (keyup)= "applyFilter()"/>
+
+  </mat-form-field>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <!-- <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef> 
+        <mat-checkbox color="primary" (change)="$event ? masterToggle() : null"
+        [checked]="selection.hasValue() && isAllSelected()"
+        [indeterminate]="selection.hasValue() && !isAllSelected()"
+        [aria-label]="checkboxLabel()">
+  
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let element"> 
+        
+        <mat-checkbox  color="primary"  (click)="$event.stopPropagation()"
+        (change)="$event ? selection.toggle(element) : null"
+        [checked]="selection.isSelected(element)"
+        [aria-label]="checkboxLabel(element)">
+  </mat-checkbox>
+  
+      </td>
+  
+    </ng-container> -->
+    <ng-container matColumnDef="InvoiceNo">
+      <th mat-header-cell *matHeaderCellDef> InvoiceNo. </th>
+      <td mat-cell *matCellDef="let element"> {{element.InvoiceNo}} </td>
+    </ng-container>
+   
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="VendorName">
+      <th mat-header-cell *matHeaderCellDef> VendorName </th>
+      <td mat-cell *matCellDef="let element"> {{element.VendorName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Amount">
+      <th mat-header-cell *matHeaderCellDef> Amount </th>
+      <td mat-cell *matCellDef="let element"> {{element.Amount}} </td>
+    </ng-container>
+    <ng-container matColumnDef="DueDate">
+      <th mat-header-cell *matHeaderCellDef> Due date </th>
+      <td mat-cell *matCellDef="let element"> {{element.DueDate}} </td>
+    </ng-container>
+    <!-- <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> 
+        
+        <button mat-button [ngClass]="'MuiIconButton-root'"   (click)="$event.stopPropagation()" [matMenuTriggerFor]="menu">
+          <mat-icon><span class="circle">play_circle_outline</span>
+          </mat-icon></button>
+        <mat-menu #menu="matMenu"  xPosition="after"   >
+          <span *ngFor="let item of element.Action">
+     
+         <button mat-menu-item  class="circle"
+         (click)="openDialog(item)" backdrop="static"
+         >{{item}}</button>
+         </span>
+        </mat-menu>
+      </td>
+    </ng-container> -->
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="StatusOfInv">
+      <th mat-header-cell *matHeaderCellDef> StatusOfInv </th>
+      <td mat-cell *matCellDef="let element"> {{element.StatusOfInv}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row          *matRowDef="let row; columns: displayedColumns;" (click)="invoicedetails(row)"></tr>
+   
+  
+  </table>
+  <mat-paginator [length]="100"
+  [pageSize]="7"
+  [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>

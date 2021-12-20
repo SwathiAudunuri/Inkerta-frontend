@@ -1,0 +1,42 @@
+<!-- <p>viewtodo works!</p> -->
+<div> 
+    <mat-tab-group>
+        <mat-tab label="General" class="mat-tab-labels">       
+            <div class="d-flex  mt-3">
+                <label><b>Title </b></label>
+                <span class="ms-2">{{title}} </span>
+            </div>
+                <div class="d-flex  mt-3">
+                    <label><b>Priority </b></label>
+                    <span class="ms-2">{{priority}}</span>
+                </div>
+                <div class="d-flex  mt-3">
+                    <label><b>Assigned To </b></label>
+                    <span class="ms-2">{{assignedTo}}</span>
+                </div>
+                <div class="mt-3 d-flex ">
+                    <label><b>Due Date </b></label>
+                    <span class="ms-2">{{dueDate}}</span>
+                </div>
+                <div class="mt-3 d-flex ">
+                    <label><b>Description </b></label>
+                    <span class="ms-2">{{description}}</span>
+                </div>
+                    <div class="form-group">
+                    <div class="mt-3 d-flex ">
+                    <label><b>Comments</b></label>
+                    <textarea class="form-control"  rows="3"
+                    ></textarea>
+                    </div>
+                    </div>
+                    <button class=" btn btn_primary" color="primary" style="float: right;margin-top: 19px;"><span>Add Comment</span></button> 
+        </mat-tab>
+        <mat-tab label="Task Updates">
+           <app-taskupdatestab></app-taskupdatestab>
+        </mat-tab>
+        <mat-tab label="Audit">
+           <app-audittodo [title]="title"></app-audittodo>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+  

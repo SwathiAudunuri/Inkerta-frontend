@@ -1,0 +1,62 @@
+<div class="borderTopBox">
+    <div class="boxHeading row gx-0 align-items-end">
+        <div class="col-md-6">
+            GSTIN's of Other States
+        </div>
+        <!-- <div [hidden]="edit_btn"> -->
+        <form [formGroup]="GSTIN_" class="col-md-6 text-right" [hidden]="edit_btn">
+            <div class="d-flex justify-content-end align-items-end" >
+                <!-- <span class="col-sm-4"></span> -->
+                <label >Enter GSTIN : </label>&nbsp;
+                <div>
+                    <input maxlength='15' (ngModelChange)="gstin_input()" autoComplete="off" formControlName="gstin"  [class]="gstinerror ? 'gstNum' : 'gstNum1'" matInput />
+                    
+                        <ng-template #popContent><mat-error>{{errormess}}</mat-error></ng-template>
+                        <button type="button" *ngIf="!gstinerror" class="btn-popover multiselect_sibling" placement="top"
+                            [ngbPopover]="popContent">
+                            <mat-icon style="font-size: 20px;color: red;margin-top: 13px;"  class='material-icons-outlined i_icon' variant='outlined' >info</mat-icon>
+                        </button>
+                </div>
+                <button type="button" class=" btn btn_primary" (click)="add_gstin()" >Add</button>
+            </div>
+        </form>
+        <!-- </div> -->
+    </div>
+    <div class="borderTopBoxBody">
+        <div>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 gstin_info">
+
+                <ng-container matColumnDef="GSTIN">
+                  <th mat-header-cell *matHeaderCellDef > GSTIN </th>
+                  <td mat-cell *matCellDef="let element"> {{element.GSTIN}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="Company_Name">
+                  <th mat-header-cell *matHeaderCellDef > Company Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Company_Name}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="Location">
+                  <th mat-header-cell *matHeaderCellDef > Location </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Location}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="NatureOfBusiness">
+                  <th mat-header-cell *matHeaderCellDef style="min-width: 400px;"> Nature Of Business </th>
+                  <td mat-cell *matCellDef="let element"> {{element.NatureOfBusiness}} </td>
+                </ng-container>
+                <ng-container matColumnDef="delete" >
+                    <th mat-header-cell *matHeaderCellDef >Delete</th>
+                    <td mat-cell *matCellDef="let element; index as i"> 
+                        <span >
+                            <button [disabled]="edit_btn" mat-button [class.circle]="!edit_btn" (click)="delete_gstin(i)" ><mat-icon>delete</mat-icon></button>
+                        </span>
+                    </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+        </div>
+    </div>
+</div>

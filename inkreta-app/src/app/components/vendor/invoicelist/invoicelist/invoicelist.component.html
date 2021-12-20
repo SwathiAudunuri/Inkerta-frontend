@@ -1,0 +1,31 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer [opened]="sidenav" class="example-sidenav" class="example-sidenav" mode="side" position="end" style="width: 50%; padding: 10px;border:1px solid #dfdfdf ;" >
+    <app-invoice-details-sidenav (childEvent)="sidenav=$event" [details]="details" [backarrow]=true ></app-invoice-details-sidenav>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+    <div class="outer_body card" style="border:1px solid #dfdfdf ;margin-right: 10px;">
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>Unpaid Invoices</a>
+          <ng-template ngbNavContent>
+            <app-search class="search_outer_box"> </app-search>
+
+            <app-unpaidinvoices noofrows=8 tablewidth="100%"  (childEvent)="sidenav=$event" (index)="index=$event" (details)="details=$event"></app-unpaidinvoices>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>Paid Invoices</a>
+          <ng-template ngbNavContent>
+            <app-search class="search_outer_box"> </app-search>
+
+            <app-paidinvoices (details)="details=$event"></app-paidinvoices>
+          </ng-template>
+        </li>
+      </ul>
+      <div [ngbNavOutlet]="nav" class="mt-1"></div>
+    </div>
+  </div>
+
+</mat-drawer-container>
+
+

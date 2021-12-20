@@ -1,0 +1,45 @@
+<div> 
+    <mat-tab-group>
+        <mat-tab label="General" class="mat-tab-labels">       
+            <div class="text-center">
+                <!-- <label><b>Role (1)</b></label> -->
+                <!-- <img src="../../../../../../../assets/avatar.jpg" class="mt-4" style="width: 128px; height: 128px; border-radius: 50%;" /> -->
+                <img [src]="imgurl" class="mt-4" style="width: 128px; height: 128px; border-radius: 50%;" />
+                <h3 class="mt-2" style="font-weight: 600;">{{Fullname}}</h3>
+
+                <div class="d-flex align-items-center justify-content-center mt-3">
+                    <mat-icon >markunread</mat-icon>
+                    <!-- <label><b>Email : </b></label> -->
+                    <!-- <span class="ms-2">ashok_grandhi@tecnics.com</span> -->
+                    <span class="ms-2">{{email}}</span>
+                </div>
+                <div class="d-flex align-items-center justify-content-center mt-3">
+                    <mat-icon >call</mat-icon>
+                    <!-- <label><b>Phone Number : </b></label> -->
+                    <!-- <span class="ms-2">6302968919</span> -->
+                    <span class="ms-2">{{phoneno}}</span>
+                </div>
+                <div class="mt-3 d-flex align-items-center justify-content-center text-capitalize">
+                    <mat-icon>admin_panel_settings</mat-icon>
+                    <span class="role_btn ms-2" >{{role}} </span>
+                </div>
+                <!-- <div class="mt-3">
+                    <span class="role_btn">Vender</span>
+                    <span class="role_btn">Admin</span>
+                    <span class="role_btn">Manager</span>
+                </div> -->
+            </div>
+           
+        </mat-tab>
+
+        <mat-tab label="Audit">
+            <app-user-audit [Fullname]="Fullname"></app-user-audit>
+        </mat-tab>
+        <!-- <mat-tab label="Invoices" >
+            <div class="m-3">
+                <app-unpaidinvoices #unpaid readOnly=true noofrows=5  ></app-unpaidinvoices>
+            </div>
+        </mat-tab> -->
+    </mat-tab-group>
+</div>
+  

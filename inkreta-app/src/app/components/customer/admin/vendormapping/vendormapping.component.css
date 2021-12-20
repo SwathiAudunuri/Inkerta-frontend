@@ -1,0 +1,20 @@
+.divend_button{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .todoForm_block{
+    overflow: hidden;
+    height: fit-content;
+  }
+  .form-group label{
+    color: #000;
+}
+.form-group{
+    margin-bottom: 10px;
+  }
+  .add_task_action_btn{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }

@@ -1,0 +1,133 @@
+<div class="personal_details">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="borderTopBox preview-borderTopBox">
+          <div class="boxHeading">Company Details - Preview</div>
+          <div class="borderTopBoxBody contactInfo reviewInfo">
+            <div class="row">
+              <div class="col-sm-5">
+                <label>Line Of Business<span style='color: red'>*</span></label>
+              </div>
+              <div class="col-sm-7">
+                <p>{{lineOfBusiness}}</p>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-sm-5">
+                <label>Incorporation Year<span style='color: red'>*</span></label>
+              </div>
+              <div class="col-sm-7">
+                <p>{{incorporationYear}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-5">
+                <label>Company TurnOver<span style='color: red'>*</span></label>
+              </div>
+              <div class="col-sm-7">
+                <p> {{annualTurnover}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-5">
+                <label>Company Size<span style='color: red'>*</span></label>
+              </div>
+              <div class="col-sm-7">
+                <p> {{companySize}}</p>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-sm-5">
+                <label>Company Details</label>
+              </div>
+              <div class="col-sm-7">
+                <p *ngIf="Additional_Details.controls.companyDetail.value !== null ">{{companyDetail}} </p>
+                <p *ngIf="Additional_Details.controls.companyDetail.value === null ">null</p>
+              </div>
+              
+              
+            </div>
+            <div class="row">
+              <div class="col-sm-5">
+                <label>Key Product Categories<span style='color: red'>*</span></label>
+              </div>
+              <div class="col-sm-7">
+                <p>{{keyProductCategories}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-5">
+                <label>Industries serviced<span style='color: red'>*</span></label>
+              </div>
+              <div class="col-sm-7">
+                <p>{{industriesServiced}}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="row">
+          <div class="borderTopBox " >
+            <div class="boxHeading">Other information- Preview</div>
+            <div class="borderTopBoxBody contactInfo reviewInfo">
+              <div class="row">
+                <div class="col-sm-5">
+                  <label>Sales Enquiry Email</label>
+                </div>
+               
+                <div class="col-sm-7">
+                    <!-- <p>{{salesEnquiryEmailId}}</p> -->
+                    <p *ngIf="Additional_Details.controls.salesEnquiryEmailId.value !== null ">{{salesEnquiryEmailId}} </p>
+                    <p *ngIf="Additional_Details.controls.salesEnquiryEmailId.value === null ">null </p>
+                  </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-5">
+                  <label>Company Website</label>
+                 
+                </div>
+                <div class="col-sm-7">
+                    <!-- <p>{{companyWebsite}}</p> -->
+                    <p *ngIf="Additional_Details.controls.companyWebsite.value !== null ">{{companyWebsite}} </p>
+                    <p *ngIf="Additional_Details.controls.companyWebsite.value === null ">null </p>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-5">
+                  <label>Average Daily Invoices</label>
+                </div>
+                <div class="col-sm-7">
+                    <!-- <p>{{averageDailyInvoices}}</p> -->
+                    <p *ngIf="Additional_Details.controls.averageDailyInvoices.value !== null ">{{averageDailyInvoices}} </p>
+                    <p *ngIf="Additional_Details.controls.averageDailyInvoices.value === null ">null </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-5">
+                  <label>Standard Payment Terms<span style='color: red'>*</span></label>
+                </div>
+                <div class="col-sm-7">
+                  <p>{{standardPaymentTerms}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-5">
+                  <label>Reporting Currency<span style='color: red'>*</span></label>
+                </div>
+                <div class="col-sm-7">
+                  <p>{{reportingCurrency}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  

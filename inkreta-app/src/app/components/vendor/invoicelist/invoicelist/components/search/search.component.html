@@ -1,0 +1,107 @@
+<div>
+<div  class="items_flex search search_right">
+    <div  ngbDropdown style="position: relative;width: 100%;" class="d-flex">
+        <span class="input-group-text search" id="basic-addon1">
+            <svg  width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+            </svg>
+        </span>
+        <input type="text"  class="form-control search_field" placeholder="Search" aria-label="Input group example" aria-describedby="basic-addon1" />
+
+        <div class="input-group-append advance-search ">
+            <div class="multi_action">
+                <button class="btn" id="dropdownBasics" ngbDropdownToggle>
+                    <span> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"></path></svg>
+                    </span>
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasics">
+                    <div class="search_fields_container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Invoice No</label>
+                                <input type="text" class="form-control" formcontrolname="email" required/>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Vendor Name</label>
+                                <input type="text" formcontrolname="subject" class="form-control" required/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Date From</label>
+                                <div class="form-group">
+                                    <div class="input-group">                                  
+                                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker="ngbDatepicker" #d="ngbDatepicker">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary calendar fa fa-calendar" (click)="d.toggle()" type="button"></button>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                            <label>Date To</label>
+                            <div class="form-group">
+                                    <div class="input-group">                                  
+                                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker="ngbDatepicker" #d1="ngbDatepicker">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary calendar fa fa-calendar" (click)="d1.toggle()" type="button"></button>
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                        </div>                  
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label> Due Date From</label>
+                                <div class="form-group">
+                                    <div class="input-group">                                  
+                                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker="ngbDatepicker" #d3="ngbDatepicker">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary calendar fa fa-calendar" (click)="d3.toggle()" type="button"></button>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                            <label> Due Date To</label>
+                            <div class="form-group">
+                                    <div class="input-group">                                  
+                                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker="ngbDatepicker" #d4="ngbDatepicker">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary calendar fa fa-calendar" (click)="d4.toggle()" type="button"></button>
+                                            </div>
+                                    </div>
+                            </div>                  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Status</label>
+                                <input type="text" class="form-control" formcontrolname="status" required/>
+                            </div>
+                            <div class="col-md-6">
+                            <label>Amount</label>
+                            <input type="text" class="form-control" formcontrolname="status" required/>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary search_btn_backend ">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+           </div>
+    
+    <div class="multi_action ms-2">
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn" id="dropdownBasic1" ngbDropdownToggle><Label>Action</Label></button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem>Update Status</button>
+            <button ngbDropdownItem>Raise Query</button>
+            </div>
+        </div>
+    </div>  
+</div>
+
+</div>

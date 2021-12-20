@@ -1,0 +1,113 @@
+
+
+.search {
+    border-radius: 2rem;
+    margin-bottom: 3px;
+    width: -webkit-min-content;
+    width: min-content;
+}
+.items_flex.search.btn, .input-group.search {
+    height: 38px;
+    position: relative;
+}
+.input-group.search{
+    flex-flow: row;
+    max-width: 800px;
+    width: 100%;
+    margin-right: 10px;
+}
+
+.input-group-text.search {
+    background: transparent;
+    border: none;
+    height: 38px;
+    position: absolute;
+    left: 0;
+    z-index: 9;
+}
+/* right side search bar */
+.search{
+    border-radius: 2rem;
+    margin-bottom: 3px;
+    width: min-content;
+  }
+  .input-group.search{ 
+    flex-flow: row;
+    width: 250px;
+    margin-right: 10px;
+  }
+  .items_flex.search .btn,
+  .input-group.search{
+    height: 38px; 
+  }
+  .items_flex.search .btn{
+    background: #e7e7e7;
+    color: #000;
+    border: 1px solid #ccc;
+  }
+  .input-group.search path{
+    color: #919191;
+  }
+ 
+  
+  .items_flex.search .btn,
+.input-group.search{
+    height: 38px;
+    /* position: relative;  */
+}
+.input-group.search input{
+    padding-left: 40px;
+    border-radius: 4px !important;
+}
+
+/* .advance-search .dropup, 
+.advance-search .dropend, 
+.advance-search .dropdown, 
+.advance-search .dropstart{
+    position: unset !important;
+} */
+.input-group-prepend.advance-search .dropdown-menu{
+    width: 100%;
+}
+
+.advance-search .dropdown-toggle.btn path{
+    fill: #fff;
+}
+.advance-search .dropdown-toggle.btn{
+    background-color: var(--primary);
+    border-radius: 0 4px 4px 0px;
+}
+
+.input-group-text.search{
+    background: transparent;
+    border: none;
+    height: 38px;
+    left: 0;
+    z-index: 9;
+}
+.input-group-text.search path{
+    fill: #8a8a8a;
+}
+.search_right.items_flex{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    width: 50%;
+}
+.search_btn_backend{
+    margin-top: 6px;
+ }
+ .search_fields_container{
+     padding: 10px;
+ }
+ .advance-search .dropdown-toggle::after {
+    display: none;
+}
+.dropdown-menu{
+    right: 0;
+}
+.search .search_field{
+    margin-left: -4px !important;
+    padding-left: 52px !important;
+}

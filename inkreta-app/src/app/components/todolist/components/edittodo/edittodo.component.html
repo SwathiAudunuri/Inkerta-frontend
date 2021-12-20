@@ -1,0 +1,117 @@
+<!-- <p>edittodo works!</p> -->
+
+<form>
+  <div>
+    <div>
+      <div style="float: left;border-bottom: 1px solid #e2e2e2;height: 49px;">
+        <mat-icon style="margin-top: 12px;cursor: pointer;" (click)="back_icon()">arrow_back</mat-icon>
+      </div>
+    </div>
+    <!-- <div style="float: left;border-bottom: 1px solid #e2e2e2;height: 49px;">
+  <mat-icon style="margin-top: 12px;cursor: pointer;" (click)="back_icon()">arrow_back</mat-icon>
+</div>
+<div> -->
+    <mat-tab-group>
+      <mat-tab label="General" class="mat-tab-labels">
+<form [formGroup]="updaterow" (ngSubmit)="onSubmit()" >
+  <div class="form_body">
+<div class="row">
+<div class="col-md-12">
+<div class="form-group">
+<label>Title</label>
+<input
+class="form-control" type="text" placeholder="" 
+formControlName="title" 
+aria-label="default input example">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label>Assign to</label>
+<select class='form-select form-control' formControlName="assignedTo" >
+<option value="Farooq">Farooq</option>
+<option value="Swathi">Swathi</option>
+</select>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label>Priority</label>
+<select class='form-select form-control' formControlName="priority" >
+<option value="high">High</option>
+<option value="medium">Medium</option>
+<option value="low">Low</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label>Due Date</label>
+<input
+class="form-control" type="date" placeholder="" 
+formControlName="dueDate" 
+aria-label="default input example">
+</div>
+
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label>Status</label>
+<select class='form-select form-control' formControlName="status" >
+<option value="Inprogress">InProgress</option>
+<option value="medium">Completed</option>
+<option value="low">Delete</option>
+</select>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="form-group">
+<div class="mb-3">
+<label className="pop_label">Description</label>
+<textarea formControlName="description" class="form-control" 
+id="descriptionid" rows="3"
+></textarea>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-12">
+<div class="form-group">
+<div class="mb-3">
+<label className="pop_label">Comment</label>
+<textarea formControlName="comments" class="form-control"  rows="3"
+></textarea>
+</div>
+</div>
+</div>
+</div>
+  </div>
+
+         
+  
+  <div class="buttons-update-cancel">
+
+    <button class="btn btn-light" color="primary" (click)="cancel()"><span>Cancel</span></button> 
+    <button class=" btn btn_primary" color="primary"><span>Update</span></button> 
+  </div>
+  <br> 
+
+</form>
+</mat-tab>
+
+<mat-tab label="Audit">
+  <app-audittodo></app-audittodo>
+</mat-tab>
+</mat-tab-group>
+</div>
+</form>
+

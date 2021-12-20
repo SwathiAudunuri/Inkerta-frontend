@@ -1,0 +1,4 @@
+g.line-chart > g:last-of-type > g:nth-child(n) g.line-series > path {
+    stroke-width: 5 !important;
+    stroke-linecap: round !important;
+  }

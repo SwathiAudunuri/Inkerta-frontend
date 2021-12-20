@@ -1,0 +1,14 @@
+<div class="piechart">
+<label>Average age of Total Invoices of Vendor</label>
+<ngx-charts-pie-chart
+      [view]="[600, 400]"
+      [scheme]="{domain: ['#5AA454', '#A10A28', '#C7B42C']}"
+      [results]="series"
+      [legend]="true"
+      [labels]="true"
+      [doughnut]="true"
+      [legendTitle]="' Average Aging'"
+      [labelFormatting]="pieChartLabel.bind(this, series)"
+      [animations]="false"      >
+    </ngx-charts-pie-chart>
+</div>

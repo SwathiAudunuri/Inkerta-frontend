@@ -1,0 +1,13 @@
+.heading{
+    border-bottom: 1px solid #e2e5e9;
+    height: 50px;
+    padding-bottom: 10px;
+}
+.query_act_btn button{
+    margin-left: 10px;
+}
+.query_act_btn mat-icon{
+    font-size: 18px;
+    height: 18px;
+    vertical-align: sub;
+}

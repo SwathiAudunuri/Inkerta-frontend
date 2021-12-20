@@ -1,0 +1,23 @@
+table{
+    min-width: 650px;
+}
+.modal-title{
+    font-weight: 500;
+}
+div{
+    padding: 30px;
+}
+.flex-end{
+    display: flex;
+    justify-content: flex-end;
+}
+.flat_button{
+    color: white;
+}
+.mat-row:nth-child(even){
+    background-color: rgb(195, 221, 230,0.1);
+}
+        
+.mat-row:nth-child(odd){
+    background-color: white	
+}

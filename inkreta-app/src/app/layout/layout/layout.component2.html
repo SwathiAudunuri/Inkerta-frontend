@@ -1,0 +1,56 @@
+<mat-toolbar [class.mat-elevation-z2]="isActive">
+    <button mat-icon-button class="menu-icon" aria-label="icon-button with menu icon" (click)="opened = !opened" >
+     <span class="MuiIconButton-label"> <mat-icon>menu_open</mat-icon></span>
+    
+   </button>
+   <div class="asg_icon">
+    <a routerLink="customer_admin/todo">
+   <button  class="MuiIconButton-root" >        
+     <span class="MuiIconButton-label">
+       <span class="material-icons" > assignment_turned_in</span>
+     </span>      
+   </button>
+   </a>
+   </div>
+   <span class="example-spacer"></span>
+   
+   <!-- <img src="../../../assets/logo.4b55346a.png" alt='logo' class ="nav_im"> -->
+   <img src="./assets/logo.4b55346a.png" alt='logo' class ="nav_im">
+   <span class="example-spacer"></span>
+
+   <span class="material-icons"> assignment_turned_in</span>      
+</mat-toolbar>
+ 
+
+<mat-drawer-container class="example-container">
+<mat-drawer mode="side" opened  class="side"   [(opened)]="opened">
+    <div *ngFor="let element of data">
+
+  <app-submenu [element]="element"></app-submenu>
+</div>
+</mat-drawer>
+
+
+
+
+
+
+<mat-drawer-content>  
+   <div class="main_container">
+    <p>breadcrumb</p>
+    <div class="main_body">
+   
+     <router-outlet></router-outlet>
+    </div>
+ 
+   </div>
+
+</mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+
+
+

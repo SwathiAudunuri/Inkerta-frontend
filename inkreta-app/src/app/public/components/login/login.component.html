@@ -1,0 +1,34 @@
+<div class="logincontainer">
+<div class="left-logincontainer">
+
+    <!-- <img src="../../../assets/img-1.ba2458fa.png" alt="mobile-logo"> -->
+    <img src="./assets/img-1.ba2458fa.png" alt="mobile-logo">
+</div>
+<div class ="right">
+    <div class="right-form">
+        <div class="logo">
+            <!-- <img src="../../../../assets/login-logo.png" alt="logo" style='height: 143px; width: 315px; object-fit: contain;margin-bottom:30px;' > -->
+            <img src="./assets/login-logo.png" alt="logo" style='height: 143px; width: 315px; object-fit: contain;margin-bottom:30px;' >
+        </div>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field appearance="outline">
+        
+        <mat-label>username</mat-label>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <input matInput placeholder="Enter Username" formControlName="user" class = "username"/>
+       
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Enter Password" formControlName="password"  class = "password"/>
+      </mat-form-field>
+      <div class="d-flex justify-content-between">
+      <button mat-raised-button color="primary">Login</button>
+      <button mat-raised-button color="primary" routerLink="customer_onboarding">Customer on boarding</button>
+      </div>
+</form>
+
+  </div>
+  </div>
+  </div>

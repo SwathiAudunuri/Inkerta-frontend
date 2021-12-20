@@ -1,0 +1,45 @@
+<div>
+    <div class="col-md-12">
+        <div class="borderTopBox">
+            <div class="boxHeading">GSTIN Details</div>
+            <div class="borderTopBoxBody">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><b>Company Name</b></label>
+                            <p>{{object.results.companyName}}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><b>GSTIN</b></label> 
+                            <p>{{object.results.gstin}}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><b>Registration Date</b></label> 
+                            <p>{{object.results.registrationDate}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><b>Nature Of Business</b></label><br/>
+                            <!-- <p>{{object.results.natureOfBusiness}}</p> -->
+                            <span *ngFor="let x of object.results.natureOfBusiness">{{x}}<br/></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><b>Address</b></label> 
+                            <address>{{object.results.buildingNumber}} <br> {{object.results.street}} <br> {{object.results.location}} <br> {{object.results.blockName}} <br>   {{object.results.pincode}}</address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-other-gstin [edit_btn]="edit_btn"></app-other-gstin>      
+</div>

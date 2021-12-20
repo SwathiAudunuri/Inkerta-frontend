@@ -1,0 +1,244 @@
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+  <li [ngbNavItem]="1">
+    <a ngbNavLink>Unpaid Invoices</a>
+    <ng-template ngbNavContent>
+
+    <div class="items_flex">
+      <mat-form-field class="search" >
+        <input matInput [(ngModel)]="searchKey" placeholder="search" autocomplete="off" class="searchinput" (keyup)= "applyFilter()"/>
+
+      </mat-form-field>
+    <div class="multi_action">
+      <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle><Label>Action</Label></button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem>Update Status</button>
+            <button ngbDropdownItem>Raise Query</button>
+          </div>
+        </div>
+      </div>
+    </div>  
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef> 
+      <mat-checkbox color="primary" (change)="$event ? masterToggle() : null"
+      [checked]="selection.hasValue() && isAllSelected()"
+      [indeterminate]="selection.hasValue() && !isAllSelected()"
+      [aria-label]="checkboxLabel()">
+
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let element"> 
+      
+      <mat-checkbox  color="primary"  (click)="$event.stopPropagation()"
+      (change)="$event ? selection.toggle(element) : null"
+      [checked]="selection.isSelected(element)"
+      [aria-label]="checkboxLabel(element)">
+</mat-checkbox>
+
+    </td>
+
+  </ng-container>
+  <ng-container matColumnDef="InvoiceNo">
+    <th mat-header-cell *matHeaderCellDef> InvoiceNo. </th>
+    <td mat-cell *matCellDef="let element"> {{element.InvoiceNo}} </td>
+  </ng-container>
+ 
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Date">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="VendorName">
+    <th mat-header-cell *matHeaderCellDef> VendorName </th>
+    <td mat-cell *matCellDef="let element"> {{element.VendorName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Amount">
+    <th mat-header-cell *matHeaderCellDef> Amount </th>
+    <td mat-cell *matCellDef="let element"> {{element.Amount}} </td>
+  </ng-container>
+  <ng-container matColumnDef="DueDate">
+    <th mat-header-cell *matHeaderCellDef> Due date </th>
+    <td mat-cell *matCellDef="let element"> {{element.DueDate}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let element"> 
+      
+      <button mat-button [ngClass]="'MuiIconButton-root'"   (click)="$event.stopPropagation()" [matMenuTriggerFor]="menu">
+        <mat-icon><span class="circle">play_circle_outline</span>
+        </mat-icon></button>
+      <mat-menu #menu="matMenu"  xPosition="after"   >
+        <span *ngFor="let item of element.Action">
+   
+       <button mat-menu-item  class="circle"
+       (click)="openDialog(item)" backdrop="static"
+       >{{item}}</button>
+       </span>
+      </mat-menu>
+    </td>
+  </ng-container>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="StatusOfInv">
+    <th mat-header-cell *matHeaderCellDef> StatusOfInv </th>
+    <td mat-cell *matCellDef="let element"> {{element.StatusOfInv}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row          *matRowDef="let row; columns: displayedColumns;" (click)="invoicedetails(row)"></tr>
+ 
+
+</table>
+<mat-paginator [length]="100"
+[pageSize]="7"
+[pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>
+</ng-template>
+</li>
+<li [ngbNavItem]="2">
+
+  <a ngbNavLink>Paid Invoices</a>
+  <ng-template ngbNavContent>
+
+
+<app-paidinvoices></app-paidinvoices>
+
+
+</ng-template>
+</li>
+</ul>
+
+
+
+<ng-template  #Updatestatus let-modal >
+  <div class="modal-content">
+   <div class="modal-header">
+     <label class="modal-title" id="modal-basic-title">Update Status</label>
+     <button type="button" class="btn" aria-label="Close" (click)="modal.dismiss('Cross click')">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="modal-body">
+ 
+    <div> Invoice 123 is pending </div> 
+    <br>
+    <br>
+    <form>
+       <div class="form-group">
+         <div class="radio_buttons">
+         <div class="form-check">
+           <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+           <label class="form-check-label" for="flexRadioDefault1">
+               Closed
+           </label>
+         </div>
+         <div class="form-check">
+           <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+           <label class="form-check-label" for="flexRadioDefault1">
+               Paid  
+           </label>
+         </div>
+         <div class="form-check">
+           <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+           <label class="form-check-label" for="flexRadioDefault1">
+               onHold
+           </label>
+         </div>
+         
+         </div>
+         <br>
+         <div class="form-group">
+           <label for="exampleFormControlTextarea1">Comments.</label>
+           <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+         </div>
+       
+       </div>
+     </form>
+   </div>
+   <div class=" modal-footer btns12">
+     <button type="button" class="btn btn-light" (click)="modal.close('Save click')">Cancel</button>
+
+     <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Submit</button>
+   </div>
+   </div>
+ </ng-template>
+
+ <ng-template  #RaiseQuery let-modal >
+  <div class="modal-content">
+   <div class="modal-body">
+     <form>
+       <div class="form-group">
+        <div class="vertical_split">
+         <div class="first_bar">
+          <label class="modal-title" id="modal-basic-title">New Query</label>
+
+          <div class="form_elements">
+           <label>Email</label>
+            <input type= "text"  class="form-control"  readonly  value="rdlabs@gmail.com" required/>
+
+          </div>
+            
+          
+          <div class="form_elements">
+            <label>Query Type</label>
+            <select class="form-select"  aria-label=".form-select-lg example">
+              <option selected>Open this select menu</option>
+              <option value="1">Dispute</option>
+              <option value="2">Duplicate</option>
+              <option value="3">Mismatch</option>
+            </select>
+            </div>
+            <div class="form_elements">
+              <label>Subject</label>
+               <input type= "text"  class="form-control"     required/>
+   
+             </div>
+             <div class="form_elements">
+              <label>Template Type</label>
+              <select class="form-select"  aria-label=".form-select-lg example">
+                <option selected>Open this select menu</option>
+                <option value="1">Mismatch</option>
+              </select>
+              </div>
+              <div class="form-elements">
+                <label >Description</label>
+                    <angular-editor [config]="editorconfig" ></angular-editor>
+
+              </div>
+              <div class=" modal-footer btns12">
+                <button mat-flat-button color="accent" (click)="modal.close('Save click')">Cancel</button>
+           
+                <button mat-flat-button color="accent" (click)="modal.close('Save click')">Submit</button>
+              </div>
+          </div>
+         <div >
+          <button> hii</button>  
+          <br>
+          <br>
+          <app-query noofrows=10 ></app-query>
+        
+          
+
+
+          </div>
+        </div>  
+       </div>
+     </form>
+   </div>
+
+   </div>
+ </ng-template>
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+
+

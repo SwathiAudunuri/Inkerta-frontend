@@ -1,0 +1,26 @@
+<div>
+<div class="text-center upload_file">
+    <input class="form-control" type="file" 
+            (change)="onChange($event)" />
+  
+    <span class="upload_btn">
+    <button (click)="onUpload()"  
+        mat-flat-button color="primary">
+        Upload
+    </button>
+    </span>
+</div>
+  
+<!-- Shareable short link of  uoloaded file -->
+<div class="container jumbotron" *ngIf="shortLink">
+    <mat-icon class="checkMark"><span>check</span> </mat-icon>
+    <!-- <h3> Done</h3> -->
+    <!-- <a href="{{shortLink}}">{{shortLink}}</a> -->
+</div>
+  
+<!--Flag variable is used here-->
+<div class="container" *ngIf="loading">
+<mat-icon class="spinner"><span>autorenew</span> </mat-icon>
+    <!-- <h3>Loading ...</h3> -->
+</div>
+</div>

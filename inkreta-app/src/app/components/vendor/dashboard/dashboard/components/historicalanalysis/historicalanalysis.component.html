@@ -1,0 +1,78 @@
+<div class="outer_body">
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink> Aging Analysis</a>
+      <ng-template ngbNavContent>
+        <div>
+          <app-aginganalysis></app-aginganalysis>
+          </div>
+              
+    
+  </ng-template>
+  </li>
+  <li [ngbNavItem]="2">
+  
+    <a ngbNavLink> Invoice Due Analysis</a>
+    <ng-template ngbNavContent>
+        <div class="search">
+        <div class="vendors">
+        <select class="form-select" [(ngModel)]="vendors" placeholder="Select">
+
+            <option value="DRL">DRL</option>
+            <option value="Attra">Attra</option>
+            <option value="tecnics">tecnics</option>
+          </select>
+        </div>
+        <div class="vendors">
+        <select class="form-select" placeholder="Select">
+            <option >month</option>
+
+            <option value="january">january</option>
+            <option value="febraury">febraury  </option>
+            <option value="march">march</option>
+            <option value="april">april</option>
+            <option value="may">may</option>
+            <option value="june">june</option>
+            <option value="july">july</option>
+            <option value="august">august</option>
+            <option value="september">september</option>
+            <option value="october">october</option>
+            <option value="november">november</option>
+            <option value="december">december</option>
+          </select>
+        </div>
+        <div class="vendors">
+        <select class="form-select" placeholder="Select">
+            <option >year</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021  </option>
+          </select>
+        </div>
+        </div>
+        <app-horizontalbarchart [vendors]="vendors" (findByVendor)="findByVendor($event)"></app-horizontalbarchart>
+        {{vendors}}
+        <app-unpaidinvoices noofrows=3 [(filterbyVendor)]="vendors" ></app-unpaidinvoices>
+  </ng-template>
+  </li>
+  <li [ngbNavItem]="3">
+  
+    <a ngbNavLink> Invoice Paid Analysis</a>
+    <ng-template ngbNavContent>
+        <div>
+            <app-paidanalysis></app-paidanalysis>           
+            </div>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="4">
+  
+    <a ngbNavLink> Invoice Dispute Analysis</a>
+    <ng-template ngbNavContent>
+      <app-disputeanalysis></app-disputeanalysis>
+    </ng-template>
+  </li>
+
+</ul>
+  
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>
