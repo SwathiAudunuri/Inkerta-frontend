@@ -1,0 +1,31 @@
+<div class="invoicebar d-flex zoom">
+    <div class="icon">
+        <label>TS</label>
+    </div>
+    <div class ="innerblock" >
+        <div class="content" >
+            <label class="label_content">{{feed.Details}}</label><br>
+            <label  class="date">
+                <b>Date : </b> {{feed.Date}} 
+            </label>
+            <label class="label_notification">{{feed.entity}}</label>
+        </div>
+        <div>
+            
+            <div class="action">
+            <button class="action_btn"  mat-mini-fab [matMenuTriggerFor]="menu" >             
+                <span class="material-icons">
+                    build_circle
+                    <!-- arrow_drop_down -->
+                    </span>
+            </button>
+               
+    
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngFor="let element of feed.actions" class="action-item">{{element.action}}</button>
+    </mat-menu>
+        </div>
+    
+        </div>
+    </div>
+    </div>

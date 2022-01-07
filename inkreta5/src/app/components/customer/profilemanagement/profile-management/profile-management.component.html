@@ -1,0 +1,58 @@
+<mat-progress-spinner
+  [mode]="'indeterminate'" *ngIf="loading || loading1">
+</mat-progress-spinner> 
+
+<div class="outer_body">
+    <form [formGroup]="Profile_Details" (ngSubmit)="onSubmit()"> 
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>Company Info</a>
+          <ng-template ngbNavContent>
+            <app-profile-info [edit_btn]="edit_btn"></app-profile-info>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>Contact Information</a>
+          <ng-template ngbNavContent>
+            <app-profile-contact-info [imgurl]="imgurl" [edit_btn]="edit_btn" [Profile_Details]="Profile_Details"></app-profile-contact-info>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+          <a ngbNavLink>Additional Details</a>
+          <ng-template ngbNavContent>
+            <div [hidden]="edit_btn">
+              <app-additional-details-edit [Profile_Details]="Profile_Details" [ONBOARDING_MASTER_DROPDOWN]="ONBOARDING_MASTER_DROPDOWN"></app-additional-details-edit>
+            </div>
+            <div [hidden]="!edit_btn">
+              <app-additional-details-readonly [Profile_Details]="Profile_Details"></app-additional-details-readonly>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="4">
+          <a ngbNavLink>Preferences</a>
+          <ng-template ngbNavContent>
+            <app-profile-preferences [Profile_Details]="Profile_Details" [edit_btn]="edit_btn"></app-profile-preferences>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="5">
+          <a ngbNavLink>History</a>
+          <ng-template ngbNavContent>
+            <app-profile-history [Profile_Details]="Profile_Details"></app-profile-history>
+          </ng-template>
+        </li>
+        <li >
+            <button class="edit_btn btn btn_primary" type="button"   style="color: #ffff;" [style.backgroundColor]="edit_btn ? '#1a8fcd' : 'rgb(217 192 192)'" (click)="onedit()" *ngIf="edit_btn && active!==5 && active!==1 && active!==4">Edit<mat-icon style="font-size: 17px;margin-left: 3px;">edit</mat-icon></button>
+        </li>
+    </ul>
+    
+    
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    <div class="float-end profile_action_btns">
+      <!-- <button (click)="cancel_btn()"  type="button" mat-raised-button class="me-2" style="background-color: #f68c1e;color: #ffff;">Cancel</button> -->
+      <button (click)="cancel_btn()"  type="button"  class="me-2 btn btn-light ">Cancel</button>
+      <button class=" btn btn_primary"  type="submit" *ngIf="!edit_btn && active!==5">Save</button>
+    </div>
+    
+    <div class="clearfix"></div>
+    </form>
+    </div>

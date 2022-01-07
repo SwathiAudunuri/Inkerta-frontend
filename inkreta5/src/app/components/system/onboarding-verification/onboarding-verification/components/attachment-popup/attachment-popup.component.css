@@ -1,0 +1,31 @@
+.main_div{
+    height: 688px;
+    /* width: 870px; */
+    width : 1228px
+}
+.pdf_btns{
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    right: 8px;
+    padding: 8px 15px 4px 15px;
+    background-color: #e6e6e6;
+}
+.webviwer{
+    width: 100%;
+    min-height: 89vh;
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}

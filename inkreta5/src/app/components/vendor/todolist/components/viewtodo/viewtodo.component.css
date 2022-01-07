@@ -1,0 +1,29 @@
+label{
+    font-size: 14px;
+    line-height: 9px;
+    min-width: 120px;
+    margin-right: 20px;
+}
+.form-inline p{
+    margin-bottom: 0px;
+  }
+   .form-inline{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .form-inline label{
+    white-space: nowrap;
+    margin-right: 6px;
+    /* margin-right: 21px; */
+      width: 111px;
+  }
+  .form-inline label span{
+    float: right;
+    /* margin-left: 59px; */
+  }
+  .form-inline label.w-120{
+    min-width: 120px;
+    margin-right: 20px;
+  }

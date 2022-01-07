@@ -1,0 +1,93 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+<div class="commenttab">
+  <perfect-scrollbar>
+    <!-- comments -->
+    <div>
+      <div class="flex-end">
+        <button type="button" class="btn btn_comment"  [matMenuTriggerFor]="menu2"       #matMenu1Trigger="matMenuTrigger"
+        >
+          Add Notes
+          <fa-icon [icon]="faCaretDown"></fa-icon>
+        </button>
+        <!-- <a [matMenuTriggerFor]="menu1">
+          Add Comments
+          <fa-icon [icon]="faCaretDown"></fa-icon>
+        </a> -->
+      </div>
+
+      <mat-menu #menu2="matMenu" class="comment" >
+          <div (click)="$event.stopPropagation();">
+            <form [formGroup]="CommentsForm" style="padding: 5px;" (ngSubmit)="onSubmit($event)">
+
+              <textarea placeholder="Enter Notes" type="text" class="form-control note"  rows="5" required="required" class="form-control" formControlName = "comments"></textarea>
+                
+              <div class="d-flex justify-content-between">
+                <div>
+                  <select class="form-select col-sm-3 mt-1 mb-1 ml-1" formControlName = "type" >
+                    <option [ngValue]="null" [disabled]="true">Notes Type</option>
+                    <option *ngFor="let x of keys" value={{x}} >{{x}}</option>
+                    <!-- <option value="Collection">Collection</option>
+                    <option value="Follow Up">Follow Up</option>
+                    <option value="Generic">Generic</option>
+                    <option value="Others">Others</option>
+                    <option value="Overdue">Overdue</option>
+                    <option value="Payment">Payment</option> -->
+                  </select>
+                </div>
+                <div class="btns mt-1 mb-1">
+                  <button type="button" class="btn btn_light " (click)="matMenu1Trigger.closeMenu()"  >Cancel</button>
+  
+                  <button type="submit" class="btn btn_primary ms-2">Post</button>
+                </div>
+              </div>
+                </form>
+
+          </div>
+      
+      </mat-menu>
+    </div>
+    <div *ngFor="let item of data ">
+
+      <div class="invoicebar d-flex zoom">
+        <div class="icon">
+          <label class="capitalize">{{item.createdbydisplayname |  slice:0:1}}</label>
+        </div>
+        <div class="innerblock">
+          <div class="content">
+            <label class="label_content"><b style="color: var(--primary);">{{item.createdbydisplayname}}</b> On </label>
+            <label class="date"> {{item.created_on | date: 'yyyy-MM-dd'}}</label>
+            <br>
+            <div class="label_content"  [class]="item.notes_id === notes_id? 'limitTextHeighttwo': 'limitTextHeight' ">{{item.notes }}</div>
+         
+            <!-- <a class="link" (click)="showText(item)" >
+              Read More
+              {{ item.commentId === commentId ? 'Read Less': 'Read More' }}
+          </a> -->
+          </div>
+          <div>
+
+            <div class="action">
+              <button class="action_btn" [matMenuTriggerFor]="menu">
+                <span class="material-icons" style="color:#3c8dbc">
+                  more_horiz
+
+                  <!-- arrow_drop_down -->
+                </span>
+              </button>
+
+
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item class="action-item">element.action</button>
+              </mat-menu>
+
+              <div class="type">{{item?.notes_type}}</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </perfect-scrollbar>
+</div>

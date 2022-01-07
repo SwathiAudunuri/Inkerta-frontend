@@ -1,0 +1,84 @@
+<form [formGroup]="updaterow" (ngSubmit)="submit_updatedata()">
+<div>
+    <div>
+        <div style="float: left;border-bottom: 1px solid #e2e2e2;height: 37px;">
+            <mat-icon style="margin-top: 5px;cursor: pointer;" (click)="back_icon()">chevron_left</mat-icon>
+        </div>
+    </div>
+    <mat-tab-group [selectedIndex]=0>
+        <mat-tab label="General" class="mat-tab-labels">
+            <div class="row mx-0 mt-4">
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img [src]="imgediturl" class="mt-3 edit_image" />
+                        <div class="upload_img mt-3" >
+                            <input type="file" [id]="id" class="upload-box" (change)="profile_img($event)" />
+                            <button mat-raised-button style="color: #3c8dbc;" ><label [for]="id"><mat-icon style="font-size: 18px;vertical-align: sub;">file_upload</mat-icon>Upload New Avatar</label></button>
+                        </div>
+                        <div class="d-flex justify-content-center my-4">
+                            <span class="user_status active" *ngIf="this.updaterow.value.status === true">Active </span> 
+                            <span class="user_status deactive" *ngIf="this.updaterow.value.status === false">Not Active </span> 
+                            <mat-slide-toggle class="ms-2" formControlName="status" color="primary"></mat-slide-toggle>
+                        </div>
+                        <button type="button" class=" btn btn_primary" (click)="open_resetpassword()">Reset Password</button>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    
+                    <div >
+                        <label><b>First Name</b></label>
+                        <input  class="form-control" formControlName="firstname"/>
+                    </div>
+                    <div class="mt-2">
+                        <label><b>Last Name</b></label>
+                        <input class="form-control" formControlName="lastname"/>
+                    </div>
+                    <div class="mt-2">
+                        <label><b>Mobile Number</b></label>
+                        <input class="form-control" formControlName="mobileno" />
+                    </div>
+                    <div class="mt-2">
+                        <label><b>Email</b></label>
+                        <input class="form-control" formControlName="email"/>
+                    </div>
+                    <div class="mt-2">
+                        <label><b>Role</b></label>
+                        <select class="form-select">
+                            <option value="admin">Admin</option>
+                            <option value="vender">Vender</option>
+                            <option value="manager">Manager</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="action_btn">
+                <button mat-raised-button type="button" class="me-2" (click)="delete_row()">Delete</button>
+                <button type="button" class=" btn btn_primary"  type="submit">Save</button>
+            </div>
+        </mat-tab>
+        <mat-tab label="Audit">
+            <app-user-audit [Fullname]="Fullname"></app-user-audit>
+        </mat-tab>
+    </mat-tab-group>
+    <!-- <ng-template #content let-modal>
+        <div class="modal-header justify-content-center" style="height: 39px;">
+          <h4 class="modal-title mb-0" id="modal-basic-title">New Password</h4>
+          <button type="button" class="btn-close" aria-label="Close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="m-3 text-center">
+                <button mat-raised-button>Generate Password</button>
+            </div>
+            <div class="m-3">
+                <label>Enter Password</label>
+                <input class="form-control"/>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div>
+    </ng-template> -->
+</div>
+</form>

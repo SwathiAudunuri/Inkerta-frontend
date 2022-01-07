@@ -1,0 +1,35 @@
+<div>
+    <mat-drawer-container class="example-container" autosize>
+        <mat-drawer [opened]="showsidenav" class="example-sidenav" style=" padding: 10px;border:1px solid #dfdfdf ;" mode="side" position="end">
+         <div *ngIf="!swtich">
+            <app-supplier-details></app-supplier-details>
+         </div>
+         <div *ngIf="swtich">
+            <app-new-supplier></app-new-supplier>
+         </div>
+        </mat-drawer>
+      
+        <div class="card example-sidenav-content" >
+            <div class="d-flex justify-content-between">
+                <div class="col-sm-3">
+                    <!-- (keyup)="search()" -->
+                  <div class="grid_search">
+                    <input placeholder="Search"  [(ngModel)]="filterValue" class="form-control" />
+                    <mat-icon style="color: #a0a0a0;">search</mat-icon>
+                  </div>
+                </div>
+                <div >
+                  <!-- (click)="open(content)" -->
+                  <button class="btn btn-light btn-sm" (click)="add_supplier()" >
+                    Add Supplier
+                  </button>
+                  <!-- <button mat-raised-button color="primary" (click)="add_user()">Add User</button> -->
+                </div>
+              </div>
+          <app-supplier-table></app-supplier-table>
+        </div>
+      
+      </mat-drawer-container>
+
+
+</div>

@@ -1,0 +1,51 @@
+<mat-progress-spinner
+  [mode]="'indeterminate'" *ngIf="loading || loading1">
+</mat-progress-spinner> 
+
+<div>
+    <div class="col-md-12">
+        <div class="borderTopBox">
+            <div class="boxHeading">GSTIN Details</div>
+            <div class="borderTopBoxBody">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><b>Company Name</b></label>
+                            <p>{{profile_info?.partnerDetails?.companyName}}</p>
+                            <!-- <p>{{object.results.companyName}}</p> -->
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><b>GSTIN</b></label> 
+                            <p>{{profile_info?.partnerDetails?.companyName}}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><b>PAN NO</b></label> 
+                            <p>{{profile_info?.partnerDetails?.panNo}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><b>Nature Of Business</b></label><br/>
+                            <!-- <p>{{object.results.natureOfBusiness}}</p> -->
+                            <p>{{profile_info?.partnerDetails?.natureOfBusiness}}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><b>Address</b></label> 
+                            <address>{{object.results.buildingNumber}} <br> {{object.results.street}} <br> {{object.results.location}} <br> {{object.results.blockName}} <br>   {{object.results.pincode}}</address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [edit_btn]="edit_btn" -->
+    <app-profile-other-gstin ></app-profile-other-gstin>      
+</div>

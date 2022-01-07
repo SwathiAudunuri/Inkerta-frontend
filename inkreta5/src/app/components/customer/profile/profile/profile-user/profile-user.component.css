@@ -1,0 +1,67 @@
+.borderTopBox {
+    border-radius: 5px;
+    margin-top: 8px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.boxHeading {
+    border-bottom: 1px solid #ccc;
+    color: var(--primary);
+    padding: 10px 0px;
+    margin-top: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.borderTopBoxBody {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    /* float: left; */
+    width: 100%;
+}
+.profile_img{
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+.img_div{
+    margin-top: 20px;
+}
+.form-inline{
+    display: flex;
+    /* align-items: center; */
+    margin-bottom: 15px;
+}
+form-inline label{
+    white-space: nowrap;
+    margin-right: 3px;
+}
+form-inline p{
+    margin:0px
+}
+.form-inline label span{
+    float: right;
+}
+.form-inline label.w-120{
+    min-width: 120px;
+    margin-right: 20px;
+    margin-top: 8px;
+}
+.profile_action_btns{
+    padding: 24px 2px 0px 15px;
+    margin-bottom: 1px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+  .profile_mgnt label b{
+    width: 100px;
+    display: inline-block;
+    padding-right: 15px;
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }

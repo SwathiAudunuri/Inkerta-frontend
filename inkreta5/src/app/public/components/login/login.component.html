@@ -1,0 +1,49 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+
+<div class="body">
+  <div class="login_page">
+    <!-- <div class="left">
+      <img src="./assets/login-img.png" alt="">
+    </div> -->
+    <div class="right">
+      <div class="logo">
+        <img src="./assets/login-logo1.png" alt="">
+      </div>
+      <p>Sign in to your Account</p>
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <div class="form_group">
+          <div class="input_grp">
+            <input type="text" formControlName="user" placeholder="Email">
+            <!-- <i class="fas fa-envelope"></i> -->
+            <fa-icon class="fas" [icon]="faEnvelope"></fa-icon>
+          </div>
+          <div class="input_grp">
+            <input type="password" formControlName="password" placeholder="Password">
+            <!-- <i class="fas fa-lock"></i> -->
+            <fa-icon class="fas" [icon]="faLock"></fa-icon>
+          </div>
+        </div>
+        <p style="color: red;font-size: 12px;">{{error}}</p>
+        <p style="font-size: 16px;"><a href="#">Forgot Password ?</a></p>
+        <button class="primary_btn">LOGIN</button><br />
+        <div>
+          <p routerLink="customer_onboarding" style="font-size: 16px;" >Don't have an account?<u style="color: #3287f9;"> Register here. </u> </p>
+        </div>
+        <!-- <div class="horzontal_dist">OR SIGNUP AS</div><br />
+        <div class="btn_grp">
+          <button class="primary_btn_oulined" routerLink="customer_onboarding">
+            <fa-icon class="fas" [icon]="faUserTie"></fa-icon>
+            Cutomer
+          </button>
+          <button class="primary_btn_oulined" routerLink="vender_onboarding" style="margin-left: 10px;">
+            <fa-icon class="fas" [icon]="faUsersCog"></fa-icon>
+            Vendor
+          </button>
+        </div> -->
+      </form>
+      
+    </div>
+  </div>
+</div>

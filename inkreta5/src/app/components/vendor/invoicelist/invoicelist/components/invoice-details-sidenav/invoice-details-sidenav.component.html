@@ -1,0 +1,50 @@
+
+<div  style="height:100%" *ngIf="!external" >
+    <ng-container [ngSwitch]="true">
+      <div *ngSwitchCase="status === 'Paid'">
+        <!-- <p>paid</p> -->
+        <app-paid-invoice-sidenav></app-paid-invoice-sidenav>
+      </div>
+      <div *ngSwitchCase="status === 'Exception'">
+        <!-- <p>exception</p> -->
+        <app-exception-invoice-sidenav></app-exception-invoice-sidenav>
+      </div>
+      <div *ngSwitchCase="status === 'Posted for Payment'">
+        <!-- <p>Posted for Payment</p> -->
+        <app-postforpayment-invoice-sidenav></app-postforpayment-invoice-sidenav>
+      </div>
+      <div *ngSwitchCase="status === 'Draft'">
+        <!-- <p>Draft</p> -->
+       <app-draft-invoice-sidenav></app-draft-invoice-sidenav>
+      </div>
+      <div *ngSwitchCase="status === 'error'" style="height:100%">
+        <div class="error" style="height:100%">
+          <p >There are no Invoices Submitted</p>
+        </div>
+      </div>
+      <div *ngSwitchCase="status === 'Approved'">
+        <app-approved-invoice-sidenav></app-approved-invoice-sidenav>
+      </div>
+      <div *ngSwitchCase="status === 'Partitally Paid' || status === 'Partially Paid'">
+        <app-partital-paid-invoice-sidenav></app-partital-paid-invoice-sidenav>
+      </div>
+      <div *ngSwitchDefault>
+        <!-- <p>General</p> -->
+        <app-general-invoice-sidenav></app-general-invoice-sidenav>
+      </div>
+    </ng-container>
+</div>
+
+<div style="height:100%" *ngIf="external">
+  <ng-container [ngSwitch]="true">
+    <div *ngSwitchCase="status === 'error'" style="height:100%">
+      <div class="error" style="height:100%">
+        <p >There are no Invoices Submitted</p>
+      </div>
+    </div>
+    <div *ngSwitchDefault>
+      <app-external-invoice-sidenav></app-external-invoice-sidenav>
+    </div>
+  </ng-container>
+  
+</div>

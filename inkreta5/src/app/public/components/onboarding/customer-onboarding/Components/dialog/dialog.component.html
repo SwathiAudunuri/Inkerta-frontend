@@ -1,0 +1,31 @@
+<!-- <p>dialog works!</p> -->
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading || loading1" [color]="'var(--primary)'">
+</mat-progress-spinner>
+
+<div class="dialog1 modal-content  "> 
+    <h2 mat-dialog-title class="dialog_heading" style="font-weight: 300 !important;">OTP sent to the mentioned Email</h2>
+    <mat-dialog-content class="cdk-overlay-pane"><div class="example-container">
+      <!-- background-color: #f0f0f0; -->
+        <div style="height: 75px;margin-top: 49px;width: 374px;">
+        <div [style.display]="'flex'" style="margin-left: 70px;margin-top: 38px;">
+          <input matInput maxlength='4' required [(ngModel)]="otp" class="gstNum1">
+          <!-- <button mat-raised-button (click)="emailcheck()" [mat-dialog-close]="data.status1" class="dilaog_verify" color="primary">Verify</button> -->
+          <button mat-raised-button (click)="emailcheck()"  class="dilaog_verify" color="primary">Verify</button> 
+          <!-- <div [hidden]="resstatus1"><p style="color: red;">Invalid OTP</p> </div> -->
+          
+        </div>
+        <!-- <p style="color: red;margin-left: 143px;">{{error}}</p> -->
+        <mat-error style="margin-left: 95px;font-size: 13px;">{{error}}</mat-error>
+        </div>
+      </div> </mat-dialog-content>
+      <!-- {{mess1}}
+      {{error}} -->
+      <!-- {{errormess}} -->
+    <mat-dialog-actions>
+      <div style="margin-left: 100px;margin-top: 87px;">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-raised-button [disabled]="flag !== 0" (click)="resend()" > {{counter$ | async}} Resend <span *ngIf="flag !== 0">{{flag}}</span></button>
+      </div>
+    </mat-dialog-actions>
+</div>

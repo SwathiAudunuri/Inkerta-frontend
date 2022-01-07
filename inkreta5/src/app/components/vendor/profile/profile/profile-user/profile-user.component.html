@@ -1,0 +1,240 @@
+<div class="outer_body" style="min-height: 440px;">
+
+  <div class="col-md-12">
+    <div class="borderTopBox">
+      
+
+
+
+      <mat-tab-group>
+
+        <mat-tab label="Profile">
+
+          <div style="float: right; margin-top: 5px;">
+            <mat-icon style="color: #000;" (click)="edit_profile()" *ngIf="!edit">edit
+            </mat-icon>
+          </div>
+
+          <form [formGroup]="profile" (ngSubmit)="save()">
+
+          <div class="borderTopBoxBody">
+
+            <div class="row m-3 profile_mgnt">
+              <div class="col-md-4 col-lg-2" style="min-width: 200px;">
+                <div class="img_div">
+                  <img [src]="profile.value.img" class="profile_img" />
+                  <div class=" mt-3" *ngIf="edit">
+                    <input type="file" id="id" (change)="profile_img($event)" style="display: none;" />
+                    <button mat-raised-button type="button" style="color: #3c8dbc;"><label for="id">
+                        <mat-icon style="font-size: 18px;vertical-align: sub;">file_upload</mat-icon>Upload New Avatar
+                      </label></button>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-sm-12">
+                <div class=" form-inline">
+                  <label [class.w-120]="edit"><b>Name <span>:</span> </b></label>
+                  <p *ngIf="!edit">{{profile.value.firstname+" "+profile.value.lastname}}</p>
+                  <input *ngIf="edit" class="form-control" formControlName="firstname" />
+                  <input *ngIf="edit" class="form-control" formControlName="lastname" />
+                </div>
+                <div class=" form-inline">
+                  <label [class.w-120]="edit"><b>Email <span>:</span> </b></label>
+                  <p *ngIf="!edit">{{profile.value.email}}</p>
+                  <input *ngIf="edit" class="form-control" formControlName="email" />
+                </div>
+                <div class=" form-inline">
+                  <label [class.w-120]="edit"><b>Phoneno <span>:</span></b></label>
+                  <p *ngIf="!edit">{{profile.value.mobile}}</p>
+                  <input *ngIf="edit" class="form-control" formControlName="mobile" />
+                </div>
+                <div class=" form-inline">
+                  <label [class.w-120]="edit"><b>Role <span>:</span> </b></label>
+                  <p [style.marginTop]="edit ? '8px':null">{{profile.value.role}}</p>
+                </div>
+                <div class=" form-inline">
+                 <span *ngIf="edit"> <label [class.w-120]="edit"><b>Password <span>:</span> </b></label></span>
+                  <!-- <p *ngIf="!edit" [style.marginTop]="edit ? '8px':null" style="font-size: 33px;line-height: 2px;">........</p> -->
+                  <span *ngIf="edit"><button type="button" class=" btn btn_primary" (click)="open(content)">Reset
+                      Password</button></span>
+                </div>
+              </div>
+            </div>
+            <div style="background-color: #f2f2f2;padding: 5px;">
+              <p style="margin: 4px;">For more Profile editing and changing please go to Admin - Profile Management
+              </p>
+            </div>
+
+            <div [hidden]="!edit" class="profile_action_btns float-end ">
+              <button  class="btn btn-light" (click)="cancel_btn()" type="button" style="margin-right: 8px;">Cancel</button>
+              <button  class="btn btn_primary"  type="submit">Save</button>
+            </div>
+          </div>
+          </form>
+        </mat-tab>
+
+
+        <mat-tab label="Audit">
+          <div class="my-3">
+<span>Please choose your action of your activity</span>
+          </div>
+
+          <mat-radio-group aria-label="Select an option" [(ngModel)]="audit">
+            <mat-radio-button value="logins">Login</mat-radio-button>
+            <mat-radio-button value="Status_Update">Status Update</mat-radio-button>
+            <mat-radio-button value="Overall_Activity">Overall Activity</mat-radio-button>
+            <mat-radio-button value="Invoice_Update">Invoice Update</mat-radio-button>
+            <mat-radio-button value="Task_Created">Task Created</mat-radio-button>
+          </mat-radio-group>
+
+          <div style="margin-top: 6px; ">
+          <mat-form-field style="margin-top: 13px; margin-bottom: -23px;">
+              <mat-label>Search in Table</mat-label>
+              <input matInput type="text" (keyup)="applyFilter($event)" placeholder="Search...." #input>
+            </mat-form-field>
+          </div>
+
+
+          <div class="mt-3">
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort *ngIf="audit === 'logins'">
+
+              <ng-container matColumnDef="when">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> When </th>
+                <td mat-cell *matCellDef="let element"> {{element.when}} </td>
+              </ng-container>
+              <ng-container matColumnDef="details">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Details </th>
+                <td mat-cell *matCellDef="let element"> {{element.details}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+           
+          </div>
+
+          <div class="mt-3">
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort *ngIf="audit === 'Status_Update'">
+              <ng-container matColumnDef="when">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> When </th>
+                <td mat-cell *matCellDef="let element"> {{element.when}} </td>
+              </ng-container>
+              <ng-container matColumnDef="details">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Details </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+          
+          <div class="mt-3">
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort *ngIf="audit === 'Overall_Activity'">
+              <ng-container matColumnDef="when">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> When </th>
+                <td mat-cell *matCellDef="let element"> {{element.when}} </td>
+              </ng-container>
+              <ng-container matColumnDef="details">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Details Of Activity </th>
+                <td mat-cell *matCellDef="let element"> {{element.details}} </td>
+              </ng-container>
+              <ng-container matColumnDef="whom">
+                <th mat-header-cell *matHeaderCellDef> By whom </th>
+                <td mat-cell *matCellDef="let element"> {{element.who}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+          </div>
+
+          <div class="mt-3">
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort *ngIf="audit === 'Invoice_Update'">
+              <ng-container matColumnDef="when">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> When </th>
+                <td mat-cell *matCellDef="let element"> {{element.when}} </td>
+              </ng-container>
+              <ng-container matColumnDef="details">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Updated Invoice Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.invoice}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+          </div>
+
+          <div class="mt-3">
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort *ngIf="audit === 'Task_Created'">
+              <ng-container matColumnDef="when">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> When </th>
+                <td mat-cell *matCellDef="let element"> {{element.when}} </td>
+              </ng-container>
+              <ng-container matColumnDef="details">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Created </th>
+                <td mat-cell *matCellDef="let element"> {{element.details}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+          </div>
+          <div>
+            <mat-paginator [pageSizeOptions]="[2, 5, 10,20]"
+                showFirstLastButtons 
+                aria-label="Select page of periodic elements">
+            </mat-paginator>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+
+
+
+    </div>
+  </div>
+
+
+  <ng-template #content let-modal>
+    <div class="modal-header justify-content-center" style="height: 39px;">
+      <h4 class="modal-title mb-0" id="modal-basic-title">New Password</h4>
+
+      <button type="button" class="btn-close" aria-label="Close" aria-label="Close"
+        (click)="modal.dismiss('Cross click')"></button>
+    </div>
+
+    <div class="modal-body">
+      <div>
+        <div class="m-3 text-center">
+          <button mat-raised-button>Generate Password</button>
+        </div>
+        <div class="m-3">
+          <label>Enter Old Password</label>
+          <input class="form-control" />
+        </div>
+        <div class="m-3">
+          <label>Enter New Password</label>
+          <input class="form-control" />
+        </div>
+        <div class="m-3">
+          <label>Enter Confirm Password</label>
+          <input class="form-control" />
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+
+  </ng-template>
+</div>

@@ -1,0 +1,30 @@
+.borderTopBox {
+    border-radius: 5px;
+    margin-top: 8px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.boxHeading {
+    border-bottom: 1px solid #ccc;
+    color: var(--primary) !important;
+    padding: 10px 0px;
+    margin-top: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.boxHeading label{
+    color: #000;
+    font-weight: 400;
+}
+.borderTopBoxBody {
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    width: 100%;
+}
+.row.slide_pref{
+    background-color: red !important;
+}
+.form-group {
+    margin-bottom: 8px !important;
+}

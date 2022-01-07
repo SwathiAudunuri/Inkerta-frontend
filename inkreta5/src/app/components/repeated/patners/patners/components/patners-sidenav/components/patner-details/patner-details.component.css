@@ -1,0 +1,19 @@
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}
+.heading p{
+    font-weight: 600;
+    color: #444343;
+    border-bottom: 1px solid #454545;
+}
+.data label{
+    font-weight: 600;
+    color: #757575;
+}
+.company_details .contact_details{
+    margin-top: 6px;
+}

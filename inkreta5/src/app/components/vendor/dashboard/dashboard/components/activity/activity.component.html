@@ -1,0 +1,77 @@
+<!-- <div *ngFor="let element of data2">
+    {{element.monthyear}}
+
+    {{element.item.activity_date | date}}
+
+  
+</div> -->
+<perfect-scrollbar>
+    <div style="height: 300px;" class="maincontainer">
+        <div *ngFor="let element of data2">
+            <div class="container" >
+                  <div *ngIf="data2.indexOf(element) !==0;">
+                        <div class="month" *ngIf="data2[data2.indexOf(element)-1].monthyear !== data2[data2.indexOf(element)].monthyear" >
+                            {{data2[data2.indexOf(element)].monthyear}}</div>      
+        
+                        </div>  
+                <div class="month"  *ngIf="data2.indexOf(element) ===0;">{{element.monthyear}}</div>
+                <div class="block" >
+                    <div class="message">
+                        <span class="material-icons icon notify" *ngIf="element.item.activity_type ==='statusupdate';">alarm</span>
+                        <span class="material-icons icon comment" *ngIf="element.item.activity_type ==='notes';">comment</span>
+                        <span class="material-icons icon comment" *ngIf="element.item.activity_type ==='query';">query_stats</span>
+          
+                        <div class="iconspace"> 
+                            <span class="msw" >
+                               {{element.item.activity}}
+                            </span>
+                            
+                        </div>
+                        <div class="date">
+                            {{element.item.activity_date | date}}
+                        </div>
+                        <div class="INVactivity">
+                            {{element.item.invoicenum}}
+                        </div>
+                    </div>
+                  
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</perfect-scrollbar>
+
+
+
+<!-- <div class="container">
+    <div class="month">May</div>
+    <div class="block">
+        <div class="message">
+            <span class="material-icons icon notify">alarm</span>
+            <div class="iconspace"> 
+                <span class="msw">  A payment for invoice #Num-009 has been received</span>
+            </div>
+            <hr class="dotted">
+            <div class="date">
+                02/06/2021
+            </div>
+        </div>
+        <div class="message">
+                <span class="material-icons icon comment">
+                    comment
+                </span>
+                <div class="iconspace">
+                    <span  class="msw"> 
+                        Dispute for Invoice #Num-009 has been commented by customer.why does one of
+                    our sales representive receive payment reminders?
+                    </span>
+                    
+                </div>
+                <div class="date">
+                    02/06/2021
+                </div>
+        </div>
+    </div>
+
+</div> -->

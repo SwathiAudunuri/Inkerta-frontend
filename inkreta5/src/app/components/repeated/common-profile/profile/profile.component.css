@@ -1,0 +1,8 @@
+.card{
+    min-height: 500px; 
+    min-height:591px
+}
+.action_btn{
+    position: absolute;
+    right: 10px;
+}

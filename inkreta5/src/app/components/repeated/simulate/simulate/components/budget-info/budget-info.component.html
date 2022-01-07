@@ -1,0 +1,20 @@
+<perfect-scrollbar>
+<div class="card p-1">
+    <div *ngIf="createbudget">
+        <app-create-budget (createbudget)="createbudget=$event"></app-create-budget>
+    </div>
+    <div>
+        <div class="d-flex justify-content-between">
+            <div>
+                <p><b>Budget Details</b></p>
+            </div>
+            <div>
+                <button class="btn btn-sm btn-light" *ngIf="!createbudget" (click)="open_createbudget()">Create Budget</button>
+            </div>
+        </div>
+        <div class="budget_table">
+            <app-budget-table></app-budget-table>
+        </div>
+    </div>
+</div>
+</perfect-scrollbar>

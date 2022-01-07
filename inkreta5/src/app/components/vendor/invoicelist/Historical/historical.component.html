@@ -1,0 +1,93 @@
+
+<!-- <mat-progress-spinner
+
+[mode]="'indeterminate'" *ngIf="loading$ | async">
+</mat-progress-spinner> -->
+
+<!-- <button (click)="loader.show()">show</button>
+<button (click)="loader.hide()">hide</button> -->
+<!-- {{tabs}} -->
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer [opened]="sidenav1" class="example-sidenav" class="example-sidenav" [ngClass]="sidenav ? 'sidenav':'full_sidenav' " mode="side" position="end"  >
+    <!-- <mat-drawer #drawer [opened]="sidenav1" class="example-sidenav" class="example-sidenav" mode="side" position="end" style="width: 55%; padding: 10px;border:1px solid #dfdfdf ;" > -->
+      <app-invoice-details-sidenav  ></app-invoice-details-sidenav>
+  
+      
+    </mat-drawer>
+    <div class="example-sidenav-content">
+      <div class="card invoice_main_div" >
+        <!-- <div ngbDropdown  class="search_outer_box">
+          <button class="btn btn-sm btn-primary" id="dropdownBasics" ngbDropdownToggle>
+            <span class="material-icons" style="color: #ffff;">
+            search
+            </span>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasics" class="dropdown_css">
+            <app-search (search)="search=$event"> </app-search>
+          </div>
+        </div> -->
+  
+        <!-- <app-search class="search_outer_box" (search)="search=$event"> </app-search> -->
+  
+        <!-- <div class="d-flex justify-content-between">
+          <div>
+            <app-search class="search_outer_box" (search)="search=$event"> </app-search>
+          </div>
+          <div>
+            <mat-icon [ngClass]="sidenav1 ? 'null' : 'toggleRotate' " (click)="sidenav1 ? left_sidenav_full() : left_sidenav_half()" >arrow_forward</mat-icon>
+          </div>
+        </div> -->
+        <!-- <mat-icon class="arrow_icon" [ngClass]="sidenav1 ? 'null' : 'toggleRotate' " (click)="sidenav1 ? left_sidenav_full() : left_sidenav_half()" >navigate_next</mat-icon> -->
+        <button class="arrow_icon">
+          <mat-icon class=" Rotate"  [ngClass]="sidenav1 ? 'null' : 'toggleRotate' " (click)="sidenav1 ? left_sidenav_full() : left_sidenav_half()" >
+            <!-- unfold_more -->
+              chevron_right
+          </mat-icon>
+        </button>
+        
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+          <!-- <li [ngbNavItem]="1" (click)="setTabs(false)">
+            <a ngbNavLink>Unpaid</a>
+            <ng-template ngbNavContent> 
+              <app-search class="search_outer_box" (search)="search=$event"> </app-search>
+              <app-unpaidinvoices noofrows=8 tablewidth="100%" [search]="search" (tabs)="tabs=$event"  (childEvent)="sidenav=$event" (index)="index=$event" (details)="details=$event" (invoicesidenav)="invoicesidenav=$event"></app-unpaidinvoices>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="2" (click)="setTabs(false)" >
+            <a ngbNavLink >Exceptions</a>
+            <ng-template ngbNavContent>
+              <app-search class="search_outer_box" (search)="search=$event"> </app-search>
+              <app-invoice-exceptions (childEvent)="sidenav=$event" [search]="search"   (paid)="paid=$event" (details)="details=$event"></app-invoice-exceptions>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="3" (click)="setTabs(true)" >
+            <a ngbNavLink >My Inbox</a>
+            <ng-template ngbNavContent>
+              <app-search class="search_outer_box" (search)="search=$event"> </app-search>
+              <app-assignedto-me (childEvent)="sidenav=$event" [search]="search"   (paid)="paid=$event" (details)="details=$event"></app-assignedto-me>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="4" (click)="setTabs(false)" >
+            <a ngbNavLink >Queries</a>
+            <ng-template ngbNavContent>
+              <app-search class="search_outer_box" (search)="search=$event"> </app-search>
+              <app-invoice-queries (childEvent)="sidenav=$event" [search]="search"   (paid)="paid=$event" (details)="details=$event"></app-invoice-queries>
+            </ng-template>
+          </li> -->
+  
+          <li [ngbNavItem]="1" (click)="setTabs(false)">
+            <a ngbNavLink><b>Paid</b></a>
+            <ng-template ngbNavContent>
+              <app-search class="search_outer_box" (search)="search=$event"> </app-search>
+              <app-paidinvoices (childEvent)="sidenav=$event" [search]="search"   (paid)="paid=$event" (details)="details=$event"></app-paidinvoices>
+            </ng-template>
+          </li>
+        </ul>
+        <div [ngbNavOutlet]="nav" class="mt-1"></div>
+      </div>
+    </div>
+  
+  </mat-drawer-container>
+  
+  
+  

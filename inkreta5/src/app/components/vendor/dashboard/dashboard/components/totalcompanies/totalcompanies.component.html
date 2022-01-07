@@ -1,0 +1,322 @@
+<div class="main">
+  <div >
+   
+  <div class="d-flex main_block">
+    <div class="container1" >
+            
+      <div class="icon">
+          <fa-icon [icon]="faFileAlt"></fa-icon>
+      </div>
+      <div style="margin-left: 78px;margin-top: 11px;">            
+          <div style="margin-top: 0px;">
+              <span class="cart_title" >Current Invoices</span>
+          </div>
+          <div style="margin-top: 12px; margin-bottom: 16px;" >
+            
+              <!-- <span style="color: var(--primary);font-size: 18px;"> {{OpenInvoices?.totals}}</span>-->
+              <span class="dues">{{ data?.current | number}}</span> 
+          </div>
+          <div style="float: right;">
+              <!-- <span class="invoice_number">{{OpenInvoices?.noofinvoices!==null ?OpenInvoices?.noofinvoices:0 }} invoice(s)</span> -->
+          </div>
+      </div>
+  </div>
+  <div class="container6" >
+      <div class="icon">
+          <fa-icon [icon]="faHistory"></fa-icon>
+      </div>
+      <div style="margin-left: 78px;margin-top: 11px;">
+          <!-- <app-ng2area areacolor="#00c0ef1a"></app-ng2area> -->
+          <div style="margin-top: 0px;">
+              <span class="cart_title">Late 1-30 days</span>
+          </div>
+          <div style="margin-top: 12px;">
+              <span style="color: var(--primary);font-size: 18px;">{{ data?.oneto30days | number}}</span>
+              <!-- <span style="color: ar(--primary);font-size: 18px;"> {{InvoicesOverdue?.totals}}</span>
+              <span class="currency">{{ InvoicesOverdue?.invoice_currency_code}}</span> -->
+          </div>
+          <div style="float: right;">
+              <!-- <span class="invoice_number">99 invoice(s)</span> -->
+              <!-- <span class="invoice_number">{{InvoicesOverdue?.noofinvoices}} invoice(s)</span> -->
+              <!-- <span class="invoice_number">{{InvoicesOverdue?.noofinvoices!==null ?InvoicesOverdue?.noofinvoices:0 }} invoice(s)</span> -->
+
+          </div>
+
+
+      </div>
+  </div>
+  <div class="container3" >
+    <div class="icon">
+        <fa-icon [icon]="faFileInvoiceDollar"></fa-icon>
+    </div>
+    <div style="margin-left: 78px;margin-top: 11px;">
+        <div style="margin-top: 0px;">
+            <span class="cart_title">Late 31-60 days</span>
+        </div>
+        <div style="margin-top: 12px;">
+         
+            <!-- <span style="color: var(--primary);font-size: 18px;"> {{Late0130days?.totals }}</span>-->
+            <span class="dues"> {{data?.thirtyoneto60days | number}}</span> 
+        </div>
+        <div style="float: right;">
+          
+            <!-- <span class="invoice_number">{{Late0130days?.noofinvoices}} invoice(s)</span> -->
+            <!-- <span class="invoice_number">{{Late0130days?.noofinvoices!==null ?Late0130days?.noofinvoices:0 }} invoice(s)</span> -->
+
+        </div>
+    </div>
+</div>
+<div class="container4" >
+  <div class="icon">
+      <fa-icon [icon]="faDraftingCompass"></fa-icon>
+  </div>
+  <div style="margin-left: 78px;margin-top: 11px;">
+      <!-- <app-ng2area areacolor="rgba(254,188,59,0.1)"></app-ng2area> -->
+
+      <div style="margin-top: 0px;">
+          <span class="cart_title">Late 61-90 days</span>
+      </div>
+      <div style="margin-top: 12px;">
+          <!-- <span style="color: var(--primary);font-size: 13px;">5,45,655</span> -->
+          <!-- <span style="color: var(--primary);font-size: 18px;"> {{Late3190days?.totals}}</span> -->
+           <span class="dues">{{data?.sixtyoneto90days | number}} </span>   
+          <!-- <span style="color: var(--primary);font-size: 10px;margin-left:2px;">{{item.currency_code}}</span> -->
+      </div>
+      <div style="float: right;">
+          <!-- <span class="invoice_number">{{Late3190days?.noofinvoices}} invoice(s)</span> -->
+          <!-- <span class="invoice_number">{{Late3190days?.noofinvoices!==null ?Late3190days?.noofinvoices:0 }} invoice(s)</span> -->
+
+
+          <!-- <span class="invoice_number">32 invoice(s)</span> -->
+      </div>
+  </div>
+</div>
+<div class="container5 " >
+  <div class="icon">
+      <fa-icon [icon]="faFileContract"></fa-icon>
+  </div>
+  <div style="margin-left: 78px;margin-top: 11px;">
+      <!-- <app-ng2area areacolor="rgba(254,188,59,0.1)"></app-ng2area> -->
+      <div style="margin-top: 0px;">
+          <span class="cart_title">Late >90 days</span>
+      </div>
+      <div style="margin-top: 12px;"  >
+          <!-- <span style="color: var(--primary);font-size: 13px;">19,45,655</span> -->
+          <!-- <span style="color: var(--primary);font-size: 18px;"> <span>{{Late90days?.totals }} </span></span> -->
+          <span class="dues">{{data?.over90days | number}}</span>
+          <!-- <span style="color: var(--primary);font-size: 10px;margin-left:2px;">{{item.currency_code}}</span> -->
+      </div>
+      <div style="float: right;">
+          <!-- <span class="invoice_number">{{Late90days?.noofinvoices}} invoice(s)</span> -->
+          <!-- <span class="invoice_number">{{Late90days?.noofinvoices!==null ?Late90days?.noofinvoices:0 }} invoice(s)</span> -->
+
+          <!-- <span class="invoice_number">12 invoice(s)</span> -->
+      </div>
+  </div>
+</div>
+  </div>
+
+  </div>
+    <!-- <div class="card">
+        <div class="header">
+            <div> 
+                <input type="Search" placeholder="Search Company" class="search">
+                <span class="material-icons searchicon" >search</span>
+
+            </div>
+            <div>
+                <div><span class="companytotal">45 Invoices </span> <span class="dueheading">TOTAL DUE </span></div>
+                <div class="totaldue">$789789778.89 </div>
+            </div>
+        </div>
+        <div class="overview">
+            <div class="blockitems">
+                <div class="block1">
+                    <div  class="complabel">Current</div>
+                    <div class="amount">$2250000</div>
+                    <div class="complabel">9 Invoices</div>
+                </div>
+                <div class="block2">
+                    <div class="complabel">1-30 days</div>
+                    <div class="amount">$2250000</div>
+                    <div class="complabel">9 Invoices</div>
+                </div>
+              
+                <div class="block4">
+                    <div class="complabel">31-60 days</div>
+                    <div class="amount"> $2250000</div>
+                    <div  class="complabel">9 Invoices</div>
+                </div>
+                <div class="block5">
+                    <div class="complabel">60-90 days</div>
+                    <div class="amount">$2250000</div>
+                    <div class="complabel">9 Invoices</div>
+                </div>
+                <div class="block6">
+                    <div class="complabel">>90 days</div>
+                    <div class="amount">$2250000</div>
+                    <div class="complabel">9 Invoices</div>
+                </div>
+
+            </div>
+        </div>
+    </div> -->
+    <div class="card tabletotal" *ngIf="loaded"> 
+      <div class="header">
+        <div class="d-flex"> 
+          <input class="form-control search" type="search"  (keyup)="applyFilter($event)" placeholder="Search...." #input>
+       
+          <span class="material-icons searchicon" >search</span>
+  
+        </div>
+        <div>
+            <div style="margin-left: 68px;">
+              <!-- <span class="companytotal">{{data?.noofinvoices}} Invoices </span>  -->
+            </div>
+            <div style="margin-right: 44px">
+              <span class="dueheading">TOTAL DUE :</span>
+              <span class="totaldue">  {{data?.balancedue | number}}
+                 <span style="font-weight: 400; color: #bfbfbf;">(INR) </span>{{data?.noofinvoices}} 
+                 <span style="font-weight: 400; color: #bfbfbf;">Invoices</span> </span>
+             
+            </div>
+        </div>
+    </div>
+        <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8 " >
+
+  
+            <ng-container matColumnDef="customer_company_name">
+              <th mat-header-cell  mat-sort-header *matHeaderCellDef> Company Name </th>
+              <td mat-cell *matCellDef="let element" class="company " >              
+                <button class="companyoverflow" (click)="gotocompany(element.customer_partner_id)">
+                    {{element.customer_company_name }} 
+                </button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="rating">
+                <th mat-header-cell  mat-sort-header *matHeaderCellDef> Score</th>
+                <td mat-cell *matCellDef="let element"  > 
+                  <div class="d-flex">
+                    <div  [ngClass]= "element.rating">
+                      {{element.rating }}
+                  </div>
+                  <!-- <div *ngIf="element['rating']=='A'">
+                    <mat-icon [ngClass]="{'arrowA':element['rating']=='A'}" >arrow_upward</mat-icon>
+
+                  </div> -->
+
+                  </div>
+                   
+
+                 </td>
+              </ng-container>
+              <ng-container matColumnDef="noofinvoices">
+                <th mat-header-cell  mat-sort-header *matHeaderCellDef> #Invoices</th>
+                <td mat-cell *matCellDef="let element"  >
+                  <div class="invnumber">
+                    {{element.noofinvoices}} 
+                  </div>
+                  
+                  </td>
+              </ng-container>
+              <ng-container matColumnDef="current">
+                <th mat-header-cell  mat-sort-header *matHeaderCellDef>
+                  <div class="headercell">
+                    Current
+                  </div>
+                  
+                  </th>
+                <td mat-cell *matCellDef="let element"  > 
+                  <div [ngClass]="{'current':element['current']!=null}" class="amountnumber">
+                    {{element.current  | number}}
+                  </div>
+                   
+                </td>
+              </ng-container>
+            <ng-container matColumnDef="oneto30days">
+                <th mat-header-cell  mat-sort-header *matHeaderCellDef> 
+                  <div class="headercell">
+                    1-30days(INR)
+                  </div>
+                </th>
+                <td mat-cell *matCellDef="let element"  >
+                  <div [ngClass]="{'thirtydays':element['oneto30days']!=null}" class="amountnumber">
+                    {{element['oneto30days'] | number}} 
+                  </div>
+                  
+                  </td>
+              </ng-container>
+              <ng-container matColumnDef="thirtyoneto60days">
+                <th mat-header-cell  mat-sort-header *matHeaderCellDef> 
+                  <div class="headercell">
+                    31-60days(INR)
+                  </div>
+                </th>
+                <td mat-cell *matCellDef="let element" > 
+                 <div [ngClass]="{'sixtydays':element['thirtyoneto60days']!=null}" class="amountnumber">
+                  {{element['thirtyoneto60days'] | number}} 
+                 </div>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="sixtyoneto90days">
+                <th mat-header-cell  mat-sort-header *matHeaderCellDef>
+                  <div class="headercell">
+                    61-90days(INR)
+                  </div> 
+                 
+                  </th>
+                <td mat-cell *matCellDef="let element" > 
+                  <div [ngClass]="{'ninetydays':element['sixtyoneto90days']!=null}" class="amountnumber" >
+                    {{element['sixtyoneto90days'] | number}}
+                  </div>
+               </td>
+              </ng-container>
+              <ng-container matColumnDef="over90days">
+                <th mat-header-cell  mat-sort-header *matHeaderCellDef> 
+                  <div class="headercell">
+                    >90days(INR)
+                  </div>
+               </th>
+                <td mat-cell *matCellDef="let element" > 
+                  <div [ngClass]="{'aboveninetydays':element['over90days']!=null}" class="amountnumber">
+                    {{element['over90days'] | number}}
+                  </div>
+
+                 </td>
+              </ng-container>
+   
+              <ng-container matColumnDef="balancedue">
+                <th mat-header-cell  mat-sort-header *matHeaderCellDef>
+                  <div class="headercell">
+                   Balance Due(INR)
+                 </div>
+                </th>
+                <td mat-cell *matCellDef="let element"> 
+                  <div class="amountnumber">
+                    {{element['balancedue'] | number}} 
+                  </div>
+                 
+                </td>
+              </ng-container>
+          
+        
+        
+           
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;index as i" 
+             
+               >
+            </tr>
+        
+          </table>
+          <mat-paginator [length]="7" [pageSize]=7 [pageSizeOptions]="[5, 10, 25, 100]">
+          </mat-paginator>
+    </div>
+    <div>
+      <mat-progress-spinner
+      [mode]="'indeterminate'" *ngIf="!loaded" [color]="'var(--primary)'">
+  </mat-progress-spinner>
+    </div>
+    
+</div>

@@ -1,0 +1,130 @@
+.grid_border{
+    border-bottom: 1px solid #ccc;
+    /* height: 55px; */
+    height: 63px;
+}
+.pagination{
+    align-self: center;
+    height: 7px;
+}
+.sidenav{
+    width: 65%;
+    padding: 10px;
+    border:1px solid #dfdfdf ;
+}
+.highlight{
+    /* background-color: #f4eeee; */
+    background-color: rgb(195, 221, 230,0.1);
+    border-left: 4px solid  var(--primary);
+}
+.grid_search{
+    position: relative;
+}
+.grid_search input{
+    padding-right: 40px;
+}
+.grid_search mat-icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.main_div{
+    height: 51px;
+    border-bottom: 1px solid #dedede;
+}
+.user_info{
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    padding: 0px 10px 18px 0px;
+}
+
+.image{
+    height: 33px;
+    margin-top: 9px;
+}
+.top_div{
+    height: 25px;
+    margin-top: 5px;
+}
+.title_para{
+    color: #000000;
+}
+.data_para{
+    font-size: 12px;
+    font-style: italic;
+}
+.bottom_div{
+    color: #767676;
+}
+.divider{
+    height: 14px;
+    margin-left: 5px;
+    margin-top: 3px;
+}
+.nav-link{
+    background-color: whitesmoke;
+    color: #ccc;
+    font-weight: 500;
+    font-size: 0.8rem;
+    border-top: 3px solid #ccc;
+    padding: 0.7rem 1rem;
+}
+.nav-link.active{
+    background-color: white ;
+    color: black;
+    border-top:3px solid var(--primary) !important;
+    font-weight: 500;
+    font-size: 0.8rem;
+
+}
+.vertical_split{
+    display: flex;
+
+}
+.vertical_split div{
+    flex: 1;
+    margin:10px;
+}
+
+.tabrole{
+    padding-left: 6px;
+    padding-top: 8px
+
+}
+.arrow_role{
+    position: absolute;
+    right: 0;
+    top: 18px
+
+}
+.new_role{
+    position: absolute;
+    right: 10%;
+    top: 16px;
+    border: none;
+}
+.invoice_main_div{
+    height: 610px;
+}
+.toggleRotate {
+    transform: rotate(180deg);
+    transition: 0.5s;
+} 
+.sidenav{
+    width: 63%; 
+    padding: 10px;
+    border:1px solid #dfdfdf ;
+}
+.full_sidenav{
+    width: 100%; 
+    padding: 10px;
+    border:1px solid #dfdfdf ;
+}
+
+.arrow_icon{
+    position: absolute;
+    left: 93%;
+    top: 16px;
+}

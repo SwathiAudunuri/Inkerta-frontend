@@ -1,0 +1,25 @@
+<div style="max-height: 481px;">
+    <!-- <app-newaction *ngIf="newaction"  (sharedload)="sharedloadHandle($event)" ></app-newaction> -->
+    <div  class="action_details">
+        <div class="d-flex">
+            <div>
+                <div class="d-flex row1">
+                    <label ><b>Name <span>:</span></b></label>
+                    <p>{{actiondetail?.customActions?.actionName}}</p>
+                </div>
+
+                <div class="d-flex row1" >
+                    <label ><b>Show only when invoice status is<span>:</span></b></label>
+                    <p>{{invstatus}}</p>
+                </div>
+
+                <div class="d-flex row1" >
+                    <label ><b>Show only when partner role <span>:</span></b></label>
+                     <p>{{forrole}}</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</div>

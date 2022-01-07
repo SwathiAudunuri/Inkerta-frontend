@@ -1,0 +1,18 @@
+<!-- <mat-progress-spinner
+  [mode]="'indeterminate'" *ngIf="loading">
+</mat-progress-spinner>  -->
+<div> 
+    <mat-tab-group (selectedTabChange)="selectedIndexBinding($event)">
+        <mat-tab label="General" class="mat-tab-labels">       
+           
+           <app-user-details [index]=0></app-user-details>
+        </mat-tab>
+        <mat-tab label="Partner Roles">
+            <app-role-mapping></app-role-mapping>
+        </mat-tab>
+        <mat-tab label="Audit">
+            <app-user-audit [Fullname]="Fullname"></app-user-audit>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+  

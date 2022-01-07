@@ -1,0 +1,105 @@
+
+<div style="width: 100%;">
+    <div class="col-md-12 " style="margin-top: -5px;">
+        <div class="borderTopBox">
+          <div class="boxHeading ">Manage Portal, e-Mail and SMS Notifications & Alerts</div>
+          <div class="borderTopBoxBody">
+            <div class="row ">
+                <div style="display:flex;">
+                    <div class="label_pre">
+                        <label><b>Query Received</b>
+                            <mat-icon  class='material-icons-outlined i_icon' variant='outlined' color='primary'>info
+                            </mat-icon>
+                            </label>
+                        <p > Get a notification for every query received in the system</p>
+                    </div>
+                    <div style="margin-left: 29px; display: flex;">
+                        <mat-slide-toggle *ngIf="!edit_btn" class="slide_pref" [(ngModel)]="query" color="primary"></mat-slide-toggle>
+                        <p *ngIf="query" style="margin-top: 2px;">ON</p>
+                        <p *ngIf="!query" style="margin-top: 2px;">Off</p>
+                    </div>
+                </div>
+                <div style="display:flex;">
+                    <div class="label_pre">
+                        <label><b>Task Summaries</b>
+                            <mat-icon   class='material-icons-outlined i_icon' variant='outlined' color='primary'>info
+                            </mat-icon>
+                        </label>
+                        <p >Get a notification for every task assigned to me and upcoming due dates</p>
+                    </div>
+                    <div style="margin-left: 29px;display: flex;">
+                        <mat-slide-toggle *ngIf="!edit_btn" [(ngModel)]="task" color="primary"></mat-slide-toggle>
+                        <p *ngIf="task" style="margin-top: 2px;">ON</p>
+                        <p *ngIf="!task" style="margin-top: 2px;">Off</p>
+                    </div>
+                </div>
+                <h2 class="mb-1">Invoice Submission </h2>
+                <div style="display:flex;">
+                    <div class="label_pre">
+                        <label><b>Portal </b>
+                            <mat-icon  class='material-icons-outlined i_icon' variant='outlined' color='primary'>info
+                            </mat-icon>
+                        </label>
+                        <p > Get a notification when an Invoice is submitted</p>
+                    </div>
+                    <div style="margin-left: 29px;display: flex;">
+                        <mat-slide-toggle *ngIf="!edit_btn" [(ngModel)]="invoice" color="primary"></mat-slide-toggle>
+                        <p *ngIf="invoice" style="margin-top: 2px;">ON</p>
+                        <p *ngIf="!invoice" style="margin-top: 2px;">Off</p>
+                    </div>
+                </div>
+                <div style="display:flex;">
+                    <div class="label_pre">
+                        <label><b>Email </b>
+                            <mat-icon  class='material-icons-outlined i_icon' variant='outlined' color='primary'>alternate_email
+                            </mat-icon>
+                        </label>
+                        <p > Get a notification when an Invoice is submitted</p>
+                    </div>
+                    <div style="margin-left: 29px;display: flex;">
+                        <mat-slide-toggle *ngIf="!edit_btn" [(ngModel)]="email" color="primary"></mat-slide-toggle>
+                        <p *ngIf="email" style="margin-top: 2px;">ON</p>
+                        <p *ngIf="!email" style="margin-top: 2px;">Off</p>
+                    </div>
+                </div>
+                <div style="display:flex;">
+                    <div class="label_pre">
+                        <label><b>SMS </b>
+                            <mat-icon  class='material-icons-outlined i_icon' variant='outlined' color='primary'>textsms
+                            </mat-icon>
+                        </label>
+                        <p > Get a notification when an Invoice is submitted</p>
+                    </div>
+                    <div style="margin-left: 29px;display: flex;">
+                        <mat-slide-toggle *ngIf="!edit_btn" [(ngModel)]="sms" color="primary"></mat-slide-toggle>
+                        <p *ngIf="sms" style="margin-top: 2px;">ON</p>
+                        <p *ngIf="!sms" style="margin-top: 2px;">Off</p>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+        </div>
+    </div>
+    <div class="col-md-12" style="margin-top: -11px;">
+        <div class="borderTopBox mt-0">
+          <div class="boxHeading">Vendor Mapping</div>
+            <div class="borderTopBoxBody" style="display:flex">
+            <div class="label_pre">
+                <label><b>Allow every Vendor to send an Invoice</b>
+                    <mat-icon  class='material-icons-outlined i_icon' variant='outlined' color='primary'>info
+                    </mat-icon>
+                </label>
+                <!-- <p>By disabling this option, you need to configure all the supplier details from Mappings </p> -->
+                <p *ngIf="!vender">All the Vendors who registered in the Inkreta can submit Invoices</p>
+                <p *ngIf="vender">you are required to configure supplier details who can submit invoices. This configuration is available from Mappings - Supplier Mappings menu</p>
+            </div>
+            <div style="margin-left: 29px;display: flex;">
+                <mat-slide-toggle *ngIf="!edit_btn" [(ngModel)]="vender" color="primary"></mat-slide-toggle>
+                <p *ngIf="vender" style="margin-top: 2px;">ON</p>
+                <p *ngIf="!vender" style="margin-top: 2px;">Off</p>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

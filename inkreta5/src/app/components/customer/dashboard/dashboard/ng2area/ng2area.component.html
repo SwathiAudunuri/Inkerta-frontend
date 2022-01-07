@@ -1,0 +1,18 @@
+<div >
+    <canvas baseChart width="190px" height="100px"
+    style="display: block;
+    height: 200px;
+    width: 251px;
+  
+    padding-top: 20px;"
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="lineChartColors"
+      [legend]=false
+      [chartType]="lineChartType"
+      (chartClick)="chartClicked($event)"
+      [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+    

@@ -1,0 +1,53 @@
+
+<div style=" width: 100%;height:255px;padding: 10px;background-color: #fff;border:1px solid #dfdcdc" class="card"   class="chartcanvases">
+  <div class="header">
+    <div style="font-size: 20px;
+    color: #8a8a8a;">
+      Forecast
+    </div>
+  
+    <div class="d-flex">
+      <div class="d-flex">
+        <form [formGroup]="dateForm" (ngSubmit)="onSubmit()" class="d-flex"> 
+          <input
+          style="height: 30px;
+          width: 148px;margin-right: 10px;"
+          class="form-control" type="date" placeholder="From date"  formControlName="start_date"        
+          aria-label="default input example">
+          <input
+          style="height: 30px;
+          width: 148px;margin-right: 10px;"
+          class="form-control" type="date" placeholder="From date"  formControlName="end_date"
+        
+          aria-label="default input example">
+          <button type="submit" class="btns_tick"><span class="material-icons" style="    font-size: 14px;">done</span></button>
+        </form>
+   
+      
+   
+      </div>
+      <a>
+        <button class="btns"   (click)="getdayrange()" >week</button>
+      </a>
+      <a>
+        <button class="btns"  (click)="getmonthrange()">month</button>
+      </a>
+      <a>
+        <button class="btns">year</button>
+      </a>
+
+    </div>
+  </div>
+    <canvas baseChart  width="1400px" style=" width: 100%;height:200px" height="200px"  
+  #chartcanvas
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="lineChartColors"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType"
+      (chartClick)="chartClicked($event)"
+      [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  

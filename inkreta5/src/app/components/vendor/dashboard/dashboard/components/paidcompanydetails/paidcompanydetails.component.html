@@ -1,0 +1,201 @@
+<div class="main">
+    <div class="card">
+        <div class="header">
+            <div>
+                <div class="companyname">{{data1?.company_name}} <span class={{data1?.rating}}>{{data1?.rating}}</span></div>
+                <div class="maincolor mainfont">{{data1?.contactname}}</div>
+                <div>
+                    <span class="material-icons icon">location_on</span>
+                    <span class="mainfont">  {{data1?.partner_address}}</span>
+                   
+                </div>
+
+                <div >
+                    <span class="material-icons icon ">phone</span>
+                    <span class="maincolor mainfont">   {{data1?.primary_phone_number}}</span>
+                 
+                </div>
+                <div >
+                    <span class="material-icons icon">email</span>
+                    <span class="maincolor mainfont"> {{data1?.email}}</span>
+                   
+                </div>
+            </div>
+            <div>
+                <span class="total_due_header"> {{inv}} invoices</span>
+                <span class="total_due_header">TOTAL DUE</span>
+                <div class="total">{{data?.currentdue +data?.overdue +data?.promisetopay +data?.pending | number}}</div>
+    
+            </div>
+        </div>
+       <!-- <div class="flex-container">
+            <div class="block1">
+                <div>Current</div>
+                <div class="total_value">$3022222</div>
+                <div>7 invoices</div> 
+            </div>
+            <div class="block2">
+                <div>Dispute</div>
+                <div class="total_value">$3022222</div>
+                <div>7 invoices</div>    
+            </div>
+            <div class="block3">
+                <div>Overdue</div>
+                <div class="total_value">$3022222</div>
+                <div>7 invoices</div>    
+            </div>
+            <div class="block4">
+                <div>Pending</div>
+                <div class="total_value">$3022222</div>
+                <div>7 invoices</div>    
+            </div>
+            <div class="block5">
+                <div>Paid</div>
+                <div class="total_value">$3022222</div>
+                <div>7 invoices</div>    
+            </div>
+       </div> -->
+       <div class="d-flex main_block">
+        <div class="container1" >
+                
+          <div class="icon">
+              <fa-icon [icon]="faFileAlt"></fa-icon>
+          </div>
+              <div style="margin-left: 78px;margin-top: 11px;">            
+              <div style="margin-top: 0px;">
+                  <span class="cart_title" >Current</span>
+              </div>
+              <div style="margin-top: 12px; margin-bottom: 16px;" >
+
+                  <span class="dues">{{ data?.currentdue | number}}</span> 
+              </div>
+              <div style="float: right;">
+              </div>
+          </div>
+      </div>
+      <div class="container6" >
+          <div class="icon">
+              <fa-icon [icon]="faHistory"></fa-icon>
+          </div>
+          <div style="margin-left: 78px;margin-top: 11px;">
+              <!-- <app-ng2area areacolor="#00c0ef1a"></app-ng2area> -->
+              <div style="margin-top: 0px;">
+                  <span class="cart_title">Overdue</span>
+              </div>
+              <div style="margin-top: 12px;">
+                  <span class="dues">{{ data?.overdue | number}}</span>
+                  <!-- <span style="color: ar(--primary);font-size: 18px;"> {{InvoicesOverdue?.totals}}</span>
+                  <span class="currency">{{ InvoicesOverdue?.invoice_currency_code}}</span> -->
+              </div>
+              <div style="float: right;">
+                  <!-- <span class="invoice_number">99 invoice(s)</span> -->
+                  <!-- <span class="invoice_number">{{InvoicesOverdue?.noofinvoices}} invoice(s)</span> -->
+                  <!-- <span class="invoice_number">{{InvoicesOverdue?.noofinvoices!==null ?InvoicesOverdue?.noofinvoices:0 }} invoice(s)</span> -->
+    
+              </div>
+    
+    
+          </div>
+      </div>
+      <div class="container3" >
+        <div class="icon">
+            <fa-icon [icon]="faFileInvoiceDollar"></fa-icon>
+        </div>
+        <div style="margin-left: 78px;margin-top: 11px;">
+            <div style="margin-top: 0px;">
+                <span class="cart_title">Promise to pay</span>
+            </div>
+            <div style="margin-top: 12px;">
+             
+                <!-- <span style="color: var(--primary);font-size: 18px;"> {{Late0130days?.totals }}</span>-->
+                <span class="dues"> {{data?.promisetopay | number}}</span> 
+            </div>
+            <div style="float: right;">
+              
+                <!-- <span class="invoice_number">{{Late0130days?.noofinvoices}} invoice(s)</span> -->
+                <!-- <span class="invoice_number">{{Late0130days?.noofinvoices!==null ?Late0130days?.noofinvoices:0 }} invoice(s)</span> -->
+    
+            </div>
+        </div>
+    </div>
+    <div class="container4" >
+      <div class="icon">
+          <fa-icon [icon]="faDraftingCompass"></fa-icon>
+      </div>
+      <div style="margin-left: 78px;margin-top: 11px;">
+          <!-- <app-ng2area areacolor="rgba(254,188,59,0.1)"></app-ng2area> -->
+    
+          <div style="margin-top: 0px;">
+              <span class="cart_title">Pending</span>
+          </div>
+          <div style="margin-top: 12px;">
+              <!-- <span style="color: var(--primary);font-size: 13px;">5,45,655</span> -->
+              <!-- <span style="color: var(--primary);font-size: 18px;"> {{Late3190days?.totals}}</span> -->
+               <span class="dues">{{data?.pending | number}} </span>   
+              <!-- <span style="color: var(--primary);font-size: 10px;margin-left:2px;">{{item.currency_code}}</span> -->
+          </div>
+          <div style="float: right;">
+              <!-- <span class="invoice_number">{{Late3190days?.noofinvoices}} invoice(s)</span> -->
+              <!-- <span class="invoice_number">{{Late3190days?.noofinvoices!==null ?Late3190days?.noofinvoices:0 }} invoice(s)</span> -->
+    
+    
+              <!-- <span class="invoice_number">32 invoice(s)</span> -->
+          </div>
+      </div>
+    </div>
+    <div class="container5 " >
+      <div class="icon">
+          <fa-icon [icon]="faCheckSquare"></fa-icon>
+      </div>
+      <div style="margin-left: 78px;margin-top: 11px;">
+          <!-- <app-ng2area areacolor="rgba(254,188,59,0.1)"></app-ng2area> -->
+          <div style="margin-top: 0px;">
+              <span class="cart_title">Paid</span>
+          </div>
+          <div style="margin-top: 12px;"  >
+              <!-- <span style="color: var(--primary);font-size: 13px;">19,45,655</span> -->
+              <!-- <span style="color: var(--primary);font-size: 18px;"> <span>{{Late90days?.totals }} </span></span> -->
+              <span class="dues">{{data?.paid_amount===null?0:data?.paid_amount | number}}</span>
+              <!-- <span style="color: var(--primary);font-size: 10px;margin-left:2px;">{{item.currency_code}}</span> -->
+          </div>
+          <div style="float: right;">
+              <!-- <span class="invoice_number">{{Late90days?.noofinvoices}} invoice(s)</span> -->
+              <!-- <span class="invoice_number">{{Late90days?.noofinvoices!==null ?Late90days?.noofinvoices:0 }} invoice(s)</span> -->
+    
+              <!-- <span class="invoice_number">12 invoice(s)</span> -->
+          </div>
+      </div>
+    </div>
+      </div>
+    </div>
+    <div class="card"  (mousein)="changeText=true" (mouseout)="changeText=false" >
+        <mat-tab-group >
+            <mat-tab label="Closed Invoices">
+               
+                <app-closedinvsofcompanytable></app-closedinvsofcompanytable>
+            </mat-tab>
+            <mat-tab label="Unpaid Invoices">
+               
+                <app-unpaid ></app-unpaid>
+            </mat-tab>
+  
+          </mat-tab-group>
+    </div>
+    <div class="card">
+        <mat-tab-group >
+            <mat-tab label="Activity">
+                <app-activity></app-activity>                
+            </mat-tab>
+            <mat-tab label="Notes">
+                <!-- <app-activity></app-activity>                 -->
+            </mat-tab>
+            <mat-tab label="Todo">
+                <!-- <app-activity></app-activity>                 -->
+            </mat-tab>
+            <mat-tab label="Payment Activities">
+            </mat-tab>
+       
+  
+          </mat-tab-group>
+    </div>
+</div>

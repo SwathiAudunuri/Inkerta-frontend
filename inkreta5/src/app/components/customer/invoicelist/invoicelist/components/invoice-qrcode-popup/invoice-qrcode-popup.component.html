@@ -1,0 +1,146 @@
+
+<div class="qrcode" >
+    <mat-progress-spinner
+        [mode]="'indeterminate'" *ngIf="qrloading">
+    </mat-progress-spinner>
+    <!-- *ngIf="!loading$" -->
+    <div *ngIf="!qrloading">
+        <div class="modal-header">
+            <!-- <label> Ref : {{ref}}</label> -->
+            <label class="modal-title" id="modal-basic-title">QR Code Verification Details</label>
+            <button type="button" aria-label="Close" class="btn-close" (click)="close()" ></button>
+        </div>
+        <div *ngIf="status">
+            <div class="d-flex">
+                <div class="col-sm-6 qrheading" *ngIf="status">
+                    <h3 style="height: 10px;">QR Code from Invoice</h3>
+                    <!-- <img [src]="imgdata" style="height: 270px;width: 330px;margin-left: 92px;"/> -->
+                    <!-- <qr-code value="eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ0NDQwNUM3ODFFNDgyNTA3MkIzNENBNEY4QkRDNjA2Qzg2QjU3MjAiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJSRVFGeDRIa2dsQnlzMHlrLUwzR0JzaHJWeUEifQ.eyJkYXRhIjoie1wiU2VsbGVyR3N0aW5cIjpcIjM2QUFCQ0o5MDg2RjFaQlwiLFwiQnV5ZXJHc3RpblwiOlwiMzZBQUFDRDc5OTlRMVpMXCIsXCJEb2NOb1wiOlwiMTk2MTEwMTAyNFwiLFwiRG9jVHlwXCI6XCJJTlZcIixcIkRvY0R0XCI6XCIzMC8wNi8yMDIxXCIsXCJUb3RJbnZWYWxcIjo1MzEwLjAsXCJJdGVtQ250XCI6NSxcIk1haW5Ic25Db2RlXCI6XCI5OTg1MzFcIixcIklyblwiOlwiZWMxNjMwNzYwNjg4OTJlYmUyYmQ3YzEyMjdkODA2NGRkNjI1NzZjZTY3MTk5YTJmMjVkZTBmMDIyYjQ4NDhjNVwiLFwiSXJuRHRcIjpcIjIwMjEtMDYtMzAgMTM6MDA6MDBcIn0iLCJpc3MiOiJOSUMifQ.Ei6nLAJM5pGYk9R4R4IkVIqfzWHFKBdQp_UD-L3NYKN2bVxuIrXcZKR5bqHYmQLSHqLnSkQC31n_ylHHoga5jZoZkPBY1YmwIuTUzHZl6Z7DjTjGV38ee8Wif_rZU3bPRaJlQQ3iMFugH9cP1I5_scbV90LvBmVr0-MqGIL_vRBRk00kXDEJmqJPl0tZSZlZmRvr3GEnLmtbVAYg1n0eguMZt9hP3ZpkpekBXE1GACniIsDU57dcwS4W1zB8Poqq7QzD-VIafYjwj3SEIdTyHpjUYHwrR-PPaYYWjEM2dPK87dx_I0LGc0pymQ-XVMulPLkUfLJn8w6Up_Fri0mzbQ" size="200" errorCorrectionLevel="M"></qr-code> -->
+                    <qr-code  [value]="base64" size="250" errorCorrectionLevel="M"></qr-code>
+                </div>
+                <div class="col-sm-6" style="align-self: center;">
+                    <h3 class="qrverification_succ" *ngIf="qrverifiedstatus">QR code verification successfully <mat-icon>done_all</mat-icon></h3>
+                    <h3 class="qrverification_fail" *ngIf="!qrverifiedstatus">QR code verification failed </h3>
+                    <p  *ngIf="!qrverifiedstatus">({{errormess}})</p>
+                </div>
+            </div>
+            <div style="margin-left: 10px;margin-top: 20px;margin-right: 10px;" class="d-flex">
+                <div style="width: 45%;">
+                    <div class="heading">
+                        <h3>Decoded Data from QR Code</h3>
+                    </div>
+                    <div style="margin-right: 10px;">
+                        <div class="justify-content-between d-flex qr_values">
+                            <p>Seller Gstin</p>
+                            <span>{{qr_SellerGstin}}</span>
+                        </div>
+                        <div class="justify-content-between d-flex qr_values">
+                            <p>Buyer Gstin</p>
+                            <span>{{qr_BuyerGstin}}</span>
+                        </div>
+                        <div class="justify-content-between d-flex qr_values">
+                            <p>Document Type</p>
+                            <span>{{qr_DocType}}</span>
+                        </div>
+                        <div class="justify-content-between d-flex qr_values">
+                            <p>Document No</p>
+                            <span>{{qr_DocNo}}</span>
+                        </div>
+                        <div class="justify-content-between d-flex qr_values">
+                            <p>Total Invoice Value</p>
+                            <span>{{qr_TotInvVal}}</span>
+                        </div>
+                        <div class="justify-content-between d-flex qr_values">
+                            <p>Document Date</p>
+                            <span>{{qr_DocDt}}</span>
+                        </div>
+                        <div class="justify-content-between d-flex qr_values">
+                            <p>Irn</p>
+                            <span style="font-size: 10px;">{{qr_Irn}}</span>
+                            <!-- <span>value</span> -->
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 10%;">
+                    <div class="heading" >
+                        
+                    </div>
+                    <div style="text-align: center" class="verfication">
+                        <div >
+                            <mat-icon class="icon_tick" *ngIf="qr_SellerGstin === inv_SellerGstin" >done</mat-icon>
+                            <mat-icon class="icon_wrong" *ngIf="qr_SellerGstin !== inv_SellerGstin">close</mat-icon>
+                        </div>
+                        <div >
+                            <mat-icon class="icon_tick" *ngIf="qr_BuyerGstin === inv_BuyerGstin" >done</mat-icon>
+                            <mat-icon class="icon_wrong" *ngIf="qr_BuyerGstin !== inv_BuyerGstin">close</mat-icon>
+                        </div>
+                        <div >
+                            <mat-icon class="icon_tick" *ngIf="qr_DocType === inv_DocType" >done</mat-icon>
+                            <mat-icon class="icon_wrong" *ngIf="qr_DocType !== inv_DocType">close</mat-icon>
+                        </div>
+                        <div >
+                            <mat-icon class="icon_tick" *ngIf="qr_DocNo === inv_DocNo" >done</mat-icon>
+                            <mat-icon class="icon_wrong" *ngIf="qr_DocNo !== inv_DocNo">close</mat-icon>
+                        </div>
+                        <div >
+                            <mat-icon class="icon_tick" *ngIf="qr_TotInvVal === inv_TotInvVal" >done</mat-icon>
+                            <mat-icon class="icon_wrong" *ngIf="qr_TotInvVal !== inv_TotInvVal">close</mat-icon>
+                        </div>
+                        <div >
+                            <mat-icon class="icon_tick" *ngIf="qr_DocDt === inv_DocDt" >done</mat-icon>
+                            <mat-icon class="icon_wrong" *ngIf="qr_DocDt !== inv_DocDt">close</mat-icon>
+                        </div>
+                        <div >
+                            <mat-icon class="icon_tick" *ngIf="qr_Irn === inv_Irn" >done</mat-icon>
+                            <mat-icon class="icon_wrong" *ngIf="qr_Irn !== inv_Irn">close</mat-icon>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 45%;">
+                    <div class="heading">
+                        <h3>Submitted Invoice Meta Data</h3>
+                    </div>
+                    <div>
+                        <div class="justify-content-between d-flex qr_values">
+                            <p>Seller Gstin</p>
+                            <span>{{inv_SellerGstin}}</span>
+                        </div>
+                        <div class="justify-content-between d-flex qr_values">
+                            <p>Buyer Gstin</p>
+                            <span>{{inv_BuyerGstin}}</span>
+                        </div>
+                        <div class="justify-content-between d-flex qr_values">
+                            <p>Document Type</p>
+                            <span>{{inv_DocType}}</span>
+                        </div>
+                        <div class="justify-content-between d-flex qr_values">
+                            <p>Document No</p>
+                            <span>{{inv_DocNo}}</span>
+                        </div>
+                        <div class="justify-content-between d-flex qr_values ">
+                            <p>Total Invoice Value</p>
+                            <span>{{inv_TotInvVal}}</span>
+                        </div>
+                        <div class="justify-content-between d-flex qr_values">
+                            <p>Document Date</p>
+                            <span>{{inv_DocDt}}</span>
+                        </div>
+                        <div class="justify-content-between d-flex qr_values">
+                            <p>Irn</p>
+                            <!-- {{inv_Irn}} -->
+                            <span  style="font-size: 10px;">{{inv_Irn}}</span>
+                            <!-- <span  style="font-size: 10px;">ec163076068892ebe2bd7c1227d8064dd62576ce67199a2f25de0f022b4848c5</span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!status">
+            <!-- <h3 class="qr_not_found">QR Code is not avaliable for this invoice</h3> -->
+            <h3 class="qr_not_found">{{errormess}}</h3>
+        </div>
+    </div>
+    <div class="m-2">
+        <button style="float: right;color: #fff;" type="button" class="btn btn-primary" (click)="close()" > Close </button>
+    </div>
+</div>

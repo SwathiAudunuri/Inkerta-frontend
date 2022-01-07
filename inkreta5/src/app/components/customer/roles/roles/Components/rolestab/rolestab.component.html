@@ -1,0 +1,26 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+<div style="margin-top: 3px;">
+    <div class="bar" *ngFor="let item of roles | paginate:{id:'pagination',itemsPerPage: pageSize, currentPage: page} ;index as i "  [class]="item.roleId === role_id ? 'highlight':null" (click)="invoke_invoice(item)" >
+        <div class="icon">
+            <mat-icon>
+                <span class="material-icons-outlined">
+                    person_add
+                </span>
+               
+            </mat-icon>
+
+
+        </div>
+        <div class="exec">
+         
+            {{item.roleName}}
+
+        </div>
+    </div>
+    <div  style="margin-top: 2px;">
+        <pagination-controls id="pagination" (pageChange)="page=$event"   ></pagination-controls>
+      </div>
+  
+</div>

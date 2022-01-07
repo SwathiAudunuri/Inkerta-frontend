@@ -1,0 +1,117 @@
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading">
+</mat-progress-spinner>
+
+<form [formGroup]="createbudgetform" (ngSubmit)="submit()">
+<div class="create_budget">
+    <div class="heading">
+        <p><b>Create Budget</b></p>
+    </div>
+    <div class="content p-1">
+
+        
+        <div class="d-flex row_data">
+            <!-- <p-password formControlName="budgetName" [toggleMask]="true"></p-password> -->
+            
+            <label><b>Budget Name * <span>:</span></b></label>
+            <input formControlName="budgetName" class="form-control nam" 
+            [class.error]="f.budgetName.invalid && (f.budgetName.dirty || f.budgetName.touched)"
+            />
+        </div>
+
+        <div class="d-flex row_data">
+            <label><b>Category * <span>:</span></b></label>
+            <select formControlName="budgetCategory" class="form-select gen" type="text"
+            [class.error]="f.budgetCategory.invalid && (f.budgetCategory.dirty || f.budgetCategory.touched)"
+            >
+                <option value="Payable">Payable</option>
+                <option value="Receivable">Receivable</option>
+            </select>
+        </div>
+
+        <div class="d-flex row_data">
+            <label><b>Budget Occurs * <span>:</span></b></label>
+            <select formControlName="budget_occurs" class="form-select gen" type="text"
+            [class.error]="f.budget_occurs.invalid && (f.budget_occurs.dirty || f.budget_occurs.touched)"
+            >
+                <option value="">Select</option>
+                <option value="Once">Once</option>
+                <option value="Every week">Every week</option>
+                <option value="Every 2 weeks">Every 2 weeks</option>
+                <option value="Every month">Every Month</option>
+                <option value="Every quarter">Every quarter</option>
+                <option value="Every year">Every year</option>
+        </select>
+        </div>
+
+        <div class="d-flex row_data">
+            <label><b>Starts On * <span>:</span></b> </label>
+              <input formControlName="budget_starts_on"
+              class="form-control gen" type="date" placeholder=""  
+              aria-label="default input example"
+              [class.error]="f.budget_starts_on.invalid && (f.budget_starts_on.dirty || f.budget_starts_on.touched)"
+              >
+        </div>
+
+        <div class="d-flex row_data">
+            <label><b>Ends On * <span>:</span></b> </label>
+              <input formControlName="budget_ends_on"
+              class="form-control gen" type="date" placeholder=""  
+              aria-label="default input example"
+              [class.error]="f.budget_ends_on.invalid && (f.budget_ends_on.dirty || f.budget_ends_on.touched)"
+              >
+        </div>
+
+
+        <div class="d-flex row_data">
+            <label><b>Budget Type * <span>:</span></b></label>
+            <select formControlName="budget_type" class="form-select gen" type="text"
+            [class.error]="f.budget_type.invalid && (f.budget_type.dirty || f.budget_type.touched)"
+            >
+                <option value="">Select</option>
+                <option value="Fixed">Fixed</option>
+                <option value="Variable">Variable</option>
+        </select>
+        </div>
+
+        <div class="d-flex row_data">
+            <label><b>Currency Code * <span>:</span></b></label>
+            <select formControlName="budget_currency" class="form-select gen" type="text"
+            [class.error]="f.budget_currency.invalid && (f.budget_currency.dirty || f.budget_currency.touched)"
+            >
+                    <option value="">Select</option>
+                    <option value="INR">INR</option>
+                    <option value="USD">USD</option>
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="CHF">CHF</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="JPY">JPY</option>
+            </select>
+        </div>
+
+        <div class="d-flex row_data">
+            <label ><b>Budget Value * <span>:</span></b></label>
+            <div class="d-flex">
+                <div>
+                    <input formControlName="budget_value" type="number" class="form-control gen num" 
+                    [class.error]="f.budget_value.invalid && (f.budget_value.dirty || f.budget_value.touched)"
+                    />
+                </div>
+                <div class="currency">
+                    {{createbudgetform.value.budget_currency}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fotter d-flex justify-content-between">
+        <div>
+
+        </div>
+        <div class="buttons">
+            <button class="btn btn-sm btn-light" type="button" style="margin-right: 8px;" [disabled]="loading" (click)="close_createbudget()">Cancel</button>
+            <button class="btn btn-sm btn_primary" type="submit" style="margin-right: 8px;" [disabled]="!(f.budgetName.valid && f.budget_occurs.valid && f.budget_starts_on.valid && f.budget_ends_on.valid && f.budget_type.valid && f.budget_currency.valid && f.budget_value.valid && f.budgetCategory.valid && !loading)">Submit</button>
+        </div>
+    </div>
+</div>
+</form>

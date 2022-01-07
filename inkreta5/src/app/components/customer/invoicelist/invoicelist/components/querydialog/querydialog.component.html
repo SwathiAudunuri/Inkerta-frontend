@@ -1,0 +1,115 @@
+<div class="modal-content">
+
+    <div class="modal-body">
+        <form [formGroup]="emailForm" (ngSubmit)="onSubmit(emailForm.value)">
+            <div class="form-group">
+                <div class="vertical_split">
+                    <div>
+                        <app-query (respond)="respond($event)" (response)="response()" [ref]="ref"></app-query>
+                        <!-- <app-query noofrows=11 (respond)="respond($event)" (response)="response()"></app-query> -->
+                    </div>
+                    <div class="first_bar">
+                        <div class="div_flex">
+                            <label class="modal-title" id="modal-basic-title">{{title}}</label>
+                            <div class="query_btns">
+
+                                <button type="button" class="btn btn-light btn-sm" *ngIf="btn_enable===true" (click)="reply();">
+                                    <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"
+                                        aria-hidden="true" data-mat-icon-type="font">reply</mat-icon>
+                                    Reply
+                                </button>
+                                <button type="button" aria-label="Close" class="btn-close btn-close-black" (click)="close()"></button>
+                                <!-- <button mat-flat-button class="btn_response" color="accent" *ngIf="btn_enable===true"
+                                    (click)="new()"> New Query </button> -->
+                            </div>
+                        </div>
+                   
+                <div class="form_elements ">
+                    <div class="row">
+                        <div class="col-md-6 ">
+
+                            <label>Email</label>
+                            <input type="text" class="form-control" formControlName="email" required />
+                        </div>                      
+                        <div class="col-md-6 ">
+                            <label>Subject</label>
+                            <input type="text" formControlName="subject" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="form_elements ">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <label>Query Type</label>
+                            <select class="form-select querytype" formControlName="queryType"
+                                aria-label=".form-select-lg example">
+                                <option selected>Open this select menu</option>
+                                <option value="dispute">Dispute</option>
+                                <option value="duplicate">Duplicate</option>
+                                <option value="mismatch">Mismatch</option>
+                            </select>
+                        </div>
+                     
+                        <div class="col-md-6">
+                            <label>Template Type</label>
+                            <select class="form-select" formControlName="templatetype"
+                                aria-label=".form-select-lg example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">Mismatch</option>
+                            </select>
+                        </div>
+                    </div>
+                </div> 
+
+                        <div class="form-elements">
+                            <label>Description</label>
+                            <div class="editors">
+                                <ngx-editor-menu [editor]="editor" class="editor" [toolbar]="toolbar">
+                                </ngx-editor-menu>
+                                <ngx-editor [editor]="editor" formControlName="queryText">
+                                </ngx-editor>
+                            </div>
+
+                        </div>
+               
+
+                        <div class="form-elements">
+                            <div class="upload" *ngIf="btn_enable===false">
+                                <button type="button" class="btn btn_primary"  (click)="upload()">Upload Documents</button>
+                                <span class="ms-1" *ngFor="let item of addeddocs" style="color: var(--primary);">
+                                    {{item.doc_name}}
+                                </span>
+                            </div>
+                            <div *ngIf="btn_enable===true" class="d-flex">
+                                <div *ngFor="let item of    attachmentDetails">
+                                    <button class="btn btn_secondary" (*ngIf)="attachmentDetails!=null " type="button" (click)="opendoc(item)"><span class="material-icons">
+                                        attach_file
+                                        </span></button>
+                                        {{item.doc_name}}
+                                </div>
+                            
+
+                             </div>
+                        </div>
+
+                        <div class=" modal-footer btns12">
+
+                            <div *ngIf="btn_enable===false">
+                                <label style="color:green" class="me-2">{{message}}</label>
+
+                                <button type="button" class="btn cancel_btn" (click)="close()">Cancel</button>
+
+                                <button  class=" btn btn_primary ms-2" type="submit">Submit</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>

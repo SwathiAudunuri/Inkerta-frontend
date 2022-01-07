@@ -1,0 +1,15 @@
+.action_details label{
+    width: 170px;
+}
+.action_details span{
+    float: right;
+    margin-right: 10px;
+}
+.action_details p {
+    color: #767676;
+    font-style: italic;
+    font-size: 12px;
+}
+.row1{
+    margin-bottom: 10px;
+}

@@ -1,0 +1,140 @@
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="detailsloading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+
+<perfect-scrollbar>
+  <div class="main">
+    <div class="justify-content-between d-flex">
+      <div></div>
+      <div class="d-flex inv_info1">
+        <div class="d-flex" style="margin-right: 13px;">
+            <label>Submitted On <span>:</span> </label>
+            <p *ngIf="invoicedata?.created_date">{{invoicedata?.created_date | date: 'yyyy-MM-dd'}}</p>
+        </div>
+        <div class="d-flex">
+          <label>Status <span>:</span> </label>
+          <p>{{invoicedata?.invoice_status}}</p>
+      </div>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-sm-6 box">
+        <!-- <div class="box"> -->
+          <div>
+            <span>From</span>
+            <p><b>{{invoicedata?.recipient_company_name}}</b></p>
+            <span>{{invoicedata?.recipient_gstin}}</span>
+            <br>
+            <span>6302968919</span>
+            <span>ashok_grandhi@tecnics.com</span>
+          </div>
+        <!-- </div> -->
+        
+       
+      </div>
+      <div class="col-sm-6 box">
+        <!-- <div class="box"> -->
+          <div>
+            <span>To</span>
+            <p><b>{{invoicedata?.partner_company_name}}</b></p>
+            <span>{{invoicedata?.partner_gstin}}</span>
+            <br>
+            <span>{{invoicedata?.partner_address}}</span>
+          </div>
+        <!-- </div> -->
+        
+      </div> 
+      
+    </div>
+    <div style="margin-top: 10px;">
+
+    <div class="inv_info d-flex">
+            <div class="col-sm-4 p-1 d-flex">
+              <label>Invoice Date <span>:</span> </label>
+              <p *ngIf="invoicedata?.invoicedate">{{invoicedata?.invoicedate | date: 'yyyy-MM-dd'}}</p>
+            </div>
+            <div class="col-sm-4 p-1 d-flex">
+              <label>Payment Terms <span>:</span> </label>
+              <p>{{invoicedata?.creditdays}}</p>
+            </div>
+            <div class="col-sm-4 p-1 d-flex">
+              <label>Due Date <span>:</span> </label>
+              <p *ngIf="invoicedata?.invoicedate">{{invoicedata?.invoicedate | date: 'yyyy-MM-dd'}}</p>
+              <!-- <p>{{duedate | date: 'yyyy-MM-dd'}}</p> -->
+            </div>
+        </div>
+        <div class="inv_info d-flex">
+            <div class="col-sm-4 p-1 d-flex">
+              <label>Invoice No <span>:</span> </label>
+              <p>#{{invoicedata?.invoicenum}}</p>
+            </div>
+            <div class="col-sm-4 p-1 d-flex">
+              <label>Reference No <span>:</span> </label>
+              <p>#{{invoicedata?.invoice_reference_no}}</p>
+            </div>
+            <div class="col-sm-4 p-1 d-flex">
+              <label>Currency <span>:</span> </label>
+                <p>{{invoicedata?.invoice_currency_code}}</p>
+            </div>
+    </div>
+
+    </div>
+
+    <!-- <div>
+        <div class="heading_total">
+            <p><b>Item Details</b></p>
+        </div>
+        <div>
+            <table>
+                <tr class="table_heading">
+                  <th>Item No</th>
+                  <th>Item Name</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                </tr>
+                <tr class="table_heading">
+                    <td>1</td>
+                    <td>Iphone</td>
+                    <td>80000</td>
+                    <td>1</td>
+                    <td>80000</td>
+                </tr>
+                <tr class="table_heading">
+                    <td>2</td>
+                    <td>Samsung</td>
+                    <td>50000</td>
+                    <td>1</td>
+                    <td>50000</td>
+                </tr>
+              </table>
+        </div>
+    </div> -->
+    
+
+    <div>
+      <div class="totals col-sm-3 p-2">
+        <div class="heading_total">
+            <p><b>Totals</b></p>
+          </div>
+        <div class=" inp d-flex">
+          <label>Sub Total <span>:</span></label>
+          <p>{{invoicedata?.subtotal}}</p>
+        </div>
+        <div class=" inp d-flex">
+          <label>Tax Rate <span>:</span></label>
+          <p>{{invoicedata?.taxrate}}%</p>
+          
+        </div>
+        <div class=" inp d-flex">
+          <label>Tax Amount <span>:</span></label>
+          <p>{{invoicedata?.taxamount}}</p>
+        </div>
+        <div class=" inp d-flex">
+          <label>Total <span>:</span></label>
+          <p>{{invoicedata?.total_invoice_value}}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</perfect-scrollbar>

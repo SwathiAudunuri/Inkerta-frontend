@@ -1,0 +1,46 @@
+.patner_info{
+    display: flex;
+    border-bottom: 1px solid #e2e5e9;
+    height: 33px;
+    padding-bottom: 0px;
+}
+.arrow_icon:hover{
+    background-color: var(--primary)
+}
+.arrow_icon{
+    border: none;
+    position: absolute;
+    left: 0.8%;
+    top: 23px;
+    background-color: #757575;
+    transform: translate(-50%, -50%) rotate(90deg);
+    height: 15px;
+    width: 26px;
+    border-radius: 150px 150px 0 0;
+}
+
+.Rotate {
+    transform: rotate(
+        270deg);
+    cursor: pointer;
+    margin-top: -5px;
+    margin-left: -5px;
+    color: #fff;
+} 
+.toggleRotate {
+    transform: rotate(90deg) !important;
+    transition: 0.5s; 
+}
+.action_btn button{
+    margin-right: 5px;
+}
+.error{
+    height: 100%;
+    /* top: 50%; */
+    padding-top: 28%;
+    /* position: absolute; */
+    color: red;
+}
+.error p{
+    text-align: center;
+}

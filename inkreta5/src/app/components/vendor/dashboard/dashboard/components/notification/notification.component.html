@@ -1,0 +1,26 @@
+<div class="card">
+   <div class="header">
+    <h3 class="card-title" style="margin-bottom: 10px;">Recent Activity</h3>
+    <a (click)="nav_inbox()">
+       <button class="viewall_btn"><h5>View All</h5>  </button> 
+    </a>    
+   </div>
+   <div style="height: 450px;">
+    <perfect-scrollbar>
+        <div *ngFor="let feed of feeds | paginate: { itemsPerPage: 8, currentPage: p }" >
+            <app-invoicenotification [feed]="feed" *ngIf="feed.entity==='Invoice'"></app-invoicenotification>
+            <app-querynotification [feed]="feed" *ngIf="feed.entity==='Query'"></app-querynotification>
+            <app-tasknotification [feed]="feed" *ngIf="feed.entity==='Task'"></app-tasknotification>
+        </div>
+    
+       </perfect-scrollbar>
+
+   </div>
+   <div >
+   
+
+   </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+

@@ -1,0 +1,54 @@
+<div class="outer_body">
+<form [formGroup]="Additional_Details" (ngSubmit)="onSubmit()"> 
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>Company Info</a>
+      <ng-template ngbNavContent>
+        <app-info [edit_btn]="edit_btn"></app-info>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>Contact Information</a>
+      <ng-template ngbNavContent>
+        <app-contact-info [imgurl]="imgurl" [edit_btn]="edit_btn" [Additional_Details]="Additional_Details"></app-contact-info>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+      <a ngbNavLink>Additional Details</a>
+      <ng-template ngbNavContent>
+        <div [hidden]="edit_btn">
+          <app-additional-details-edit [Additional_Details]="Additional_Details" [ONBOARDING_MASTER_DROPDOWN]="ONBOARDING_MASTER_DROPDOWN"></app-additional-details-edit>
+        </div>
+        <div [hidden]="!edit_btn">
+          <app-additional-details-readonly></app-additional-details-readonly>
+        </div>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="4">
+      <a ngbNavLink>Preferences</a>
+      <ng-template ngbNavContent>
+        <app-preferences [Additional_Details]="Additional_Details" [edit_btn]="edit_btn"></app-preferences>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="5">
+      <a ngbNavLink>History</a>
+      <ng-template ngbNavContent>
+        <app-history [Additional_Details]="Additional_Details"></app-history>
+      </ng-template>
+    </li>
+    <li >
+        <button class="edit_btn btn btn_primary" type="button"   style="color: #ffff;" [style.backgroundColor]="edit_btn ? '#1a8fcd' : 'rgb(217 192 192)'" (click)="onedit()" *ngIf="edit_btn && active!==5">Edit<mat-icon style="font-size: 17px;margin-left: 3px;">edit</mat-icon></button>
+    </li>
+</ul>
+
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+<div class="float-end profile_action_btns">
+  <!-- <button (click)="cancel_btn()"  type="button" mat-raised-button class="me-2" style="background-color: #f68c1e;color: #ffff;">Cancel</button> -->
+  <button (click)="cancel_btn()"  type="button"  class="me-2 btn btn-light ">Cancel</button>
+  <button class=" btn btn_primary"  type="submit" *ngIf="!edit_btn && active!==5">Save</button>
+</div>
+
+<div class="clearfix"></div>
+</form>
+</div>

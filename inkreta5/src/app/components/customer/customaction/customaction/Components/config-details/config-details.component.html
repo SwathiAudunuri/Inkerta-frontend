@@ -1,0 +1,41 @@
+<div class="action_details" style="height: 500px;">
+    <div class="d-flex row1">
+        <label ><b>Connector Type <span>:</span></b></label>
+         <p>{{actiondetail?.customActions?.actionConnectorType}}</p>
+    </div>
+
+    <div class="d-flex row1">
+        <label ><b>Url <span>:</span></b></label>
+        <p>{{actiondetail?.customActions?.url}}</p>
+    </div>
+
+    <div class="d-flex row1">
+        <label ><b>Username <span>:</span></b></label>
+        <p>{{actiondetail?.customActions?.userName}}</p>
+    </div>
+
+    <div class="d-flex row1">
+        <label ><b>Operation <span>:</span></b></label>
+        <p >{{actiondetail?.customActions?.actionOperation}}</p>
+    </div>
+
+    <div class="d-flex row1">
+        <label ><b>Response On Success <span>:</span></b></label>
+        <p>{{actiondetail?.customActions?.respAttributeOnsuccessful}}</p>
+    </div>
+
+    <div class="d-flex row1">
+        <label ><b>Response Message <span>:</span></b></label>
+         <p>{{actiondetail?.customActions?.respMessage}}</p>
+    </div>
+    <div>
+        <div class="d-flex row1">
+            <label ><b>Input Request <span>:</span></b></label>
+            <pre > {{inputrequest }}</pre>
+        </div>
+    </div>
+    <div class="d-flex row1">
+        <label ><b>Stylesheet <span>:</span></b></label>
+         <pre>{{transferStylesheet}}</pre>
+    </div>
+</div>

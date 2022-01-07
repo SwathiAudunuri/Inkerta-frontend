@@ -1,0 +1,15 @@
+<!-- <app-ngxlinechart  [yAxisLabel]="OpenInvoices" (findByVendor)="findByVendor($event)" [vendors]="vendors"></app-ngxlinechart> -->
+
+<!-- <app-mainchart></app-mainchart> -->
+<mat-tab-group animationDuration="4000ms" (selectedTabChange)="onLinkClick($event)">
+    <!-- <mat-tab label="Paid Invoice number per week">
+        <app-barline></app-barline>   
+    </mat-tab> -->
+    <mat-tab label="Top  Vendors by Outstanding Amount">
+        <app-top10outstandingamount></app-top10outstandingamount>    
+    </mat-tab>
+    <mat-tab label="Overdue Amount By Month">
+        <app-ng2linearea></app-ng2linearea>    
+    </mat-tab>
+    <mat-tab label="Status/ Invoice%"> <app-donut></app-donut></mat-tab>
+  </mat-tab-group>

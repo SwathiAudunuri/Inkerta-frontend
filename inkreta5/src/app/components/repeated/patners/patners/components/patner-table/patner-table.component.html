@@ -1,0 +1,86 @@
+<mat-progress-spinner
+  [mode]="'indeterminate'" *ngIf="loading">
+</mat-progress-spinner> 
+
+<div>
+    <div class="sort_bar">
+        <label style="width: 34px;"></label>
+        <label class="sorting nam" (click)="onname()"
+        [ngClass]="nameToggle === 1 ? 'sorting' : nameToggle === 2 ? 'sort_asc' : nameToggle === 3 ? 'sort_decs' : 'null'"
+        >
+        Company Name</label>
+        <label  class="sorting amt" (click)="onnumber()"
+        [ngClass]="numToggle === 1 ? 'sorting' : numToggle === 2 ? 'sort_asc' : numToggle === 3 ? 'sort_decs' : 'null'"
+        >
+        Contact Details</label>
+        <!-- <label  class="sorting dat" >
+        Invoice Date</label>
+        <label  class="sorting sts" >
+        Status</label>
+        <label   class="sorting due">
+        DueDate</label> -->
+       
+    </div>
+    <perfect-scrollbar>
+        <div style="max-height: 531px;">
+            <div class="grid_border zoom" [class]=" x.partner_id === partner_id ? 'highlight' : 'null' " *ngFor="let x of data | paginate:{id:'pagination',itemsPerPage: pageSize, currentPage: page} ;index as i  "  (click)="patnerdetails(x,i);opensidenav()" >
+                <div class="m-1" style="margin-top: -13px;">
+                    <div class="d-flex" style="width: 100%;">
+                        
+                        <div  class="d-flex" style="width: 100%;">
+                          <div style="align-self: center;margin-right: 11px;">
+                            <img class="img" *ngIf="x.partner_type === 'Vendor' || x.partner_type ==='vendor'  " src="./assets/vendor3.svg" style="height: 25px;"/>
+                            <img class="img" *ngIf="x.partner_type === 'customer' ||x.partner_type === 'Customer' " src="./assets/customer3.svg" style="margin-top: -12px;height: 25px;"/>
+                
+                            <img class="img" *ngIf="x.partner_type === 'BusinessPartner' || x.partner_type ==='businesspartner'  " src="./assets/businesspatner.svg" style="height: 25px;"/>
+                          </div>
+                            <div style="width: 100%;">
+                              <div class="d-flex justify-content-between top_div">
+                                <div>
+                                    <p class="title_para" name="row_company_name">{{x.company_name}}</p>
+                                </div>
+                                <!-- <div class="d-flex bottom_div">
+                                    <p class="data_para " name="row_invoicedate">
+                                     <span class="user_status" [class]="x.status==='Active'?'active':'inactive'  ">{{x.status}}</span> 
+                                    </p>
+                                </div> -->
+                            </div>
+                            <div class="d-flex bottom_div">
+                                <div class="d-flex" style="margin-left: 5px;">
+                                    <div class="d-flex">
+                                        <!-- <label style="font-size: 12px;" >Name <span>:</span></label> -->
+                                        <p class="data_para nam" style="margin-left: 5px;">{{x.contactName}}</p>
+                                        <span>-</span>
+                                        <p class="data_para num"  style="margin-left: 5px;">{{x.primary_phone_number}}</p>
+                                        <!-- <mat-divider class="divider"  [vertical]="true"></mat-divider> -->
+                                    </div>
+                                    <div class="d-flex" >
+                                        <!-- <div class="d-flex" style="margin-left: 5px;">
+                                            <p class="data_para num"  style="margin-left: 5px;">{{x.primary_phone_number}}</p>
+                                            <mat-divider class="divider"  [vertical]="true"></mat-divider>
+                                        </div> -->
+                                        <!-- <div class="d-flex" style="margin-left: 5px;" >
+                                          <label style="font-size: 12px;">Type <span>:</span></label>
+                                          <p class="data_para" name="row_invoice_status" style="margin-left: 5px;">{{x.partner_type }}</p>
+                                          <mat-divider class="divider"  [vertical]="true"></mat-divider>
+                                      </div> -->
+                                      <!-- <div class="d-flex" style="margin-left: 5px;" >
+                                        <label style="font-size: 12px;">OnBoarded on <span>:</span></label>
+                                        <p class="data_para" name="row_invoice_status" style="margin-left: 5px;">{{x?.onboarded_on  | date:'dd-MM-yyyy'}}</p>
+                                    </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                  </div>
+            </div>
+            <p>{{mess}}</p>
+            <div  style="margin-bottom: 9px;">
+                <pagination-controls id="pagination" (pageChange)="page=$event"   ></pagination-controls>
+              </div>
+        </div>
+    </perfect-scrollbar>
+</div>

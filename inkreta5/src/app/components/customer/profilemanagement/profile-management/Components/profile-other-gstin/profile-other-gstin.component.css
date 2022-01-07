@@ -1,0 +1,89 @@
+.borderTopBox {
+    border-radius: 5px;
+    margin-top: 8px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.boxHeading {
+    border-bottom: 1px solid #ccc;
+    color: var(--primary) !important;
+    padding: 10px 0px;
+    margin-top: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.boxHeading label{
+    color: #000;
+    font-weight: 400;
+}
+.borderTopBoxBody {
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    width: 100%;
+}
+.gstin_info th.mat-header-cell,
+.gstin_info td.mat-cell,
+.gstin_info td.mat-footer-cell{
+    padding: 2px 10px;
+    min-width: 200px;
+}
+.gstin_info th.mat-header-cell:last-child,
+.gstin_info td.mat-cell:last-child,
+.gstin_info td.mat-footer-cell:last-child{
+    min-width: 80px;
+}
+.mat-row:nth-child(even){
+    background-color: rgb(195, 221, 230,0.1);
+}      
+.mat-row:nth-child(odd){
+    background-color: white	
+}
+input.gstNum1 {
+
+    border: none;
+    padding: 0;
+    width: 23.5ch;
+    background: repeating-linear-gradient( 
+    90deg
+ , #cd1a31 0, #cd1a31 1ch, transparent 0, transparent 1.5ch) 0 100%/22ch 1px no-repeat;
+    font: 3ch droid sans mono, consolas, monospace;
+    letter-spacing: 0.5ch;
+    height: 21px;
+    margin-top: 15px;
+    color: dodgerblue !important;
+    margin-left: 21px;
+}
+input.gstNum1:focus {
+    outline: none;
+}
+input.gstNum {
+    border: none;
+    padding: 0;
+    width: 23.5ch;
+    background: repeating-linear-gradient(
+        90deg
+        , #1a8fcd 0, #1a8fcd 1ch, transparent 0, transparent 1.5ch) 0 100%/22ch 1px no-repeat;
+    font: 3ch droid sans mono, consolas, monospace;
+    letter-spacing: 0.5ch;
+    height: 21px;
+}
+input.gstNum:focus {
+    outline: none;
+}
+.btn-popover {
+    padding: 0;
+    background-color: transparent;
+    position: relative;
+    height: 10px;
+    border: none;
+    vertical-align: top;
+}
+.btn-popover:hover .pop_box {
+    display: block;
+}
+.i_icon{
+    font-size: 17px;
+    color: var(--primary);
+    margin-left: 3px;
+}

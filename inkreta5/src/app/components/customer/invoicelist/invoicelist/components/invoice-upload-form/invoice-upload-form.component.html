@@ -1,0 +1,347 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading || loading1">
+</mat-progress-spinner>
+<!-- (ngSubmit)="submit()" -->
+<form   [formGroup]="invoice_form" >
+<div>
+  <div class="modal-header">
+    <label class="modal-title" id="modal-basic-title"> Payables </label>
+    <button type="button" aria-label="Close" class="btn-close" (click)="close()"></button>
+  </div>
+  <perfect-scrollbar>
+    <div class="main_div m-1" *ngIf="show">
+
+      <div class="d-flex justify-content-between" >
+        <div class="col-sm-5  p-1">
+
+          <p class="heading"><b>Bill From </b> </p>
+
+          
+
+          <div>
+            <div class="d-flex inp1">
+              <p>{{invoice_form.value.fromName}}</p>
+            </div>
+            <div class="d-flex inp1">
+              <p>{{invoice_form.value.fromGSTIN}}</p>
+            </div>
+            <div class="d-flex inp1">
+              <p>{{invoice_form.value.fromMobile}}</p>
+            </div>
+            <div class="d-flex inp1">
+              <p>{{recipient}}</p>
+            </div>
+
+            <div class="d-flex inp1">
+              <address>{{invoice_form.value.fromaddress}}</address>
+            </div>
+
+            <!-- <div class="d-flex">
+              <div class="col-sm-6 p-1 pt-0">
+                <label>Company Name : </label>
+                <input formControlName="fromName"  class="form-control" type="text" />
+              </div>
+              <div class="col-sm-6 p-1 pt-0">
+                <label>GSTIN : </label>
+                <input formControlName="fromGSTIN" class="form-control" type="text" />
+              </div>
+            </div>
+            <div class="p-1 ">
+              <label>Address</label>
+              <textarea style="resize: none;" formControlName="fromaddress" class="form-control" rows="2"></textarea>
+            </div> -->
+          </div>
+
+         
+        </div>
+
+        <div class="col-sm-5 p-1 tran_details">
+          <div class="p-1 tran_details">
+            <p class="heading"><b>Transcation Details</b></p>
+            <div>
+              <div class="d-flex">
+                <div class="col-sm-6 p-1">
+                  <label>Invoice No <span style="color: red;">*</span> : </label>
+                  <input formControlName="invoiceNo" class="form-control" type="text"
+                  [class.error]="f.invoiceNo.invalid && (f.invoiceNo.dirty || f.invoiceNo.touched)"
+                   />
+                </div>
+                <div class="col-sm-6 p-1 ">
+                  <label>Invoice Date <span style="color: red;">*</span> : </label>
+                  <div class="form-group">
+                    <input (change)="date_change()"
+                    [class.error]="f.invoiceDate.invalid && (f.invoiceDate.dirty || f.invoiceDate.touched)"
+                    class="form-control" type="date" placeholder="" 
+                    formControlName="invoiceDate" 
+                    aria-label="default input example">
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="col-sm-6 p-1 ">
+                  <label>Payment Terms <span style="color: red;">*</span> : </label>
+                  <select formControlName="terms" class="form-select" type="text" (change)="date_change()"
+                  [class.error]="f.terms.invalid && (f.terms.dirty || f.terms.touched)"
+                  >
+                    <option value="">Select</option>
+                    <option value="30">30</option>
+                    <option value="60">60</option>
+                    <option value="90">90</option>
+                    <option value="custom">custom</option>
+                    <option value="due on receipt">due on receipt</option>
+                  </select>
+                </div>
+                <div class="col-sm-6 p-1">
+                  <label>Due Date <span style="color: red;">*</span> : </label>
+                  <div class="form-group">
+                    <input
+                    [class.error]="f.dueDate.invalid && (f.dueDate.dirty || f.dueDate.touched)"
+                    class="form-control" type="date" placeholder="" 
+                    formControlName="dueDate" 
+                    aria-label="default input example">
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="col-sm-6 p-1">
+                  <label>Currency <span style="color: red;">*</span> : </label>
+                  <select formControlName="currency" class="form-select" type="text"
+                  [class.error]="f.currency.invalid && (f.currency.dirty || f.currency.touched)"
+                  >
+                    <option value="">Select</option>
+                    <option value="INR">INR</option>
+                    <option value="USD">USD</option>
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="CHF">CHF</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="JPY">JPY</option>
+                  </select>
+                </div>
+                <div class="col-sm-6 p-1">
+                  <label>Reference No <span style="color: red;">*</span> : </label>
+                  <input formControlName="refereneNo" class="form-control" type="text" 
+                  [class.error]="f.refereneNo.invalid && (f.refereneNo.dirty || f.refereneNo.touched)"
+                  />
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+
+        <!-- <div class="col-sm-4 p-1 tran_details" style="float: right;">
+          <div class="d-flex justify-content-between">
+            <p class="heading" style="align-self: end;"><b>To , </b></p>
+
+            <div *ngIf="patnerdata.length > 1">
+              <div>
+                <label>Select Gstin <span>:</span></label>
+                <select [(ngModel)]="gstindefault" [ngModelOptions]="{standalone: true}"  class="form-select" (change)="setdefault()">
+                  <option *ngFor="let x of patnerdata;index as i" value={{i}}>{{x.gstin}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex inp1">
+            <p>{{invoice_form.value.toName}}</p>
+          </div>
+          <div class="d-flex inp1">
+            <p>{{invoice_form.value.toGSTIN}}</p>
+          </div>
+          <div class="d-flex inp1">
+            <address>{{invoice_form.value.toaddress}}</address>
+          </div>
+        </div> -->
+
+
+      </div>
+
+      <!-- <div class="table p-1 ps-2">
+        <p class="heading"><b>Item Details</b></p>
+        <div class="p-1 ps-0">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+
+            <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef style="width: 40px;">
+                <mat-icon class="add_icon" (click)="add_row()">add</mat-icon>
+              </th>
+              <td mat-cell *matCellDef="let element ; index as i">
+                <mat-icon class="delete_icon" (click)="delete_row(i)">close</mat-icon>
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="item_no">
+              <th mat-header-cell *matHeaderCellDef> Item No </th>
+              <td mat-cell *matCellDef="let element" class="p-1">
+                <input class="form-control" value={{element.item_no}} [(ngModel)]="element.item_no" [ngModelOptions]="{standalone: true}" />
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="item_name">
+              <th mat-header-cell *matHeaderCellDef> Item Name </th>
+              <td mat-cell *matCellDef="let element" class="p-1">
+                <input class="form-control" value={{element.item_name}} [(ngModel)]="element.item_name" [ngModelOptions]="{standalone: true}" />
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef> Quantity </th>
+              <td mat-cell *matCellDef="let element" class="p-1">
+                <input class="form-control num" value={{element.quantity}} (keyup)="total_change()" [(ngModel)]="element.quantity" [ngModelOptions]="{standalone: true}" />
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Price </th>
+              <td mat-cell *matCellDef="let element" class="p-1">
+                <input class="form-control num" value={{element.price}} (keyup)="total_change()" [(ngModel)]="element.price" [ngModelOptions]="{standalone: true}" />
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="total">
+              <th mat-header-cell *matHeaderCellDef> Total </th>
+              <td mat-cell *matCellDef="let element" class="p-1">
+                <input  class="form-control num" value="{{element.price * element.quantity }}" [(ngModel)]="element.total" [ngModelOptions]="{standalone: true}" />
+              </td>
+            </ng-container>
+  
+  
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+        
+
+      </div> -->
+
+      <div class="d-flex justify-content-between">
+        <div class="attachments col-sm-5 p-2">
+          <div style="border-bottom: 1px solid #ccc;">
+            <p class="heading"><b>Attachments</b></p>
+          </div>
+          <div class="p-1">
+            <div class="pdf_div">
+              <div class="d-flex ">
+                <div class="label_wid">
+                  <label class="label"><b>Upload Invoice Document (.pdf)</b> <span class="required">*</span></label>
+                  <input  type="file" id="id2" accept=".pdf" class="upload-box"  (change)="upload_pdf($event)" />
+                </div>
+                <div >
+                  <button class="btn btn_primary button" style="width: 100px;"><label for="id2">choose file</label></button>
+                </div>
+              </div>
+              <div class=" help">
+                <div *ngIf="id2 !== ''">
+                  <!-- <span>Please Select your invoice(.pdf)</span> -->
+                  
+                  <span >
+                      {{id2}}
+                      <mat-icon style="font-size: 14px;" (click)="delete_pdf()">cancel</mat-icon>
+                  </span>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="pdf_div ">
+              <div class="d-flex ">
+                <div class="label_wid">
+                  <label class="label"><b>Upload Supporting Documents  (.pdf/.doc)</b> </label>
+                  <input type="file" id="id" accept=".pdf,.doc" multiple="multiple" class="upload-box" (change)="upload_support($event)" />
+                </div>
+                <div >
+                  <button class="btn btn_primary button" style="width: 100px;"><label for="id" >choose files</label></button>
+                </div>
+              </div>
+              <div class=" help">
+                <div *ngIf="support_src.length !== 0">
+                  <span *ngFor="let x of support_src; index as i">
+                      {{x.doc_name}}
+                      <mat-icon style="font-size: 14px;" (click)="delete_row_supporting(i)">cancel</mat-icon>
+                  </span>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <div class="totals col-sm-5 p-2 " style="float: right;">
+          <div>
+            <div style="border-bottom: 1px solid #ccc;">
+              <p class="heading"><b>Totals</b></p>
+            </div>
+          </div>
+          <div class="justify-content-between d-flex">
+            <div class="col-sm-6">
+
+            </div>
+            <div class="col-sm-6" >
+              
+    
+              <div class=" inp">
+                <label>Sub Total <span style="color: red;">*</span> <span>:</span></label>
+                <div class="d-flex">
+                <input formControlName="subTotal" (keyup)="total_change()"  class="form-control num" type="text"
+                [class.error]="f.subTotal.invalid && (f.subTotal.dirty || f.subTotal.touched)"
+                />
+                <button class="btn btn-light info_btn"><p style="font-size: 19px;">{{invoice_form.value.currency}}</p> </button>
+              </div>
+              </div>
+              <div class=" inp">
+                <label>Tax Rate  <span style="color: red;">*</span> <span>:</span></label>
+                <div class="d-flex">
+                  <input formControlName="taxrate" (keyup)="total_change()" class="form-control num" type="text" 
+                  [class.error]="f.taxrate.invalid && (f.taxrate.dirty || f.taxrate.touched)"
+                  />
+                  <button class="btn btn-light info_btn"><mat-icon style="font-size: 19px;">percent</mat-icon> </button>
+                </div>
+                
+              </div>
+              <div class=" inp">
+                <label>Tax Amount <span style="color: red;">*</span> <span>:</span></label>
+                <div class="d-flex">
+                <input formControlName="taxamount" class="form-control num" type="text"
+                [class.error]="f.taxamount.invalid && (f.taxamount.dirty || f.taxamount.touched)"
+                />
+                <button class="btn btn-light info_btn"><p style="font-size: 19px;">{{invoice_form.value.currency}}</p> </button>
+              </div>
+              </div>
+              <div class=" inp">
+                <label>Total <span style="color: red;">*</span> <span>:</span></label>
+                <div class="d-flex">
+                <input formControlName="total" class="form-control num" type="text" 
+                [class.error]="f.total.invalid && (f.total.dirty || f.total.touched)"
+                />
+                <button class="btn btn-light info_btn"><p style="font-size: 19px;">{{invoice_form.value.currency}}</p> </button>
+              </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="mess_div" *ngIf="!show">
+      <p style="color: red;">{{error}}</p>
+      <p style="color: green;">{{mess}}</p>
+  </div>
+  </perfect-scrollbar>
+  <div class="fotter p-3">
+    <button class="btn" *ngIf="show" (click)="close()" type="button">Cancel</button>
+    <button class="btn" *ngIf="!show" (click)="close()" type="button">Ok</button>
+    <button *ngIf="show" class="btn  btn_primary" style="margin-left: 10px;" type="submit" (click)="submit()"
+    [disabled]="!(f.invoiceNo.valid && f.invoiceDate.valid && f.terms.valid && f.dueDate.valid &&  f.refereneNo.valid &&  f.currency.valid &&  f.taxrate.valid &&  f.total.valid &&  f.subTotal.valid &&  f.taxamount.valid && pdf_src !== null)"
+    >Submit</button>
+  </div>
+</div>
+</form>
+

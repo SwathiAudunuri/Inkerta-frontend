@@ -1,0 +1,63 @@
+.maincontainer{
+    /* overflow-y: hidden; */
+}
+.month{
+    font-size: 19px;
+    margin-top: 17px;
+    margin-bottom: 10px;
+}
+.message{
+    display: flex;
+    margin-bottom: 20px;
+}
+.iconspace{
+    margin-left: 13px;
+    width: 682px;
+    display: flex;
+ 
+    align-items: self-end;
+
+}
+.icon{
+    height: 29px;
+    width: 29px;
+    background: #fff;
+    margin-left: -17px;
+    /* border: solid; */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.block{
+    margin-left: 27px;
+    border-left: 2px dotted;
+}
+.date{
+    margin-left: 10px;
+    display: flex;
+    align-items: self-end;
+
+}
+.container{
+    margin-bottom: 30px;
+}
+.notify{
+   color: #ffaa53;
+}
+.comment{
+    color: var(--primary);
+}
+/* .msw::after {
+    clip: rect(0px, 190px, 20px, 0px);
+    content: " ............................................................ ";
+    position: absolute;
+} */
+/* .msw{
+    display: inline-flex;
+    align-items: self-end;
+} */
+.INVactivity{
+display: flex;
+align-items: self-end;
+margin-left: 48px;
+}

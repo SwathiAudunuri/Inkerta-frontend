@@ -1,0 +1,49 @@
+.heading{
+    border-bottom: 1px solid #e2e5e9;
+    height: 50px;
+    padding-bottom: 10px;
+}
+
+.back_arrow{
+    position: absolute;
+    margin-top: 12px;
+    border-bottom: 1px solid #ccc;
+    height: 37px;
+    width: 50px;
+    z-index: 9;
+    cursor: pointer;
+}
+.tab{
+    /* margin-left: 24px;
+    width: 96%; */
+    /* margin-top: -11px; */
+    position: relative;
+}
+
+.invoice_act_btn button{
+    margin-left: 10px;
+}
+.invoice_act_btn mat-icon{
+    font-size: 18px;
+    height: 18px;
+    vertical-align: sub;
+}
+.toggleRotate {
+    transform: rotate(180deg);
+    transition: 0.5s; 
+}
+.edit{
+    background: transparent;
+    border: none;
+}
+
+.error{
+    height: 100%;
+    /* top: 50%; */
+    padding-top: 34%;
+    /* position: absolute; */
+    color: red;
+}
+.error p{
+    text-align: center;
+}

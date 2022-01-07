@@ -1,0 +1,85 @@
+<div class="p-1">
+  <div class="d-flex justify-content-between">
+    <div>
+      <p class="title"><b>Payables</b></p>
+    </div>
+    <div class="d-flex">
+      <div>
+        <a class="budget_tag" href="#/app/businesspartner_manager/common/simulate/budget">Add/Edit Budget</a>
+      </div>
+      <div class="d-flex">
+        <label><b>Budget <span>:</span></b></label>
+        <mat-slide-toggle [(ngModel)]="budget"  (change)="budget_change()"></mat-slide-toggle>
+      </div>
+    </div>
+  </div>
+    
+    <div class="table" style="margin-bottom: -3px;">
+        <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="no">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef style="width:10%"> #Reference </th>
+            <td mat-cell *matCellDef="let element"> 
+              <div class="nameoverflow">
+                {{element.invoicenum}} 
+              </div>
+            </td>
+          </ng-container>
+          
+
+          <ng-container matColumnDef="customer_name">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef > To </th>
+            <td mat-cell *matCellDef="let element"> 
+             <div class="companyoverflow">
+              {{element.company_name}} 
+             </div>
+            </td>
+          </ng-container>
+
+            <ng-container matColumnDef="amt">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef style="width: 13%;"> Amount </th>
+              <td mat-cell *matCellDef="let element"> {{element.balance | currency:element.invoice_currency_code }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="duedate">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef style="width: 25%;"> Due Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.invoice_duedate | date }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="expeteddate">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef style="width: 22%;"> Expected Date </th>
+              <td mat-cell *matCellDef="let element" > 
+                <div class="d-flex "
+                [class.duedate]="isDateEqual(element)"
+                
+                 >
+                  <p style="align-self: end;width: 73px;"  > {{element.invoice_duedate | date }} </p>
+                   <div>
+                     <input matInput [matDatepicker]="dp" [(ngModel)]="element.invoice_duedate" (ngModelChange)="datechanged()"  style="height: 0px;width: 0px;border: none;" >
+                     <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                     <mat-datepicker #dp></mat-datepicker>
+                   </div>
+                 </div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cashflow">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef style="width: 19%;"> Cash Flow </th>
+              <td mat-cell *matCellDef="let element"> 
+                <mat-slide-toggle [(ngModel)]="element.cashflow" [disabled]="toggle(element)" (change)="changetotal(element)"></mat-slide-toggle>
+              </td>
+            </ng-container>
+          
+            <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
+            <!-- [class.duedate]="isDateEqual(element)" -->
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.budgetcolor]="row.type === 'budget' " ></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[8, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+    <!-- <div>
+        <div class="d-flex">
+            <p><b>Total Payables: </b></p>
+            <p>{{payables_total | number}}</p>
+        </div>
+    </div> -->
+
+</div>

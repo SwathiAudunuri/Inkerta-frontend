@@ -1,0 +1,213 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer [opened]="statusopen" #drawer class="example-sidenav" class="example-sidenav" mode="side" position="end"
+    style="width: 50%; padding: 10px;border:1px solid #dfdfdf ;">
+    <!-- <app-invoice-details-sidenav (childEvent)="sidenav=$event" [details]="details"></app-invoice-details-sidenav> -->
+    <div class="user_info align-items-center justify-content-between" [hidden]="edits">
+      <div class="d-flex align-items-center">
+        <h2 class="mb-0">Task Details</h2>
+      </div>
+      <div>
+        <button style="background-color: white;" (click)="statuschange($event,rowindex)"><span>&#10003;</span>Mark
+          complete </button>
+      </div>
+      <div class="more">
+        <mat-icon (click)="statuschangedelete($event,rowindex);backsidenav()" style="margin: 3px -4px 0px 254px;">delete
+        </mat-icon>
+      </div>
+
+      <mat-icon class="edit_icon" (click)="todo_edit()">edit</mat-icon>
+    </div>
+    <div style="float: left;border-bottom: 1px solid #e2e2e2;height: 49px;" [hidden]="edits">
+      <mat-icon style="margin-top: 12px;cursor: pointer;" (click)="backsidenav()">chevron_left</mat-icon>
+    </div>
+    <div [hidden]="edits">
+      <app-viewtodo [viewdetails]='detailstodo' [updaterow]="updaterow" [rowindex]="rowindex"></app-viewtodo>
+    </div>
+    <div [hidden]="!edits">
+      <app-edittodo (childEvent)="edits=$event" [updaterow]="updaterow" [rowindex]="rowindex"></app-edittodo>
+    </div>
+  </mat-drawer>
+
+  <div class="example-sidenav-content ">
+    <div class="card " style="border:1px solid #dfdfdf ;margin-right: 10px;padding: 10px; min-height: 591px;">
+      <!-- <button (click)="drawer.toggle()">click</button> -->
+      <div>
+        <div>
+          <div class="d-flex mb-1 justify-content-between">
+            <div class="items_flex search ">
+              <div class="input-group search">
+                <div class="input-group-prepend ">
+                  <span class="input-group-text search" id="basic-addon1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-search" viewBox="0 0 16 16">
+                      <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+                      </path>
+                    </svg>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchKey"
+                  aria-label="Input group example" aria-describedby="basic-addon1" (keyup)="applyFilter()">
+                <div class="input-group-prepend advance-search">
+                  <div class="multi_action">
+                    <div class="col">
+                      <div ngbDropdown class="d-inline-block">
+                        <button class=" btn btn_primary" id="dropdownBasics" ngbDropdownToggle>
+                          <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                              <path
+                                d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z">
+                              </path>
+                            </svg>
+                          </span>
+                        </button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasics" style="width:600px;
+                    height: 250px;     transform: translate(210px, 38px);">
+                          <div class="search_fields_container" style="width: 580px;">
+                            <div class="form_body">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <label>Title</label>
+                                  <input type="text" class="form-control" formcontrolname="title" required />
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label>Assigned To</label>
+                                  <select class='form-select form-control' formControlname="assignedTo">
+
+                                    <option value="Farooq">Farooq</option>
+                                    <option value="Swathi">Swathi</option>
+                                  </select>
+
+                                </div>
+                                <div class="col-md-6">
+                                  <label>Priority</label>
+                                  <select class='form-select form-control' formControlname="priority">
+                                    <option value="high">High</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="low">Low</option>
+                                  </select>
+
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <label>Due Date</label>
+                                  <input type="date" formcontrolname="dueDate" class="form-control" required />
+                                </div>
+                              </div>
+                            </div>
+                            <button type="button" class="btn btn_primary " style=" margin-top: 12px;">Search</button>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div>
+              <button class=" btn btn_primary " (click)="showMe()">
+                Add Task
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+          <ng-container matColumnDef="taskRefId">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> taskRefId. </th>
+            <td mat-cell *matCellDef="let element"> {{element.taskRefId}} </td>
+          </ng-container>
+          <ng-container matColumnDef="assignedTo">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> assignedTo. </th>
+            <td mat-cell *matCellDef="let element"> {{element.assignedTo}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="createdBy">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> createdBy. </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdBy}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="createdOn">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> createdOn. </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdOn}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="description">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Description</th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="dueDate">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> dueDate</th>
+            <td mat-cell *matCellDef="let element"> {{element.dueDate}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="flag">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> flag </th>
+            <td mat-cell *matCellDef="let element"> {{element.flag}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="priority">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Priority </th>
+            <td mat-cell *matCellDef="let element">
+              <button *ngIf="element.priority==='medium'" [ngClass]="'medium'">
+                <mat-icon>priority_high</mat-icon>
+              </button>
+              <button *ngIf="element.priority==='high'" [ngClass]="'high'">
+                <!-- <mat-icon>priority_high</mat-icon> -->
+                <mat-icon><span class="material-icons-round">
+                    priority_high
+                  </span></mat-icon>
+              </button>
+              <button *ngIf="element.priority==='low'" [ngClass]="'low'">
+                <!-- <mat-icon>priority_high</mat-icon> -->
+                <mat-icon> <span class="material-icons-two-tone">
+                    low_priority
+                  </span></mat-icon>
+              </button>
+            </td>
+
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> status. </th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+          </ng-container>
+
+          <!-- <ng-container matColumnDef="delete" class="delete">
+            <th mat-header-cell *matHeaderCellDef> Action. </th>
+
+            <td mat-cell *matCellDef="let element">
+
+              <button mat-button [ngClass]="'MuiIconButton-root'" (click)="drawer.toggle()" [matMenuTriggerFor]="menu">
+                <mat-icon><span class="circle">settings</span>
+                </mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="onDelete(element)" class="circle">Delete</button>
+              </mat-menu>
+
+            </td>
+          </ng-container> -->
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row matRipple (click)="update_row(row,i)" 
+          [class.tr_highlight]="taskRefId === row.taskRefId" *matRowDef="let row; columns: displayedColumns;index as i">
+          </tr>
+
+        </table>
+        <mat-paginator [pageSize]="8" [pageSizeOptions]="[8]" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+  </div>
+
+</mat-drawer-container>

@@ -1,0 +1,132 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading || loading1" [color]="'var(--primary)'">
+</mat-progress-spinner>
+<div>
+<div class="sort_bar">
+  <label style="margin-left: -14px;" class="sorting" (click)="Sortname()"
+  [ngClass]="nameToggle === 1 ? 'sorting' : nameToggle === 2 ? 'sort_asc' : nameToggle === 3 ? 'sort_decs' : 'null'">
+  Company Name</label>
+  <label style="margin-left: 14px;" class="sorting" (click)="onSort()"
+  [ngClass]="nToggle === 1 ? 'sorting' : nToggle === 2 ? 'sort_asc' : nToggle === 3 ? 'sort_decs' : 'null'">
+  Contact</label>
+  <label style="margin-left: 61px;" class="sorting" (click)="sorttype()" 
+  [ngClass]="typeToggle === 1 ? 'sorting' : typeToggle === 2 ? 'sort_asc' : typeToggle === 3 ? 'sort_decs' : 'null'">
+  Partner Type</label>
+  <label style="margin-left: 30px;" class="sorting" (click)="sortdate()" 
+  [ngClass]="typeToggle === 1 ? 'sorting' : typeToggle === 2 ? 'sort_asc' : typeToggle === 3 ? 'sort_decs' : 'null'">
+  OnBoarded on</label>
+  <label style="float:right"  class="sorting" (click)="SortStatus()"
+  [ngClass]="statusToggle === 1 ? 'sorting' : statusToggle === 2 ? 'sort_asc' : statusToggle === 3 ? 'sort_decs' : 'null'">
+  Status</label>
+ 
+</div>
+
+<perfect-scrollbar>
+  <div style="max-height: 531px;">
+<div  class="grid_border zoom" [class]=" x.partner_id === partner_id ? 'highlight' : 'null' "  *ngFor="let x of dataSource | paginate:{id:'pagination',itemsPerPage: pageSize, currentPage: page} ;index as i  " (click)="table_data(x)"  >
+ 
+  <div class="m-1" style="margin-top: -13px;">
+    <div class="d-flex" style="width: 100%;">
+        
+        <div  class="d-flex" style="width: 100%;">
+          <div style="align-self: center;margin-right: 11px;">
+            <img class="img" *ngIf="x.partner_type === 'Vendor' || x.partner_type ==='vendor'  " src="./assets/vendor3.svg" style="height: 25px;"/>
+            <img class="img" *ngIf="x.partner_type === 'customer' ||x.partner_type === 'Customer' " src="./assets/customer3.svg" style="margin-top: -12px;height: 25px;"/>
+
+            <img class="img" *ngIf="x.partner_type === 'BusinessPartner' || x.partner_type ==='businesspartner'  " src="./assets/businesspatner.svg" style="height: 25px;"/>
+          </div>
+            <div style="width: 100%;">
+              <div class="d-flex justify-content-between top_div">
+                <div>
+                    <p class="title_para" name="row_company_name">{{x.company_name}}</p>
+                </div>
+                <div class="d-flex bottom_div">
+                    <p class="data_para " name="row_invoicedate">
+                     <span class="user_status" [class]="x.status==='Active'?'active':'inactive'  ">{{x.status}}</span> 
+                    </p>
+                </div>
+            </div>
+            <div class="d-flex bottom_div">
+                <!-- <div class="d-flex">
+                    <p class="data_para" name="row_invoicenum" style="margin-left: 5px;font-style: italic;">#{{x.partner_id}}</p>
+                    <mat-divider class="divider"  [vertical]="true"></mat-divider>
+                </div> -->
+                <div class="d-flex" style="margin-left: 5px;">
+                    <div class="d-flex">
+                        <label style="font-size: 12px;" >Name <span>:</span></label>
+                        <p class="data_para" name="row_amount" style="margin-left: 5px;">{{x.contactName}}</p>
+                        <mat-divider class="divider"  [vertical]="true"></mat-divider>
+                    </div>
+                    <div class="d-flex" >
+                        <div class="d-flex" style="margin-left: 5px;">
+                            <label style="font-size: 12px;">Mobile No <span>:</span></label>
+                            <p class="data_para" name="row_invoiceduedate" style="margin-left: 5px;">{{x.primary_phone_number}}</p>
+                            <mat-divider class="divider"  [vertical]="true"></mat-divider>
+                        </div>
+                        <div class="d-flex" style="margin-left: 5px;" >
+                          <label style="font-size: 12px;">Type <span>:</span></label>
+                          <p class="data_para" name="row_invoice_status" style="margin-left: 5px;">{{x.partner_type }}</p>
+                          <mat-divider class="divider"  [vertical]="true"></mat-divider>
+                      </div>
+                      <div class="d-flex" style="margin-left: 5px;" >
+                        <label style="font-size: 12px;">OnBoarded on <span>:</span></label>
+                        <p class="data_para" name="row_invoice_status" style="margin-left: 5px;">{{x?.onboarded_on  | date:'dd-MM-yyyy'}}</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+
+</div>
+<p>{{mess}}</p>
+<div class="d-flex" style="margin-top: -6px;height: 33px;">
+  <div class="d-flex" style="align-items: center;">
+    <label style="width: 81px;">Page Size : </label>
+    <select style="width: 70px;"  class='form-select pagesize' type="text" [(ngModel)]="pageSize" variant="standard"   >
+      <!-- <option value=5>5</option> -->
+      <option value=8>8</option>
+      <option value=10>10</option>
+      <option value=15>15</option>
+      <option value=20>20</option>
+      <option value=25>25</option>
+      <option value=30>30</option>
+    </select >
+  </div>
+  <div  style="margin-bottom: 9px;">
+    <pagination-controls id="pagination" (pageChange)="page=$event"   ></pagination-controls>
+  </div>
+</div>
+<!-- <div  style="margin-bottom: 9px;">
+  <pagination-controls id="pagination" (pageChange)="page=$event"   ></pagination-controls>
+</div> -->
+</div>
+</perfect-scrollbar>
+</div>
+
+
+
+<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.company_name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Role">
+      <th mat-header-cell *matHeaderCellDef> Role </th>
+      <td mat-cell *matCellDef="let element"> {{element.partner_type}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table> -->

@@ -1,0 +1,376 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%;width: 100%; overflow: hidden;}
+body { margin: 0; 
+    font-family:  'Roboto', sans-serif !important;
+    color: #333;
+    /* font-size: 14px; */
+    font-size: 0.75rem ;
+    font-weight: 500;
+    line-height: 1.75;
+    background-color: white;
+
+}
+.root { margin: 0; 
+  font-family: 'Roboto', sans-serif !important;
+  color: #333;
+  /* font-size: 14px; */
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.75;
+
+}
+.MuiIconButton-root {
+    flex: 0 0 auto;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.2857142857142856rem;
+    text-align: justify;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    
+  }
+  .MuiIconButton-root:hover{
+    background-color: #f2f2f3;
+  }
+  
+
+  .flat_button{
+    background-color: #008ecc;
+    color: white;
+    padding: 6px 16px;
+    font-size: 0.75rem;
+    min-width: 64px;
+    display: inline-flex;
+    border-radius: 3px;
+    font-weight: 500;
+    line-height: 1.75;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    border:none;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+  }
+ 
+  mat-form-field.no-padding .mat-form-field-wrapper {
+    padding: 0;
+}
+.mat-dialog-container {
+  padding: 0 !important;
+  }
+  .custom-bread-crumb {
+      padding: 0px;
+      padding: 15px 0px 0px 0px !important;
+
+      line-height: 1px !important;
+    /* padding: 10px 16px; */
+}
+table{
+  width: 100%;
+}
+.mat-elevation-z8 {
+  box-shadow: none !important;
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button{
+  min-width:40px !important;
+  }
+  .mat-menu-content:not(:empty){
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  }
+
+  .mat-header-cell{
+    font-size: 14px !important;
+}
+.mat-cell, .mat-footer-cell {
+    font-size: 13px;
+}
+.mat-menu-item{
+  height: 40px !important;
+  }
+
+tr.mat-header-row,
+tr.mat-row, tr.mat-footer-row {
+  height: 46px !important;
+}
+.mat-header-cell {
+  color: #fff !important;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row{
+  padding: 0px 15px 0px 0px !important;
+}
+
+tr.mat-header-row .mat-checkbox-frame {
+  border-color: #fff;
+}
+tr.mat-header-row .mat-checkbox-checkmark-path {
+  stroke: #969696 !important;
+}
+
+tr.mat-header-row  .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background,
+tr.mat-header-row  .mat-checkbox-checked.mat-primary .mat-checkbox-background{
+  background-color: #ffffff;
+}
+tr.mat-header-row .mat-checkbox-mixedmark {
+  background-color: #a7a7a7;
+}
+.mat-checkbox-layout{
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+}
+
+.filter_logMngt .mat-checkbox-layout{
+  height: auto;
+  width: auto;
+}
+
+.toolbar .MuiIconButton-root:hover,
+.toolbar .MuiIconButton-root1:hover {
+  /* background-color: #0d7bab !important; */
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+.MuiIconButton-root:hover,
+.MuiIconButton-root1:hover {
+  /* background-color: #0d7bab !important; */
+  background-color: transparent !important;
+}
+
+/* search removed */
+
+.btn-close:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.modal-title {
+  font-size: 16px;
+  font-weight: 600 !important;
+}
+/* .mat-dialog-container{
+  overflow: hidden !important;
+} */
+
+.outer_body{
+  padding: 15px;
+box-shadow: 1px 1px 10px 0px rgb(0, 0, 0 , 0.1);
+}
+
+
+.mat-toolbar-row, .mat-toolbar-single-row{
+  justify-content: space-between;
+}
+.btn-default.hover {
+  background-color: red !important;
+}
+.btn-close{
+  cursor: pointer;
+}
+
+.mat-drawer{
+  z-index: 2 !important;
+}
+.btn-primary{
+  background-color: #008ecc !important;
+  color: white;
+
+}
+.btn-primary:hover{
+  background-color: #006c9b !important;
+}
+.btn-light{
+  background: #e7e7e7 !important;
+  border: 1px solid #ccc !important;
+}
+.btn-light:hover{
+  background-color: #dadada !important;
+}
+
+
+
+g.line-chart > g:last-of-type > g:nth-child(n) g.line-series > path {
+  stroke-width: 5 !important;
+  stroke-linecap: round !important;
+}
+.mat-step-header .mat-step-icon{width: 60px !important;height:60px !important;margin-top:-15px !important;background-color:#1a8fcd !important;color:#fff}
+
+.mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+  width: 60px;
+  height: 60px;
+  margin-top: -15px;
+  background-color: #f68c1e !important;
+  color: #fff;
+}
+.mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}
+.mat-flat-button.mat-primary,.mat-raised-button.mat-primary,.mat-fab.mat-primary,.mat-mini-fab.mat-primary{background-color:#1a8fcd }
+.mat-flat-button.mat-accent,.mat-raised-button.mat-accent,.mat-fab.mat-accent,.mat-mini-fab.mat-accent{background-color:#f68c1e }
+.terms_checkbox .mat-checkbox-layout {
+  width: initial !important;
+  height: initial !important;
+}
+/* .mat-drawer-content {
+  height: calc(100% - 76px) !important;
+} */
+/* -----------------------/ */
+.mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
+  background-color: var(--primary) !important;
+}
+.mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-bar {
+  background-color: var(--primary) !important;
+}
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: var(--primary) !important;
+}
+/* .cdk-overlay-pane{
+  width: 100%!important;
+  height: 100%!important;
+} */
+
+.mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate, .mat-accent .mat-pseudo-checkbox-checked, .mat-accent .mat-pseudo-checkbox-indeterminate {
+  background: #ff4081 !important;
+}
+
+.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+  background-color: #f68c1e !important;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #1a8fcd !important;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background-color: var(--primary) !important;
+}
+.mat-dialog-actions {
+  margin-bottom: 0px !important;
+}
+.mat-dialog-content{
+  margin: 0px 0px !important;
+}
+.modal-content{
+  border: 0px !important;
+}
+
+.p-treetable .p-treetable-tbody > tr > td{
+  padding: 2px !important;
+  white-space:nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+  font-size: 14px;
+}
+.p-treetable .p-treetable-thead > tr > th{
+  padding: 2px !important;
+  background-color: var(--primary) !important;
+  color: white !important;
+  font-size: 15px;
+
+}
+
+tr.mat-header-row {
+  background-color: var(--primary);
+}
+.btn_primary{
+  background-color: var(--primary) !important;
+  color:#fff !important
+}
+.btn_light{
+  background-color: #eae8e8 !important;
+}
+/* new */
+.HeaderToolsContainer.closed{
+  display: none !important;
+}
+
+.App:not(.is-in-desktop-only-mode) .HeaderToolsContainer {
+    height: 0px;
+}
+
+.filter_logMngt .mat-checkbox-layout{
+  height: auto;
+  width: auto;
+}
+
+::-webkit-scrollbar{
+  width: 9px;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: #efefef;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 5px ;
+  background-color: #564f4f7a ;
+}
+/* --------- */
+.ngx-pagination .current {
+  background: var(--primary) !important;
+}
+::-webkit-scrollbar-track{
+  border-radius: 5px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+}
+::-webkit-slider-thumb{
+  border-radius: 5px !important;
+  background-color: #009578 !important;
+} 
+.custom-update-dialog-container .mat-dialog-container {
+  border-radius: 10px !important;
+  overflow: hidden;
+ 
+  border-top-right-radius: 10px !important ;
+  border-top-left-radius: 10px !important ;
+}
+
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+  padding-left: 10px !important;
+}
+
+.mat-tab-label{
+  min-width: 120px !important;
+  height: 36px !important;
+}
+
+.mat-menu-panel {
+    max-width: unset !important;
+
+}
+.comment{
+  width: 520px;
+}
+.blue-snackbar {
+  background: #bae0ff !important;
+  margin-bottom: 100px !important;
+}
+
+circle.ng-star-inserted {
+    stroke-width: 6% !important;
+}
+
+.mat-tab-label-content {
+  font-weight: 550 !important;
+}
+
+.NgxEditor {
+  overflow-y: scroll !important;
+  height: 308px !important;
+}
+
+.mat-datepicker-toggle.mat-datepicker-toggle :hover {
+  color: var(--primary) !important;
+}
+.mat-datepicker-toggle.mat-datepicker-toggle :focus {
+  color: var(--primary) !important;
+}
+svg.mat-datepicker-toggle-default-icon.ng-star-inserted {
+  height: 22px !important;
+  margin-top: -6px !important;
+  margin-left: -17px !important;
+}

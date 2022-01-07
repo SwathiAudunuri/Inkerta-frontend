@@ -1,0 +1,172 @@
+<form [formGroup]="Additional_Details" class="Additional_Details">
+<div class="d-flex">
+  <div  class="col-sm-12 px-3 py-2">
+    <h2 class="heading" >Primary Contact Details</h2>
+    <div style="display: flex;">
+        <div>
+          <div class="profile_pic">
+              <img [src]="imgurl" *ngIf=" imgurl !=='' "/>
+              <!-- <img src="../../../../../../assets/profile-photo.jpg" *ngIf=" imgurl === '' " />  -->
+              <img src="./assets/profile-photo.jpg" *ngIf=" imgurl === '' " /> 
+              <div class="action_btn" [hidden]="edit_btn">
+                <input type="file" id="file" class="upload-box" (change)="profile_img($event)" />
+                <label  for="file">Edit</label>
+              </div>
+          </div>
+          <div style="margin-top:8px" [hidden]="edit_btn">
+            
+            <!-- <label *ngIf=" imgurl==='' " class="upload_label" for="file">Choose a Photo<mat-icon style="margin-top: -4px;">add_photo_alternate</mat-icon></label> -->
+            
+            <button class="remove_btn" mat-button color="primary" (click)="remove_img()" *ngIf="imgurl !== ''">Remove image</button>
+          </div>
+        </div>
+        <div style="margin-left:46px;" class="col-sm-6" >
+          <div class="form-inline">
+            <label [class.w-120]="!edit_btn">Name <span>:</span></label>
+            <p *ngIf="edit_btn"><b>{{Additional_Details.value.firstName + Additional_Details.value.lastName}}</b></p>
+            <input class="form-control"  formControlName="firstName" *ngIf="!edit_btn"/>
+            <input class="form-control"  formControlName="lastName" *ngIf="!edit_btn"/>
+          </div>
+          <!-- <p style="line-height: 11px;">Information :</p> -->
+          <div class="form-inline">
+            <label [class.w-120]="!edit_btn">Email <span>:</span></label>
+            <p *ngIf="edit_btn"><b>{{Additional_Details.value.email}}</b></p>
+            <input class="form-control"  formControlName="email" *ngIf="!edit_btn"/>
+          </div>
+          <div class="form-inline">
+            <label [class.w-120]="!edit_btn">Phone Number <span>:</span></label>
+            <p *ngIf="edit_btn"><b>{{Additional_Details.value.mobileNumber}}</b></p>
+            <input class="form-control"  formControlName="mobileNumber" *ngIf="!edit_btn"/>
+          </div>
+          <div class="form-inline">
+            <label [class.w-120]="!edit_btn">Role Name <span>:</span></label>
+            <p><b>Vender Manager</b></p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Please Enter the OTP</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" style="background-color: #faf0f0;">
+      <form>
+        <div class="form-group" style="margin-left: 103px;">
+          <div class="input-group">
+            
+            <input matInput maxlength='4' required class="gstNum1" style="margin-right: 27px;">
+            <button class="btn btn-primary">Verify</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+      <button type="button" class="btn btn-primary">Resend</button>
+    </div>
+</ng-template>
+<div class="borderTopBox">
+  <div class="boxHeading">Secondary Contact Details
+      <!-- <button class="add-secondary btn btn_primary btn-sm" *ngIf="!edit_btn" type="button"  (click)="add_details();open1(content1)"  >Add<mat-icon>add_circle</mat-icon></button> -->
+      <button class="add-secondary btn btn_primary btn-sm" type="button"   style="color: #ffff;" [style.backgroundColor]="edit_btn ? '#1a8fcd' : 'rgb(217 192 192)'" *ngIf="!edit_btn" type="button"  (click)="add_details();open1(content1)" >Add<mat-icon style="font-size: 17px;margin-left: 3px;">add_circle</mat-icon></button>
+  </div>
+  <div class="borderTopBoxBody">
+    <!-- <div [hidden]="edit_btn">
+      <button mat-raised-button color="primary" (click)="add_details();open1(content1)"  >Add<mat-icon>add_circle</mat-icon></button>
+    </div>  -->
+    <div >
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef> FirstName </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef> LastName </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email-id </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="mobileno">
+        <th mat-header-cell *matHeaderCellDef> Mobile Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.mobileno}} </td>
+      </ng-container>
+      <div></div>
+      <ng-container matColumnDef="edit" >
+        <th mat-header-cell *matHeaderCellDef >Action</th>
+        <td mat-cell *matCellDef="let element; index as i"> 
+        <span >
+        <button mat-button  [matMenuTriggerFor]="menu" [disabled]="edit_btn" [class.circle]="!edit_btn" ><mat-icon>settings</mat-icon></button></span>
+          <mat-menu #menu="matMenu" >
+            <button mat-menu-item class="mat-focus-indicator circle mat-menu-item" (click)="edit_secondary(element,i);open1(content1)" >Edit</button>
+            <button mat-menu-item class="mat-focus-indicator circle mat-menu-item" (click)="delete_secondary(i)">delete</button>
+          </mat-menu>
+        
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
+
+</div>
+<ng-template #content1 let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Secondary Contact Details</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" >
+    <form [formGroup]="secoundary_Details" (ngSubmit)="edit_sec ? submit_secondary() : submit_secondaryedit()">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label>First Name</label>
+          <input class='form-control' formControlName="firstname" type="text" variant="standard" />
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label>Last Name</label> 
+          <input class='form-control' formControlName="lastname" type="text" variant="standard" />
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label>Mobile Number</label> 
+          <div style="display: flex;">
+              <input class='form-control' formControlName="mobileno" type="text"  variant="standard" style="width: 76%;" />
+              <button mat-raised-button color="primary" (click)="open(content)">Verify Mobile</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label>Email ID</label> 
+          <div style="display: flex;">
+            <input class='form-control' type="text" formControlName="email"  variant="standard" style="width: 78%;" />
+            <button mat-raised-button color="primary" (click)="open(content)">Verify Email</button>
+          </div>
+        </div>
+      </div> 
+      <button type="submit" *ngIf="edit_sec" mat-raised-button (click)="modal.close('Save click')">Submit</button>
+      <button type="submit" *ngIf="!edit_sec" mat-raised-button (click)="modal.close('Save click')">Update</button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+  </div>
+</ng-template>
+</form>

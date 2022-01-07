@@ -1,0 +1,178 @@
+ <!-- <p>commapgrid works!</p> -->
+
+ <mat-drawer-container class="example-container" autosize>
+
+
+   <mat-drawer [opened]="statusopen" #drawer class="example-sidenav" class="example-sidenav" mode="side" position="end"
+     style="width: 50%; padding: 10px;border:1px solid #dfdfdf ;">
+     <div class="user_info align-items-center justify-content-between" [hidden]="edits">
+       <div class="d-flex align-items-center">
+         <h2 class="mb-0">Communication Details</h2>
+       </div>
+       <div>
+         <button style="background-color: white;" (click)="statusinactivechange($event,rowindex)">InActive</button>
+       </div>
+       <!-- <span>&#10003;</span -->
+       <div class="more">
+         <mat-icon style="margin: 3px -4px 0px 254px;" (click)="statuschangedelete($event,rowindex)">delete
+         </mat-icon>
+       </div>
+       <mat-icon class="edit_icon" (click)="rec_edit()">edit</mat-icon>
+     </div>
+     <div style="float: left;border-bottom: 1px solid #e2e2e2;height: 49px;" [hidden]="edits">
+       <mat-icon style="margin-top: 12px;cursor: pointer;" (click)="backsidenav()">chevron_left</mat-icon>
+     </div>
+     <div [hidden]="edits">
+       <app-commapview [viewdetails]='recipientlist' [dumy1]="dumy1"></app-commapview>
+     </div>
+     <div [hidden]="!edits">
+       <app-commapedit (childEvent)="edits=$event" [updaterow]="updaterow" [rowindex]="rowindex"></app-commapedit>
+     </div>
+
+   </mat-drawer>
+
+   <div class="example-sidenav-content ">
+     <div class="outer_body card "
+       style="border:1px solid #dfdfdf ;margin-right: 10px;padding: 10px; min-height: 591px;">
+
+       <div class="d-flex mb-1 justify-content-between">
+         <div class="col-md-6">
+           <div class="items_flex">
+             <div class="input-group search">
+               <div class="input-group-prepend ">
+                 <span class="input-group-text search" id="basic-addon1">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-search" viewBox="0 0 16 16">
+                     <path
+                       d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+                     </path>
+                   </svg>
+                 </span>
+               </div>
+               <input type="text" class="form-control" placeholder="Search" aria-label="Input group example"  [(ngModel)]="searchKey" 
+                 aria-describedby="basic-addon1" (keyup)="doFilter($event)">
+             </div>
+           </div>
+         </div>
+
+         <div>
+           <button class=" btn btn_primary" (click)="showMe()">
+             New
+           </button>
+         </div>
+       </div>
+
+       <div>
+         <div class="grid_border"
+           *ngFor="let x of recipientlistdetails  | filter:searchKey | paginate:{id:'pagination',itemsPerPage:8, currentPage: page} ;index as i " 
+           [class]=" x.recipientId === recipient_Id ? 'highlight' : null "
+           (click)="recipientlistClick(x,i);sidenav();opensidenav();updateRecord(x,i)">
+           <div class="m-1" style="margin-top: -13px;" >
+             <div class="d-flex">
+               <div style="width: 100%;">
+                 <div class="d-flex justify-content-between top_div">
+                   <div>
+                     <p class="title_para">{{x.recipientTag}}</p>
+                   </div>
+                   <div class="d-flex ">
+                    <p class="title_para" style="margin: 0px 0px 0px -255px;">,{{x.deliveryMode}}</p>
+                  </div>
+                   <div class="d-flex bottom_div">
+                    <!-- <p class="title_para">{{x.deliveryMode}}</p> -->
+                     <p class="data_para">{{x.isActive}}</p>
+                   </div>
+                 </div>
+                 <div class="d-flex bottom_div">
+                   <div class="d-flex">
+                     <label style="color: #e44f58;"><b>GSTINS</b></label>
+                     <p class="data_para" style="margin-left: 5px;font-style: italic;"> 19AAACW2286K1ZW,07AAACP3682N2ZZ,27AAACL6442L1ZA,03BZNPM9430M1KL,..</p>
+                     <mat-divider class="divider" [vertical]="true"></mat-divider>
+                   </div>
+                   <div class="d-flex" style="margin-left: 5px;">
+                     <!-- <div class="d-flex">
+                                <label style="font-size: 12px;">Gstin <span>:</span></label>
+                                <p class="data_para" style="margin-left: 5px;">{{}}</p>
+                                <mat-divider class="divider"  [vertical]="true"></mat-divider>
+                            </div> -->
+                     <!-- <div class="d-flex" >
+                                <div class="d-flex" style="margin-left: 5px;">
+                                    <label style="font-size: 12px;">DueDate <span>:</span></label>
+                                    <p class="data_para" style="margin-left: 5px;">{{x.invoiceduedate | date:'dd-mm-yyyy'}}</p>
+                                </div>
+                            </div> -->
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <!-- {{mess}} -->
+         <div class="pagination" style="margin-bottom: 9px;">
+           <pagination-controls id="pagination"  (pageChange)="page=$event"></pagination-controls>
+         </div>
+       </div>
+
+
+
+       <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+        <ng-container matColumnDef="recipientId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Recipient ID</th>
+          <td mat-cell *matCellDef="let element">{{element.recipientId}}</td>
+        </ng-container>
+        <ng-container matColumnDef="recipientTag">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Recipient Tag</th>
+          <td mat-cell *matCellDef="let element">{{element.recipientTag}}</td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+          <td mat-cell *matCellDef="let element">{{element.description}}</td>
+        </ng-container>
+        <ng-container matColumnDef="deliveryMode">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Delivery Mode</th>
+          <td mat-cell *matCellDef="let element">{{element.deliveryMode}}</td>
+        </ng-container>
+        <ng-container matColumnDef="isActive">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Active</th>
+          <td mat-cell *matCellDef="let element">{{element.isActive ? 'Yes' : 'No'}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+          <td mat-cell *matCellDef="let element" (click)="$event.stopPropagation(); tr_highlight(element)"
+            [ngClass]="{'tr_highlight': recipientId === element.recipientId  }">
+            <button mat-button class="MuiIconButton-root" [matMenuTriggerFor]="menu">
+              <mat-icon><span class="circle">settings</span>
+              </mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu">
+              <button *ngIf="!element.isActive" mat-menu-item (click)="active($event,element.recipientId)">
+                <mat-icon>check</mat-icon> Active
+
+              </button>
+              <button *ngIf="element.isActive" mat-menu-item (click)="inactive($event,element.recipientId)">
+                <mat-icon>close</mat-icon> In-Active
+              </button>
+              <button mat-menu-item (click)="delete($event,element.recipientId)">
+                <mat-icon>delete</mat-icon> Delete
+              </button>
+            </mat-menu>
+
+          </td>
+        </ng-container>
+
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row matRipple *matRowDef="let rows; columns: displayedColumns;index as i" (click)="updateRecord(rows,i)"
+          [class.tr_highlight]=" grid_highlight === rows.recipientId " class="table-row"></tr>
+
+      </table> -->
+
+       <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20,50,80]" [pageSize]="8" showFirstLastButtons>
+      </mat-paginator> -->
+     </div>
+   </div>
+ </mat-drawer-container>

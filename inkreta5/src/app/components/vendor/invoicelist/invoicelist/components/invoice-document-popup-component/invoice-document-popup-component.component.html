@@ -1,0 +1,24 @@
+<div class="main_div" >
+    <div>
+        <div class="d-flex justify-content-between align-content-center pdf_btns">
+            <h2 class="mb-0" style="line-height: 29px;font-size: 17px;">{{compnay_name}}</h2>
+            <span></span>
+            <div>
+                <span (click)="zoomin()"><mat-icon>zoom_in</mat-icon></span>
+                <span (click)="zoomout()"><mat-icon>zoom_out</mat-icon></span>
+                <span (click)="close()"><mat-icon>close</mat-icon></span>
+            </div>
+        </div>
+        <perfect-scrollbar>
+            <pdf-viewer id="webviwer" class="webviwer" 
+                [src]="attachment_view"
+                [render-text]="true"
+                style="display: block;"
+                [original-size]="pdfOriginalSize" 
+                [zoom]="pdfZoom"
+                [show-all]="pdfShowAll" 
+            >
+            </pdf-viewer>
+        </perfect-scrollbar>
+    </div>
+</div>

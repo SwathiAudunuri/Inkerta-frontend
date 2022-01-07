@@ -1,0 +1,233 @@
+
+<div>
+    <div class="modal-header">
+      <label class="modal-title" id="modal-basic-title">Upload Invoice</label>
+      <button type="button" aria-label="Close" class="btn-close" (click)="close()"></button>
+    </div>
+    <perfect-scrollbar>
+      <div class="main_div m-1">
+        <div class="d-flex justify-content-between" style="min-height: 140px;">
+          <div class="col-sm-4  p-1">
+            <p class="heading"><b>From ,</b> </p>
+            <div class="d-flex inp1">
+              <p>BMW INDIA PRIVATE LIMITED</p>
+            </div>
+            <div class="d-flex inp1">
+              <p>ashok_grandhi@tecnics.com</p>
+            </div>
+            <div class="d-flex inp1">
+              <P>6302968919</P>
+            </div>
+            <div class="d-flex inp1">
+              <p>06AABCB7140C1Z9</p>
+            </div>
+            <div class="d-flex inp1">
+              <address> #4B Attibele, Industrial Area, Bangalore, #4B Attibele, Industrial Area, 562107</address>
+            </div>
+          </div>
+  
+          <div class="col-sm-4 p-1 tran_details" style="float: right;">
+            <p class="heading"><b>To ,</b> </p>
+            <div class="d-flex inp1">
+              <p>Tecnics INDIA PRIVATE LIMITED</p>
+            </div>
+            <div class="d-flex inp1">
+              <p>gopal@tecnics.com</p>
+            </div>
+            <div class="d-flex inp1">
+              <P>6302968919</P>
+            </div>
+            <div class="d-flex inp1">
+              <p>06BBACB7140C1A8</p>
+            </div>
+            <div class="d-flex inp1">
+              <address> #4B Attibele, Industrial Area, Bangalore, #4B Attibele, Industrial Area, 562107</address>
+            </div>
+          </div>
+  
+  
+        </div>
+        <div>
+          <div class="p-1 tran_details">
+            <p class="heading"><b>Transcation Details</b></p>
+            <div>
+              <div class="d-flex">
+                <div class="col-sm-2 p-1 ">
+                  <label>Invoice Date : </label>
+                  <div class="form-group">
+  
+                    <div class="input-group">
+                      <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
+                        #d="ngbDatepicker" [minDate]="{year: 2010, month: 1, day: 1}"
+                        [maxDate]="{year: 2048, month: 12, day: 31}">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+  
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 p-1 ">
+                  <label>Payment Terms : </label>
+                  <select class="form-select" type="text">
+                    <option>Select</option>
+                    <option value="30">30</option>
+                    <option value="60">60</option>
+                    <option value="90">90</option>
+                    <option value="custom">custom</option>
+                    <option value="due on receipt">custom</option>
+                  </select>
+                </div>
+                <div class="col-sm-2 p-1">
+                  <label>Due Date : </label>
+                  <input class="form-control" type="text" />
+                </div>
+                <div class="col-sm-2 p-1">
+                  <label>Invoice No : </label>
+                  <input class="form-control" type="text" />
+                </div>
+                <div class="col-sm-2 p-1">
+                  <label>Reference No : </label>
+                  <input class="form-control" type="text" />
+                </div>
+                <div class="col-sm-2 p-1">
+                  <label>Currency : </label>
+                  <input class="form-control" type="text" />
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+  
+        <div class="table">
+          <p class="heading"><b>Item Details</b></p>
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+            <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef style="width: 5%;">
+                <mat-icon class="add_icon" (click)="add_row()">add</mat-icon>
+              </th>
+              <td mat-cell *matCellDef="let element ; index as i">
+                <mat-icon class="delete_icon" (click)="delete_row(i)">close</mat-icon>
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="item_no">
+              <th mat-header-cell *matHeaderCellDef> Item No </th>
+              <td mat-cell *matCellDef="let element" class="p-1">
+                <input class="form-control" value={{element.item_no}} [(ngModel)]="element.item_no" />
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="item_name">
+              <th mat-header-cell *matHeaderCellDef> Item Name </th>
+              <td mat-cell *matCellDef="let element" class="p-1">
+                <input class="form-control" value={{element.item_name}} [(ngModel)]="element.item_name" />
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef> Quantity </th>
+              <td mat-cell *matCellDef="let element" class="p-1">
+                <input class="form-control num" value={{element.quantity}} [(ngModel)]="element.quantity" />
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Price </th>
+              <td mat-cell *matCellDef="let element" class="p-1">
+                <input class="form-control num" value={{element.price}} [(ngModel)]="element.price" />
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="total">
+              <th mat-header-cell *matHeaderCellDef> Total </th>
+              <td mat-cell *matCellDef="let element" class="p-1">
+                <input class="form-control" value="{{element.price * element.quantity }}" [(ngModel)]="element.total" />
+              </td>
+            </ng-container>
+  
+  
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+  
+        </div>
+  
+        <div>
+          <div class="attachments col-sm-6">
+            <div style="border-bottom: 1px solid #ccc;">
+              <p class="heading"><b>Attachments</b></p>
+            </div>
+            <div class="p-1">
+              <div class="pdf_div d-flex">
+                <div class="d-flex col-sm-7">
+                  <div class="col-sm-7">
+                    <label class="label"><b>Upload Invoice Document (.pdf)</b> <span class="required">*</span></label>
+                    <input type="file" id="id2" accept=".pdf" class="upload-box" />
+                  </div>
+                  <div class="col-sm-5">
+                    <button class="btn btn_primary button"><label for="id2">choose file</label></button>
+                  </div>
+                </div>
+                <div class="col-sm-5 help">
+                  <div>
+                    <span>Please Select your invoice(.pdf)</span>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="pdf_div d-flex">
+                <div class="d-flex col-sm-7">
+                  <div class="col-sm-7">
+                    <label class="label"><b>Upload Supporting Documents (.pdf/.doc)</b> <span
+                        class="required">*</span></label>
+                    <input type="file" id="id2" accept=".pdf" class="upload-box" />
+                  </div>
+                  <div class="col-sm-5">
+                    <button class="btn btn_primary button"><label for="id2">choose files</label></button>
+                  </div>
+                </div>
+                <div class="col-sm-5 help">
+                  <div>
+                    <span>Please Select your documents(.pdf/.doc)</span>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+  
+  
+          </div>
+  
+          <div class="totals col-sm-3">
+            <div class="d-flex inp">
+              <label>Sub Total <span>:</span></label>
+              <input class="form-control num" type="text" />
+            </div>
+            <div class="d-flex inp">
+              <label>Tax Rate <span>:</span></label>
+              <input class="form-control num" type="text" />
+            </div>
+            <div class="d-flex inp">
+              <label>Tax Amount <span>:</span></label>
+              <input class="form-control num" type="text" />
+            </div>
+            <div class="d-flex inp">
+              <label>Total <span>:</span></label>
+              <input class="form-control num" type="text" />
+            </div>
+  
+          </div>
+        </div>
+  
+      </div>
+    </perfect-scrollbar>
+    <div class="fotter">
+      <button class="btn" (click)="close()" type="button">Cancel</button>
+      <button class="btn  btn_primary" style="margin-left: 10px;" type="submit">Submit</button>
+    </div>
+  </div>

@@ -1,0 +1,35 @@
+<div class="m-1 " style="margin-top: -13px;">
+    <div class="d-flex">
+        <div style="margin-right: 13px;">
+            <!-- <img class="image"  src="../../../../../../assets/task.png"/> -->
+            <img class="image"  src="./assets/task.png"/>
+        </div>
+        <div style="width: 100%;">
+            <div class="d-flex justify-content-between top_div">
+                <div>
+                    <p class="title_para">{{data.title}}</p>
+                </div>
+                <div class="d-flex bottom_div">
+                    <!-- <label style="font-size: 12px;"> Received On <span>:</span> </label> -->
+                    <p class="data_para" style="margin-left: 5px;">{{data.createdon}}</p>
+                </div>
+            </div>
+            <div class="d-flex bottom_div">
+                <div class="d-flex">
+                    <label style="color: #73c0ec;"><b>{{data.type}}</b></label>
+                </div>
+                <div class="d-flex">
+                    <div class="d-flex" style="margin-left: 5px;" >
+                        <label style="font-size: 12px;">Assign by <span>:</span></label>
+                        <p class="data_para" style="margin-left: 5px;">{{data.assignby}}</p>
+                        <mat-divider class="divider"  [vertical]="true"></mat-divider>
+                    </div>
+                    <div class="d-flex" style="margin-left: 5px;">
+                        <label style="font-size: 12px;">DueDate <span>:</span></label>
+                        <p class="data_para" style="margin-left: 5px;"> {{data.DueDate}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer [opened]="sidenav" class="example-sidenav sidenav" mode="side" position="end">
+        <div [hidden]="display !== 'Invoice'">
+            <app-invoice-details-sidenav (childEvent)="sidenav=$event"  [details]="details" [backarrow]=true ></app-invoice-details-sidenav>
+        </div>
+        <div [hidden]="display !== 'Query'">
+            <app-query-sidenav (childEvent)="sidenav=$event" [details]="details"></app-query-sidenav>
+        </div>
+        <div [hidden]="display !== 'Task'">
+            <!-- <p>Task</p> -->
+            <div class="user_info align-items-center justify-content-between" [hidden]="edits">
+                <div class="align-items-center d-flex">
+                    <mat-icon (click)="backsidenav()">chevron_left</mat-icon>
+                    <h2 class="ps-3 mb-0">Task Details</h2>
+                </div>
+                <div>
+                  <button style="background-color: white;"><span>&#10003;</span> Mark complete </button>
+                </div>
+                <mat-icon class="edit_icon" (click)="todo_edit()">edit</mat-icon>
+            </div>
+            <div [hidden]="edits">
+                <app-viewtodo [viewdetails]='details' [updaterow]="updaterow"></app-viewtodo>
+            </div>
+            <div [hidden]="!edits">
+                <app-edittodo (childEvent)="edits=$event" [updaterow]="updaterow" [rowindex]="rowindex"></app-edittodo>
+            </div>
+        </div>
+    </mat-drawer> 
+  
+    <div class="example-sidenav-content">
+        <div class="card " style="margin-right: 10px;padding: 10px 10px 0px 10px; min-height: 591px;">
+            <div class=" d-flex justify-content-between main_div" >
+                <div class="col-sm-4">
+                    <div class="grid_search">
+                      <input class="form-control" placeholder="Search..." [(ngModel)]="search1" (ngModelChange)="search($event)" />
+                      <mat-icon style="color: #a0a0a0;">search</mat-icon>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    
+                    <div>
+                        <button mat-button [matMenuTriggerFor]="menu"><mat-icon >filter_alt</mat-icon></button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="filter('All')">All</button>
+                            <button mat-menu-item (click)="filter('Invoice')">Invoices</button>
+                            <button mat-menu-item (click)="filter('Query')">Query</button>
+                            <button mat-menu-item (click)="filter('Task')">Task</button>
+                        </mat-menu>
+                    </div>
+                </div>
+            </div>
+            <div class="grid_border" [class]="x.id === details.id ? 'highlight':null" *ngFor="let x of data_view | paginate:{id:'pagination',itemsPerPage:8, currentPage: page}">
+                <span *ngIf="x.type==='Invoice'" >
+                    <app-inbox-invoice [data]="x" [id]="id" (click)="invoke_invoice(x)"></app-inbox-invoice>
+                </span>
+                <span *ngIf="x.type==='Query'">
+                    <app-inbox-query [data]="x" (click)="invoke_query(x)"></app-inbox-query>
+                </span>
+                <span *ngIf="x.type==='Task'">
+                    <app-inbox-task [data]="x" (click)="invoke_task(x)"></app-inbox-task>
+                </span>
+            </div>
+            <div class="pagination" style="margin-bottom: 9px;">
+                <pagination-controls id="pagination" (pageChange)="page=$event"   ></pagination-controls>
+            </div>
+           <p class="text-center">{{mess}}</p> 
+        </div>
+    </div>
+  
+</mat-drawer-container>
+  

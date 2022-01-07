@@ -1,0 +1,113 @@
+.patner_info{
+    display: flex;
+    border-bottom: 1px solid #e2e5e9;
+    height: 36px;
+    padding-bottom: 10px;
+}
+.fotter{
+    float: right;
+}
+.fotter button{
+    margin-right: 5px;
+}
+.gstin label{
+    width: 153px;
+    align-self: center;
+}
+.gstin input{
+    width: 230px;
+    margin-right: 12px;
+}
+.main_div{
+    height: 494px;
+}
+.heading p{
+    font-weight: 600;
+    color: #444343;
+    border-bottom: 1px solid #454545;
+}
+.data label{
+    font-weight: 600;
+    color: #757575;
+}
+.company_details .contact_details{
+    margin-top: 6px;
+}
+.arrow_icon:hover{
+    background-color: var(--primary)
+}
+.arrow_icon{
+    border: none;
+    position: absolute;
+    left: 0.8%;
+    top: 23px;
+    background-color: #757575;
+    transform: translate(-50%, -50%) rotate(90deg);
+    height: 15px;
+    width: 26px;
+    border-radius: 150px 150px 0 0;
+}
+
+.Rotate {
+    transform: rotate(
+        270deg);
+    cursor: pointer;
+    margin-top: -5px;
+    margin-left: -5px;
+    color: #fff;
+} 
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}
+.mt{
+    margin-top: 8px;
+}
+.error{
+    border-color: red;
+}
+.btn-popover {
+    padding: 0;
+    background-color: transparent;
+    position: relative;
+    height: 10px;
+    border: none;
+    vertical-align: top;
+}
+.btn-popover:hover .pop_box {
+    display: block;
+}
+.i_icon{
+    font-size: 17px;
+    color: var(--primary);
+    margin-left: 3px;
+}
+
+
+.or span {
+    display: inline-block;
+    text-align: center;
+    color: #454545;
+    margin-right: 13px;
+}
+
+.or span:before {
+    border-left: 1px solid black;
+    content: "";
+    display: block;
+    height: 8px;
+    margin-left: 10px;
+    border-color: #b1a7a7 !important;
+}
+
+.or span:after {
+    border-left: 1px solid black;
+    content: "";
+    display: block;
+    height: 8px;
+    margin-left: 10px;
+    border-color: #b1a7a7 !important;
+}

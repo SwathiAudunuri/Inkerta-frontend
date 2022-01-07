@@ -1,0 +1,19 @@
+.edit_image{
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+}
+.upload-box{
+    display: none;
+}
+.action_btn{
+    float: right;
+    margin-top: 20px;
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}

@@ -1,0 +1,253 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading || loading1" [color]="'var(--primary)'">
+</mat-progress-spinner>
+
+<div>
+    <div class="modal-content">
+        <form (submit)="onSubmit()" [formGroup]="updateForm">
+            <div class="modal-header">
+                <label class="modal-title" id="modal-basic-title">Change Invoice Status</label>
+                <button type="button" aria-label="Close" class="btn-close btn-close-black" (click)="close()"></button>
+            </div>
+            <!-- <div class="modal-body1">
+                                      <div class="invoice_attrs">
+                                        <div>
+                                          <label class="supplier_name"> {{ supplier_legal_name}}</label> 
+                                          <div>
+                                            <label class="inv_label"> Invoice   </label> 
+                                            <label class="invoice_num ms-1">{{invoicenum}}  </label> 
+                                  
+                                           </div> 
+                                           <div>
+                                            <label> Payment Terms </label>
+                                          </div>
+                                        </div>
+                                        <div>
+                                          <div>
+                                            <label> Ref  </label> 
+                                            <label class="inv_amt ms-1">  {{ref}} </label> 
+                                  
+                                          </div>
+                                          <div>
+                                            <label> Date </label> 
+                                            <label class="inv_amt ms-1">  {{invoicedate}} </label> 
+                                  
+                                          </div>
+                                          <div>
+                                            <label> Total Amount </label> 
+                                            <label class="inv_amt ms-1">  {{total_invoice_value}} </label> 
+                                  
+                                          </div>
+                                          <div>
+                                            <label> Due Date </label> 
+                                            <label class="inv_dt ms-1">{{invoiceduedate}}</label>
+                                          </div>
+                                      
+                                        </div>
+                                    
+                                      </div>
+                                    </div> -->
+            <div class="modal-body1">
+                <div class="invoice_attrs">
+                    <label class="supplier_name" style="color:black;font-size: 0.75rem;color: var(--primary);">
+                        {{ supplier_legal_name}}</label>
+                    <label style="font-style: italic;font-size: 12px;">
+                        {{invoicedate}}</label>
+
+                </div>
+                <div class="d-flex">
+                    <div class="d-flex">
+                        <label style="color: #e44f58;">
+                            <b>Invoice</b>
+                        </label>
+                        <p class="data_para" style="margin-left: 5px; font-style: italic;">{{invoicenum}}
+                        </p>
+                        <mat-divider role="separator" class="mat-divider divider mat-divider-vertical" aria-orientation="vertical"></mat-divider>
+                    </div>
+                    <div class="d-flex" style="margin-left: 5px;">
+                        <div class="d-flex">
+                            <label style="font-size: 12px;">Amount
+                                <span>:</span>
+                            </label>
+                            <p class="data_para" style="margin-left: 5px;">{{total_invoice_value}}</p>
+                            <mat-divider role="separator" class="mat-divider divider mat-divider-vertical" aria-orientation="vertical"></mat-divider>
+                        </div>
+
+                        <div class="d-flex">
+                            <div class="d-flex" style="margin-left: 5px;">
+                                <label style="font-size: 12px;">DueDate
+                                    <span>:</span>
+                                </label>
+                                <p class="data_para" style="margin-left: 5px;">{{invoiceduedate}}</p>
+                                <mat-divider role="separator" class="mat-divider divider mat-divider-vertical" aria-orientation="vertical"></mat-divider>
+
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="d-flex" style="margin-left: 5px;">
+                                <label style="font-size: 12px;">ref
+                                    <span _ngcontent-sdn-c325="">:</span>
+                                </label>
+                                <p _ngcontent-sdn-c325="" class="data_para" style="margin-left: 5px;">{{ref}}</p>
+                                <mat-divider role="separator" class="mat-divider divider mat-divider-vertical" aria-orientation="vertical"></mat-divider>
+
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="d-flex" style="margin-left: 5px;">
+                                <label _ngcontent-sdn-c325="" style="font-size: 12px;">Payment Terms
+                                    <span _ngcontent-sdn-c325="">:</span>
+                                </label>
+                                <p _ngcontent-sdn-c325="" class="data_para" style="margin-left: 5px;"></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="modal-body2">
+
+
+                <div>
+                    <div class="radio_buttons">
+
+                        <div class="col-md-3 radio_btns">
+                            <perfect-scrollbar>
+                                <label class="heading_radio">Mark Invoice as</label>
+                                <div *ngFor="let element of statuskeys">
+                                    <div class="form-check" style="padding: 2px;">
+                                        <input value={{element.statusValue}} formControlName="action" type="radio" name="action" id={{element.statusValue}} (change)="checkValue(element)">
+
+                                            <label class="form-check-label ms-2" for="flexRadioDefault1">
+                                                {{element.statusValue}}
+                                            </label>
+                                        </div>
+                                    </div>
+
+
+                                </perfect-scrollbar>
+                            </div>
+
+
+                            <div class="ms-3 me-2" style="width: 100%;">
+
+                                <div>
+                                    <label [ngClass]="dynamic_color">{{statusDescription}}</label>
+
+                                    <!-- <label *ngIf="selectedValue==='Paid'" [ngClass]="dynamic_color">The invoice is fully paid</label>
+                                                                                                                                                <label *ngIf="selectedValue==='Voided'" [ngClass]="dynamic_color">The invoice is cancelled by your customer. Contact customer if you have any question</label> -->
+
+                                </div>
+                                <div class="payment" *ngIf="selectedValue==='Paid'">
+                                    <div class="form-group d-flex ">
+                                      
+                                      <div class="col-sm-4">
+                                        <label>Paid Amount</label>
+                                        <input type="text" (keyup)="paid_amount()" [(ngModel)]="paid_amt"  [ngModelOptions]="{standalone: true}"  aria-label="default input example" class="form-control ng-pristine ng-invalid ng-touched">
+                                 
+                                      </div>
+                                      <div class="col-sm-4 ms-2">
+                                        <label>Paid On</label>
+                                        <div class="form-group">
+                                            <input
+                                            class="form-control  ng-pristine ng-invalid ng-touched" type="date" placeholder="" 
+                                            [(ngModel)]="paid_on"  [ngModelOptions]="{standalone: true}"
+                                            aria-label="default input example">
+                                          </div>
+                                        <!-- <input type="text"   formcontrolname="Transaction_Number" aria-label="default input example" class="form-control ng-pristine ng-invalid ng-touched">                                 -->
+                                      </div>
+                                      <div class="col-sm-4 ms-2">
+                                        <label>Payment Due</label>
+                                        <input type="text"  [(ngModel)]="paid_due"  [ngModelOptions]="{standalone: true}"  aria-label="default input example" class="form-control ng-pristine ng-invalid ng-touched">
+                                 
+                                      </div>
+                                    </div>
+                                    <div class="form-group d-flex  ">
+                                        <div class="col-sm-4">
+                                            <label>Payment Name</label>
+                                            <input type="text"   [(ngModel)]="pay_name"  [ngModelOptions]="{standalone: true}" aria-label="default input example" class="form-control ng-pristine ng-invalid ng-touched">
+                                     
+                                          </div>
+                                      <div class="col-sm-4 ms-2">
+                                        <label>Mode of payment</label>
+                                        <select class="form-select ng-pristine ng-invalid ng-touched" [(ngModel)]="pay_mode"  [ngModelOptions]="{standalone: true}" >
+                                                <option>Select</option>
+                                                <option value="Cash">Cash</option>
+                                                <option value="Checks">Checks</option>
+                                                <option value="Debit cards">Debit cards</option>
+                                                <option value="Credit cards">Credit cards</option>
+                                                <option value="Mobile payments">Mobile payments</option>
+                                                <option value="Electronic bank transfers">Electronic bank transfers</option>
+                                            </select>  
+                                        <!-- <input type="text"   [(ngModel)]="pay_mode"  [ngModelOptions]="{standalone: true}" aria-label="default input example" class="form-control ng-pristine ng-invalid ng-touched">                                 -->
+                                      </div>
+                                      <div class="col-sm-4 ms-2">
+                                        <label>Payee financial account</label>
+                                        <input type="text"   [(ngModel)]="pay_fin_acc"  [ngModelOptions]="{standalone: true}" aria-label="default input example" class="form-control ng-pristine ng-invalid ng-touched">                                
+                                      </div>
+                                    </div>
+                                    <div class="form-group d-flex  ">
+                                        <div class="col-sm-4">
+                                            <label>financial institution branch</label>
+                                            <input type="text"   [(ngModel)]="pay_fin_branch"  [ngModelOptions]="{standalone: true}" aria-label="default input example" class="form-control ng-pristine ng-invalid ng-touched">                                
+                                        </div>
+                                        <div class="col-sm-4 ms-2" *ngIf="paid_due !== 0 ">
+                                            <label>Payment Status</label>
+                                            <select class="form-select ng-pristine ng-invalid ng-touched" [(ngModel)]="pay_status"  [ngModelOptions]="{standalone: true}" >
+                                                <option value="Paid"> Paid</option>
+                                                <option value="Partially Paid">Partially Paid</option>
+                                            </select>                                
+                                        </div>
+                                        <div class="col-sm-4 ms-2" *ngIf=" pay_status === 'Partially Paid'  " >
+                                            <label>Reason for Partially Paid</label>
+                                            <input type="text"   [(ngModel)]="pay_reason"  [ngModelOptions]="{standalone: true}" aria-label="default input example" class="form-control ng-pristine ng-invalid ng-touched">                                                         
+                                        </div>
+                                    </div>
+                                </div>
+                                        <div *ngIf="selectedValue==='Voided'">
+                                            <div>
+                                                <label>Reason</label>
+                                                <input type="text" placeholder="Reason" formcontrolname="Reason" aria-label="default input example" class="form-control ng-pristine ng-invalid ng-touched"></div>
+
+                                            </div>
+                                            <div *ngIf="selectedValue==='On Hold'">
+                                              <div>
+                                                  <label>Reason</label>
+                                                  <input type="text" placeholder="Reason" formcontrolname="Reason" aria-label="default input example" class="form-control ng-pristine ng-invalid ng-touched"></div>
+  
+                                              </div>
+                                              
+                                            <div>
+                                                
+                                                <label for="exampleFormControlTextarea1 ">Add internal note</label>
+                                                <textarea type="text" class="form-control note" formControlName="actionComments" rows="6" required="required"></textarea>
+
+                                            </div>
+                                            <div>
+                                                <mat-checkbox class="checkbox"  style="align-items: center;"></mat-checkbox>
+                                               <label>Mark Invisible To Partner</label>
+                                            </div>
+
+
+                                            <div class="flex-end btns">
+                                                <button type="button" class="btn btn_light " (click)="close()">Cancel</button>
+
+                                                <button type="submit" class="btn btn_primary ms-2">Submit</button>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+        </form>
+
+    </div>
+</div>

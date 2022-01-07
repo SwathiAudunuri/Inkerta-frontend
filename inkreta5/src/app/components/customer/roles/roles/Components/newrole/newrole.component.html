@@ -1,0 +1,52 @@
+<mat-progress-spinner
+  [mode]="'indeterminate'" *ngIf="loading">
+</mat-progress-spinner> 
+
+<div class="d-flex align-items-center " style="border-bottom: 1px solid #ccc;">
+    <!-- [ngClass]="arrow ? 'null' : 'toggleRotate' " -->
+    <mat-icon (click)="cancel()" >
+      chevron_left</mat-icon>
+
+    <h2 class="ps-3 mb-0">Create Role</h2>
+  </div>
+
+<form [formGroup]="roleForm"   (ngSubmit)="Submit()" >
+
+
+    <div class="p-1">
+       
+        <div>
+            <div class="d-flex params">
+                <label class="name">Role Name :
+                </label>
+                <input class="param form-control"  formControlName="roleName" type="text"/>
+            </div>
+            <div class="d-flex params">
+                <label class="name">Role Description :</label>
+                <textarea style="margin-left: 56px;" formControlName="roleDescription" class="param" type="text" class="form-control note" rows="3" required="required"></textarea>
+    
+            </div>
+        </div>
+        <div style="color: red;"> {{errorMessage}}</div>
+        <div class="d-flex mb-2 me-2" style="justify-content: flex-end;">
+            <button type="button" class=" btn btn_light" (click)="cancel()">Cancel</button>
+            <button type="submit" class="btn btn_primary ms-2">Save</button>
+        </div>
+    </div>
+   
+</form>
+<!-- <div *ngIf="response">
+    <div *ngIf="!error">
+
+        <div class="d-flex params">
+            <label class="name">Role Name :
+            </label>
+            <label>{{data.roleName}}</label>
+        </div>
+        <div class="d-flex params">
+            <label class="name">Role Description :</label>
+            <label>{{data.roleDescription}}</label>
+        </div>
+    </div>
+
+</div> -->

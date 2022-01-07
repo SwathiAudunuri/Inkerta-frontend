@@ -1,0 +1,167 @@
+<div>
+  <mat-drawer-container class="example-container" autosize >
+    <mat-drawer [opened]="delete_item" #drawer style="width: 50%; padding: 10px;border:1px solid #dfdfdf ;" class="example-sidenav" mode="side" position="end">
+      <div class="user_info align-items-center justify-content-between" [hidden]="edit">
+        <div class="d-flex align-items-center">
+          <div [hidden]="edit">
+            <mat-icon style="margin-top: 2px;margin-right: 10px;cursor: pointer;" (click)="drawer.toggle();backsidenav()">chevron_left</mat-icon>
+          </div>
+          <h2 class="mb-0">User Information</h2>
+          <!-- <mat-chip class="status_chip">Active</mat-chip> -->
+          <div class="ms-3">
+            <!-- <mat-chip class="user_status active" >Active</mat-chip>  -->
+            <span class="user_status active" *ngIf="this.updaterow.value.status === true">Active </span> 
+            <span class="user_status deactive" *ngIf="this.updaterow.value.status === false">Not Active </span> 
+          </div>
+        </div>
+        <div class="d-flex">
+          <mat-icon class="edit_icon" (click)="user_edit()">edit</mat-icon>
+          <div class="more">
+            <mat-icon (click)="delete_row();backsidenav()">delete</mat-icon>
+          </div>
+        </div>
+      </div>
+      <!-- <div style="float: left;border-bottom: 1px solid #e2e2e2;height: 49px;" [hidden]="edit">
+        <mat-icon style="margin-top: 12px;cursor: pointer;" (click)="drawer.toggle();backsidenav()">arrow_back</mat-icon>
+      </div> -->
+      <div [hidden]="edit">
+          <app-update-user  [ELEMENT_DATA]="ELEMENT_DATA"  [rowindex]="rowindex"></app-update-user>
+      </div>
+      <div [hidden]="!edit">
+          <app-update-user-edit [imgediturl]="imgediturl" [updaterow]="updaterow" (childEvent3)="edit=$event" (childEvent2)="delete_item=$event" [ELEMENT_DATA]="ELEMENT_DATA" (childEvent1)="ELEMENT_DATA=$event" [rowindex]="rowindex" (childEvent)="edit=$event"></app-update-user-edit>
+      </div>
+    </mat-drawer>
+  <div class="card user_left" style="margin-right: 10px;min-height: 500px; min-height:591px">
+    <div >
+      <div class="d-flex justify-content-between">
+        <div class="col-sm-3">
+          <div class="grid_search">
+            <input placeholder="Search"  [(ngModel)]="filterValue" class="form-control" />
+            <mat-icon style="color: #a0a0a0;">search</mat-icon>
+          </div>
+        </div>
+        <div >
+          <button mat-raised-button color="primary" (click)="open(content)">Add User</button>
+        </div>
+      </div>
+      <div class="mt-2">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+              <ng-container matColumnDef="SlNo">
+                <th mat-header-cell *matHeaderCellDef> Sl no </th>
+                <td mat-cell *matCellDef="let element;index as i;"> {{i+1}} </td>
+              </ng-container>
+            
+          
+              <ng-container matColumnDef="Fullname">
+                <th mat-header-cell *matHeaderCellDef>Full Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.firstname +" "+element.lastname}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Email">
+                <th mat-header-cell *matHeaderCellDef>Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="Date">
+                <th mat-header-cell *matHeaderCellDef> Date</th>
+                <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="Status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element">
+                   
+                   <span class="user_status active" *ngIf="element.Status === true">Active </span> 
+                   <span class="user_status deactive" *ngIf="element.Status === false">Not Active </span> 
+                </td>
+              </ng-container>
+             
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row [ngClass]="{'tr_highlight': sno === row.SlNo  }" *matRowDef="let row; columns: displayedColumns;index as i;" (click)="update_row(row,i);sidenav()" ></tr>
+            </table>
+            <!-- <button type="file">hello</button> -->
+        </div>
+    </div>
+  
+  </div>
+  </mat-drawer-container>
+  <ng-template #content let-modal>
+    <form [formGroup]="Add_user" (ngSubmit)="submit_adduser()">
+    <div class="add_user">
+      <div class="modal-header">
+        <h4 class="modal-title mb-0" id="modal-basic-title">Create New User</h4>
+        <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+        <button type="button" class="btn-close" aria-label="Close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+        
+          <div class="row">
+            <!-- <label>Avatar</label> -->
+            <div class="col-md-3 col-sm-5 text-center">
+              <div class="profile_pic">
+                <!-- <img src="../../../../../assets/profile-photo.jpg" style="border-radius: 50%;"/> -->
+                <img style="border-radius: 50%;" [src]="imgurl"/>
+                <!-- <img  src="../../../../../assets/profile-photo.png"/> -->
+                <div class="action_btn mt-4" >
+                  
+                  <input type="file" id="file" class="upload-box" (change)="profile_img($event)" />
+                  <!-- <label style="color: #3c8dbc;" for="file"><mat-icon style="font-size: 16px;height: 16px;vertical-align: top;">file_upload</mat-icon>Upload New Avatar</label> -->
+                  <button mat-raised-button style="color: #3c8dbc;" type="button" ><label for="file"><mat-icon style="font-size: 18px;vertical-align: sub;">file_upload</mat-icon>Upload New Avatar</label></button>
+                </div>
+              </div>
+              <!-- <div class="mt-4">
+                <button mat-raised-button style="color: #3c8dbc;" >Upload New Photo</button>
+              </div> -->
+            </div>
+
+            <div class="col-md-9 col-sm-7">
+              <div class="row">
+                <div class="col-md-6">
+                    <label>First Name</label>
+                    <input class="form-control" formControlName="firstname" (ngModelChange)="onChange()" />
+                </div>
+                <div class="col-md-6">
+                    <label>Last Name</label>
+                    <input class="form-control" formControlName="lastname" (ngModelChange)="onChange()" />
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-6">
+                    <label>Mobile Number</label>
+                    <input class="form-control" formControlName="mobile_no" />
+                </div>
+                <div class="col-md-6">
+                    <label>Email</label>
+                    <input class="form-control" formControlName="email" />
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-6">
+                  <label>User ID</label>
+                  <input class="form-control" formControlName="userid"  />
+                </div>
+                <div class="col-md-6">
+                  <label>Role</label>
+                  <select class="form-select" formControlName="role" >
+                    <option value="vender">Vender</option>
+                    <option value="manager">Manager</option>
+                    <option value="admin">Admin</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <!-- openSnackBar(); -->
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+        <button class=" btn btn_primary" type="submit" (click)="modal.close('Save click');">Create</button>
+      </div>
+    </div>
+    </form>
+  </ng-template>
+</div>
+

@@ -1,0 +1,93 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+
+<div > 
+    <div class="title modal_header d-flex justify-content-between">    
+        <div class="d-flex">
+            <label style="font-weight:600;color:#3c8dbc">Invoice </label>
+            <div class="d-flex additional">
+                <span>{{supplier_legal_name}}</span>
+                <span style="color: #575252;"><b>PO : </b>#{{po_ref_num}}</span>
+            </div>
+        </div>
+        <div>
+            <button type="button" aria-label="Close" class="btn-close" (click)="close()" ></button>
+        </div>
+    </div>
+    <!-- formControlName
+    <form [formGroup]="Additional_Details"></form> -->
+    <div *ngIf="!status" class="forwardcontainer">
+        <form [formGroup]="forwardetails" (ngSubmit)="Submit()">
+            <div class="user">
+                <div >
+                    <label style="margin-bottom: 10px;margin-left: -19px;"><b>Assign For : </b></label>
+                    <div>
+                        <div class="rdns">
+                            <input value="Verify" name="action" formControlName="action"  type="radio" id=one (change)="setusername()" />
+                            <label class="ms-3"><b>Verification</b></label>
+                        </div>
+                        <div class="rdns">
+                            <input value="Review" name="action" formControlName="action"  type="radio" id=one (change)="setusername()" />
+                            <label class="ms-3"><b>Review</b></label>
+                        </div>
+                        <div class="rdns">
+                            <input value="Approve" name="action" formControlName="action"  type="radio"  id=one (change)="setusername()" />
+                            <label class="ms-3"><b>Approval</b></label>
+                        </div>
+                        <div class="rdns" *ngIf="!unpaid.myinbox">
+                            <input value="Claim" name="action" formControlName="action"  type="radio"  id=one (change)="setusername()" />
+                            <label class="ms-3"><b>Claim</b></label>
+                        </div>
+                        <div class="rdns" *ngIf="unpaid.myinbox">
+                            <input value="Release" name="action" formControlName="action"  type="radio"  id=one (change)="setusername()" />
+                            <label class="ms-3"><b>Release</b></label>
+                        </div>
+                    
+                    </div>
+                
+                
+                </div>
+                <div class="midline" *ngIf="!release">
+                    <div>
+                        <label style="color:#3c8dbc;margin-bottom: 10px;" ><b>Invoice</b>  will be assigned to selected user</label>
+
+                    </div>
+                    <label class="id_no">Enter UserId</label>
+                    <!-- <div class="example">
+                        <input [disabled]="actionto" [(ngModel)]="userid" [ngModelOptions]="{standalone: true}" (keyup)="userid_change()"  style="height: 40px;" type="text" placeholder="Search.." name="search">
+                        <button *ngIf="!actionto" type="button" class="new_user_search" (click)="openDialog('SearchUser')"> <fa-icon [icon]="faSearch"></fa-icon></button>
+                    </div> -->
+                    <div class="input_grp">
+                        <input class="input" [disabled]="actionto" [(ngModel)]="userid" [ngModelOptions]="{standalone: true}" (keyup)="userid_change()"  style="height: 40px;" type="text" placeholder="Search.." name="search">
+                        <button class="fas button btn" [disabled]="actionto" type="button" (click)="openDialog('SearchUser')">
+                            <fa-icon  [icon]="faSearch" ></fa-icon>
+                        </button>
+                      </div>
+                    
+                </div>
+            </div>
+            <div>
+                    <div>
+                        <div>
+                            <label style="color: #565656;" > Additional Comments/Instuctions</label>
+                        </div>
+                        <div>
+                            <textarea formControlName="actionComments" type="text" class="form-control note"  rows="3" required="required"></textarea>
+
+                        </div>
+                    </div>
+            
+            </div>
+        
+            <div class="flex-end btns mt-2">
+                <button type="button" class="btn btn_light " (click)="close()" >Cancel</button>
+
+                <button type="submit" class="btn btn_primary ms-2">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="forwardcontainer" *ngIf="status">
+        {{mess}}
+    </div>
+</div>

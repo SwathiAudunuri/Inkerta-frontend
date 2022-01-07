@@ -1,0 +1,14 @@
+<ng-template [ngIf]="next==1">
+    <div>
+        <app-additional-details [Additional_Details]="Additional_Details" [ONBOARDING_MASTER_DROPDOWN]="ONBOARDING_MASTER_DROPDOWN"></app-additional-details>
+    </div>
+    
+</ng-template>
+    
+<ng-template [ngIf]="next==2">
+    <!-- <app-terms-and-conditions [Additional_Details]="Additional_Details"></app-terms-and-conditions> -->
+    <app-additional-details2 [Additional_Details]="Additional_Details"></app-additional-details2>
+</ng-template>
+<ng-template [ngIf]="next==3">
+    <app-terms-and-conditions [Additional_Details]="Additional_Details"></app-terms-and-conditions>
+</ng-template>

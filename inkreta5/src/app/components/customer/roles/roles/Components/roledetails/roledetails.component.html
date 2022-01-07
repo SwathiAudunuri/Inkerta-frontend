@@ -1,0 +1,31 @@
+<div>
+    <div style="margin-top: 30px;margin-left: 30px;">
+        <!-- *ngIf="!newrole" -->
+        <div  >
+            
+            <div class="d-flex params">
+                <label class="name">Role Name :</label>
+                <label class="content">{{roledetail?.roleName}}</label>
+
+            </div>
+            <div class="d-flex params">
+                <label class="name">Role Description :</label>
+                <label class="content">{{roledetail?.roleDescription}}</label>
+
+            </div>
+            <div class="d-flex params">
+                <label class="name">Created By :</label>
+                <label class="content">{{roledetail?.createdBy}}</label>
+            </div>
+            <div class="d-flex params">
+                <label class="name">Created On :</label>
+                <label class="content">{{roledetail?.createdDate |date}}</label>
+
+            </div>
+        </div>
+
+        <!-- <app-newrole [newrole]="newrole"></app-newrole> -->
+    
+
+    </div>
+</div>

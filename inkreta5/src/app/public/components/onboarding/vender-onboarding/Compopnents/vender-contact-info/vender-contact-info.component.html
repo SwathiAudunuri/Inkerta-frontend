@@ -1,0 +1,168 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading || loading1" [color]="'var(--primary)'">
+</mat-progress-spinner>
+
+<div class="contact_information" style="width: 1414px;">
+    <form [formGroup]="Additional_Details">
+      <ng-template matStepLabel matStepperIcon="edit">Contact Information</ng-template>
+      <div class="col-md-12">
+        <div class=" instruction" style="width: 1365px;background-color: #d6f0fc; ">
+
+          <p>Please provide most recent contact information in the below section. This information shall be used to
+            share OTPs, Notifications, E-mail updates. Please ensure that you have ready access to the below
+            provided
+            mobileNumber number & E-Mail for receiving OTP. </p>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col-md-12">
+          <div arial-label="ccompany_details" class="company_main row">
+            <div class="row" style="width: 1414px;">
+              <div class="col-md-6">
+                <div class="borderTopBox">
+                  <div class="boxHeading">GSTIN Information </div>
+                  <div class="borderTopBoxBody company">
+                    <div class="col-sm-12">
+                      <h5 class="company_title" style="font-size: 14px;color: #008ecc;">
+                        <!-- {{tradename}} -->
+                        {{Additional_Details.value.companyName}}
+                      </h5>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <b>Firm Type</b>
+                        <!-- <p>{{ctb}} -->
+                          <P>{{Additional_Details.value.firmType}}
+                          </P>
+                      </div>
+                      <div class="col-sm-4">
+                        <b>State Code</b>
+                        <p >
+                          <!-- {{statecode}} -->
+                          {{Additional_Details.value.statecode}}
+                        </p>
+                      </div>
+                      <div class="col-sm-4">
+                        <b>Pin Code</b>
+                        <p >
+                          <!-- {{pincode}} -->
+                          {{Additional_Details.value.pincode}}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <b>Nature Of Business</b>
+                        <p >
+                            <!-- {{natureOfBusiness}} -->
+                            {{Additional_Details.value.natureOfBusiness}}
+                        </p>
+                      </div>
+                      <div class="col-sm-4">
+                        <b>Address</b>
+                        <p>
+                            <!-- {{address}} -->
+                            {{Additional_Details.value.floorNumber}},{{Additional_Details.value.street}},{{Additional_Details.value.buildingNumber}},{{Additional_Details.value.location}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+
+            <div class="col-md-6">
+                <div class="borderTopBox">
+                  <div class="boxHeading">Contact Information</div>
+
+                  <div class="borderTopBoxBody company contactInfo">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                            <div>
+                            <label>First Name<span style="color:red">*</span></label> </div>
+                            <input class='form-control' type="text" variant="standard" formControlName="firstName" />
+                            <div *ngIf="f.firstName.invalid && (f.firstName.dirty || f.firstName.touched)">
+                                <div  *ngIf="f.firstName.errors?.required">
+                                    <mat-error>First Name is required</mat-error>
+                                </div>
+                            </div>
+                        </div>
+
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <div>
+                            <label>Last Name<span style="color:red">*</span></label> </div>
+                            <input class='form-control' type="text" variant="standard" formControlName="lastName" />
+                            <div *ngIf="f.lastName.invalid && (f.lastName.dirty || f.lastName.touched)">
+                                <div  *ngIf="f.lastName.errors?.required">
+                                    <mat-error>Last Name is required</mat-error>
+                                </div>
+                            </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <!-- tick -->
+                          <label>mobile Number<span style="color:red">*</span><mat-icon [hidden]="!f.verifiedPhone.value" [style.color]="'green'">done</mat-icon></label>
+                          <div class="phone_prepend">
+                            <span class="prepend">+91</span>
+                            <input type='text' class='form-control' formControlName="mobileNumber" margin="normal" [style.borderColor]= "tick ? null : 'green' " (ngModelChange)="ChangeMobile()"/>
+                            <div *ngIf="f.mobileNumber.invalid && (f.mobileNumber.dirty || f.mobileNumber.touched)">
+                                <div  *ngIf="f.mobileNumber.errors?.required">
+                                    <mat-error>mobileNumber Number is required</mat-error>
+                                </div>
+                                <!-- Additional_Details.controls.gstin.errors?.forbiddenName && !Additional_Details.controls.gstin.errors?.required -->
+                                <mat-error *ngIf="f.mobileNumber.errors?.forbiddenName && !f.mobileNumber.errors?.required">
+                                  mobileNumber Number invalid
+                                </mat-error>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <!-- tick -->
+                          <label>e-Mail ID<span style="color:rgb(235, 64, 64)">*</span><mat-icon [hidden]="!f.verifiedMail.value" [style.color]="'green'">done</mat-icon></label>
+                          <input class='form-control' type="text" variant="standard" formControlName="email" [style.borderColor]= "tick ? null : 'green' " (ngModelChange)="ChangeEmail()"/>
+                            <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+                                <div  *ngIf="f.email.errors?.required">
+                                    <mat-error>email is required</mat-error>
+                                </div>
+                                <mat-error *ngIf="f.email.errors?.forbiddenName && !f.email.errors?.required  ">
+                                    email invalid
+                                </mat-error>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class='row'>
+                        <div class="verify-btn col-sm-6 ">
+                            <button mat-raised-button color="primary" type="submit" [disabled]="f.verifiedPhone.value" color="primary" (click)="mobiledispatch()">
+                                Verify mobile
+                            </button>
+                        </div>
+                        <div class="verify-btn col-sm-6">
+                          <!-- ;openDialog() -->
+                          <!-- [disabled]="!(f.email.valid && !f.verifiedMail.value)" -->
+                            <button mat-raised-button color="primary" type="submit" [disabled]="f.verifiedMail.value"  mat-flat-button color="primary" (click)="emaildispatch()">
+                                Verify Email
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+</div>

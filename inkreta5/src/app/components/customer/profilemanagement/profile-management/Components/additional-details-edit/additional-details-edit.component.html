@@ -1,0 +1,197 @@
+<mat-progress-spinner
+  [mode]="'indeterminate'" *ngIf="loading">
+</mat-progress-spinner> 
+
+<form [formGroup]="Profile_Details">
+    <div style="width: 100%;display: flex;">
+    <div class="col-md-6">
+        <div class="borderTopBox">
+          <div class="boxHeading">Additional Company Information</div>
+          <div class="borderTopBoxBody">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Core Business</label>
+                        <select class='form-select' type="text" formControlName="industry" variant="standard"   >
+                            <option value="">Select</option>
+                            <option *ngFor="let x of options?.lineOfBusiness" value={{x}}>{{x}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Incorporation Year</label> 
+                        <select class='form-select' type="text" formControlName="incorporationYear" variant="standard"  >
+                            <option value="">Select</option>
+                            <option *ngFor="let x of Year" value={{x}}>{{x}}</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Company TurnOver</label> 
+                        <select class='form-select' type="text" formControlName="annualTurnover" variant="standard"  >
+                            <option value="">Select</option>
+                            <option *ngFor="let x of options?.annualTurnOver" value={{x}}>{{x}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Company Size</label> 
+                        <select class='form-select' type="text" formControlName="companySize" variant="standard"  >
+                            <option value="">Select</option>
+                            <option *ngFor="let x of options?.companySize" value={{x}}>{{x}}</option>
+                        </select>
+                    </div>
+                </div>  
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Company Details</label> 
+                        <textarea class="form-control" formControlName="companyDetail" ></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Key Product Category</label> 
+                        <textarea class="form-control" formControlName="keyProductCategories" ></textarea>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- <div class="form-group">
+                        <label>Industries Serviced</label> <br>
+                        <mat-select class="form-select"  formControlName="industriesServiced" multiple  style="height: 36px;" [style.borderBottom]="'1px solid #ccc'">
+                            <mat-select-trigger>
+                              <div class="scrolling-wrapper" style="height: 53px;">
+                                <mat-chip-list style="flex: 0 0 auto;">
+                                    <mat-chip *ngFor="let topping of f.industriesServiced.value" >
+                                    {{ topping }}
+                                    </mat-chip>
+                                </mat-chip-list>
+                              </div>
+                            </mat-select-trigger>
+                            
+                            <mat-option *ngFor="let topping of toppingList" [value]="topping" style="display: flex;">
+                                {{topping}}
+                            </mat-option>
+                        </mat-select>
+                    </div> -->
+                    <div class="mat-chip-test form-group">
+                        <label>Industries Serviced</label> <br>
+                        <mat-select class="form-select" formControlName="industriesServiced" multiple [style.width]="'305px'" style="height: 36px;" [style.borderBottom]="'1px solid #ccc'">
+                            <mat-select-trigger>
+                              <div class="scrolling-wrapper" style="height: 53px;">
+                                <mat-chip-list style="flex: 0 0 auto;">
+                                    <mat-chip *ngFor="let topping of f.industriesServiced.value" >
+                                    {{ topping }}
+                                    </mat-chip>
+                                </mat-chip-list>
+                              </div>
+                            </mat-select-trigger>
+                            <!-- <mat-option value="">Select</mat-option> -->
+                            <mat-option *ngFor="let topping of options?.industriesServiced" [value]="topping" style="display: flex;">
+                                {{topping}}
+                            </mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Add more Industries</label> 
+                        <div style="display: flex;">
+                            <input class="form-control" formControlName="industriesServicedAddmore" style="width: 87%;"  />
+                            <button type="button" class=" btn btn_primary" (click)="addservice()" >Add</button>
+                        </div>
+                        <p>{{mess}}</p>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="borderTopBox">
+          <div class="boxHeading">Other information</div>
+          <div class="borderTopBoxBody" style="height: 309px;">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Standard Payment Terms</label>
+                        <select class='form-select' type="text" formControlName="paymentTerms" variant="standard"   >
+                            <option value="">Select</option>
+                            <option *ngFor="let x of options?.standardPaymentTerms" value={{x}}>{{x}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Reporting Currency</label> 
+                        <select class='form-select' type="text" formControlName="reportingCurrency" variant="standard"   >
+                            <option value="">Select</option>
+                            <option *ngFor="let x of options?.reportingCurrency" value={{x}}>{{x}}</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Company Website</label> 
+                        <input class="form-control" formControlName="website" />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Average Daily Invoices</label> 
+                        <select class='form-select' type="text" formControlName="noOfInvoicesExpected" variant="standard"  >
+                            <option value="">Select</option>
+                            <option *ngFor="let x of options?.averageDailyInvoices" value={{x}}>{{x}}</option>
+                        </select>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>purchase email id</label> 
+                        <input class="form-control" formControlName="salesEnquiryEmailId" />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>MSME Registered</label> 
+                        <select class='form-select' type="text" formControlName="msmeRegistered" variant="standard"   >
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>MSME Category</label> 
+                        <select class='form-select' type="text" formControlName="msmeCategories" variant="standard"   >
+                            <option value="">Select</option>
+                            <option *ngFor="let x of msmeCategories" value={{x}}>{{x}}</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+    </form>

@@ -1,0 +1,60 @@
+<div style="background-color: #f5f9ff;"> 
+    <div style="margin: 5px;margin-bottom: 10px;">
+        <app-timeseries></app-timeseries>
+    </div>
+    <div class="d-flex cashflow_info">
+        <div class="d-flex " style="    width: 40%;">
+            <label style="margin-top: 2px;"><b>Total Receivables <span>:</span></b></label>
+            <p style="margin-top: 2px;">{{receviables_total | number}}</p>
+        </div>
+        
+        <div class="d-flex " style="    width: 15%;">
+            <label style="margin-top: 2px;"><b>Total Cash Flow <span>:</span></b></label>
+            <p style="margin-top: 2px;">{{total | number}}</p>
+        </div>
+       
+        <div class="d-flex ">
+            <div class="d-flex " style="    margin-right: 15px;">
+                <label style="margin-right: 5px;margin-top: 2px;" ><b>Inculde Bank Balance </b> </label>
+                <mat-slide-toggle [(ngModel)]="add_bank" (change)="toggle()"></mat-slide-toggle>
+            </div>
+            <div  class="d-flex " *ngIf="add_bank">
+                <label class="bala_label" style="margin-top: 2px;"><b>Enter Balance : </b></label>
+                <div style="margin-right: 5px;">
+                    <input class="form-control" style="height: 24px;width: 103px;" type="number"  [(ngModel)]="total_bank" (change)="addbankbalance()" (keyup)="addbankbalance()"/>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex payables_total"  >
+            <label style="margin-top: 2px;"><b>Total Payables <span>:</span></b></label>
+            <p style="margin-top: 2px;">{{payables_total | number}}</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="d-flex">
+            <div class="col-sm-6">
+                <app-receivables-simulate></app-receivables-simulate>
+            </div>
+            <mat-divider [vertical]="true"></mat-divider>
+            <div class="col-sm-6">
+                <app-payables-simulate></app-payables-simulate>
+            </div>
+        </div>
+    <!-- <div >
+        <div class="d-flex">
+            <label style="margin-right: 10px;"><b>Inculde Bank Balance </b> </label>
+            <mat-slide-toggle [(ngModel)]="add_bank" (change)="toggle()"></mat-slide-toggle>
+            <div class="d-flex cf">
+                <p><b>Total Cash Flow : </b></p>
+                <p>{{total | number}}</p>
+            </div>
+        </div>
+        <div class="d-flex" *ngIf="add_bank">
+            <label style="align-self: center;margin-right: 10px;">Enter Balance : </label>
+            <div class="col-sm-1" style="margin-right: 10px;">
+                <input class="form-control " type="number"  [(ngModel)]="total_bank" (change)="addbankbalance()" (keyup)="addbankbalance()"/>
+            </div>
+        </div>
+    </div> -->
+    </div>
+</div>

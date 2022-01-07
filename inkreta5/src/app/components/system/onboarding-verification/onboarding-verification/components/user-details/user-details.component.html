@@ -1,0 +1,33 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+
+<div>
+    <div class="heading d-flex justify-content-between">
+        <div class="d-flex">
+            <!-- (click)="closesidenav()" -->
+            <mat-icon class="icon" [ngClass]="screen ? 'toggleRotate' : 'null' " (click)="fullscreen()" >chevron_left</mat-icon>
+            <h2 class="ps-3 mb-0 ">Patner Details</h2>
+        </div>
+        <div>
+            <button *ngIf="patner_status === 'Active' " class="btn btn_primary btn-sm" (click)="setstatus('InActive')">Mark as InActive</button>
+            <button *ngIf="patner_status === 'InActive' " class="btn btn_primary btn-sm" (click)="setstatus('Active')">Mark as Active</button>
+        </div>
+    </div>
+    <div>
+        <mat-tab-group>
+            <mat-tab label="Details" class="mat-tab-labels">       
+                <app-gstin-details></app-gstin-details>
+            </mat-tab>
+            <mat-tab label="Contact">
+               <app-contact-details></app-contact-details>
+            </mat-tab>
+            <mat-tab label="Additional Details">
+                <app-additional-details></app-additional-details>
+            </mat-tab>
+            <mat-tab label="Attachments">
+                <app-attachment-details></app-attachment-details>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+
+.bar{
+    min-height: 55px;
+    margin-bottom: 5px;
+    display: flex;
+    box-shadow:0 1px 3px 0 rgb(0 0 0 / 9%)
+}
+.icon{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    color: var(--primary);
+    background-color: aliceblue;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.exec{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+}
+.highlight{
+    /* background-color: #f4eeee; */
+    background-color: rgb(195, 221, 230,0.1);
+    border-left: 4px solid  var(--primary);
+}
+.highlight>.icon{
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+}

@@ -1,0 +1,42 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading || loading1" [color]="'var(--primary)'">
+</mat-progress-spinner>
+
+<div class="col-md-6 gtnVerification">
+    <div arial-label="ccompany_details" class="company_main">
+      <h3 class="gstVerfication" style="font-size: 40px;">GSTIN Verification</h3>
+      <p class="gstSubText">Please enter GST Number for verifying Company details </p>
+      <form [formGroup]="Additional_Details" (ngSubmit)="verifygstin()" #f>
+        <input maxlength='15' autoComplete="off" formControlName="gstin" class="gstNum" matInput (ngModelChange)="onChangeGst();onchange()"/> <br>
+        <div class="row">
+          <div class='col-md-12' style=" margin-top:20px">
+            <div class="captcha-area">
+              <input class="captcha-input" maxlength="4"  id="cpatchaTextBox" autoComplete="off" formControlName="captcha" (ngModelChange)="onChangeGst()"/>
+                  <div class='captcha-bg' style="background-image: url('./assets/captcha-bg.png')">
+                  <div id="captcha">{{ctx}}</div>
+                <button tabIndex={-1} class="refresh-btn" type="button" >
+                  <mat-icon style="color:#01466b" (click)="call_captcha()">refresh</mat-icon>
+                </button>
+              </div>
+              <button mat-raised-button type="submit" style="font-size: 16px" color="accent" [disabled]="!(Additional_Details.controls.gstin.valid && verify_button && status)" style="width:100px" >verify</button>
+            </div>
+          </div>
+        </div>
+        <!-- <button (click)="nav_home()">click</button> -->
+        <mat-error>{{errormess}}</mat-error>
+        <div *ngIf="Additional_Details.controls.gstin.invalid && (Additional_Details.controls.gstin.dirty || Additional_Details.controls.gstin.touched)">
+          <div  *ngIf="Additional_Details.controls.gstin.errors?.required">
+            <mat-error class="mt-4">gstin Number is required</mat-error>
+          </div>
+          <mat-error class="mt-4" *ngIf="Additional_Details.controls.gstin.errors?.forbiddenName && !Additional_Details.controls.gstin.errors?.required">
+            GSTIN Number invalid
+          </mat-error>
+          
+        </div>
+          <p [style.color]="'green'" class="mt-4 message" [style.marginTop]="'25px'">{{hasErrornext}}</p>
+          <p style="color:red" class="mt-4 message"> {{hasError}}  <a href='/'>{{link}}</a></p>
+          <p style="color:red" class="mt-4 message"> {{errorgstnum}}</p>
+      </form>
+    </div>
+</div>
+  

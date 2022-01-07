@@ -1,0 +1,25 @@
+<div>
+    <mat-drawer-container class="example-container" autosize>
+        <mat-drawer [opened]="showsidenav" [ngClass]="status ? 'full-sidenav' : 'example-sidenav' " style=" padding: 10px;border:1px solid #dfdfdf ;" mode="side" position="end">
+         <app-user-details (status)="status=$event"></app-user-details>
+        </mat-drawer>
+      
+        <div class="card example-sidenav-content" >
+            <div class="d-flex justify-content-between" style="border-bottom: 1px solid #ccc;">
+                <div class="col-sm-3">
+                  <div class="grid_search">
+                    <input placeholder="Search" (keyup)="search()"  [(ngModel)]="filterValue" class="form-control" />
+                    <mat-icon style="color: #a0a0a0;">search</mat-icon>
+                  </div>
+                </div>
+                <div>
+                    <mat-icon class="icon" [ngClass]="showsidenav ? 'null' : 'toggleRotate' " (click)="sidenav()">navigate_next</mat-icon>
+                </div>
+              </div>
+          <app-users-table></app-users-table>
+        </div>
+      
+      </mat-drawer-container>
+
+
+</div>

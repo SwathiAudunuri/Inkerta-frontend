@@ -1,0 +1,38 @@
+.webviwer{
+    width: 100%;
+    min-height: 58vh;
+    
+}
+
+.pdf_btns{
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    right: 8px;
+    padding: 8px 15px 4px 15px;
+    background-color: #e6e6e6;
+    /* border-bottom: 1px solid #ccc; */
+}
+
+.pdf_btns .mat-icon,
+.pdf_btns .material-icons{
+    cursor: pointer;
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    color: #747474;
+    margin-left: 5px;
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}
+.doc_not_found{
+    text-align: center;
+    color: red;
+    /* top: 50%; */
+    /* transform: translateX(50px) translateY(50px); */
+}

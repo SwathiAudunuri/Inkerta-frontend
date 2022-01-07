@@ -1,0 +1,45 @@
+<!-- *ngIf="!error" -->
+<div *ngIf="!error">
+    <div class="d-flex justify-content-between heading align-items-center">
+      <div class="d-flex align-items-center">
+        <mat-icon (click)="arrow ? closesidenav() : closesidenav1()" [ngClass]="arrow ? 'null' : 'toggleRotate' ">
+          chevron_left</mat-icon>
+  
+        <h2 class="ps-3 mb-0">Action Details</h2>
+      </div>
+      <div class="d-flex">
+        <div class="invoice_act_btn d-flex">
+         
+          <button (click) ="edit()" class="edit" *ngIf="!newaction"> 
+            <mat-icon> edit</mat-icon>
+          </button>
+     
+  
+        </div>
+  
+      </div>
+    </div>
+    <div>
+  
+      <mat-tab-group class="tab" [selectedIndex]=0 >
+        <mat-tab label="Action Details" index=0>
+          <app-actiondetails [newaction]="newaction"></app-actiondetails>
+        </mat-tab>
+       
+        <mat-tab label="Configuration Details" index=1>
+          <app-config-details [newaction]="newaction"></app-config-details>
+        </mat-tab>
+     
+
+   
+      </mat-tab-group>
+    </div>
+  </div>
+
+  <div *ngIf="error" style="height: 100%;">
+    <div class="error" style="height: 100%;"> 
+      <p>No Action Configured</p>
+    </div>
+    
+  </div>
+  

@@ -1,0 +1,83 @@
+<div>
+<!-- <div class="text-center upload_file">
+    <input class="form-control" type="file" 
+            (change)="onChange($event)" />
+  
+    <span class="upload_btn">
+    <button (click)="onUpload($event)"  type="button"  
+        class="btn btn_primary">
+        Upload
+    </button>
+    </span>
+</div> -->
+  
+<!-- Shareable short link of  uoloaded file -->
+<!-- <div class="container jumbotron" *ngIf="shortLink"> -->
+    <!-- <mat-icon class="checkMark"><span>check</span> </mat-icon> -->
+    <!-- <h3> Done</h3> -->
+    <!-- <a href="{{shortLink}}">{{shortLink}}</a> -->
+<!-- </div> -->
+  
+<!--Flag variable is used here-->
+<!-- <div class="container" *ngIf="loading"> -->
+<!-- <mat-icon class="spinner"><span>autorenew</span> </mat-icon> -->
+    <!-- <h3>Loading ...</h3> -->
+<!-- </div> -->
+</div>
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+
+<div class="main_div">
+    <!-- <h2 mat-dialog-title class="dialog_heading">Documents<mat-icon class="icon_cancel" (click)="close()">close</mat-icon></h2> -->
+    <div class="title modal_header d-flex" style="justify-content: space-between;">    
+        <label style="font-weight:600;color:#3c8dbc">Query Documents</label>
+        <button  class="btn btn_secondary"> <mat-icon class="icon_cancel" (click)="close()">close</mat-icon></button>
+    </div>
+    <div class="contant">
+        <div class="d-flex  p-2 m-1">
+            <!-- <div class="col-sm-4 d-flex"> -->
+                <!-- <label>Type<span style='color: red'>* :</span></label> -->
+                <!-- <label>Type : </label> -->
+                <!-- <select class="form-select select" [(ngModel)]="type">
+                    <option *ngFor="let x of dropdown" value={{x}}>{{x}}</option>
+                    
+                </select> -->
+            <!-- </div> -->
+            <!-- <mat-divider class="divider" [vertical]="true"></mat-divider> -->
+            <div class="col-sm-6 d-flex" style="margin-left: 10px;">
+                <!-- multiple="multiple" -->
+                <input type="file" multiple="multiple"  id="id" accept=".pdf,.doc" (change)="upload_support($event)" class="upload-box"  />
+                <button class="btn btn-sm btn-light button"   ><label for="id" >Add File</label></button>
+                <span style="color: red;margin-left: 27px;align-self: center;">{{error}}</span>
+            </div>
+        </div>
+        <div class="contant_table">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="DocName">
+                  <th mat-header-cell *matHeaderCellDef> Document Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.doc_name}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="DocType">
+                  <th mat-header-cell *matHeaderCellDef> Query </th>
+                  <td mat-cell *matCellDef="let element"> {{element.mime_type}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="Action">
+                  <th mat-header-cell *matHeaderCellDef> Delete </th>
+                  <td mat-cell *matCellDef="let element;index as i"> <mat-icon (click)="delete_row(i)">delete</mat-icon> </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+        </div>
+    </div>
+
+    <div class="fotter">
+        <button class="btn btn_secondary cancel_btn " type="button" (click)="close()"> Cancel</button>
+        <button class="btn btn_primary" type="submit" (click)="save()">Ok</button>
+    </div>
+</div>

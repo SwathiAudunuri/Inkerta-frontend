@@ -1,0 +1,69 @@
+.qrcode{
+    width: 868px;
+    height: 665px;
+}
+.modal-header{
+    /* background-color: var(--primary); */
+    /* color: #fff; */
+    border-top: 4px solid var(--primary);
+    border-right: 4px solid var(--primary);    
+    border-left: 4px solid var(--primary);
+    border-bottom: 1px solid #ccc !important;
+    border-bottom: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px
+}
+.qrverification_succ{
+    text-align: center;
+    color: green;
+}
+.qrverification_fail{
+    text-align: center;
+    color: red;
+}
+.heading{
+    border-bottom: 1px solid #ccc;
+    height: 32px;
+    /* margin-right: 12px; */
+    text-align: center;
+}
+.icon_wrong{
+    color: red;
+}
+.icon_tick{
+    color: green;
+}
+.heading h3{
+    font-size: medium;
+    font-weight: 700;
+    color: var(--primary);
+}
+.qrheading {
+    text-align: center;
+}
+.qrheading h3{
+    font-size: medium;
+    font-weight: 700;
+    color: var(--primary);
+}
+.qr_values span{
+    font-style: italic;
+    color: #767676;
+}
+.qr_values p{
+    color: #000;
+}
+.verfication div{
+    height: 32px;
+}
+.qr_not_found{
+    text-align: center;
+    color: red;
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}

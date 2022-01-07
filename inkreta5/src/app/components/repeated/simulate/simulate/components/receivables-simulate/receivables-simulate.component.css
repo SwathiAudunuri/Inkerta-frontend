@@ -1,0 +1,78 @@
+table {
+    width: 100%;
+    
+}
+tr.mat-header-row {
+    background-color: var(--primary) !important;
+}
+tr.mat-header-row {
+    background-color: var(--primary) !important;
+    font-size:12px !important;
+    height: 23px !important
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    padding-left: 24px;
+    font-size: 12px !important;
+}
+.title{
+    height: 8px;
+}
+/* .tr_highlight{ 
+    background-color: #f79a9a  !important;
+  }  */
+
+.duedate {
+    color: red !important;
+}
+.budgetcolor td{
+    color: var(--primary) !important;
+}
+.type{
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}
+.I{
+    background: #74bd74;
+    color: #fff;
+}
+.B{
+    background: #c75e5ed9;
+    color: #fff;
+}
+.companyoverflow{
+    padding: 2px !important;
+    white-space:nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 149px;
+    /* font-size: 13px; */
+    border: none;
+    background: transparent;
+    /* color: var(--primary); */
+}
+.nameoverflow{
+    padding: 2px !important;
+    white-space:nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90px;
+    /* font-size: 13px; */
+    border: none;
+    background: transparent;
+    /* color: var(--primary); */
+}
+.mat-datepicker-toggle, .mat-datepicker-content .mat-calendar-next-button, .mat-datepicker-content .mat-calendar-previous-button {
+    color: #ebdddd !important;
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}

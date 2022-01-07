@@ -1,0 +1,45 @@
+
+.container{
+    min-width: 534px;
+    min-height: 225px;
+    padding:12px 2px 2px 12px;
+    overflow: hidden;
+}
+.params{
+    margin-bottom: 10px;
+}
+.name{
+    font-weight: 600;
+    width: 200px;
+}
+.content{
+    font-size: 13px;
+    font-style: italic;
+    color: #565656;
+    margin-left: 12px ;
+    border: none;
+}
+.active{
+    border: 1px solid;
+}
+.param{
+    font-style: italic;
+    max-width: 300px;
+    margin-left:10px;
+    line-height: 1;
+    font-size: 13px;
+    /* border: none; */
+}
+.new_role_button{
+    line-height: 1;
+}
+.container{
+    margin-top: 15px;
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}

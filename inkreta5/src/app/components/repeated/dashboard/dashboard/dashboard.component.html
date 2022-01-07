@@ -1,0 +1,98 @@
+<div class="main">
+    <!-- <div class="common">
+        AR and AP
+    </div> -->
+<div class="d-flex">
+
+    <div class="leftstat ">
+        
+        <div class="common">
+            <mat-icon svgIcon="icon_payable" class="icon"></mat-icon>
+        </div>
+        <div>
+            <div class="common accountslabel">
+                Total Receivables
+            </div>
+            <div class="common amountnumber">
+                {{(data?.current + data?.oneto30days + data?.thirtyoneto60days + data?.sixtyoneto90days+data?.over90days)|number}}
+            </div>
+        </div>
+        <div>
+            <div class="common accountslabel">
+                Balance
+            </div>
+            <div class="common amountnumber">
+                {{data?.current |number }}
+            </div>
+        </div>
+        <div>
+            <div class="common accountslabel">
+                Overdue Balance
+            </div>
+            <div class="common amountnumber">
+               {{ (data?.oneto30days + data?.thirtyoneto60days + data?.sixtyoneto90days+data?.over90days)|number}}
+            </div>
+        </div>
+        <div></div>
+    </div>
+    <div class="maincontainer">
+        <div class="block">
+            <div style="margin-right: 15px;">
+                <div class="common chartlabel" >Aging Receivable</div>
+                <app-stackedbarchart></app-stackedbarchart>
+            </div>
+            
+            <div style="margin-left: 15px;">
+                <div class="common chartlabel"  >Aging Payable</div>
+    
+                <app-stackedbarchart></app-stackedbarchart>
+            </div>
+        </div>
+        <div class="block" style="    margin-top: 41px;">
+            <div style="margin-right: 15px;">
+                <div class="common chartlabel"  >Client Balance & Due</div>
+                <app-stackedhorizontalbar></app-stackedhorizontalbar>
+            </div>
+            <div style="margin-left: 15px;">
+                <div class="common chartlabel"  >Vendor Balance & Due</div>
+
+                <app-stackedhorizontalbar></app-stackedhorizontalbar>
+            </div>
+        </div>       
+        
+    </div>
+    <div class="rightstat">
+        
+        <div class="common">
+            <mat-icon svgIcon="icon_payable" class="icon"></mat-icon>
+        </div>
+        <div>
+            <div class="common accountslabel" >
+                Total Payable
+            </div>
+            <div class="common amountnumber">
+                33,33,333
+            </div>
+        </div>
+        <div>
+            <div class="common accountslabel">
+                Balance
+            </div>
+            <div class="common amountnumber">
+                231,33,333
+            </div>
+        </div>
+        <div>
+            <div class="common accountslabel">
+                Overdue Balance
+            </div>
+            <div class="common amountnumber">
+            100,33,333
+            </div>
+        </div>
+        <div></div>
+    </div>
+</div>
+
+<img src="../../../../../assets/snap.PNG">
+</div>

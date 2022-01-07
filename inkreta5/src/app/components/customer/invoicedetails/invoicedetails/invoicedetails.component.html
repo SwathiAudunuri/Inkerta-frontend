@@ -1,0 +1,248 @@
+<div class="main_div">
+    <div class="modal-header">
+        <label class="modal-title" id="modal-basic-title">Invoice Details</label>
+        <button type="button" aria-label="Close" class="btn-close btn-close-white" (click)="close()" ></button>
+    </div>
+    <div class="outer_body">
+        <div class="form-container" >
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="borderTopBox recform">
+                        <div class="boxHeading">Supplier Details</div>
+                        <div class="box_content">
+                            <div class="row">
+                                <div _ngcontent-mky-c106="" class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="my_labels">Reciepient Code:</label>
+                                        <div class="read_value">345 1073W sam Houstan ParkWay,
+                                            Hyderabad,
+                                            500082,</div>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                    
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="borderTopBox recform">
+                        <div class="boxHeading">Invoice Details</div>
+                        <div class="box_content">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="my_labels">Invoice Number</label>
+                                        <!-- <div class="read_value">7890</div> -->
+                                        <div class="read_value">{{invoicenum}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="my_labels">IRN Number</label>
+                                        <div class="read_value">{{irn}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="my_labels">Invoice SubType</label>
+                                        <div class="read_value">{{invoice_type_code}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div _ngcontent-pjp-c106="" _ngcontent-mky-c106="">
+                                <div _ngcontent-pjp-c106="" _ngcontent-mky-c106="">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="my_labels">Invoice Date</label>
+                                                <div class="read_value">{{invoicedate | date:'dd-mm-yyyy'}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="my_labels">Currency Code</label>
+                                                <div class="read_value">{{invoice_currency_code}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        
+            
+        
+        </div>
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+            <li [ngbNavItem]="1">
+            <a ngbNavLink>Documents   </a>
+            <ng-template ngbNavContent>
+                <img src="./assets/document.JPG" style="width:1121px;height: 343px;"> 
+            </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+                <a ngbNavLink>Supplier & Buyer Details</a>
+                <ng-template ngbNavContent>
+                    <app-supplier-buyer></app-supplier-buyer>
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="3">
+                <a ngbNavLink>Payment Details</a>
+                <ng-template ngbNavContent>
+                    <app-payment-details></app-payment-details>
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="4">
+                <a ngbNavLink>Dispatch & Shipto Details</a>
+                <ng-template ngbNavContent>
+                    <app-dispatch-shipto></app-dispatch-shipto>
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="5">
+                <a ngbNavLink>Eway Bill Details</a>
+                <ng-template ngbNavContent>
+                    <app-eway-bill-details></app-eway-bill-details>
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="6">
+                <a ngbNavLink>Line Items</a>
+                <ng-template ngbNavContent>
+                    <img src="./assets/inline.JPG" style="width:1121px">
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="7">
+                <a ngbNavLink>History</a>
+                <ng-template ngbNavContent>
+                    <img src="./assets/History.JPG" style="width:1121px">
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="8">
+                <a ngbNavLink>Queries</a>
+                <ng-template ngbNavContent>
+                    <div class="flex-space-btn">
+                    <div class="queries_table">
+                    <app-query noofrows=4></app-query>
+        
+                    </div>  
+                    
+                    </div>
+        
+        
+                </ng-template>
+            </li>
+        <!-- <li [ngbNavItem]="9">
+            <a ngbNavLink>Supplier & Buyer Details</a>
+            <ng-template ngbNavContent>
+        <div class="col-md-5">
+            <div class="borderTopBox recform">
+                <div class="boxHeading">Value Details</div>
+                <div class="box_content">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="my_labels">ECOM GSTIN</label>
+                                <div class="read_value">0</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="my_labels">IGS on INFRA</label>
+                                <div class="read_value">0</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="my_labels">Total Assesable Value</label>
+                                <div class="read_value">0</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="my_labels">IGST Value</label>
+                                <div class="read_value">0</div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div _ngcontent-pjp-c106="" _ngcontent-mky-c106="">
+                        <div _ngcontent-pjp-c106="" _ngcontent-mky-c106="">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="my_labels">CGST Value</label>
+                                        <div class="read_value">0</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="my_labels">SGST Value</label>
+                                        <div class="read_value">0</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="my_labels">Cess Value</label>
+                                        <div class="read_value">0</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="my_labels">State cess Value</label>
+                                        <div class="read_value">0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                
+                    </div>
+                    
+                    <div _ngcontent-pjp-c106="" _ngcontent-mky-c106="">
+                        <div _ngcontent-pjp-c106="" _ngcontent-mky-c106="">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="my_labels">Discount</label>
+                                        <div class="read_value">0</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="my_labels">Other Charges</label>
+                                        <div class="read_value">0</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="my_labels">Round off </label>
+                                        <div class="read_value">0</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="my_labels">Total</label>
+                                        <div class="read_value">0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        </ng-template>
+        </li> -->
+        </ul>
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>
+</div>

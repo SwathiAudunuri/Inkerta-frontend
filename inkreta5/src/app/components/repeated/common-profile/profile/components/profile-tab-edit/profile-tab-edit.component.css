@@ -1,0 +1,34 @@
+.form-inline{
+    display: flex;
+    /* align-items: center; */
+    margin-bottom: 15px;
+}
+form-inline label{
+    white-space: nowrap;
+    margin-right: 3px;
+}
+form-inline p{
+    margin:0px
+}
+.form-inline label span{
+    float: right;
+}
+.form-inline label.w-120{
+    min-width: 120px;
+    margin-right: 20px;
+    margin-top: 8px;
+}
+.profile_img{
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+.img_div{
+    margin-top: 20px;
+}
+.profile_action_btns{
+    padding: 24px 2px 0px 15px;
+    margin-bottom: 1px;
+}

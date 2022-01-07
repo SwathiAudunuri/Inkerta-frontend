@@ -1,0 +1,22 @@
+.profile_img{
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+.img_div{
+    margin-top: 20px;
+}
+.profile_action_btns{
+    padding: 24px 2px 0px 15px;
+    margin-bottom: 1px;
+}
+.profile_mgnt span{
+    float: right;
+}
+.profile_mgnt label b{
+    width: 100px;
+    display: inline-block;
+    padding-right: 15px;
+}

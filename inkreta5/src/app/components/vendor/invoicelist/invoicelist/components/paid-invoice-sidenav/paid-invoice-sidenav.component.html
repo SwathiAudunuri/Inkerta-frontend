@@ -1,0 +1,140 @@
+<div >
+    <div class="d-flex justify-content-between heading align-items-center">
+        <div class="d-flex align-items-center">
+             <!-- <mat-icon (click)="arrow ? closesidenav() : closesidenav1()" [ngClass]="arrow ? 'null' : 'toggleRotate' " class="Rotate" >unfold_more</mat-icon> -->
+             <button class="arrow_icon">
+                <mat-icon class=" Rotate"  (click)="arrow ? closesidenav() : closesidenav1()" [ngClass]="arrow ? 'null' : 'toggleRotate' " >
+                  <!-- unfold_more -->
+                    chevron_left
+                </mat-icon>
+            </button>
+            <h2 class="ps-3 mb-0">Invoice Details</h2>
+        </div>
+        <div class="d-flex" >
+            <div class="invoice_act_btn d-flex">
+                <button class="btn btn-light btn-sm"  (click)="viewmore()"><mat-icon  >open_in_new</mat-icon>View more</button>
+                <button class="btn btn-light btn-sm" printSectionId="print" ngxPrint><mat-icon>print</mat-icon>Print</button>
+                <button class="btn btn-light btn-sm" (click)="ondownload()"><mat-icon>file_download</mat-icon>PDF</button>
+                <button class="btn btn-light btn-sm" [matMenuTriggerFor]="menu">Actions<mat-icon>keyboard_arrow_down</mat-icon></button>
+                <mat-menu #menu="matMenu">
+                    
+                    <button mat-menu-item  (click)="openDialog('Update status')">Update Status</button>
+                    <button mat-menu-item  (click)="openDialog('Raise Query')">Queries</button>
+                    <button mat-menu-item  (click)="openDialog('Send Reminder')">Send Reminder</button>
+                    <!-- <button mat-menu-item (click)="openDialog('QR Code')">QR Code Details</button> -->
+                    
+                    <!-- <button mat-menu-item (click)="openDialog('Dicard')">Dicard</button> -->
+
+                </mat-menu>
+                
+            </div>
+            
+        </div>
+    </div>
+    <div>
+        <mat-tab-group class="tab"  #print (selectedTabChange)="selectedIndexBinding($event)">
+            <mat-tab label="Details" index=0> 
+                <app-invoice-details [index]=0></app-invoice-details>
+                <!-- <mat-progress-spinner
+                    [mode]="'indeterminate'"
+                    *ngIf="detailsloading"
+                    [color]="'var(--primary)'"
+                >
+                </mat-progress-spinner>
+                <perfect-scrollbar>
+                   
+                <div class="py-4 invoice_slip"   style="position: relative; height: 470px;" >
+                    <span name="form_invoicedate" style="position: absolute;top: 8px;right: 15px;">Date : {{invoicedate | date: 'yyyy-MM-dd'}} </span>
+                    <div class="row mx-0 align-items-center">
+                        <div class="col-md-6 ">
+                            
+                            <img style="width: 180px;" src="./assets/inkretabuddy.png"/>
+                        </div>
+                        <div class="col-md-6">
+                            <p >invoice : <span class="form_invoice_no" name="invoiceNO">#{{InvoiceNo}}</span></p>
+                            <p>OrderId : <span>#12344</span></p>
+                            <p name="form_status">Status : 
+                                <span class="user_status active" *ngIf="status1 === 'New'">{{status1}} </span> 
+                                <span class="user_status onhold" *ngIf="status1 === 'Onhold'">{{status1}} </span> 
+                                <span class="user_status Query" *ngIf="status1 === 'Query'">{{status1}} </span>
+
+                                <span class="user_status onhold" *ngIf="status1 === 'AP Processing'">{{status1}} </span> 
+                                <span class="user_status onhold" *ngIf="status1 === 'Voided'">{{status1}} </span> 
+                                <span class="user_status onhold" *ngIf="status1 === 'Pending'">{{status1}} </span> 
+                                <span class="user_status active" *ngIf="status1 === 'In Progress'">{{status1}} </span> 
+                                <span class="user_status Query" *ngIf="status1 === 'Approved'">{{status1}} </span>
+                                <span class="user_status active" *ngIf="status1 === 'Acknowledged'">{{status1}} </span> 
+                                
+                                <span class="user_status onhold" *ngIf="status1 === 'Draft'">{{status1}} </span> 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mx-0 my-3">
+                            <div class="col-md-6">
+                                <p>From</p>
+                                <span><b>{{supplier_legal_name}}</b></span><br>
+                                <span>GSTIN : {{supplier_gstin}}</span><br>
+                                <span>Mobile : {{supplier_phone}}</span><br>
+                                <span>Email : {{supplier_email}}</span><br>
+                                <span>Address : {{dispatch_address1}},
+                                    {{dispatch_location}},
+                                    {{dispatch_address1}},
+                                    {{dispatch_pincode}}
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <p>To</p>
+                                <span><b>{{billing_legal_name}}</b></span><br>
+                                <span>GSTIN : {{billing_gstin}}</span><br>
+                                <span>Mobile : {{billing_phone}}</span><br>
+                                <span>Email : {{billing_email}}</span><br>
+                                <span>Address : {{shippingto_address1}},
+                                    {{shippingto_location}},
+                                    {{shippingto_address2}},
+                                    {{shippingto_pincode}}
+                                </span>
+                                  
+                            </div>
+                    </div>
+                    <div class="row mx-0">
+                        <div class="col-md-12">
+                            <h3 class="fst-italic fw-normal mb-2" name="form_invoicecreatedate">Payment Due : <span>{{invoicecreatedate | date: 'yyyy-MM-dd'}}</span></h3>
+                            <table class="table">
+                                <tr>
+                                    <td><b>Subtotal </b> </td>
+                                    <td><span>{{paidamount}}</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>State cessvalue </b> </td>
+                                    <td><span>{{csessvalue}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Total Assessable Value </b> </td>
+                                    <td><span>{{total_assessable_value}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Total </b> </td>
+                                    <td name="form_total_invoice_value"><span>{{total_invoice_value}}</span> </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </perfect-scrollbar> -->
+            </mat-tab>
+            <mat-tab label="Invoice Document" index=1>
+                <app-invoice-inline (blob)="blob=$event"  [index]=1 ></app-invoice-inline>
+            </mat-tab>
+            <mat-tab label="Attachments" index=2> 
+                <app-invoice-attachment [external]=false [index]=2></app-invoice-attachment>
+            </mat-tab>
+            <mat-tab label="Invoice History" index=3> 
+                <app-invoice-history [index]=3></app-invoice-history>
+            </mat-tab>
+            <mat-tab label="Notes" index=4> 
+                <app-commentstab [external]=false [index]=4></app-commentstab>
+            </mat-tab>
+        </mat-tab-group>
+        
+    </div>
+</div>

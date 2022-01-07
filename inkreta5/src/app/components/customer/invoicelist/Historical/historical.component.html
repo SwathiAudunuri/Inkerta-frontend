@@ -1,0 +1,45 @@
+
+<!-- <mat-progress-spinner
+
+[mode]="'indeterminate'" *ngIf="loading$ | async">
+</mat-progress-spinner> -->
+
+<!-- <button (click)="loader.show()">show</button>
+<button (click)="loader.hide()">hide</button> -->
+<!-- {{tabs}} -->
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer [opened]="sidenav1" class="example-sidenav" class="example-sidenav" [ngClass]="sidenav ? 'sidenav':'full_sidenav' " mode="side" position="end"  >
+    <!-- <mat-drawer #drawer [opened]="sidenav1" class="example-sidenav" class="example-sidenav" mode="side" position="end" style="width: 55%; padding: 10px;border:1px solid #dfdfdf ;" > -->
+      <app-invoice-details-sidenav  ></app-invoice-details-sidenav>
+  
+      
+    </mat-drawer>
+    <div class="example-sidenav-content">
+      <div class="card invoice_main_div" >
+       
+        <!-- <mat-icon class="arrow_icon Rotate" [ngClass]="sidenav1 ? 'null' : 'toggleRotate' " (click)="sidenav1 ? left_sidenav_full() : left_sidenav_half()" >unfold_more</mat-icon> -->
+        <button class="arrow_icon">
+          <mat-icon class=" Rotate"  [ngClass]="sidenav1 ? 'null' : 'toggleRotate' " (click)="sidenav1 ? left_sidenav_full() : left_sidenav_half()" >
+            <!-- unfold_more -->
+              chevron_right
+          </mat-icon>
+        </button>
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+          
+  
+          <li [ngbNavItem]="1" (click)="setTabs(false)">
+            <a ngbNavLink><b>Paid</b></a>
+            <ng-template ngbNavContent>
+              <app-search class="search_outer_box" (search)="search=$event"> </app-search>
+              <app-paidinvoices (childEvent)="sidenav=$event" [search]="search"   (paid)="paid=$event" (details)="details=$event"></app-paidinvoices>
+            </ng-template>
+          </li>
+        </ul>
+        <div [ngbNavOutlet]="nav" class="mt-1"></div>
+      </div>
+    </div>
+  
+  </mat-drawer-container>
+  
+  
+  

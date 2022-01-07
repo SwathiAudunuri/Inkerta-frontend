@@ -1,0 +1,171 @@
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading || loading1">
+</mat-progress-spinner>
+<form [formGroup]="new_patner" (ngSubmit)="submit()">
+  <div>
+    <div class="p-1 main_div">
+        <div>
+          <div class="company_details">
+            <div class="heading">
+              <p>Company Details</p>
+            </div>
+            <div>
+              <div class="d-flex mt">
+                <div class="col-sm-4 p-1 data">
+                  <label>Company Name <span>:</span></label>
+                  <p>{{this.new_patner.value.companyName}}</p>
+                </div>
+                <div class="col-sm-4 p-1 data">
+                  <label>GSTIN <span>:</span></label>
+                  <p>{{this.new_patner.value.gstin}}</p>
+                </div>
+                <div class="col-sm-4 p-1 data">
+                  <label>Pan No <span>:</span></label>
+                  <p>{{this.new_patner.value.panNo}}</p>
+                </div>
+              </div>
+              <div class="d-flex mt">
+                <div class="col-sm-4 p-1 data">
+                  <label>Firm Type <span>:</span></label>
+                  <p>{{this.new_patner.value.firmType}}</p>
+
+                </div>
+                <div class="col-sm-4 p-1 data">
+                  <label>Payment Terms <span style="color: red;">*</span> <span>:</span></label>
+                  <select class="form-select" formControlName="paymentTerms"
+                    [class.error]="f.paymentTerms.invalid && (f.paymentTerms.dirty || f.paymentTerms.touched)">
+                    <option value=null>Select</option>
+                    <option value="30">30</option>
+                    <option value="60">60</option>
+                    <option value="90">90</option>
+                    <option value="custom">Custom</option>
+                    <option value="dueonreceipt">Due on receipt</option>
+                  </select>
+                </div>
+                <div class="col-sm-4 p-1 data">
+                  <label>Currency <span style="color: red;">*</span> <span>:</span></label>
+                  <select class="form-select" formControlName="reportingCurrency"
+                    [class.error]="f.reportingCurrency.invalid && (f.reportingCurrency.dirty || f.reportingCurrency.touched)">
+                    <option value=null>Select</option>
+                    <option value="INR">INR</option>
+                    <option value="USD">USD</option>
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="CHF">CHF</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="JPY">JPY</option>
+                  </select>
+                </div>
+              </div>
+              <div class="d-flex mt">
+                <div class="col-sm-4 p-1 data">
+                  <label>Type of Patner <span style="color: red;">*</span> <span>:</span></label>
+                  <select class="form-select" formControlName="partnerType"
+                    [class.error]="f.partnerType.invalid && (f.partnerType.dirty || f.partnerType.touched)">
+                    <option value=null>Select</option>
+                    <option value="Vendor">Vendor</option>
+                    <option value="Customer">Customer</option>
+                    <option value="Both">Both</option>
+                  </select>
+                </div>
+                <div class="col-sm-4 p-1 data">
+                  <label>Line Of Business <span style="color: red;">*</span> <span>:</span></label>
+                  <select class="form-select" formControlName="industry"
+                    [class.error]="f.industry.invalid && (f.industry.dirty || f.industry.touched)">
+                    <option value=null>Select</option>
+                    <option value="Manufacturer">Manufacturer </option>
+                    <option value="Service Provider">Service Provider</option>
+                    <option value="Trader">Trader</option>
+                    <option value="Others">Others</option>
+                  </select>
+                </div>
+                <div class="col-sm-4 p-1 data">
+                  <label>Website <span style="color: red;">*</span> <span>:</span></label>
+                  <input type="text" class="form-control" formControlName="website"
+                    [class.error]="f.website.invalid && (f.website.dirty || f.website.touched)" />
+                </div>
+              </div>
+              <div class="mt">
+                <div class="col-sm-12 p-1 data">
+                  <label>Address <span>:</span></label>
+                  <p>{{this.new_patner.value.partnerAddress}}</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="contact_details">
+            <div class="heading">
+              <p>Contact Details</p>
+            </div>
+            <div>
+              <div class="d-flex mt">
+                <div class="col-sm-4 p-1 data">
+                  <label>Title <span style="color: red;">*</span> <span>:</span></label>
+                  <select class="form-select" formControlName="title"
+                    [class.error]="f.title.invalid && (f.title.dirty || f.title.touched)">
+                    <option value=null>Select</option>
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                  </select>
+                </div>
+                <div class="col-sm-4 p-1 data">
+                  <label>First Name <span style="color: red;">*</span> <span>:</span></label>
+                  <input type="text" class="form-control" formControlName="firstName"
+                    [class.error]="f.firstName.invalid && (f.firstName.dirty || f.firstName.touched)" />
+                </div>
+                <div class="col-sm-4 p-1 data">
+                  <label>Last Name <span style="color: red;">*</span> <span>:</span></label>
+                  <input type="text" class="form-control" formControlName="lastName"
+                    [class.error]="f.lastName.invalid && (f.lastName.dirty || f.lastName.touched)" />
+                </div>
+              </div>
+              <div class="d-flex mt">
+                <div class="col-sm-4 p-1 data">
+                  <label>Email <span style="color: red;">*</span> <span>:</span></label>
+                  <input type="text" class="form-control" formControlName="email"
+                    [class.error]="f.email.invalid && (f.email.dirty || f.email.touched)" />
+                  <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+                    <mat-error *ngIf="f.email.errors?.forbiddenName && !f.email.errors?.required">
+                      Invalid Email
+                    </mat-error>
+                  </div>
+                </div>
+                <div class="col-sm-4 p-1 data">
+                  <label>Primary Mobile Number <span style="color: red;">*</span> <span>:</span></label>
+                  <input type="text" class="form-control" formControlName="primaryPhoneNumber"
+                    [class.error]="f.primaryPhoneNumber.invalid && (f.primaryPhoneNumber.dirty || f.primaryPhoneNumber.touched)" />
+                  <div
+                    *ngIf="f.primaryPhoneNumber.invalid && (f.primaryPhoneNumber.dirty || f.primaryPhoneNumber.touched)">
+                    <mat-error
+                      *ngIf="f.primaryPhoneNumber.errors?.forbiddenName && !f.primaryPhoneNumber.errors?.required">
+                      Invalid Mobile Number
+                    </mat-error>
+                  </div>
+                </div>
+                <div class="col-sm-4 p-1 data">
+                  <label>Secoundary Mobile Number <span>:</span></label>
+                  <input type="text" class="form-control" formControlName="secondaryPhoneNumber" />
+                  <div
+                    *ngIf="f.secondaryPhoneNumber.invalid && (f.secondaryPhoneNumber.dirty || f.secondaryPhoneNumber.touched)">
+                    <mat-error
+                      *ngIf="f.secondaryPhoneNumber.errors?.forbiddenName && !f.secondaryPhoneNumber.errors?.required">
+                      Invalid Mobile Number
+                    </mat-error>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    </div>
+    <div class="fotter">
+      <button class="btn btn-light" type="button" (click)="close()"> Cancel</button>
+      <button class="btn btn_primary" type="submit" 
+        [disabled]="!(f.industry.valid && f.firstName.valid && f.lastName.valid && f.title.valid &&  f.primaryPhoneNumber.valid && f.email.valid && f.partnerType.valid && f.paymentTerms.valid && f.reportingCurrency.valid && f.website.valid)">
+        Submit</button>
+    </div>
+  </div>
+</form>

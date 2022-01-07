@@ -1,0 +1,51 @@
+.new_role{
+    height: 180px;
+    width: 491px;
+    /* margin-top: 23px;
+    margin-left: 100px */
+}
+.description{
+    margin-left: 10px;
+    text-align: center;
+}
+.description p{
+    color: var(--primary);
+}
+.role{
+    align-self: center;
+}
+.action_btn{
+    float: right;
+    margin-right: 21px;
+    margin-top: 10px;
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}
+
+.main_div{
+    height: 250px;
+    width: 625px;
+}
+.modal-header{
+    border-top: 4px solid var(--primary);
+    border-right: 4px solid var(--primary);    
+    border-left: 4px solid var(--primary);
+    border-bottom: 1px solid #ccc !important;
+    border-bottom: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px
+}
+.bottom_div{
+    color: #767676;
+    font-size: 12px;
+}
+
+/* .role_body{
+    border: 1px solid #ccc;
+    height: 135px;
+} */

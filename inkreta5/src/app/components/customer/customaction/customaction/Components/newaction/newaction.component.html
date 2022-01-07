@@ -1,0 +1,221 @@
+<div class="d-flex justify-content-between heading align-items-center">
+    <div class="d-flex align-items-center">
+      <mat-icon (click)="closesidenav()" >
+        chevron_left</mat-icon>
+
+      <h2 class="ps-3 mb-0">New Action</h2>
+    </div>
+    <!-- <div class="d-flex">
+      <div class="invoice_act_btn d-flex">
+       
+        <button (click) ="edit()" class="edit" *ngIf="!newaction"> 
+          <mat-icon> edit</mat-icon>
+        </button>
+   
+
+      </div>
+
+    </div> -->
+  </div>
+
+<div style="height: 491px;">
+    <form [formGroup]="newaction" (ngSubmit)="Submit()">
+        <div style=" margin-top: 10px;" class="items" >
+            
+                <div class="item">
+                    <label style="font-weight: 600;width: 150px;">Action Name :</label>
+                    <input class="input_stat " formControlName="actionName"  type="text" value="Post into ERP"/>
+        
+                </div>
+                <div class="item">
+                    <div>
+                        <label style="font-weight: 600;width: 150px;">Action System :</label>
+
+                    </div>
+                    <!-- <input class="input_stat " formControlName="actionSystem"  type="text" value="Post into ERP"/> -->
+                    <mat-select  class=" input_stat"   formControlName="actionSystem"    [style.borderBottom]="'1px solid #ccc'">
+                        <mat-option [value]="'SAP'">SAP</mat-option>
+                        <mat-option [value]="'Oracle'">Oracle</mat-option>
+                        <mat-option [value]="'Oracle'">Oracle</mat-option>
+                        <mat-option [value]="'Tally'">Tally</mat-option>
+                        <mat-option [value]="'Other'">Other</mat-option>
+
+                      </mat-select>
+                </div>
+          
+                <!-- <div class="item">
+                    <div>
+                        <label style="font-weight: 600; width: 150px;">Connector Type :</label>
+
+
+                    </div>
+                  
+                    <mat-select  class=" input_stat"   formControlName="actionConnectorType"    [style.borderBottom]="'1px solid #ccc'">
+                        <mat-option [value]="'WebService-SOAP'">WebService-SOAP</mat-option>
+                        <mat-option [value]="'WebService-REST'">WebService-REST</mat-option>
+
+                      </mat-select>
+        
+        
+                </div> -->
+      
+                <!-- <div class="item">
+                    <label style="font-weight: 600; width: 150px;">Action Operation :</label>
+                    <input class="input_stat "              
+                           formControlName="actionOperation" 
+                    type="text" value="urn:soap:targetMethod"/>
+                    
+        
+                </div> -->
+          
+                <div class="item">
+                    <label style="font-weight: 600; width: 150px;">Username :</label>
+                    <input class="input_stat " formControlName="userName" type="text" value="username"/>
+        
+        
+                </div>
+                <div class="item">
+                    <label style="font-weight: 600; width: 150px;">Password :</label>
+                    <input class="input_stat " formControlName="userPassword"  type="text" value="Password"/>
+        
+        
+                </div>
+                
+                <div class="item">
+                    <div>
+                        <label style="font-weight: 600; width: 150px;">Response  Attribute :</label>
+
+
+                    </div>
+                    <input class="input_stat " formControlName="respAttributeOnsuccessful" type="text" value="http://SAPE6.test.tecnics.com"/>        
+                </div>
+                <div class="item">
+                    <label style="font-weight: 600; width: 150px;">Response Message :</label>
+                    <input class="input_stat" formControlName="respMessage" type="text" value="http://SAPE6.test.tecnics.com"/>
+                </div>
+              
+             
+                <div class="item">
+                    <div>
+                        <label style="font-weight: 600; width: 150px;">
+                            Show only when invoice status :
+                            <span style="color: red;">*</span> 
+
+                        </label>
+
+                    </div>
+                
+                    <!-- <ng-multiselect-dropdown
+                    formControlName="customActionsByInvoiceStatus" 
+                   
+                    [placeholder]="'Custom Select status' "       
+                    [data]="invoiceStatuses"
+                    [disabled]="disabled"
+                    [settings]="dropdownSettings"FormArrayName
+                  >
+                  </ng-multiselect-dropdown> -->
+                  <mat-select  class=" input_stat"  formControlName="customActionsByInvoiceStatus"   multiple  [style.borderBottom]="'1px solid #ccc'">
+                    <mat-option *ngFor="let toppings of invoiceStatuses"  [value]="toppings">{{toppings}}</mat-option>
+                  </mat-select>
+                  <!-- <mat-select formControlName="customActionsByInvoiceStatus"   multiple [style.width]="'305px'" style="height: 66px;overflow: scroll;" [style.borderBottom]="'1px solid #ccc'">
+                    <mat-select-trigger>
+                      <div class="scrolling-wrapper" style="height: 50px;">
+                        <mat-chip-list style="flex: 0 0 auto;">
+                            <mat-chip *ngFor="let topping of invoiceStatuses" >
+                            {{ topping }}
+                            </mat-chip>         
+                        </mat-chip-list>
+                      </div>
+                    </mat-select-trigger>
+                    <mat-option *ngFor="let topping of invoiceStatuses" [value]="topping" style="display: flex;">
+                        {{topping}}
+                    </mat-option>
+                    
+                </mat-select> -->
+                </div>
+                                  
+
+           
+                <div class="item">
+                    <div>
+                        <label style="font-weight: 600; width: 150px;">
+                            Show only when system role :
+                            <span style="color: red;">*</span> 
+                        </label>
+                    </div>
+                    <mat-select  class="input_stat"   formControlName="customActionsByPartnerRole"   multiple  [style.borderBottom]="'1px solid #ccc'">
+                        
+                        <mat-option *ngFor="let topping of roles; let i= index" [value]="topping">{{topping}}</mat-option>
+                      </mat-select>
+                    <!-- <ng-multiselect-dropdown
+                    formControlName="customActionsByPartnerRole" 
+                    [placeholder]="'Custom Select role'"       
+                    [data]="roles"
+                    [disabled]="disabled"
+                    [settings]="dropdownSettings"
+                    class="roleone"
+                    >
+                  </ng-multiselect-dropdown> -->
+        
+                </div>
+                <div class="item">
+                    <div>
+                        <label style="font-weight: 600; width: 150px;">Connector Type :</label>
+
+
+                    </div>
+                    <!-- <select  class="input_stat " >
+                        <option value="WebService-SOAP">WebService-SOAP</option>
+                        <option value="WebService-REST">WebService-REST</option>
+
+                    </select> -->
+                    <mat-select  class=" input_stat"   formControlName="actionConnectorType"    [style.borderBottom]="'1px solid #ccc'">
+                        <mat-option [value]="'WebService-SOAP'">WebService-SOAP</mat-option>
+                        <mat-option [value]="'WebService-REST'">WebService-REST</mat-option>
+
+                      </mat-select>
+        
+        
+                </div>
+                <div style="width:100%;margin-left: 12px;margin-bottom: 7px;">
+                    <label style="font-weight: 600; width: 150px;">Action Operation :</label>
+                    <input class="input_stat "    style="width: 80%;"          
+                           formControlName="actionOperation" 
+                    type="text" value="urn:soap:targetMethod"/>
+                    
+        
+                </div>
+                <div style="width:100%;margin-left: 12px;">
+                    <label style="font-weight: 600; width: 150px;">Url :</label>
+                    <input class="input_stat" style="width: 80%;" formControlName="url" type="text" value="http://SAPE6.test.tecnics.com"/>
+        
+                </div>
+           
+                <div style="width:100%;margin-left: 12px;">
+                    <label style="font-weight: 600; width: 150px;">Input Request :</label><br>
+                    <textarea class="input_req xmlarea"
+                    formControlName="inputRequest" rows=8 ></textarea>
+        
+        
+                </div>
+                <!-- formControlName="xlst" -->
+                <div style="width:100%;margin-left: 12px;">
+                    <label style="font-weight: 600; width: 150px;">Stylesheet :</label><br>
+                    <textarea class="input_req xmlarea"
+                    formControlName="transferStylesheet" rows=8 ></textarea>
+        
+        
+                </div>
+              
+        
+        
+             
+         
+        </div>
+        <div class=" mt-2 me-2" class="submit" >
+            <button class=" btn btn_light " type="button" (click)="close()">Cancel</button>
+            <button class="btn btn_primary ms-2" type="submit">Save</button>
+        </div>
+        </form>
+
+</div>

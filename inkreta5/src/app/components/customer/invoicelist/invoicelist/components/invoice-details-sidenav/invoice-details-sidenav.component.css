@@ -1,0 +1,10 @@
+.error{
+    height: 100%;
+    /* top: 50%; */
+    padding-top: 34%;
+    /* position: absolute; */
+    color: red;
+}
+.error p{
+    text-align: center;
+}

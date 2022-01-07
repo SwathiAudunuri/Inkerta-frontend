@@ -1,0 +1,42 @@
+<div  >
+    <div class="modal-header">
+        <label class="modal-title" id="modal-basic-title">Upload Invoice (Form)</label>
+        <button type="button" aria-label="Close" class="btn-close" (click)="close()" ></button>
+    </div>
+    <div class="main_div m-2">
+        <div class="d-flex">
+            <p><b>Is your Customer registered in Inkreta<span style='color: red'>*</span></b></p>
+            <div class="d-flex radio_grp">
+                <div class="radio_div">
+                    <input class="radio_btn" value="Yes" name="action" [(ngModel)]="registered"  type="radio" id=one  />
+                    <label>Yes</label>
+                </div>
+                <div>
+                    <input class="radio_btn" value="No" name="action" [(ngModel)]="registered" type="radio" id=one />
+                    <label>No</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="p-1" *ngIf="registered === 'Yes' ">
+            <div class="midline" >
+                <div>
+                    <label style="color:#3c8dbc;margin-bottom: 10px;" ><b>Invoice</b>  will be assigned to selected Customer</label>
+                </div>
+                <label class="id_no">Enter Customer</label>
+                <div class="input_grp">
+                    <input class="input"   style="height: 40px;" type="text" placeholder="Search.." name="search">
+                    <button class="fas button btn" type="button" >
+                        <fa-icon  [icon]="faSearch" ></fa-icon>
+                    </button>
+                  </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="fotter">
+        <button class="btn" (click)="close()">Cancel</button>
+        <button class="btn  btn_primary" style="margin-left: 10px;" (click)="submit()">OK</button>
+    </div>
+</div>

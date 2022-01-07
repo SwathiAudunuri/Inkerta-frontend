@@ -1,0 +1,109 @@
+<mat-progress-spinner
+    [mode]="'indeterminate'" *ngIf="loading">
+</mat-progress-spinner>
+<div  >
+    <div class="modal-header">
+        <label class="modal-title" id="modal-basic-title">Submit Invoice</label>
+        <button type="button" aria-label="Close" class="btn-close" (click)="close()" ></button>
+    </div>
+    <div class="m-3 main_div" *ngIf="!status">
+        <div class="csv_div d-flex">
+            <div class="d-flex col-sm-7">
+                <div class="col-sm-5">
+                    <label class="label"><b>Upload CSV File (.xlsx)</b> <span class="required">*</span> </label>
+                    <input type="file" id="id1" accept=".xls,.xlsx" class="upload-box" (change)="upload_csv($event)"/>
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn btn-primary button"><label for="id1" >choose file</label></button>
+                </div>
+                <div class="col-sm-3 d-flex file" *ngIf="id1 !== '' ">
+                    <p>{{id1}}</p>
+                    <mat-icon class="delete_icon" (click)="delete_csv()">highlight_off</mat-icon>
+                </div>
+            </div>
+            <div class="col-sm-5 help">
+                <div>   
+                    <span>Please upload the formatted Excel sheet with Inkreta eInvoice template.</span><br>
+                    <span>Click the link to download the formatted spresheet <span class="download" (click)="download_template()">download</span></span>
+                </div>
+            </div>
+        </div>
+        <mat-divider class="divider" [inset]="true"></mat-divider>
+        <div class="pdf_div d-flex">
+            <div class="d-flex col-sm-7">
+                <div class="col-sm-5">
+                    <label class="label"><b>Upload Pdf File (.pdf)</b> <span class="required">*</span></label>
+                    <input type="file" id="id2" accept=".pdf" class="upload-box" (change)="upload_pdf($event)"/>
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn btn-primary button"><label for="id2" >choose file</label></button>
+                </div>
+                <div class="col-sm-3 d-flex file" *ngIf="id2 !== '' ">
+                    <p>{{id2}}</p>
+                    <mat-icon class="delete_icon" (click)="delete_pdf()">highlight_off</mat-icon>
+                </div>
+            </div>
+            <div class="col-sm-5 help">
+                <div>   
+                    <span>Please Select your invoice(.pdf)</span>
+                </div>
+            </div>
+        </div>
+        <mat-divider class="divider" [inset]="true"></mat-divider>
+        <div class="support_div ">
+            <div class="d-flex ">
+                <!-- <div class="d-flex col-sm-6">
+                    <label class="label"><b>Upload Supporting Document (.doc/.pdf)</b></label>
+                    <input type="file" id="id" accept=".pdf,.doc" class="upload-box" multiple="multiple" (change)="upload_support($event)"/>
+                    <button class="btn btn-primary button"><label for="id">choose file</label></button>
+                </div> -->
+                <div class="d-flex col-sm-7">
+                    <div class="col-sm-5">
+                        <label class="label"><b>Upload Supporting Document (.doc/.pdf)</b></label>
+                    <input type="file" id="id" accept=".pdf,.doc" class="upload-box" multiple="multiple" (change)="upload_support($event)"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="btn btn-primary button"><label for="id" >choose files</label></button>
+                    </div>
+                </div>
+                <div class="col-sm-5 help">
+                    <div>   
+                        <span>Please Select your Supporting Documents(.doc/.pdf)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="support_table m-2">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <ng-container matColumnDef="DocumentName">
+                      <th mat-header-cell *matHeaderCellDef> Document Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.DocumentName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="MineType">
+                      <th mat-header-cell *matHeaderCellDef> Mine Type </th>
+                      <td mat-cell *matCellDef="let element"> {{element.MineType}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Action">
+                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                        <td mat-cell *matCellDef="let element ; index as i"> <mat-icon (click)="delete_row(i)">delete</mat-icon> </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </div>
+        <mat-divider class="divider" [inset]="true"></mat-divider>
+        <div class="action_btn">
+            <button *ngIf="status" class="btn btn-primary" (click)="close()" >Close</button>
+            <button *ngIf="!status" class="btn" (click)="close()" style="margin-right: 10px;">Cancel</button>
+            <button *ngIf="!status" class="btn save-btn" style="margin-right: 10px;" (click)="submit('Draft','002')">Save As Draft</button>
+            <button *ngIf="!status" class="btn btn-primary button" (click)="submit('Submit','001')">Submit</button>
+        </div>
+    </div>
+    <div class="mess_div" [class]="mess_status ? 'red' : 'green' " *ngIf="status">
+       <p>{{mess}}</p> 
+       <div class="action_btn1">
+            <button *ngIf="status" class="btn btn_primary" (click)="close()" >Close</button>
+       </div>
+    </div>
+    
+</div>

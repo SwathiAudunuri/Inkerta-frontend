@@ -1,0 +1,26 @@
+
+
+.example-sidenav{
+    width: 50%;
+}
+.example-sidenav-content{
+    margin-right: 10px;
+    min-height: 500px; 
+    min-height:591px;
+    padding:10px;
+}
+.grid_search{
+    position: relative;
+    margin-bottom: 6px;
+}
+.grid_search input{
+    padding-right: 40px;
+    height: 28px;
+    width: 197px;
+}
+.grid_search mat-icon{
+    position: absolute;
+    right: -23px;
+    top: 50%;
+    transform: translateY(-50%);
+}

@@ -1,0 +1,58 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+<div class="usercontainer">
+ <div class="header">
+    <label style="font-weight: 600;color:#3c8dbc ;">Select</label>
+ </div>
+<!-- <label style="margin-bottom: 6px;margin-top: 33px">Select User</label> -->
+<div style="height: 294px;"> 
+    <!-- <div class="rdns">
+        <input value="Assign"  type="radio" name="action" id=one />
+        <label class="ms-3">Swathi Audinur (000012)</label>
+    </div>
+    <div class="rdns">
+        <input value="Assign"  type="radio" name="action" id=one />
+        <label class="ms-3">Sundeep(010002)</label>
+    </div>
+     <div class="rdns">
+        <input value="Assign"  type="radio" name="action" id=one />
+        <label class="ms-3">Ashok (010005)</label>
+    </div>
+    <div class="rdns">
+        <input value="Assign"  type="radio" name="action" id=one />
+        <label class="ms-3">Chandra (010006)</label>
+    </div> -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+        <ng-container matColumnDef="Select">
+          <th mat-header-cell *matHeaderCellDef style="width: 15%;"> </th>
+          <td mat-cell *matCellDef="let element"> 
+            <input value="Assign" (click)="value_userid(element)"  type="radio" name="action" id=one />
+            </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef style="width: 25%;"> Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.displayname}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Roles">
+          <th mat-header-cell *matHeaderCellDef> Roles </th>
+          <td mat-cell *matCellDef="let element">
+             <span class="roles">
+                {{element.roles}}
+             </span>
+          </td>
+        </ng-container>
+       
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;index as i;" ></tr>
+      </table>
+  
+</div>
+<div class="flex-end">
+    <button class="btn btn_light" (click)="close()" type="button" style="margin-right: 5px;">Cancel</button>
+    <button class="btn btn_primary" type="button" (click)="userid()">Ok </button>
+</div>
+</div>

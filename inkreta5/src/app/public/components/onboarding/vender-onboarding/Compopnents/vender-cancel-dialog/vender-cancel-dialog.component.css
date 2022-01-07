@@ -1,0 +1,37 @@
+.cancel_dialog .dialog1_heading {
+    padding: 8px 15px !important;
+    color: #fff;
+    font-weight: 400 !important;
+}
+.cancel_dialog .mat-icon {
+    font-size: 25px !important;
+    height: 25px !important;
+    width: 25px !important;
+    float: right;
+    padding: 2px;
+    cursor: pointer;
+}
+.cancel_dialog .mat-dialog-actions{
+    padding: 0px 15px !important;
+      margin-bottom: -24px !important;
+      justify-content: flex-end;
+      margin-top: -20px;
+}
+.cancel_dialog  .example-container{
+    padding: 15px;
+    line-height: 22px;
+}
+.dialog1_heading{
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 8px 24px !important;
+    background: #008ecc !important;
+}
+.icon_cancel{
+    margin-left: 51px;
+    margin-top: 1px;
+}
+.button_cancel{
+    margin-left: 57px;
+    margin-top: 14px;
+}

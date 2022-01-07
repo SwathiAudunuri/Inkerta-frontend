@@ -1,0 +1,54 @@
+.heading {
+    border-bottom: 1px solid #ccc;
+    height: 22px;
+    margin-bottom: 10px;
+}
+.content{
+    background-color: #efefef;
+}
+.content span {
+    float: right;
+    margin-right: 10px;
+}
+.content label {
+    width: 150px;
+    align-self: center;
+}
+.row_data {
+    margin-bottom: 8px;
+}
+.fotter{
+    border-bottom: 1px solid #ccc;
+}
+.fotter .buttons{
+    margin-bottom: 7px;
+    margin-top: 7px;
+}
+.nam{
+    width: 430px;
+}
+.gen{
+    width: 210px;
+}
+.num{
+    text-align: end;
+    width: 170px !important;
+    /* color: #767676; */
+}
+.currency{
+    align-self: center;
+    padding: 4px;
+    border: 1px solid #ccc;
+    height: 34px;
+    min-width: 39px;
+}
+.error{
+    border-color: red;
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}

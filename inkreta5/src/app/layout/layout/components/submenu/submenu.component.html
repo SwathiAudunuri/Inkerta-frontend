@@ -1,0 +1,55 @@
+<mat-drawer mode="side" #drawer3  class="side" [class.mat-elevation-z2]="true"       [opened]="opened1" >
+    <div *ngFor="let item of childs" >
+
+<div class="sub_menu" >
+    <a routerLink={{item.itemRoute}}  >
+        <button (click)= "toggle()">
+            <div class="flex_div">
+            <mat-icon svgIcon={{item.itemIcon}}   aria-hidden="false" aria-label="Example"></mat-icon>
+            
+           <label class="flexdiv" > {{item.itemName}}</label>
+            </div>
+        </button>   
+        </a>
+       
+    </div>
+    <div *ngIf="item.childs !=undefined">
+        <div *ngFor="let child of item.childs" >
+            <div class="sub_menu grandchild" >
+                <a routerLink={{child.itemRoute}}  >
+                    <button (click)= "toggle()">    
+                        <div class="flex_div">
+                        <mat-icon svgIcon={{child.itemIcon}}   aria-hidden="false" aria-label="Example"></mat-icon>
+                        
+                       <label class="flexdiv" > {{child.itemName}}</label>
+                        </div>
+                    </button>   
+                    </a>
+            </div>
+        </div>
+
+
+    </div>
+
+    </div>
+    <!-- <mat-accordion multi=true hideToggle>
+
+    <mat-expansion-panel  *ngFor="let item of childs" >
+		<mat-expansion-panel-header>
+            {{item.itemName}}      
+		</mat-expansion-panel-header>
+        <div class="sub_menu" >
+            <a routerLink={{item.itemRoute}}  >
+                <button (click)= "toggle()"  >
+                    <div class="flex_div">
+                    <mat-icon svgIcon={{item.itemIcon}}   aria-hidden="false" aria-label="Example"></mat-icon>
+                    
+                   <label class="flexdiv" > {{item.itemName}}</label>
+                    </div>
+                </button>   
+                </a>
+               
+            </div>   
+         </mat-expansion-panel>
+    </mat-accordion> -->
+</mat-drawer>

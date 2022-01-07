@@ -1,0 +1,116 @@
+.mat-progress-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+  }
+  
+  .gtnVerification h3 {
+    color: #1e86bf;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin-top: 40px;
+  }
+  
+  .company_main.row .col-md-6>div {
+    min-height: 305px;
+  }
+  
+  .gstSubText {
+    font-Size: 16px;
+    color: #757575;
+    line-height: 22px;
+    margin-top: 50px;
+  }
+  
+  input.gstNum {
+    border: none;
+    padding: 0;
+    width: 25.5ch;
+    background: repeating-linear-gradient(90deg, #cccaca 0, #cac7c7 1ch, transparent 0, transparent 1.5ch) 0 100%/22ch 1px no-repeat;
+    font: 4ch droid sans mono, consolas, monospace;
+    letter-spacing: 0.5ch;
+  }
+  
+  input.gstNum:focus {
+    outline: none;
+  }
+  
+  .captcha-area {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .captcha-area>* {
+    margin-right: 10px;
+    width: 100px;
+    border-radius: 4px;
+  }
+  
+  .captcha-bg {
+    /* background-image: url('../../../../../assets/captcha-bg.png'); */
+    border: 1px solid #ccc;
+    overflow: hidden;
+  }
+  
+  .captcha-bg .MuiButton-root {
+    min-width: 30px;
+  }
+  
+  .captcha-bg .MuiSvgIcon-root {
+    width: 1.2em !important;
+    height: 1.2em !important;
+  }
+  
+  .captcha-bg canvas {
+    margin-top: -5px;
+  }
+  
+  .captcha-input {
+    height: 40px;
+    border: 1px solid #ccc;
+    padding: 0 15px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #757575;
+  }
+  
+  .refresh-btn {
+    background-color: transparent;
+    padding: 0;
+    margin-top: -25px;
+    float: right;
+    border: none;
+    margin-right: 5px;
+  }
+  
+  .refresh-btn .mat-icon {
+    font-size: 26px !important;
+    height: 25px !important;
+    width: 25px !important;
+  }
+  
+  #captcha {
+    width: 100px;
+    height: 35px;
+    font: 22px droid sans mono, consolas, monospace;
+    margin-left: 10px;
+    margin-top: -4px;
+  }
+  
+  .message {
+    color: green;
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    margin: auto;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    width: 50%;
+  }
+  

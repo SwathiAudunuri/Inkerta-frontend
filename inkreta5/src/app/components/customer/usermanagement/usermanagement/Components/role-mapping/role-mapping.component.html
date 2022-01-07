@@ -1,0 +1,103 @@
+<!-- <div class="d-flex add_class" >
+    <div class="d-flex col-sm-4">
+        <label>Name : </label>
+        <input type="text" class="form-control" [(ngModel)]="Name"/>
+    </div>
+    <div class="d-flex col-sm-4">
+        <label>Role : </label>
+        <select class="form-select" [(ngModel)]="role">
+            <option value="customer_user">customer_user</option>
+            <option value="customer_admin">customer_admin</option>
+            <option value="customer_manager">customer_manager</option>
+        </select>
+    </div>
+    <div class="col-sm-4 button">
+        <button class="btn btn_primary" (click)="add()">Add</button>
+    </div>
+    
+</div> -->
+<mat-progress-spinner
+  [mode]="'indeterminate'" *ngIf="loading || loading1 || loading2">
+</mat-progress-spinner> 
+<div>
+    <div [class]=" show ? 'tabe_div' : 'null' ">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+            <!-- <ng-container matColumnDef="Name">
+              <th mat-header-cell *matHeaderCellDef>Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+            </ng-container> -->
+        
+            <ng-container matColumnDef="Role">
+              <th mat-header-cell *matHeaderCellDef> Role</th>
+                <td mat-cell *matCellDef="let element">
+                    <div style="line-height: 6px;">
+                        <p>{{element.role_name}}</p>
+                        <span class="des"><b>Description : </b>{{element.role_description}}</span>
+                    </div>
+                </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="Action">
+                <th mat-header-cell *matHeaderCellDef> Action</th>
+                <td mat-cell *matCellDef="let element;index as i"> 
+                    <mat-icon (click)="delete(element)">delete</mat-icon>    
+                </td>
+              </ng-container>
+           
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;index as i;" (click)="update_row(row,i);" ></tr>
+        </table>
+    </div>
+    <!-- <div *ngIf="show" class="new_role">
+        <div class="d-flex m-3">
+            <div class="col-sm-6 role">
+                <label><b>Role</b></label>
+                <select class="form-select" [(ngModel)]="role" (ngModelChange)="description()" >
+                    <option value="">select</option>
+                    <option *ngFor="let x of roles" value={{x.role_id}}>{{x.role_name}}</option>
+                </select>
+            </div>
+            <div class="col-sm-6 description">
+                <label><b>Description</b></label>
+                <p>{{description_text}}</p>
+            </div>
+        </div>
+        <div class="action_btn">
+            <button class="btn">Cancel</button>
+            <button class="btn_primary" (click)="map_role()">Map this role</button>
+        </div>
+    </div> -->
+
+
+    <!-- <div class="main_div new_role" *ngIf="show">
+        <div class="modal-header">
+            <label class="modal-title" id="modal-basic-title">Map New Role</label>
+        </div>
+        <div class="role_body">
+            <div class="d-flex m-3">
+                <div class="col-sm-6 role">
+                    <label><b>Role</b></label>
+                    <select class="form-select" [(ngModel)]="role" (ngModelChange)="description()" >
+                        <option value="">select</option>
+                        <option *ngFor="let x of roles" value={{x.role_id}}>{{x.role_name}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 description">
+                    <label><b>Description</b></label>
+                    <p>{{description_text}}</p>
+                </div>
+            </div>
+    
+            <div class="action_btn">
+                <button class="btn" (click)="close_role()">Cancel</button>
+                <button class="btn_primary" (click)="map_role()">Map this role</button>
+            </div>
+        </div>
+       
+    </div> -->
+
+
+</div>
+
+

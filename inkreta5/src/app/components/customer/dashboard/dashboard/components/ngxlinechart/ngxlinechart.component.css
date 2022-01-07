@@ -1,0 +1,8 @@
+g.line-chart > g:last-of-type > g:nth-child(n) g.line-series > path {
+    stroke-width: 1 !important;
+  }
+  ngx-charts-chart div{
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  

@@ -1,0 +1,147 @@
+
+.bar{
+    min-height: 55px;
+    margin-bottom: 5px;
+    display: flex;
+    box-shadow:0 1px 3px 0 rgb(0 0 0 / 9%)
+}
+.icon{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    color: var(--primary);
+    background-color: aliceblue;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-top: 6px;
+}
+.icon >.soap{
+    background-color: #ffe0c3;
+    border-radius: 50%;
+
+}
+.exec{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+}
+.highlight{
+    /* background-color: #f4eeee; */
+    background-color: rgb(195, 221, 230,0.1);
+    border-left: 4px solid  var(--primary);
+    
+}
+.highlight>.icon{
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+}
+/* .highlight>.icon{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+} */
+.mat-icon{
+    height: 36px;
+    width: 36px;
+}
+.contentblock{
+    color: #565656;
+    font-style: italic;
+    font-size: 12px;
+}
+.mat-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon_soap{
+    width: 30px;    
+}
+.sort_bar{
+    background: #e0e8ef;
+    padding: 5px 10px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    color: #fff;
+    margin-top: -4px;
+}
+.sort_bar label{
+    font-size: 12px;
+    color: #888888;
+    cursor: pointer;
+    padding: 0px 15px;
+}
+/* .sort_bar label::after{
+    font-size: 12px;
+    color: #000;
+    cursor: pointer;
+    padding: 0px 15px;
+} */
+.sorting{
+    position: relative;
+}
+.sorting::after{
+    content: "";
+    background-image: url("../../../../../../../assets/sort.png"); 
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -10px;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+}
+
+.sorting.sort_asc::after{
+    content: "";
+    background-image: url("../../../../../../../assets/sort_asc.png"); 
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -10px;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+}
+.sorting.sort_decs::after{
+    content: "";
+    background-image: url("../../../../../../../assets/sort_desc.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -10px;
+    top: 2px;
+    width: 20px;
+    height: 20px; 
+}
+.sorting.sort_asc,.sorting.sort_decs{ 
+    color : black !important;
+    font-weight: 600;
+}
+.zoom {
+    /* background-color: #fff; */
+    transition: transform .5s; /* Animation */
+}
+.zoom:hover {
+    transform: scale(1.03); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}
+.arrow-right {
+    width: 0; 
+    height: 0; 
+    border-top: 24px solid transparent;
+    border-bottom: 32px solid transparent;
+    border-left: 24px solid green;
+
+    /* position: absolute;
+    left: 575px;
+    width: 0;
+    height: 0;
+    border-top: 24px solid transparent;
+    border-bottom: 32px solid transparent;
+    border-left: 24px solid var(--primary); */
+    
+}

@@ -1,0 +1,21 @@
+<div>
+  <div *ngIf="loaded" style="height: 100%;">
+    <div *ngIf="msg === 'null'">
+      <canvas baseChart width="100%"  [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+      [colors]="barChartColors"
+        [legend]="barChartLegend" [chartType]="barChartType" ></canvas>
+    </div>
+    <div class="msg" *ngIf="msg !== 'null'">
+      {{msg}}
+    </div>
+
+  </div>
+  <div>
+
+    <ngx-spinner  bdColor="#fff"
+    size="medium"
+    color="#3c8dbc"
+    type="line-spin-fade-rotating" [fullScreen] = "false"></ngx-spinner>
+  </div>
+    
+  </div>

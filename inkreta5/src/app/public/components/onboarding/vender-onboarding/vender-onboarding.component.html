@@ -1,0 +1,126 @@
+<div *ngIf="!activationstatus"
+  [ngClass]="stepper.selectedIndex===0 ? 'firtStep supplierRegestration':stepper.selectedIndex===1 ? 'firtStep supplierRegestration':stepper.selectedIndex===2 ? 'firtStep supplierRegestration':stepper.selectedIndex===3 ? 'firtStep supplierRegestration':stepper.selectedIndex===4 ? 'firtStep supplierRegestration':'supplierRegestration far-section'"
+  [style.backgroundImage]="stepper.selectedIndex===0 ? 'url(./assets/img2.JPG)':stepper.selectedIndex===1 ? 'url(./assets/bg_pattern.jpg)':stepper.selectedIndex===2 ? 'url(./assets/bg_pattern.jpg)':stepper.selectedIndex===3 ? 'url(./assets/3rd.png)':stepper.selectedIndex===4 ? 'url(./assets/lastpage1.png)':null">
+  <mat-horizontal-stepper linear [labelPosition]="'bottom'" #stepper>
+    <mat-step label="Identification" state="perm_identity">
+      <ng-template matStepContent>
+        <app-vender-identification [Additional_Details]="Additional_Details" (childEvent)="status=$event">
+        </app-vender-identification>
+        <div class="gstin-step-buttons">
+          <div class="step_buttons">
+            <button mat-raised-button color="primary" matStepperNext [disabled]="status"
+              (click)="firstpage()">Next</button>
+          </div>
+        </div>
+      </ng-template>
+    </mat-step>
+    <mat-step label="Contact information" state="favorite">
+      <ng-template matStepContent>
+        <form [formGroup]="Additional_Details">
+          <app-vender-contact-info [Additional_Details]="Additional_Details" (childEvent)="status1=$event">
+          </app-vender-contact-info>
+          <div class='gstin-step-buttons'>
+            <div class="step_buttons">
+              <button mat-raised-button class='btn' (click)="back()" class="btn backbtn BckCompanydet"
+                matStepperPrevious>
+                Back
+              </button>
+              <!-- [disabled]="!(f.verifiedMail.value && (f.mobileNumber.valid &&f.email.valid &&f.firstName.valid &&f.lastName.valid ))" -->
+              <button mat-raised-button class='btn' color='primary' type="submit" (click)="save()"
+              [disabled]="!f.canEnableContactNext.value"
+                matStepperNext>
+                Next
+              </button>
+              <button mat-raised-button class="btn Cancle-btn" (click)="cancelbtn()">
+                Cancel
+              </button>
+              <button mat-raised-button class="btn save-btn" (click)="save()">
+                Save
+              </button>
+            </div>
+          </div>
+        </form>
+      </ng-template>
+    </mat-step>
+    <mat-step label="Additional Details" state="description">
+      <form [formGroup]="Additional_Details" (ngSubmit)="submited(Additional_Details.value)">
+        <app-vender-additional-details1 [next]="next" [Additional_Details]="Additional_Details"
+          [ONBOARDING_MASTER_DROPDOWN]="ONBOARDING_MASTER_DROPDOWN"></app-vender-additional-details1>
+        <div class="clearfix"></div>
+        <div class='gstin-step-buttons'>
+          <div class="step_buttons">
+            <button mat-raised-button class="btn backbtn BckCompanydet" *ngIf="next>1" (click)="backpage()">
+              Back
+            </button>
+            <button mat-raised-button class="btn backbtn BckCompanydet" *ngIf="next==1" matStepperPrevious>
+              Back
+            </button>
+            <button mat-raised-button class="btn" color='primary' type="submit" *ngIf="next<3"
+              [disabled]="!(f.lineOfBusiness.valid && f.incorporationYear.valid && f.annualTurnover.valid && f.companySize.valid &&  f.keyProductCategories.valid && f.industriesServiced.valid &&  f.standardPaymentTerms.valid &&  f.reportingCurrency.valid && enable)"
+              (click)="nextpage()">
+              Next
+            </button>
+            <button mat-raised-button class="btn" color='primary' type="submit" *ngIf="next==3" (click)="save()"
+              [disabled]="!this.Additional_Details.value.canEnableAdditionalDetailsNext == true" matStepperNext>
+              Next
+            </button>
+            <button mat-raised-button class="btn Cancle-btn" (click)="cancelbtn()">
+              Cancel
+            </button>
+            <button mat-raised-button class="btn save-btn" (click)="save()">
+              Save
+            </button>
+          </div>
+        </div>
+
+
+      </form>
+    </mat-step>
+
+    <mat-step label="Activation" state="work">
+      <app-vender-activation [Additional_Details]="Additional_Details" (childEvent)="activationstatus=$event">
+      </app-vender-activation>
+      <div class='gstin-step-buttons'>
+      </div>
+    </mat-step>
+
+    <mat-step label="Completion" state="done_outline">
+      <app-vender-completion [Additional_Details]="Additional_Details"></app-vender-completion>
+      <div class='gstin-step-buttons'>
+        <div class="step_buttons">
+        </div>
+      </div>
+    </mat-step>
+
+    <ng-template matStepperIcon="perm_identity">
+      <mat-icon>perm_identity</mat-icon>
+    </ng-template>
+
+
+    <ng-template matStepperIcon="edit">
+      <mat-icon>drive_file_rename_outline</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="done">
+      <mat-icon>verified</mat-icon>
+    </ng-template>
+
+
+    <ng-template matStepperIcon="favorite">
+      <img src="./assets/contact-book.png" style="height: 38px;" />
+    </ng-template>
+    <ng-template matStepperIcon="description">
+      <img src="./assets/resume.png" style="height: 32px;margin-left: 3px;" />
+    </ng-template>
+    <ng-template matStepperIcon="work">
+      <img src="./assets/settings.png" style="margin-left: 3px;" />
+    </ng-template>
+    <ng-template matStepperIcon="done_outline">
+      <img src="./assets/tick.png" style="margin-left: 3px;" />
+    </ng-template>
+
+  </mat-horizontal-stepper>
+
+</div>
+<div *ngIf="activationstatus" class="fourStep supplierRegestration" style="background: url(./assets/lastpage1.png);">
+  <app-vender-completion [Additional_Details]="Additional_Details"></app-vender-completion>
+</div>

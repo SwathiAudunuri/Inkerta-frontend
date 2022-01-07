@@ -1,0 +1,86 @@
+<div class="todoForm_block">
+  <form [formGroup]="receipentForm" (ngSubmit)="onSubmit1()">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group" >
+          <label>Connector Type</label>
+          <select class='form-select form-control'  ngDefaultControl formControlName="connectorType"
+            [(ngModel)]="selectedValueweb">
+            <option value="WebService-SOAP">WebService-SOAP</option>
+            <option value="WebService-REST">WebService-Rest</option>
+            <option value="">None</option>
+          </select>
+
+    <div *ngIf="selectedValueweb == 'WebService-SOAP'">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>URL</label>
+            <textarea  name="url" ngDefaultControl formControlName="url" class="form-control" name="url"  rows="2"
+              ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label>User Name</label>
+          <input class="form-control" (keyup)="test($event)" type="text" placeholder="" formControlName="userName" ngDefaultControl
+            aria-label="default input example">
+        </div>
+      </div>
+      <!-- </div> -->
+      <div class="row">
+        <div class="form-group">
+          <label>Password</label>
+          <input class="form-control" type="text" placeholder="" formControlName="userPassword" ngDefaultControl
+            aria-label="default input example">
+        </div>
+      </div>
+      <!-- </div> -->
+      <div class="row">
+        <div class="form-group">
+          <label className="pop_label">Input Request</label>
+          <textarea name="description" ngDefaultControl class="form-control" id="descriptionid" rows="10"
+            formControlName="inputRequest" required></textarea>
+        </div>
+      </div>
+      <!-- </div> -->
+      <div class="row">
+        <div class="form-group">
+          <label>Operation Action</label>
+          <textarea name="operationaction" ngDefaultControl class="form-control" id="descriptionid" rows="2"
+            formControlName="operationAction" required></textarea>
+        </div>
+      </div>
+      <!-- </div> -->
+      <div class="row">
+        <div class="form-group">
+          <label>Response DocNumber Attribute</label>
+          <input class="form-control" type="text" placeholder="" name="emailAddress" ngDefaultControl
+            formControlName="respDocNumberOnsuccessful" aria-label="default input example">
+        </div>
+      </div>
+      <!-- </div> -->
+      <div class="row">
+        <div class="form-group">
+          <label>Response Message</label>
+          <input class="form-control" type="text" placeholder="" name="emailAddress" ngDefaultControl
+            formControlName="respMessage" aria-label="default input example">
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedValueweb == 'WebService-REST'">
+      <div class="row">
+        <p> WebService-Rest parameters</p>
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+    <div class='btn_right mt-2'>
+      <button class=" btn btn_primary" color="primary" style="margin-right: 10px;" type="submit">Submit</button>
+      <!-- <button mat-raised-button color="primary" style="margin-right: 20px;"  (click)="openDialog()">Modal</button> -->
+      <button class=" btn btn-light " color='primary' (click)="goback()">Cancel</button>
+    </div>
+  </form>
+</div>

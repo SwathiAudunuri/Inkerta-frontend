@@ -1,0 +1,223 @@
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="detailsloading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+<perfect-scrollbar>
+  <div>
+    <div class="justify-content-between d-flex">
+      <div></div>
+      <div class="d-flex inv_info1">
+        <div class="d-flex" style="margin-right: 13px;">
+            <p><b>Submitted On : </b></p>
+            <span>{{invoicedate | date: 'yyyy-MM-dd'}}</span>
+        </div>
+        <div class="d-flex">
+          <p><b>Status : </b></p>
+          <span>{{status1}}</span>
+      </div>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-sm-6 box">
+        <!-- <div class="box"> -->
+          <div>
+            <span>From</span>
+            <p><b>{{supplier_legal_name}}</b></p>
+            <span>{{dispatch_address1}},
+              {{dispatch_location}},
+              {{dispatch_address1}},
+              {{dispatch_pincode}}</span>
+  
+            <span>{{supplier_phone}}</span>
+            <span>{{supplier_email}}</span>
+          </div>
+        <!-- </div> -->
+        
+       
+      </div>
+      <div class="col-sm-6 box">
+        <!-- <div class="box"> -->
+          <div>
+            <span>To</span>
+            <p><b>{{billing_legal_name}}</b></p>
+            <span>{{shippingto_address1}},
+              {{shippingto_location}},
+              {{shippingto_address2}},
+              {{shippingto_pincode}}</span>
+  
+            <span>{{billing_phone}}</span>
+            <span>{{billing_email}}</span>
+          </div>
+        <!-- </div> -->
+        
+      </div> 
+      
+    </div>
+    <div class="d-flex">
+      <div class="inv_info col-sm-4">
+        <div class="d-flex">
+          <p><b>Invoice No <span style="float: right;">:</span> </b></p>
+          <span>#{{InvoiceNo}}</span>
+        </div>
+        <div class="d-flex">
+          <p><b>Invoice Date <span style="float: right;">:</span> </b></p>
+          <span>{{invoicedate | date: 'yyyy-MM-dd'}}</span>
+        </div>
+        
+      </div>
+
+      <div class="inv_info col-sm-4">
+        <div class="d-flex">
+          <p><b>Due Date <span style="float: right;">:</span> </b></p>
+          <span>{{duedate | date: 'yyyy-MM-dd'}}</span>
+        </div>
+        <div class="d-flex">
+          <p><b>Po No <span style="float: right;">:</span> </b></p>
+          <span>#{{po_ref_num}}</span>
+        </div>
+        
+      </div>
+
+      <div class="inv_info col-sm-4">
+        <div class="d-flex">
+          <p><b>Currency <span style="float: right;">:</span> </b></p>
+          <span>{{invoicelistdetails?.invoiceDetails?.invoice_currency_code}}</span>
+        </div>
+        
+      </div>
+    </div>
+    <div>
+      <div class="heading_total">
+        <p><b>Totals</b></p>
+      </div>
+      <div class="inv_info ">
+        <div class="d-flex">
+          <div class="col-sm-4 d-flex">
+            <p><b>SGST <span style="float: right;">:</span> </b></p>
+            <span>{{igstvalue}}</span>
+          </div>
+          <div class="col-sm-4 d-flex">
+            <p><b>CGST <span style="float: right;">:</span> </b></p>
+            <span>{{igstvalue}}</span>
+          </div>
+          <div class="col-sm-4 d-flex">
+            <p><b>IGST <span style="float: right;">:</span> </b></p>
+            <span>{{igstvalue}}</span>
+          </div>
+        </div>
+        
+        <div class="d-flex">
+          <div class="col-sm-4 d-flex">
+            <p><b>Cess <span style="float: right;">:</span> </b></p>
+            <span>{{csessvalue}}</span>
+          </div>
+          <div class="col-sm-4 d-flex">
+            <p><b>StateCess <span style="float: right;">:</span> </b></p>
+            <span>{{csessvalue}}</span>
+          </div>
+          <div class="col-sm-4 d-flex">
+            <p><b>Discount <span style="float: right;">:</span> </b></p>
+            <span>{{total_invoice_value}}</span>
+          </div>
+        </div>
+        
+        <div class="totals col-sm-4">
+          <div class="d-flex" style="margin-top: 3px;">
+            <p><b>Total Assessable Value <span style="float: right;">:</span> </b></p>
+            <!-- <mat-icon class="currency_icon">{{icon[invoicelistdetails?.invoiceDetails?.invoice_currency_code]}}</mat-icon> -->
+            <span>{{ total_assessable_value | currency: invoicelistdetails?.invoiceDetails?.invoice_currency_code}}</span>
+          </div>
+          <div class="d-flex">
+            <p><b>Total Invoice Value <span style="float: right;">:</span> </b></p>
+            <!-- <mat-icon class="currency_icon">{{icon[invoicelistdetails?.invoiceDetails?.invoice_currency_code]}}</mat-icon> -->
+            <span>{{ total_invoice_value | currency:invoicelistdetails?.invoiceDetails?.invoice_currency_code}}</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- <div class="py-4 invoice_slip" style="position: relative; height: 505px;">
+    <span name="form_invoicedate" style="position: absolute;top: 8px;right: 15px;">Date :
+      {{invoicedate | date: 'yyyy-MM-dd'}} </span>
+    <div class="row mx-0 align-items-center">
+      <div class="col-md-6 ">
+
+        <img style="width: 180px;" src="./assets/inkretabuddy.png" />
+      </div>
+      <div class="col-md-6">
+        <p>invoice : <span class="form_invoice_no" name="invoiceNO">#{{InvoiceNo}}</span></p>
+        <p>PO No : <span class="form_invoice_no" name="PO_no">#{{po_ref_num}}</span></p>
+        <p name="form_status">Status :
+          <span class="user_status active" *ngIf="status1 === 'New'">{{status1}} </span>
+          <span class="user_status onhold" *ngIf="status1 === 'Onhold'">{{status1}} </span>
+          <span class="user_status Query" *ngIf="status1 === 'Query'">{{status1}} </span>
+
+          <span class="user_status onhold" *ngIf="status1 === 'AP Processing'">{{status1}} </span>
+          <span class="user_status onhold" *ngIf="status1 === 'Voided'">{{status1}} </span>
+          <span class="user_status onhold" *ngIf="status1 === 'Pending'">{{status1}} </span>
+          <span class="user_status active" *ngIf="status1 === 'In Progress'">{{status1}} </span>
+          <span class="user_status Query" *ngIf="status1 === 'Approved'">{{status1}} </span>
+          <span class="user_status active" *ngIf="status1 === 'Acknowledged'">{{status1}} </span>
+          <span class="user_status onhold" *ngIf="status1 === 'Draft'">{{status1}} </span>
+          <span class="user_status Query" *ngIf="status1 === 'Exception'">{{status1}} </span>
+          <span class="user_status active" *ngIf="status1 === 'Paid'">{{status1}} </span>
+          <span class="user_status onhold" *ngIf="status1 === 'Queried'">{{status1}} </span>
+        </p>
+        <p>Doc_Ref_Id : <span>{{document_ref_id}}</span></p>
+      </div>
+    </div>
+    <div class="row mx-0 my-3">
+      <div class="col-md-6">
+        <p>From</p>
+        <span><b>{{supplier_legal_name}}</b></span><br>
+        <span>GSTIN : {{supplier_gstin}}</span><br>
+        <span>Mobile : {{supplier_phone}}</span><br>
+        <span>Email : {{supplier_email}}</span><br>
+        <span>Address : {{dispatch_address1}},
+          {{dispatch_location}},
+          {{dispatch_address1}},
+          {{dispatch_pincode}}
+        </span>
+      </div>
+      <div class="col-md-6">
+        <p>To</p>
+        <span><b>{{billing_legal_name}}</b></span><br>
+        <span>GSTIN : {{billing_gstin}}</span><br>
+        <span>Mobile : {{billing_phone}}</span><br>
+        <span>Email : {{billing_email}}</span><br>
+        <span>Address : {{shippingto_address1}},
+          {{shippingto_location}},
+          {{shippingto_address2}},
+          {{shippingto_pincode}}
+        </span>
+
+      </div>
+    </div>
+    <div class="row mx-0">
+      <div class="col-md-12">
+        <h3 class="fst-italic fw-normal mb-2" name="form_invoicecreatedate">Payment Due :
+          <span>{{invoicecreatedate | date: 'yyyy-MM-dd'}}</span></h3>
+        <table class="table">
+          <tr>
+            <td><b>Igst Value </b> </td>
+            <td><span>{{igstvalue}}</span></td>
+          </tr>
+          <tr>
+            <td><b>State cessvalue </b> </td>
+            <td><span>{{csessvalue}}</span> </td>
+          </tr>
+          <tr>
+            <td><b>Total Assessable Value </b> </td>
+            <td><span>{{total_assessable_value}}</span> </td>
+          </tr>
+          <tr>
+            <td><b>Total </b> </td>
+            <td name="form_total_invoice_value"><span>{{total_invoice_value}}</span> </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div> -->
+</perfect-scrollbar>

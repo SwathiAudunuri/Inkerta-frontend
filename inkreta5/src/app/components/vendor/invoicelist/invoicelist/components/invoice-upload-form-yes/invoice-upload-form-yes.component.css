@@ -1,0 +1,140 @@
+/* .main_div{
+    height: 100px;
+    width: 500px;
+    font-size: 12px;
+} */
+.modal-header{
+    border-top: 4px solid var(--primary);
+    border-right: 4px solid var(--primary);    
+    border-left: 4px solid var(--primary);
+    border-bottom: 1px solid #ccc !important;
+    border-bottom: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px
+}
+.fotter{
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.main_div{
+    max-height: 591px;
+    min-height: 591px;
+    width: 1203px;
+    /* width : 1228px */
+}
+.border_div{
+    border: 1px dashed #ccc;
+    
+}
+.inp{
+    margin-top: 5px;
+    align-items: center;
+}
+.inp span {
+    float: right;
+    margin-right: 9px;
+}
+.inp label {
+    width: 36%;
+}
+.inp1 {
+    color: #767676;
+    height: 18px;
+}
+.invoice_info label{
+    width: 79%;
+    margin-right: 3px;
+}
+.details{
+    padding-right: 10px;
+    align-items: center;
+}
+.details span{
+    float: right;
+    margin-right: 5px;
+}
+.upload-box{
+    display: none;
+}
+.support_div{
+    align-self: center;
+}
+.divider{
+    /* padding-top: 14px; */
+    border-color: #8b8b8c;
+    margin-left: 0px !important;
+    /* margin-bottom: 12px;
+    margin-top: 12px; */
+    /* margin-right: 5px; */
+
+}
+.email label{
+    width: 39%;
+}
+
+.heading{
+    margin-top: 9px;
+    font-size: 14px;
+    line-height: 1px;
+    color: #767676;
+}
+
+input{
+    height:24px ;
+}
+
+
+select{
+    height:24px ;
+    padding-top:0px;
+}
+
+.totals{
+    float: right;
+}
+.tran_details label{
+    color: #767676;
+}
+.mat-header-cell {
+    color: #000 !important;
+}
+.cancel_icon{
+    font-size: 16px;
+    text-align-last: right;
+}
+th.mat-header-cell.ng-star-inserted {
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    height: -18px !important;
+    padding-left: 8px !important
+}
+
+.add_icon{
+    color: #ffff;
+    background-color: var(--primary);
+}
+.delete_icon{
+    color: #ffff;
+    background-color: rgb(245, 66, 66);
+}
+.num{
+    text-align: end;
+}
+.attachments{
+    float: left;
+}
+.pdf_div{
+    border-bottom: 1px dashed #ccc;
+    height: 50px;
+    padding : 5px
+}
+.button{
+    float: right;
+    margin-right: 15px;
+    width : 100px
+}
+.help{
+    color: #767676;
+}

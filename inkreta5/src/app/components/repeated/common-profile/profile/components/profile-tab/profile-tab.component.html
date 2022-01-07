@@ -1,0 +1,37 @@
+<div>
+      <form [formGroup]="profile">
+
+      <div class="borderTopBoxBody">
+
+        <div class="row m-3 profile_mgnt">
+          <div class="col-md-4 col-lg-2" style="min-width: 200px;">
+            <div class="img_div">
+              <img [src]="profile.value.img" class="profile_img" />             
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-sm-12" style="margin-top: 27px;">
+            <div class="d-flex">
+                <label ><b>Name <span>:</span> </b></label>
+                <p >{{profile.value.firstname+" "+profile.value.lastname}}</p>
+              </div>
+              <div class="d-flex">
+                <label ><b>Email <span>:</span> </b></label>
+                <p >{{profile.value.email}}</p>
+              </div>
+              <div class="d-flex">
+                <label ><b>Phoneno <span>:</span></b></label>
+                <p >{{profile.value.mobile}}</p>
+              </div>
+              <div class="d-flex">
+                <label ><b>Role <span>:</span> </b></label>
+                <p >{{profile.value.role}}</p>
+              </div>
+          </div>
+        </div>
+        <div style="background-color: #f2f2f2;padding: 5px;">
+          <p style="margin: 4px;">For more Profile editing and changing please go to Admin - Profile Management
+          </p>
+        </div>
+      </div>
+      </form>
+</div>

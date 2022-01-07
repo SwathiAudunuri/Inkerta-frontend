@@ -1,0 +1,47 @@
+.main_div{
+    /* height: 267px;
+    width: 625px; */
+    height: 560px;
+    width: 895px;
+}
+.modal-header{
+    border-top: 4px solid var(--primary);
+    border-right: 4px solid var(--primary);    
+    border-left: 4px solid var(--primary);
+    border-bottom: 1px solid #ccc !important;
+    border-bottom: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px
+}
+.action_btn{
+    position: absolute;
+    right: 30%;
+    top: 62%;
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}
+.error_mess{
+    color: red;
+    position: absolute;
+    top: 45%;
+    left: 35%;
+}
+/* .mess{
+    color: green;
+    position: absolute;
+    top: 45%;
+    left: 35%;
+} */
+.divider{
+    border-color: #8b8b8c;
+}
+.mat-divider.mat-divider-inset {
+    margin-left:  0px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}

@@ -1,0 +1,67 @@
+<!-- <p>vendormappingedit works!</p> -->
+<form>
+    <div>
+      <div>
+        <div style="float: left;border-bottom: 1px solid #e2e2e2;height: 49px;">
+          <mat-icon style="margin-top: 12px;cursor: pointer;" (click)="back_icon()">chevron_left</mat-icon>
+        </div>
+      </div>
+      
+      <mat-tab-group>
+        <mat-tab label="General" class="mat-tab-labels ">
+          <div class="form-group mat-tab-body-content">
+            <form [formGroup]="updaterow" (ngSubmit)="submitDetails()" >
+     
+                <label>Vendor Code</label>
+           <div  class="col-md-12 add_vendor">
+                <div class="items_flex search ">
+                 <div class="input-group search">
+                   <input type="text" class="form-control" placeholder="select Vendor Code"  formControlName="vendorPartnerId" aria-label="Input group example" aria-describedby="basic-addon1">
+                   <span class="input-group-text" id="basic-addon1" (click)="openDialog()">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+             </svg>
+                   </span>
+                 </div>
+                </div>
+               </div>
+               <div class="row">
+               <div class="col-md-12">
+                 <div class="form-group">
+                   <div *ngIf="companyName!=''&&companyName!='undefined'">
+                     <!-- <div> -->
+                   <label>Company Name</label>
+                   <input
+                     class="form-control " type="text" placeholder="Company Name"[value]="companyName"
+                     aria-label="default input example">
+                   </div>
+                 </div>
+               </div>
+             </div>
+               
+           
+               <div class="form-group">
+                 <div class="mb-3">
+                   <label className="pop_label">Description</label>
+                   <textarea formControlName="description" class="form-control" id="descriptionid" rows="6"
+                      required
+                    ></textarea>
+                 </div>
+               </div>
+               <div class="add_task_action_btn">
+              
+                 <button  class=" btn btn_primary" style="    margin: 0px 0px 0px 559px;"  type="submit"><span>Update</span></button> 
+                
+                 </div>
+           </form>
+          </div>
+  </mat-tab>
+  
+  <mat-tab label="Audit">
+    <app-vendormappingaudit ></app-vendormappingaudit>
+  </mat-tab>
+  </mat-tab-group>
+  </div>
+  </form>
+  
+  

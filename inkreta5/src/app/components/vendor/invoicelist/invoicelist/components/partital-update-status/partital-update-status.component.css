@@ -1,0 +1,124 @@
+.modal-content{
+    min-width: 930px;
+    min-height: 635px;
+    
+}
+.radio_buttons{
+    display: flex;
+}
+.flex-end{
+    display: flex;
+    justify-content: flex-end;
+}
+.invoice_attrs{
+    display: flex;
+    justify-content: space-between;
+}
+.heading_radio{
+    margin-top: 10px;
+    margin-bottom: 9px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.radio_buttons>div>div{
+    /* margin-bottom: 17px; */
+}
+.modal-header{
+    border-top: 4px solid var(--primary);
+    border-right: 4px solid var(--primary);    
+    border-left: 4px solid var(--primary);
+    border-bottom: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px
+}
+.modal-body1{
+    border-right: 4px solid var(--primary);    
+    border-left: 4px solid var(--primary);
+    padding-left: 1rem;
+    padding-right: 2px;
+    padding-top: 3px;
+    color: #767676;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
+
+}
+
+.supplier_name{
+    font-size: 14px;
+    font-weight: 600;
+}
+.invoice_num,.inv_amt,.inv_dt{
+    font-style: italic;
+    font-size: 12px;
+    
+    /* font-weight: 600;     */
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+  }
+
+
+.btns{
+    margin-top: 10px;
+}
+
+.dynamic_color{
+    color: var(--primary);
+    font-style: italic;
+    margin-top:10px;
+}
+.fotter_btn{
+    margin-right: 12px;
+    padding-top: 4px;
+}
+.bor-err{
+    border-color: red;
+}
+.data_para {
+    font-size: 12px;
+    font-style: italic;
+}
+.divider{
+    height: 14px;
+    margin-left: 5px;
+    margin-top: 3px;
+}
+.modal-body2{
+    padding-left: 1rem;
+    padding-right: 2px;
+    height: 476px;
+    max-height: 476px !important;
+    /* max-height: 472px; */
+    width: 98%;
+}
+.invoice_attrs-second{
+    margin-top:15px
+}
+.checkbox .mat-checkbox-layout .mat-checkbox-label{
+    align-items: center;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr.table_heading th{
+    background-color: #dddddd;
+    border-right: 1px solid #ccc;
+  }
+
+  tr.table_heading td{
+    color: #757575;
+  }

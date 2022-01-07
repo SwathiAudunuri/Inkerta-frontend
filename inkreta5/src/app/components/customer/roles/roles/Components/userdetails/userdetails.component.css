@@ -1,0 +1,20 @@
+.content{
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.item{
+    margin-bottom: 15px;
+
+}
+.user_btns{
+    margin-left: 100px;
+}
+.close_btn{
+    font-size: 20px;
+    border: none;
+    background: #fff0eb;
+    color:#b3600e;
+    border-radius: 8px;
+    margin-left: 15px;
+}

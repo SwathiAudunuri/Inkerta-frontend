@@ -1,0 +1,26 @@
+label{
+    margin-bottom: 2px
+}
+.card{
+    padding: 10px;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.header h5{
+    color: #3c8dbc;
+    font-weight: 600;
+}
+
+.ngx-pagination .current,
+.btn-info {
+  background: #17a2b8 !important;
+  border: transparent !important;
+  border-radius: 20px !important;
+}
+.viewall_btn{
+    border: none !important;
+    background-color: white !important;
+}

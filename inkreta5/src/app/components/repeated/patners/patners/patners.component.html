@@ -1,0 +1,36 @@
+<div>
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer [opened]="sidenav" #drawer class="example-sidenav matdrawer" [ngClass]="sidenav_width ? 'half' : 'full' " mode="side" position="end">
+      <div *ngIf="!newpatner">
+        <app-patners-sidenav (sidenav_width)="sidenav_width=$event"></app-patners-sidenav>
+      </div>
+      <div *ngIf="newpatner">
+        <app-new-patner (newpatner)="newpatner=$event"></app-new-patner>
+      </div>
+    </mat-drawer>
+    <div class="card user_left">
+      <div class="p-1 search"> 
+        <div class="d-flex justify-content-between p-1" style="border-bottom: 1px solid #ccc;">
+          <div class="col-sm-3">
+            <div class="grid_search">
+                <!-- [(ngModel)]="filterValue" (keyup)="search()" -->
+              <input placeholder="Search"  class="form-control" [(ngModel)]="filterValue"  (keyup)="search()" />
+              <mat-icon style="color: #a0a0a0;">search</mat-icon>
+            </div>
+          </div>
+          <div class="action_btn">
+            <button class="btn btn-light btn-sm" style="margin-right: 15px;" (click)="open_newpatner()">New Patner</button>
+            <!-- <button class="btn btn-light btn-sm">New Payment</button>
+            <button class="btn btn-light btn-sm" style="margin-right: 15px;" (click)="vendor_com()">Submit Invoice</button> -->
+            <button class="arrow_icon" (click)="close_toggle()">
+              <mat-icon class=" Rotate" [ngClass]="newpatner ? 'toggleRotate' : 'null' "  >
+                  chevron_right
+              </mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <app-patner-table></app-patner-table>
+    </div>
+  </mat-drawer-container>
+</div>

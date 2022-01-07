@@ -1,0 +1,108 @@
+.modal-header{
+    border-top: 4px solid var(--primary);
+    border-right: 4px solid var(--primary);    
+    border-left: 4px solid var(--primary);
+    border-bottom: 1px solid #ccc !important;
+    border-bottom: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 53px;
+}
+.fotter{
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.main_div{
+    /* height: 369px;
+    width: 500px; */
+    /* max-height: 417px;
+    width: 573px; */
+    /* max-height: 505px; */
+    max-height: 525px;
+    height: 525px;
+
+    width: 1222px;
+    font-size: 12px;
+    padding: 20px 20px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+} 
+.recepient label{
+    color: #454545;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    width: 100px;
+    align-self: center;
+}
+.recepient{
+    margin-bottom: 8px;
+    display: flex;
+    width: 100% !important;
+}
+/* .email_inp{
+    border: none;
+} */
+.email_inp :focus-visible{
+    border: none !important;
+}
+.border{
+  width: 100% !important;
+}
+.border input{
+    /* border: 1px solid #959595; */
+    border: 1px solid #ffffff;
+    
+    /* height: 34px; */
+    border-radius: 3px;
+    padding: 7px 15px;
+    width: 100%;
+}
+
+ngx-editor-menu.NgxEditor__MenuBar{
+    flex-wrap: wrap !important;
+    display: none;
+  }
+  .angular-editor-toolbar:nth-child(1){
+    display: none !important;
+    background-color: red ;
+  }
+  .ql-container{
+      height: 50px !important;
+  }
+
+  .NgxEditor{
+      /* min-height: 200px; */
+      min-height: 308px;
+      height: 308px !important;
+      /* height: 0px !important; */
+  }
+
+  .action_btn{
+    padding: 5px;
+    background-color: #f1f1f1;
+  }
+  .btn-icon{
+    /* font-size: 18px; */
+    font-size: 20px;
+    height: 23px;
+    vertical-align: top;
+    color: blue;
+  }
+  .link{
+    color: blue;
+    text-decoration: underline;
+    font-size: 14px;
+  }
+  .mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+  }
+  .load_temp{
+    height: 25px;
+    margin-top: 10px;
+  }

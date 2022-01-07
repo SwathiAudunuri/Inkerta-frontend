@@ -1,0 +1,143 @@
+ <!-- <p>commapgrid works!</p> -->
+<!-- customer -->
+ <mat-drawer-container class="example-container" autosize>
+
+
+   <mat-drawer [opened]="forwardopen" #drawer class="example-sidenav" mode="side" position="end"
+     [ngClass]="statusopen ? 'halfsidenav' : 'fullsidenav' " >
+     <div *ngIf="!error">
+      
+     <div class="user_info align-items-center justify-content-between" [hidden]="edits">
+       <!-- <div class="d-flex align-items-center">
+         <h2 class="mb-0">Outbound Connectors</h2>
+       </div> -->
+       <div class="d-flex align-items-center">
+        <mat-icon  style="cursor: pointer;" [ngClass]="statusopen ? 'null' : 'toggleRotate' " (click)="backsidenav()">chevron_left</mat-icon>
+        <h2 class="ps-3 mb-0">Outbound Connectors</h2>
+      </div>
+       <div>
+         <button style="background-color: white;" (click)="statusinactivechange1($event,rowindex)">InActive</button>
+       </div>
+       <!-- <span>&#10003;</span -->
+       <div class="more">
+         <mat-icon style="margin: 3px -4px 0px 254px;" (click)="statuschangedelete1($event,rowindex)">delete
+         </mat-icon>
+       </div>
+       <mat-icon class="edit_icon" (click)="rec_edit()">edit</mat-icon>
+     </div>
+     <!-- <div style="float: left;border-bottom: 1px solid #e2e2e2;height: 49px;" [hidden]="edits">
+       <mat-icon style="margin-top: 12px;cursor: pointer;" (click)="backsidenav()">arrow_back</mat-icon>
+     </div> -->
+     <div [hidden]="edits">
+       <app-commapview [viewdetails]='recipientlist' [dumy1]="dumy1" [rowindex]="rowindex" [dumyresp]="dumyresp" ></app-commapview>
+     </div>
+     <div [hidden]="!edits">
+       <app-commapedit (childEvent)="edits=$event" [updaterow]="updaterow" [rowindex]="rowindex" [dumyresp]="dumyresp"></app-commapedit>
+     </div>
+ 
+    </div>
+    <div *ngIf="error" style="height: 100%;">
+      <div class="error" style="height: 100%;"> 
+        <p>There are no Connectors Configured</p>
+      </div>
+      
+    </div>
+   </mat-drawer>
+
+   <div class="example-sidenav-content" style="width: 99%;">
+     <div class="outer_body card "
+       style="border:1px solid #dfdfdf ;margin-right: 10px;padding: 10px; min-height: 591px; ">
+
+       <div class="d-flex mb-1 justify-content-between" style="width: 99%;">
+         <div class="col-md-6">
+           <div class="items_flex">
+             <div class="input-group search">
+               <div class="input-group-prepend ">
+                 <span class="input-group-text search" id="basic-addon1">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-search" viewBox="0 0 16 16">
+                     <path
+                       d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+                     </path>
+                   </svg>
+                 </span>
+               </div>
+               <input type="text" class="form-control" placeholder="Search" aria-label="Input group example"  [(ngModel)]="search" 
+                 aria-describedby="basic-addon1" (keyup)="searchfilter()">
+             </div>
+           </div>
+         </div>
+
+         <div class="d-flex">
+           <div>
+           <button class=" btn btn_primary" (click)="showMe()">
+             New
+           </button>
+          </div>
+          <div style="margin-left: 10px;">
+           <mat-icon  class="forward_arrow" (click)="forwardsidenav()" [ngClass]="forwardopen ? 'null' : 'toggleRotate' ">navigate_next</mat-icon>
+          </div>
+         </div>
+       </div>
+
+       <div>
+         <div class="grid_border"
+           *ngFor="let x of recipientlistdetails  |paginate:{id:'pagination',itemsPerPage:8, currentPage: page} ;index as i " 
+           [class]=" x.connectorId === connectorId ? 'highlight' : 'null' "
+           (click)="recipientlistClick(x,i);sidenav();opensidenav();updateRecord(x,i)">
+           <div class="m-1" style="margin-top: -13px;" >
+             <div class="d-flex">
+               <div style="width: 100%;">
+                 <div class="d-flex justify-content-between top_div">
+                   <div>
+                     <p class="title_para">{{x.connectorTag}}</p>
+                   </div>
+                   <div class="d-flex ">
+                    <p class="title_para" style="margin: 0px 0px 0px -157px;">,{{x.invoiceuploadDeliverymode}}</p>
+                    <p class="title_para" >,{{x.invoicequeryDeliverymode}}</p>
+                    <p class="title_para">,{{x.invoicestatusupdateDeliverymode}}</p>
+                  </div>
+                   <div class="d-flex bottom_div">
+                    <!-- <p class="title_para">{{x.deliveryMode}}</p> -->
+                     <p class="data_para">{{x.active}}</p>
+                   </div>
+                 </div>
+                 <div class="d-flex bottom_div">
+                   <div class="d-flex">
+                     <label style="color: #e44f58;"><b>GSTINS:</b></label>
+                     <p class="data_para" style="margin-left: 5px;font-style: italic;"> 
+                      <!-- {{x.outboundConnectorsGSTIN[0].gstin}} -->
+                      <span *ngFor="let y of x.outboundConnectorsGSTIN">
+                          {{y.gstin}}
+                      </span>
+                    </p>
+                     <!-- <p class="data_para" style="margin-left: 5px;font-style: italic;"> {{x.outboundConnectorsGSTIN[1].gstin}}</p> -->
+                     <mat-divider class="divider" [vertical]="true"></mat-divider>
+                   </div>
+                   <div class="d-flex" style="margin-left: 5px;">
+                     <!-- <div class="d-flex">
+                                <label style="font-size: 12px;">Gstin <span>:</span></label>
+                                <p class="data_para" style="margin-left: 5px;">{{}}</p>
+                                <mat-divider class="divider"  [vertical]="true"></mat-divider>
+                            </div> 19AAACW2286K1ZW,07AAACP3682N2ZZ,27AAACL6442L1ZA,03BZNPM9430M1KL,..   | filter:search->can use for search-->
+                     <!-- <div class="d-flex" >
+                                <div class="d-flex" style="margin-left: 5px;">
+                                    <label style="font-size: 12px;">DueDate <span>:</span></label>
+                                    <p class="data_para" style="margin-left: 5px;">{{x.invoiceduedate | date:'dd-mm-yyyy'}}</p>
+                                </div>
+                            </div> -->
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <!-- {{mess}} -->
+         <div class="pagination" style="margin-bottom: 9px;">
+           <pagination-controls id="pagination"  (pageChange)="page=$event"></pagination-controls>
+         </div>
+       </div>
+
+     </div>
+   </div>
+ </mat-drawer-container>

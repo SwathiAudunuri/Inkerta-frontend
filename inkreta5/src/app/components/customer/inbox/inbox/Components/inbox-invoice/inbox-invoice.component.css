@@ -1,0 +1,23 @@
+.image{
+    height: 33px;
+    margin-top: 9px;
+}
+.top_div{
+    height: 25px;
+    margin-top: 5px;
+}
+.title_para{
+    color: #000000;
+}
+.data_para{
+    font-size: 12px;
+    font-style: italic;
+}
+.bottom_div{
+    color: #767676;
+}
+.divider{
+    height: 14px;
+    margin-left: 5px;
+    margin-top: 3px;
+}

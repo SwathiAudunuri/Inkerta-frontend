@@ -1,0 +1,109 @@
+<mat-progress-spinner
+  [mode]="'indeterminate'" *ngIf="loading1">
+</mat-progress-spinner> 
+
+<div>
+  <mat-drawer-container class="example-container" autosize >
+    <mat-drawer [opened]="delete_item" #drawer style="width: 60%; padding: 10px;border:1px solid #dfdfdf ;" class="example-sidenav" mode="side" position="end">
+     <div *ngIf="!sidenavshow">
+      <div class="user_info align-items-center justify-content-between" [hidden]="edit">
+        <div class="d-flex align-items-center">
+          <div [hidden]="edit">
+            <mat-icon style="margin-top: 2px;margin-right: 10px;cursor: pointer;" (click)="drawer.toggle();backsidenav()">chevron_left</mat-icon>
+          </div>
+          <h2 class="mb-0">User Information ({{Fullname}})</h2>
+          <!-- <div class="ms-3">
+            <span class="user_status active" *ngIf="this.updaterow.value.status === true">Active </span> 
+            <span class="user_status deactive" *ngIf="this.updaterow.value.status === false">Not Active </span> 
+          </div> -->
+        </div>
+        <div class="d-flex">
+          <div class="d-flex">
+            <button class="btn btn-light btn-sm" style="margin-right: 10px;" (click)="resetpassword()" >
+              Reset Password
+            </button>
+            <button class="btn btn-light btn-sm" style="margin-right: 10px;" (click)="map_new_role()" >
+              Map New Role
+            </button>
+          </div>
+          <mat-icon class="edit_icon" style="margin-right: 10px;" (click)="user_edit()">edit</mat-icon>
+          <div class="more">
+            <mat-icon style="margin-right: 10px;" (click)="delete_row();backsidenav()">delete</mat-icon>
+          </div>
+        </div>
+      </div>
+      <div [hidden]="edit">
+          <app-update-user  [ELEMENT_DATA]="ELEMENT_DATA"  [rowindex]="rowindex"></app-update-user>
+      </div>
+      <div [hidden]="!edit">
+          <app-update-user-edit   (childEvent3)="edit=$event"  (childEvent)="edit=$event"></app-update-user-edit>
+      </div>
+     </div>
+     <div *ngIf="sidenavshow">
+      <div class="user_info align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+          <div>
+            <mat-icon style="margin-top: 2px;margin-right: 10px;cursor: pointer;" (click)="show()">chevron_left</mat-icon>
+          </div>
+          <h2 class="mb-0">Create New User</h2>
+        </div>
+      </div>
+      <app-add-user (sidenavshow)="sidenavshow=$event" ></app-add-user>
+     </div>
+    </mat-drawer>
+  <div class="card user_left" style="margin-right: 10px;min-height: 500px; min-height:591px">
+    <div >
+      <div class="d-flex justify-content-between">
+        <div class="col-sm-3">
+          <div class="grid_search">
+            <input placeholder="Search"  [(ngModel)]="filterValue" class="form-control" (keyup)="search()" />
+            <mat-icon style="color: #a0a0a0;">search</mat-icon>
+          </div>
+        </div>
+        <div >
+          <!-- (click)="open(content)" -->
+          <button class="btn btn-light btn-sm" (click)="add_user()" >
+            Add User
+          </button>
+          <!-- <button mat-raised-button color="primary" (click)="add_user()">Add User</button> -->
+        </div>
+      </div>
+      <div class="mt-2">
+        <app-user-table (nav)="nav=$event" (delete_item)="delete_item=$event" (sidenavshow)="sidenavshow=$event" ></app-user-table>
+          <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+              <ng-container matColumnDef="SlNo">
+                <th mat-header-cell *matHeaderCellDef> Sl no </th>
+                <td mat-cell *matCellDef="let element;index as i;"> {{i+1}} </td>
+              </ng-container>
+            
+          
+              <ng-container matColumnDef="Fullname">
+                <th mat-header-cell *matHeaderCellDef>Full Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.firstname +" "+element.lastname}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="Date">
+                <th mat-header-cell *matHeaderCellDef> Date</th>
+                <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="Status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element">
+                   
+                   <span class="user_status active" *ngIf="element.Status === true">Active </span> 
+                   <span class="user_status deactive" *ngIf="element.Status === false">Not Active </span> 
+                </td>
+              </ng-container>
+             
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row [ngClass]="{'tr_highlight': sno === row.SlNo  }" *matRowDef="let row; columns: displayedColumns;index as i;" (click)="update_row(row,i);sidenav()" ></tr>
+            </table> -->
+        </div>
+    </div>
+  
+  </div>
+  </mat-drawer-container>
+</div>
+

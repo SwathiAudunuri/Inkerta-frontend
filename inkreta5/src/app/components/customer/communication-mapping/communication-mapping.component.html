@@ -1,0 +1,74 @@
+<mat-drawer-container class="example-container" autosize>
+  <!-- #drawer1 -->
+  <mat-drawer  [opened]="statusopen1" class="sidenav" mode="side" position="end" style="width: 60%;border:1px solid #dfdfdf ;">
+    <div class="todoForm_block">
+       <!-- <input class="form-control " type="text" placeholder="" (keyup)="test()" [(ngModel)]="testing"
+                aria-label="default input example"> -->
+      <mat-card>
+        <div class="divend_button">
+          <h3 style="font-weight: 600;">Add Outbound Connectors</h3>
+          <button type="button" class="btn-close" aria-label="Close" (click)="closesidenav()"></button>
+        </div>
+        <mat-tab-group>
+          <mat-tab label="Details " class="mat-tab-labels">
+        <div class="todoForm_block">
+        <form [formGroup]="receipentForm"> 
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Connector Tag</label>
+                <!-- formControlName="connectorTag" -->
+                <input class="form-control " type="text" placeholder="" formControlName="connectorTag" 
+                aria-label="default input example">
+              </div>
+            </div>
+          </div>
+
+          <div class="row" formArrayName="outboundConnectorsGSTIN">
+            <div class="col-md-12">
+              <div class="form-group" [formGroup]="gstinss">
+                <label>Gstins <span style='color: red'>*</span></label>
+                  <mat-select  class="form-select"  [formControl]="toppings" multiple  [style.borderBottom]="'1px solid #ccc'">
+                    <mat-option *ngFor="let topping of gstinList" [value]="topping">{{topping}}</mat-option>
+                  </mat-select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+
+              <div class="form-group">
+                <div class="mb-3">
+                  <label className="pop_label">Description</label>
+                  <textarea formControlName="description" name="description" ngDefaultControl class="form-control"
+                    id="descriptionid" rows="4" [(ngModel)]="fruit.description" [maxlength]="maxChars"
+                    required></textarea>
+                  <div class="form-row__description">
+                    Remaining {{fruit.description.length}}/{{maxChars}} characters
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class='btn_right mt-2'>
+            <button class=" btn btn_primary" color="primary" style="margin-right: 10px;" type="submit">Submit</button>
+            <button class=" btn btn-light " color='primary' (click)="goback()">Cancel</button>
+          </div> -->
+        </form> 
+        </div>
+      </mat-tab>
+      <!-- </mat-tab-group> -->
+      <mat-tab label="Delivery">
+        <app-commapdelivery  ></app-commapdelivery> 
+      </mat-tab>
+      <!-- <mat-tab label="Auto Post"> -->
+        
+        <!-- <app-commapnewaudit [toppings]="toppings" [connectorTag]="receipentForm"  [description]="receipentForm" [invoiceuploadDeliverymode]="receipentForm" [invoicequeryDeliverymode]="receipentForm" [invoicestatusupdateDeliverymode]="receipentForm" [outboundConnectorsItemDeliveryEmailMapping]="receipentForm" [outboundConnectorsGSTIN]="receipentForm" [outboundConnectorsItemDeliveryWebserviceMapping]="receipentForm" ></app-commapnewaudit> -->
+      <!-- </mat-tab> -->
+    </mat-tab-group>
+      </mat-card>
+    </div>
+  </mat-drawer>
+  <!-- [drawer1]="drawer1" -->
+  <app-commapgrid  [statusopen]="statusopen" (statusopen1)="statusopen1=$event" noofrows=8 tablewidth="100%" (childEvent)="sidenav=$event" (index)="index=$event" (details)="details=$event" [search]="search"> </app-commapgrid>
+</mat-drawer-container>

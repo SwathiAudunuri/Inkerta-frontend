@@ -1,0 +1,114 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="hisloading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+
+<div *ngIf="!hisloading" class="his_main">
+
+  <div class="sort_bar">
+    <label style="margin-left: -16px;" class="sorting">
+    Status</label>
+    <label style="margin-left: 83px;" class="sorting">
+    Action By and Comments</label>
+
+  </div>
+  <perfect-scrollbar>
+    <div class="py-3 info_main" *ngIf="status">
+      
+      <div *ngFor="let x of historydata">
+        <div class="m-1 d-flex grid">
+          <div class="status">
+            <p>
+              <span class="user_status PAID" *ngIf="x.action === 'NEW' || x.action === 'New'">{{x.action}} </span> 
+              <span class="user_status OVERDUE" *ngIf="x.action === 'Voided'">{{x.action}} </span> 
+              <span class="user_status PARTIAL" *ngIf="x.action === 'AP Processing'">{{x.action}} </span>
+              <span class="user_status VIEWED" *ngIf=" x.action === 'Approved'">{{x.action}} </span>
+
+              <span class="user_status VIEWED" *ngIf=" x.action === 'On Hold'">{{x.action}} </span>  
+              <span class="user_status DRAFT" *ngIf="x.action === 'Pending'">{{x.action}} </span>
+              <span class="user_status PARTIAL" *ngIf="x.action === 'Acknowledged'">{{x.action}} </span>
+              <span class="user_status Exception" *ngIf=" x.action === 'Exception'">{{x.action}} </span>
+              <span class="user_status Posted" *ngIf="x.action === 'Posted for Payment'">{{x.action}} </span> 
+              <span class="user_status PARTIAL" *ngIf="x.action === 'Paid'">{{x.action}} </span>
+              <span class="user_status DRAFT" *ngIf="x.action === 'Draft'">{{x.action}} </span>
+              <span class="user_status Posted" *ngIf="x.action === 'Clam'">{{x.action}} </span> 
+              <span class="user_status DRAFT" *ngIf="x.action === 'Verify'">{{x.action}} </span>
+              <span class="user_status Posted" *ngIf="x.action === 'Approve'">{{x.action}} </span> 
+              <span class="user_status Exception" *ngIf=" x.action === 'Review'">{{x.action}} </span>
+
+              <span class="user_status Exception" *ngIf=" x.action === 'Claim'">{{x.action}} </span>
+              <span class="user_status Exception" *ngIf=" x.action === 'Release to Queue'">{{x.action}} </span>
+
+              <span class="user_status PAID" *ngIf="x.action === 'Submit' || x.action === 'submit'">{{x.action}} </span> 
+            </p>
+          </div>
+          <div class="info">
+            <div class="top_info">
+              <p style="color: #000;">
+                {{x.actionByDisplayName}} 
+                On 
+                <span class="text">{{x.action_date | date: 'yyyy-MM-dd'}}</span>
+              </p>
+            </div>
+            <!-- <div class="bottom_info" class="largestring ? 'showmore_lineh' : 'mull'"></div> -->
+              <!-- <div class="container12">[ngClass]="{'limitTextHeight': isReadMore}"
+              <app-readmore  [content]="test" [limit]=1000 [completeWords]=false></app-readmore></div> -->
+            <div class="bottom_info showmore_lineh d-flex" >
+              <div class="d-flex"  [class]=" x.invoice_status_tracker_id === invoice_status_tracker_id ? 'highlight' : 'more' " >
+                <div style="width: 520px;">{{x.action_comments}}</div>
+                <div>
+                  
+                <!-- <p *ngIf="x.action_comments?.length > 100" class="link" (click)="readmore(x)">readmore</p> -->
+                </div>
+              </div>
+              
+              <!-- <p>{{test}}
+                <span class="more" (click)="more()" *ngIf="showmore">...more</span>
+                <span class="more" (click)="less()" *ngIf="showless">...less</span>
+              </p> -->
+              <!-- <app-readmore ></app-readmore> -->
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef style="width: 24%;"> Action </th>
+          <td mat-cell *matCellDef="let element">
+            <span class="user_status PAID" *ngIf="element.action === 'NEW' || element.action === 'New'">{{element.action}} </span> 
+            <span class="user_status OVERDUE" *ngIf="element.action === 'Voided'">{{element.action}} </span> 
+            <span class="user_status PARTIAL" *ngIf="element.action === 'AP Processing'">{{element.action}} </span>
+            <span class="user_status VIEWED" *ngIf=" element.action === 'Approved'">{{element.action}} </span>
+            <span class="user_status DRAFT" *ngIf="element.action === 'Pending'">{{element.action}} </span>
+            <span class="user_status PARTIAL" *ngIf="element.action === 'Acknowledged'">{{element.action}} </span>
+            <span class="user_status Exception" *ngIf=" element.action === 'Exception'">{{element.action}} </span>
+            <span class="user_status Posted" *ngIf="element.action === 'Posted for Payment'">{{element.action}} </span> 
+            <span class="user_status PARTIAL" *ngIf="element.action === 'Paid'">{{element.action}} </span>
+            <span class="user_status DRAFT" *ngIf="element.action === 'Draft'">{{element.action}} </span>
+            <span class="user_status Posted" *ngIf="element.action === 'Clam'">{{element.action}} </span> 
+            <span class="user_status DRAFT" *ngIf="element.action === 'Verify'">{{element.action}} </span>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="ActionDate" >
+          <th mat-header-cell *matHeaderCellDef style="width: 15%;"> ActionDate </th>
+          <td mat-cell *matCellDef="let element"> {{element.actionDate | date: 'yyyy-MM-dd'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Comments">
+          <th mat-header-cell *matHeaderCellDef> Comments </th>
+          <td mat-cell *matCellDef="let element"> {{element.actionComments}} </td>
+        </ng-container>
+        <ng-container matColumnDef="ActionBy">
+          <th mat-header-cell *matHeaderCellDef style="width: 15%;"> ActionBy </th>
+          <td mat-cell *matCellDef="let element"> {{element.actionBy}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table> -->
+    </div>
+  </perfect-scrollbar>
+  <div *ngIf="!status" style="margin-top: 26%;">
+    <h3 class="his_not_found">History are not found for this invoice </h3>
+  </div>
+</div>

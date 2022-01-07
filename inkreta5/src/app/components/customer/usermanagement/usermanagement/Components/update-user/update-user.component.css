@@ -1,0 +1,17 @@
+
+.action_btn{
+    position: absolute;
+    margin-top: 51px;
+    margin-left: 514px;
+}
+
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}
+/* .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #3c8dbc !important;
+} */

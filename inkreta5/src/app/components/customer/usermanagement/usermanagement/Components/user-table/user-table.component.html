@@ -1,0 +1,100 @@
+<mat-progress-spinner
+  [mode]="'indeterminate'" *ngIf="loading">
+</mat-progress-spinner> 
+
+<div>
+    <div class="sort_bar">
+        <!-- <label class="sorting nam"> User Name </label> -->
+        <label class="sorting nam" (click)="onname()"
+        [ngClass]="nameToggle === 1 ? 'sorting' : nameToggle === 2 ? 'sort_asc' : nameToggle === 3 ? 'sort_decs' : 'null'"
+        >
+        User Name & Contact Details </label>
+        <!-- <label  class="sorting amt" (click)="onnumber()"
+        [ngClass]="numToggle === 1 ? 'sorting' : numToggle === 2 ? 'sort_asc' : numToggle === 3 ? 'sort_decs' : 'null'"
+        >
+        Contact Details</label> -->
+
+        <label style="float: right;"> Created On </label>
+       
+    </div>
+    <perfect-scrollbar>
+        <div style="max-height: 531px;">
+            <div class="grid_border zoom" [class]=" userId === x.userId ? 'highlight' : 'null' " *ngFor="let x of data | paginate:{id:'pagination',itemsPerPage: pageSize, currentPage: page} ;index as i  "  (click)="update_row(x,i);sidenav()" >
+                <div class="m-1" style="margin-top: -13px;">
+                    <div class="d-flex" style="width: 100%;">
+                        
+                        <div  class="d-flex" style="width: 100%;">
+                          <!-- <div style="align-self: center;margin-right: 11px;">
+                            <img class="img" *ngIf="x.partner_type === 'Vendor' || x.partner_type ==='vendor'  " src="./assets/vendor3.svg" style="height: 25px;"/>
+                            <img class="img" *ngIf="x.partner_type === 'customer' ||x.partner_type === 'Customer' " src="./assets/customer3.svg" style="margin-top: -12px;height: 25px;"/>
+                
+                            <img class="img" *ngIf="x.partner_type === 'BusinessPartner' || x.partner_type ==='businesspartner'  " src="./assets/businesspatner.svg" style="height: 25px;"/>
+                          </div> -->
+                            <div style="width: 100%;">
+                              <div class="d-flex justify-content-between top_div">
+                                <div>
+                                    <p class="title_para" name="row_company_name">{{x.firstName +" "+x.lastName}}</p>
+                                </div>
+                                <div>
+                                  <p class="data_para num"  style="margin-left: 5px;">{{x.createdOn | date:'dd-MM-yyyy'}}</p>
+                                </div>
+                              </div>
+                              <div class="d-flex bottom_div">
+                                  <div class="d-flex" >
+                                      <div class="d-flex">
+                                        <p class="data_para nam" style="margin-left: 5px;">manager,developer,CEO,HR Manager,Tester,Sales Head,Client,Admin,Tester,Sales Head,Client,Admin</p>
+                                          <!-- <p class="data_para nam" style="margin-left: 5px;">{{x.email}}</p> -->
+                                          <!-- <span>-</span>
+                                          <p class="data_para num"  style="margin-left: 5px;">{{x.primaryPhoneNumber}}</p> -->
+                                      
+                                      </div>
+                                      <div class="d-flex" >
+
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                  </div>
+            </div>
+            <p>{{mess}}</p>
+            <div  style="margin-bottom: 9px;">
+                <pagination-controls id="pagination" (pageChange)="page=$event"   ></pagination-controls>
+              </div>
+        </div>
+    </perfect-scrollbar>
+</div>
+
+
+<!-- <mat-progress-spinner
+  [mode]="'indeterminate'" *ngIf="loading">
+</mat-progress-spinner> 
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+  
+
+    <ng-container matColumnDef="Fullname">
+      <th mat-header-cell *matHeaderCellDef>Full Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName +" "+element.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef> Date</th>
+      <td mat-cell *matCellDef="let element"> {{element.createdOn | date:'dd-MM-yyyy'}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="User Alias Name">
+      <th mat-header-cell *matHeaderCellDef> User Alias Name </th>
+      <td mat-cell *matCellDef="let element">
+         {{element.user_alias}}
+      </td>
+    </ng-container>
+   
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row [ngClass]="{'tr_highlight': userId === row.userId  }" *matRowDef="let row; columns: displayedColumns;index as i;" (click)="update_row(row,i);sidenav()" ></tr>
+  </table>
+  <mat-paginator [length]="8" [pageSize]=10 [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+  <p style="color: red;">{{error}}</p> -->

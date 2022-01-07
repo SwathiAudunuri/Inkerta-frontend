@@ -1,0 +1,16 @@
+<ngx-charts-bar-vertical 
+    [view]="[600,300]"
+    [results]="saleData"
+    [xAxisLabel]="'Vendors'"
+    [legendTitle]="'Invoice Paid'"
+    [yAxisLabel]="'Invoice Amount'"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [gradient]="true"
+    (select)="onSelect($event)"
+    [scheme]="customColors"
+    >
+</ngx-charts-bar-vertical>

@@ -1,0 +1,79 @@
+
+    <div class="d-flex">
+      <div  class="col-sm-12 px-3 py-2">
+        <div class="boxHeading">Primary Contact Details
+        </div>
+        <div style="display: flex;">
+            <div>
+              <div class="profile_pic">
+                  <img src="../../../../../../assets/profile-photo.jpg"/>
+                  <!-- <img src="../../../../../../assets/profile-photo.jpg" *ngIf=" imgurl === '' " />  -->
+                  <!-- <img src="./assets/profile-photo.jpg" " />  -->
+                  <div class="action_btn" >
+                    <input type="file" id="file" class="upload-box" />
+                    <label  for="file">Edit</label>
+                  </div>
+              </div>
+          
+            </div>
+            <div style="margin-left:46px;" class="col-sm-6" >
+              <div class="form-inline">
+                <label class="w-120">Name <span>:</span></label>
+                <p ><b>{{contactdetails?.firstName +" "+contactdetails?.lastName}}</b></p>
+                
+              </div>
+              <div class="form-inline">
+                <label class="w-120">Email <span>:</span></label>
+                <p ><b>{{contactdetails?.email}}</b></p>
+              </div>
+              <div class="form-inline">
+                <label class="w-120" >Phone Number <span>:</span></label>
+                <p ><b>{{contactdetails?.primaryPhoneNumber}}</b></p>
+              </div>
+              <div class="form-inline">
+                <label class="w-120">Role Name <span>:</span></label>
+                <p><b>Vender Manager</b></p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="borderTopBox">
+      <div class="boxHeading">Secondary Contact Details
+      </div>
+      <div class="borderTopBoxBody">
+       
+        <div >
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="firstname">
+            <th mat-header-cell *matHeaderCellDef> FirstName </th>
+            <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+          </ng-container>
+    
+          
+          <ng-container matColumnDef="lastname">
+            <th mat-header-cell *matHeaderCellDef> LastName </th>
+            <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+          </ng-container>
+    
+         
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email-id </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+          </ng-container>
+    
+          
+          <ng-container matColumnDef="mobileno">
+            <th mat-header-cell *matHeaderCellDef> Mobile Number </th>
+            <td mat-cell *matCellDef="let element"> {{element.primaryPhoneNumber}} </td>
+          </ng-container>
+          <div></div>
+         
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+    
+    </div>

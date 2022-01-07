@@ -1,0 +1,23 @@
+.card{
+    min-height: 500px; 
+    min-height:591px
+}
+.cf{
+    /* align-self: center; */
+    margin-left: 440px;
+}
+.bala_label{
+        /* align-self: center; */
+        margin-right: 10px;
+        width: 102px;
+}
+.payables_total{
+    right: 1%;
+    position: absolute;
+}
+.cashflow_info{
+    background-color: #f9f995;
+    padding: 4px;
+    margin-bottom: 10px;
+    height: 35px;
+}

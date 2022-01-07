@@ -1,0 +1,100 @@
+
+table {
+    min-width: 500px;
+    width: 100%
+  }
+  
+  tr.mat-header-row {
+    background-color: whitesmoke;
+}
+.a1{
+  color: 'mat-primary';
+  background-color: whitesmoke;
+}
+.form_elements{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  align-items: center;
+}
+.mat-row:nth-child(even){
+  background-color: rgb(195, 221, 230,0.1);
+}
+      
+.mat-row:nth-child(odd){
+  background-color: white	
+}
+mat-card{
+  border-top: 3px solid #008ecc;
+}
+mat-card-title{
+  font-size: 1rem;
+  font-weight: 500;
+  border-bottom:1px solid #ccc  ;
+}
+
+.modal-title{
+  margin-bottom: 10px;
+}
+.btn_right_end{
+  float: right;
+}
+
+///////////////////////////////@new sub grid
+.angulargrid>table>thead>.tr{
+  background-color: #3c8dbc !important;
+}
+.angulargrid{
+height: 300px !important;
+}
+
+//////////////////css for prime ng
+.p-treetable .p-treetable-tbody > tr{
+  background-color: var(--primary) !important;
+}
+.table_head{
+  background-color: #008ecc;
+}
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
+  background: #fcfcfc;
+}
+
+.p-datatable .p-datatable-tbody > tr {
+  background: #ffffff;
+}
+.p-treetable .p-treetable-tbody > tr > td{
+  padding: 0px !important
+}
+.supplier{
+  border:1px solid pink;
+  background-color: rgb(253, 237, 240);
+  color: rgb(185, 105, 119);
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 14px;
+  margin-left: 9px;
+}
+
+.invoice_label{
+  color: var(--primary);
+    margin-left: 8px;
+    font-weight: 550;
+    font-size: 14px;
+}
+.new mat-icon{ 
+  font-size: 18px;
+height: 18px;
+vertical-align: sub;
+
+}
+.new{
+  float: right;
+}
+.btn-light {
+  background: #e7e7e7!important;
+  border: 1px solid #ccc!important;
+}
+a{
+  text-decoration: none;
+  color: rgb(97, 94, 94)
+}

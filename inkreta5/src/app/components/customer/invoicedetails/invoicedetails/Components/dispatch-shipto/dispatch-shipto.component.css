@@ -1,0 +1,26 @@
+.borderTopBox {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* border-top: 3px solid#008ecc; */
+    border-top: 3px solid var(--primary);
+    /* margin-top: 8px; */
+}
+.boxHeading {
+    color: #000;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-top: 0px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.box_content{
+    margin-left: 12px;
+}  
+label.my_labels {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: black;
+}
+.read_value {
+    font-size: 0.7rem;
+}

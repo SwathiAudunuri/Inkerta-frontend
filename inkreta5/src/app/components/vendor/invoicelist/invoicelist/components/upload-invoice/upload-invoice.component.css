@@ -1,0 +1,99 @@
+.main_div{
+    height: 688px;
+    width: 1203px;
+    /* width : 1228px */
+}
+.modal-header{
+    border-top: 4px solid var(--primary);
+    border-right: 4px solid var(--primary);    
+    border-left: 4px solid var(--primary);
+    border-bottom: 1px solid #ccc !important;
+    border-bottom: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px
+}
+.label{
+    align-self: center;
+    width: 355px;
+}
+.mat-divider.mat-divider-inset {
+    margin-left:  0px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+.support_table{
+    min-height: 351px;
+    margin-top: 10px;
+}
+.upload-box{
+    display: none;
+}
+/* .file_details{
+    align-self: flex-end;
+} */
+.delete_icon{
+    font-size: 15px;
+    margin-top: 3px;
+    margin-left: 7px;
+}
+.button{
+    color: #ffff;
+}
+.action_btn{
+    position: absolute;
+    bottom: 4%;
+    right: 11%;
+}
+.download{
+    color: #5454e8;
+    text-decoration-line: underline;
+}
+/* .csv_div{
+    height: 60px;
+} */
+.divider{
+    border-color: #8b8b8c;
+}
+.save-btn:hover {
+    background: #4cae4c !important;
+    color: #fff;
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}
+.mess_div{
+    height: 134px;
+    width: 536px;
+    /* top: 50%;
+    position: absolute;
+    left: 35%;
+    color: green;
+    font-weight: 600; */
+}
+.green{
+    color: green;
+}
+.red{
+    color: red;
+}
+.required{
+    color: red;
+    font-size: 18px;
+    margin-left: 5px;
+}
+.file{
+    /* margin-left: 45px; */
+    margin-top: 4px;
+}
+.help{
+    /* margin-left: 39px; */
+    color: #867969;
+}
+.action_btn1{
+    float: right;
+    margin-top: 51px;
+}

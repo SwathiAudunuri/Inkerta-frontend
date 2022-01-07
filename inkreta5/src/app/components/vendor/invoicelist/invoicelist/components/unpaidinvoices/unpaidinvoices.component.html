@@ -1,0 +1,94 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+<div>
+<div class="sort_bar">
+  <label class="sorting nam" (click)="Sortname()"
+  [ngClass]="nameToggle === 1 ? 'sorting' : nameToggle === 2 ? 'sort_asc' : nameToggle === 3 ? 'sort_decs' : 'null'">
+  Name</label>
+  <label  class="sorting amt" (click)="onSort()"
+  [ngClass]="amountToggle === 1 ? 'sorting' : amountToggle === 2 ? 'sort_asc' : amountToggle === 3 ? 'sort_decs' : 'null'">
+  Amount</label>
+  <label  class="sorting dat" (click)="dateSort()" 
+  [ngClass]="dateToggle === 1 ? 'sorting' : dateToggle === 2 ? 'sort_asc' : dateToggle === 3 ? 'sort_decs' : 'null'">
+  Invoice Date</label>
+  <label  class="sorting sts" (click)="statusSort()"
+  [ngClass]="statusToggle === 1 ? 'sorting' : statusToggle === 2 ? 'sort_asc' : statusToggle === 3 ? 'sort_decs' : 'null'">
+  Status</label>
+  <label   class="sorting due" (click)="dueDateSort()"
+  [ngClass]="dueDateToggle === 1 ? 'sorting' : dueDateToggle === 2 ? 'sort_asc' : dueDateToggle === 3 ? 'sort_decs' : 'null'">
+  DueDate</label>
+ 
+</div>
+<perfect-scrollbar>
+<div style="max-height: 531px;">
+  
+  <div [style.height]="pageSize == 5 ? '90px':'58px'" class="grid_border zoom" [class]=" x.document_ref_id === document_ref_id ? 'highlight' : 'null' " *ngFor="let x of invoicelist | paginate:{id:'pagination',itemsPerPage: pageSize, currentPage: page} ;index as i  "  (click)="invoicelistClick(x,i);opensidenav();perviousnull()" >
+   
+    <div class="m-1" style="margin-top: -13px;">
+      <div class="d-flex" >
+          
+          <div style="width: 100%;">
+              <div class="d-flex justify-content-between top_div">
+                  <div>
+                      <p class="title_para" name="row_company_name">{{x.company_name}}</p>
+                  </div>
+                  <div class="d-flex bottom_div">
+                      <p class="data_para" name="row_invoicedate">{{x.invoiceduedate | date:'dd-MM-yyyy'}}</p>
+                  </div>
+              </div>
+              <div class="d-flex bottom_div">
+                  <div class="d-flex">
+                      <p class="data_para inv" name="row_invoicenum" style="margin-left: 5px;font-style: italic;">#{{x.invoicenum}}</p>
+                      <mat-divider class="divider"  [vertical]="true"></mat-divider>
+                  </div>
+                  <div class="d-flex" style="margin-left: 5px;">
+                      <div class="d-flex">
+                          <p class="data_para amt" name="row_amount" >
+                            
+                            {{ x.total_invoice_value | currency:x.invoice_currency_code}}
+                          </p>
+                          <mat-divider class="divider"  [vertical]="true"></mat-divider>
+                      </div>
+                      <div class="d-flex" >
+                          <div class="d-flex" style="margin-left: 5px;">
+
+                              <p class="data_para due" name="row_invoiceduedate" style="margin-left: 5px;">{{x.invoicedate | date:'dd-MM-yyyy'}}</p>
+                              <mat-divider class="divider"  [vertical]="true"></mat-divider>
+                          </div>
+                          <div class="d-flex" style="margin-left: 5px;" >
+                            <p class="data_para sts" name="row_invoice_status" style="margin-left: 5px;">{{x.invoice_status }}</p>
+                            <mat-divider class="divider" *ngIf="x.assigned_to"  [vertical]="true"></mat-divider>
+                        </div>
+                        <div class="d-flex" style="margin-left: 5px;"  *ngIf="x.assigned_to">
+                          <mat-icon  class="assign_icon">person</mat-icon>
+                          <p class="data_para" name="row_invoice_status" style="margin-left: 5px;">{{x.assigned_to}}</p>
+                      </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <p class="not_found">{{mess}}</p>
+  <div class="d-flex" style="margin-top: -6px;height: 33px;">
+    <div class="d-flex" style="align-items: center;">
+      <label style="width: 81px;">Page Size : </label>
+      <select  class='form-select pagesize' type="text" [(ngModel)]="pageSize" variant="standard"   >
+        <option value=5>5</option>
+        <option value=8>8</option>
+        <option value=10>10</option>
+        <option value=15>15</option>
+        <option value=20>20</option>
+        <option value=25>25</option>
+        <option value=30>30</option>
+      </select >
+    </div>
+    <div  style="margin-bottom: 9px;">
+      <pagination-controls id="pagination" (pageChange)="page=$event"   ></pagination-controls>
+    </div>
+  </div>
+</div>
+</perfect-scrollbar>
+</div>

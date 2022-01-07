@@ -1,0 +1,126 @@
+.sort_bar{
+    background: #e0e8ef;
+    padding: 5px 10px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    color: #fff;
+    margin-top: -4px;
+  }
+  .sort_bar label{
+    font-size: 12px;
+    color: #888888;
+    cursor: pointer;
+    padding: 0px 15px;
+  }
+  .sorting{
+    position: relative;
+  }
+  .sorting::after{
+    content: "";
+    background-image: url("../../../../../../../assets/sort.png"); 
+    background-repeat: no-repeat;
+    position: absolute;
+    /* right: -10px; */
+    top: 2px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .sorting.sort_asc::after{
+    content: "";
+    background-image: url("../../../../../../../assets/sort_asc.png"); 
+    background-repeat: no-repeat;
+    position: absolute;
+    /* right: -10px; */
+    top: 2px;
+    width: 20px;
+    height: 20px;
+  }
+  .sorting.sort_decs::after{
+    content: "";
+    background-image: url("../../../../../../../assets/sort_desc.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    /* right: -10px; */
+    top: 2px;
+    width: 20px;
+    height: 20px; 
+  }
+  .sorting.sort_asc,.sorting.sort_decs{ 
+    color : black !important;
+    font-weight: 600;
+  }
+  
+.sorting.nam{
+    width: 160px;
+    border-right: 1px solid #ccc;
+  }
+  .sorting.dat{
+    width: 108px;
+    border-right: 1px solid #ccc;
+  }
+  .sorting.amt{
+    width: 150px;
+    border-right: 1px solid #ccc;
+  }
+  .sorting.sts{
+    width: 90px;
+    border-right: 1px solid #ccc;
+  }
+  .sorting.due{
+    float:right;
+  }
+  .data_para{
+    font-size: 12px;
+    /* font-style: italic; */
+    /* width: 105px; */
+  }
+  .data_para.nam{
+    width: 101px;
+    white-space: nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .data_para.num{
+    width: 85px;
+    white-space: nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .grid_border{
+    border-bottom: 1px solid #ccc;
+    margin-top: -4px;
+  }
+  .zoom {
+    transition: transform .5s;
+  }
+  .zoom:hover {
+    transform: scale(0.99);
+  }
+  .highlight{
+    background-color: rgb(195, 221, 230,0.1);
+    border-left: 4px solid  var(--primary);
+  }
+  .mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}
+.top_div{
+  height: 25px;
+  margin-top: 5px;
+}
+.title_para{
+  color: #000000;
+}
+
+.bottom_div{
+  color: #767676;
+}
+.divider{
+  height: 14px;
+  margin-left: 5px;
+  margin-top: 3px;
+}

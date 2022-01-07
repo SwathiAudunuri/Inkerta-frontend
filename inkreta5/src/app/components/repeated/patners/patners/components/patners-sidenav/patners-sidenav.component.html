@@ -1,0 +1,32 @@
+<div>
+    <div class="patner_info align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+          <div>
+            <button class="arrow_icon" (click)="close()">
+                <mat-icon class=" Rotate" [ngClass]="arrow ? 'null' : 'toggleRotate' ">
+                    chevron_left
+                </mat-icon>
+            </button>
+          </div>
+          <p class="mb-0" style="margin-left: 20px;" *ngIf="!title">Patner Details</p>
+          <p class="mb-0" style="margin-left: 20px;" *ngIf="title">Edit Patner Details</p>
+        </div>
+        <div *ngIf="patnerdata" class="action_btn">
+            <button class="btn btn-light btn-sm" *ngIf="patnerdata?.partnerType === 'Customer' || patnerdata?.partnerType === 'Both' " (click)="vendor_com()">Submit Invoice</button>
+            <button class="btn btn-light btn-sm" *ngIf="patnerdata?.partnerType === 'Vendor' || patnerdata?.partnerType === 'Both' " (click)="customer_com()" >Payment Invoice</button>
+            <button class="btn btn-light btn-sm" style="margin-left: 5px;" (click)="Edit_details()">Edit</button>
+        </div>
+    </div>
+    <div *ngIf="!error">
+        <mat-tab-group (selectedTabChange)="selectedIndexBinding($event)">
+            <mat-tab label="Details" class="mat-tab-labels">
+               <app-patner-details *ngIf="!editdetails" [index]=0></app-patner-details>
+
+               <app-edit-patner *ngIf="editdetails" (editdetails)="editdetails=$event" [index]=0></app-edit-patner>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    <div *ngIf="error" class="error" style="height:100%">
+          <p >There are no Patners Created</p>
+    </div>
+</div>

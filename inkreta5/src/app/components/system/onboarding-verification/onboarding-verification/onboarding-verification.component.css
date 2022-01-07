@@ -1,0 +1,38 @@
+
+
+.example-sidenav{
+    width: 50%;
+}
+.full-sidenav{
+    width: 100%;
+}
+.example-sidenav-content{
+    margin-right: 10px;
+    min-height: 500px; 
+    min-height:591px;
+    padding:10px;
+}
+.grid_search{
+    position: relative;
+    margin-bottom: 6px;
+}
+.grid_search input{
+    padding-right: 40px;
+    height: 28px;
+    width: 116%;
+    /* width: 197px; */
+}
+.grid_search mat-icon{
+    position: absolute;
+    right: -23px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.icon{
+    margin-top: 3px;
+    font-size: 26px;
+}
+.toggleRotate {
+    transform: rotate(180deg);
+    transition: 0.5s;
+} 

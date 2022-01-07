@@ -1,0 +1,177 @@
+.mat-progress-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+.company_main.row .col-md-6>div {
+    min-height: 305px;
+  }
+  .row{
+    display: flex;
+    padding: -3px;
+  }
+  .borderTopBox {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border-top: 3px solid#008ecc;
+    margin-top: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 5px;
+    /* min-height: 395px; */
+    min-height: 421px;
+    max-height: 395px;
+  }
+  .borderTopBox::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+  .borderTopBoxBody.contactInfo label,
+  .borderTopBoxBody.contactInfo p {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .borderTopBoxBody.reviewInfo label {
+    width: 100%;
+    position: relative;
+  }
+  .borderTopBoxBody.reviewInfo label::after {
+    content: ":";
+    position: absolute;
+    left: 100%;
+    font-weight: normal;
+  }
+  .borderTopBoxBody {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    float: left;
+    width: 100%;
+  }
+  .contact_information .borderTopBox {
+    min-height: 265px;
+  }
+  .preview-borderTopBox {
+    min-height: 385px;
+  }
+  .boxHeading {
+    border-bottom: 1px solid #ccc;
+    color: #000;
+    padding: 10px 0px;
+    margin-top: 0px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .borderTopBoxBody.contactInfo label,
+  .borderTopBoxBody.contactInfo p {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .borderTopBoxBody.reviewInfo label {
+    width: 100%;
+    position: relative;
+  }
+  .borderTopBoxBody.reviewInfo label::after {
+    content: ":";
+    position: absolute;
+    left: 100%;
+    font-weight: normal;
+  }
+  .borderTopBoxBody {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    float: left;
+    width: 100%;
+  }
+  .upload-box{
+    font-size: 16px;
+    background: white;
+    box-shadow: 5px 5px 10px black;
+    outline: none;
+  }
+  .pop_label {
+    vertical-align: bottom !important;
+    margin-right: 5px;
+  }
+  .form-group {
+    margin-bottom: 7px;
+  }
+  .form-control:focus {
+    border-color: #66afe9;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+  }
+  .btn-popover:hover .pop_box {
+    display: block;
+  }
+  .btn-popover {
+    padding: 0;
+    background-color: transparent;
+    position: relative;
+    height: 10px;
+    border: none;
+    vertical-align: top;
+  }
+  .scrolling-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto; 
+  }
+  .additional-contactInfo .MuiOutlinedInput-root {
+    margin-bottom: 0px;
+  }
+  .additional-contactInfo .PrivateSwitchBase-root-52 {
+    padding: 0px 9px;
+  }
+  .i_icon {
+    width: 0.9em !important;
+    height: 1em !important
+  }
+  .pop_box {
+    position: absolute;left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 150px;
+    background: rgb(233, 233, 233);
+    border: 1px solid #ccc;
+    z-index: 9;
+    text-align: left;
+    padding: 5px 10px;
+    border-radius: 2px;
+    display: none;
+  }
+  .pop_box::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: rgb(233, 233, 233);
+    z-index: 10;
+    top: 48%;
+    transform: translateY(-50%) rotate(45deg);
+    left: -8px;
+  }
+  .btn-popover:hover .pop_box {
+    display: block;
+  }
+  ::-webkit-file-upload-button{
+    color: white;
+    background: #1a8fcd;
+    padding: 5px;
+    border:none;
+    outline: none;
+  }
+  .cross_icon{
+    font-size: 18px;
+    margin-left: -6px;
+    height: 36px;
+}
+
+.fileinfo{
+  align-self: center;
+  margin-left: 10px;
+  color: #767676;
+  font-size: 12px;
+}

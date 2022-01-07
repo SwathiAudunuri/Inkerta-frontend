@@ -1,0 +1,32 @@
+.usercontainer{
+    width: 457px;
+    min-height: 395px;
+    padding: 10px;
+    
+}
+.header{
+    border-bottom: 2px solid #3c8dbc;
+    margin-bottom: 10px;
+}
+.rdns{
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+.flex-end{
+    /* bottom: 181px;
+    left: 859px;
+    position: absolute; */
+    float: right;
+}
+.roles{
+    font-size: 12px;
+    font-style: italic;
+    color: #767676;
+}
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}

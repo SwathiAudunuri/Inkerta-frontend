@@ -1,0 +1,44 @@
+<div *ngIf="!error" >
+    <div class="d-flex justify-content-between heading align-items-center" >
+      <div class="d-flex align-items-center">
+        <mat-icon (click)="arrow ? closesidenav() : closesidenav1()" [ngClass]="arrow ? 'null' : 'toggleRotate' ">
+          chevron_left</mat-icon>
+  
+        <h2 class="ps-3 mb-0">Role Details</h2>
+      </div>
+      <div class="d-flex">
+        <div class="invoice_act_btn d-flex">
+          <button (click) ="edit()" class="edit" *ngIf="!newrole">
+            <mat-icon> edit</mat-icon>
+          </button>
+       
+     
+  
+        </div>
+  
+      </div>
+    </div>
+    <div>
+  
+      <mat-tab-group class="tab" >
+        <mat-tab label="Details" index=0>
+            <app-roledetails [edit]="editing" [newrole]="newrole"> </app-roledetails>
+        </mat-tab>
+        <mat-tab label="Users Mapped" index=1 *ngIf="editing">
+            <app-userdetails></app-userdetails>
+        </mat-tab>
+        
+     
+
+   
+      </mat-tab-group>
+      
+    </div>
+  </div>
+  
+  <div *ngIf="error" style="height: 100%;">
+    <div class="error" style="height: 100%;"> 
+      <p>No Role Configured</p>
+    </div>
+    
+  </div>

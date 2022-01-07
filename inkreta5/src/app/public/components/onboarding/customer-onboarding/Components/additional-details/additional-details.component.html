@@ -1,0 +1,346 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+
+<form [formGroup]="Additional_Details">
+    <div class='addit'>
+        
+          <div class="row">
+            <div class="col-md-6">
+              <div class="borderTopBox">
+                <div class="boxHeading">Additional Company Information</div>
+                <div class="borderTopBoxBody contactInfo">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Core Business<span style='color: red'>*</span></label>
+                        <select class='form-select' formControlName="lineOfBusiness">
+                            <option value=null>Select</option>
+                            <!-- <option value="Manufacturer">Manufacturer</option>
+                            <option value="Trader">Trader</option>
+                            <option value="Service Provider">Service Provider</option>
+                            <option value="Others">Others</option> -->
+                            <option *ngFor="let x of lineOfBusiness" value={{x}}>{{x}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Incorporation Year<span style='color: red'>*</span></label>
+                        <select class='form-select' formControlName="incorporationYear" id="dropdownYear">
+                            <option value="01/07/2017">Select</option>
+                            <option *ngFor="let x of Year" value="{{x}}">{{x}}</option>
+                        </select>
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+    
+                        <label>Company TurnOver<span style='color: red'>*</span></label>
+                        <select class='form-select' formControlName="annualTurnover">
+                            <option value=null>Select</option>
+                            <option *ngFor="let x of annualTurnOver" value={{x}}>{{x}}</option>}
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+    
+                        <label>Company Size<span style='color: red'>*</span></label>
+                        <select class='form-select' formControlName="companySize">
+                            <option value=null>Select</option>
+                            <option *ngFor="let x of companySize" value={{x}}>{{x}}</option>
+              
+                        </select>
+                        <!-- <input formControlName="companySize"/> -->
+                      </div>
+                    </div>
+                  </div>
+                    <div class="row">
+    
+                        <div class="col-sm-6">
+                          <div class="form-group">
+        
+                            <div class="mb-3">
+                              <label class="pop_label">Company Details</label>
+                              <textarea maxLength="250"  formControlName="companyDetail" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                          </div>
+                        </div>
+        
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <div class="mb-3">
+                              <label class="pop_label" >Key Product Category<span style='color: red'>*</span></label>
+                              <textarea maxLength="250" name='keyProductCategories' class="form-control" formControlName="keyProductCategories" rows="3" required={true}></textarea>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row">
+    
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="pop_label">Industries Serviced<span style='color: red'>*</span></label>
+                            <button tabIndex={-1} class='btn-popover multiselect_sibling' type="button"
+                              data-toggle="tooltip" data-placement="top">
+                              <mat-icon style="font-size: 21px !important;color: #1a8fcd;"  class='material-icons-outlined i_icon' variant='outlined' color='primary'>info
+                              </mat-icon>
+                              <div class="pop_box" style='width:200px'>Tell us industries you Supply to. You can choose
+                                from drop down menu. If the industry is not listed, you can add it to the box next to
+                                drop-down
+                              </div>
+                            </button>
+                            <div class="mat-chip-test">
+                            <mat-select formControlName="industriesServiced"  multiple [style.width]="'305px'" style="height: 36px;" [style.borderBottom]="'1px solid #ccc'">
+                                <mat-select-trigger>
+                                  <div class="scrolling-wrapper" style="height: 53px;">
+                                    <mat-chip-list style="flex: 0 0 auto;">
+                                        <mat-chip *ngFor="let topping of f.industriesServiced.value" >
+                                        {{ topping }}
+                                        </mat-chip>
+                                    </mat-chip-list>
+                                  </div>
+                                </mat-select-trigger>
+                                <!-- <mat-option value="">Select</mat-option> -->
+                                <mat-option *ngFor="let topping of toppingList" [value]="topping" style="display: flex;">
+                                    {{topping}}
+                                </mat-option>
+                                
+                            </mat-select>
+                           </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6" >
+                          <div class="form-group" >
+                            <!-- <label class="pop_label">&nbsp;</label>
+                            <input class='form-control' formControlName="industriesServicedAddmore" style="margin-left: '37px'" matInput placeholder='add more industries' /> -->
+                            <div style="display: flex;">
+                              <div>
+                                <label class="pop_label">Add more Industries</label>
+                                <input class='form-control' formControlName="industriesServicedAddmore" style="width: 236px;" />
+                              </div>
+                              <div>
+                                <button mat-raised-button (click)="addservice()" style="margin-top: 21px;height: 32px;">Add</button>
+                              </div>
+                            </div>
+                            <p style="color: #00a65a;font-size: 12px;">{{mess}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                
+                  </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="">
+                      <div class="borderTopBox" style="height: 395px;">
+                        <div class="boxHeading">Other information</div>
+                        <div class="borderTopBoxBody contactInfo additional-contactInfo">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+          
+                                <label>Stanard Payment Terms<span style='color: red'>*</span></label>
+                                <select class='form-select' formControlName="standardPaymentTerms">
+                                    <option value=null>Select</option>
+                                    <option *ngFor="let x of standardPaymentTerms" value={{x}}>{{x}}</option>}
+                                    <!-- <option value="Net 7">Net 7</option>
+                                    <option value="Net 10">Net 10</option>
+                                    <option value="Net 30">Net 30</option>
+                                    <option value="Net 60">Net 60</option>
+                                    <option value="Net 90">Net 90</option>
+                                    <option value="Due on Receipt">Due on Receipt</option>
+                                    <option value="End of Month">End of Month</option> -->
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+          
+                                <label>Reporting Currency<span style='color: red'>*</span></label>
+                                <select class='form-select' formControlName="reportingCurrency">
+                                    <option value=null>Select</option>
+                                    <option *ngFor="let x of reportingCurrency" value={{x}}>{{x}}</option>}
+                                    <!-- <option value="INR">INR</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="JPY">JPY</option>
+                                    <option value="GBP">GBP</option>
+                                    <option value="CHF">CHF</option>
+                                    <option value="CAD">CAD</option>
+                                    <option value="AUD">AUD</option> -->
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <div class="form-group">
+          
+                                <label>Company Website</label>
+                                <input type="text" class='form-control' formControlName="companyWebsite"
+                                  placeholder='https://www.myinkreta.com' />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Average Daily Invoices</label>
+                                <select class='form-select' formControlName="averageDailyInvoices">
+                                    <option value=null>Select</option>
+                                    <option *ngFor="let x of averageDailyInvoices" value={{x}}>{{x}}</option>}
+                                    <!-- <option value="Less than 100">Less than 100</option>
+                                    <option value="100 – 500">100 – 500</option>
+                                    <option value="More than 1000">More than 1000</option> -->
+                                </select>
+                              </div>
+          
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+          
+                                <label class="pop_label">purchase email id</label>
+                                <input class='form-control' formControlName="salesEnquiryEmailId" />
+                              </div>
+                            </div>
+                          </div>
+                          <!-- <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+          
+                                <label class="pop_label">MSME Registered</label>
+                                <select class='form-select' formControlName="msmeRegistered">
+                                  <option value=null>Select</option>
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" *ngIf="f.msmeRegistered.value==='true'">
+                              <div class="form-group">
+          
+                                <label class="pop_label">MSME Category</label>
+                                <select class='form-select' formControlName="msmeCategories">
+                                    <option value=null>Select</option>
+                                    <option *ngFor="let x of msmeCategories" value={{x}}>{{x}}</option>}
+                                </select>
+                              
+                            </div>
+                          </div> 
+                          </div>-->
+                          <div class='row' style= "border-top: 1px solid #c0bebe ;padding-top: 7px;">
+                            <div class="col-sm-6" >
+                              <h1 style=" margin-top: 0; margin-bottom: 0;"></h1>
+                              <div class="form-group">
+                                
+                                <div style="display: flex;">
+                                <!-- <mat-checkbox class="example-margin"  formControlName="becomeInkreta" ></mat-checkbox>&nbsp; -->
+                                <p style="font-size: 12px;margin-top: 13px;">Authenticity of Identity Documents<span style='color: red'>*</span></p>
+
+                                <button tabIndex={-1} class='btn-popover multiselect_sibling' type="button"
+                                  data-toggle="tooltip" data-placement="top">
+                                  <mat-icon style="font-size: 21px !important;color: #1a8fcd;margin-top: 13px;" class='material-icons-outlined i_icon' variant='outlined' color='primary'>info
+                                  </mat-icon>
+                                  <div class="pop_box" >You need to attach at least two of the documents for identity
+                                  </div>
+                                </button>
+                               </div>
+                              </div>
+                            </div>
+                            <!-- ngif -->
+                            <div class="col-sm-6 d-flex" style="align-self: center; ">
+                              <div class="form-group"  >
+
+                                <button class="btn btn_primary" (click)="open_doc()">Attach Documents</button>
+
+                              </div>
+                              <div class="fileinfo">
+                                <p>( {{fileselected}} )</p>
+                              </div>
+
+                            </div>
+                            </div>
+               
+
+                            <!-- <div class="row">
+                              <div class="col-sm-6">
+
+                              </div>
+                              <div class="col-sm-6">
+                                <mat-chip-list #chipList class="d-flex">
+                                  <mat-chip  class="justify-content-between" *ngFor="let x of att_base64">
+                                   <span>{{x.doc_name}}</span> 
+                                    <button style="border: none;" matChipRemove (click)="remove(x)">
+                                      <mat-icon class="cross_icon">cancel</mat-icon>
+                                    </button>
+                                </mat-chip>
+                                </mat-chip-list>
+                   
+                              </div>
+                            </div> -->
+
+                            <!-- /*bp-----------------*/ -->
+                            
+                            <!-- <div class="row d-flex">
+                              <div class="d-flex">
+                                <div>
+                                  <mat-checkbox class="example-margin"  formControlName="isbusinesspartner" style="margin-top: -13px;"></mat-checkbox>
+                                </div>
+                                <div class="d-flex">
+                                  <p style="font-size: 12px;">Are you a Business Partner</p>
+                                  <button tabIndex={-1} class='btn-popover multiselect_sibling' type="button"
+                                      data-toggle="tooltip" data-placement="top">
+                                      <mat-icon style="font-size: 21px !important;color: #1a8fcd;" class='material-icons-outlined i_icon' variant='outlined' color='primary'>info
+                                      </mat-icon>
+                                      <div class="pop_box" >Do you want to submit your Customer Invoices through Inkreta platform  
+                                      </div>
+                                  </button>
+                                </div>
+                              </div>
+                              <div>
+  
+                              </div>
+                            </div> -->
+
+                          <!-- <div class='row'>
+                            <div class='col-md-12'>
+                              <hr style="margin-top: 0">
+                              <div style="display: flex;">
+                              <div class="col-sm-6" >
+                                <div class="form-group">
+                                  <label class="pop_label">Become Inkreta Verified Customer</label>
+                                  <button tabIndex={-1} class='btn-popover' type="button" data-toggle="tooltip"
+                                    data-placement="top">
+                                    <div class="pop_box">Just upload the GST registration certificate and enjoy InKreta
+                                      verified
+                                      stamp on your Invoices</div>
+                                  </button>
+                                  <mat-checkbox class="example-margin" formControlName="becomeInkreta"></mat-checkbox>
+                                </div>
+                              </div>
+                                <div class="col-sm-6" *ngIf="f.becomeInkreta.value == true">
+                                    <div class="form-group">
+                                        
+                                        <input type="file" placeholder="select" class="upload-box" style="margin-left: 27px;"/>
+                                    </div>
+                                </div>
+                              </div>
+                            </div> -->
+                        <!-- </div> -->
+    
+                        <!-- 000000000000000000000000000000000000000 -->
+                        
+      
+    
+    
+                    
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>

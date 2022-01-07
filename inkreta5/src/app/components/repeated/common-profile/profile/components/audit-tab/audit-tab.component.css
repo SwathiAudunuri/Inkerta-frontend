@@ -1,0 +1,12 @@
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+  .profile_mgnt label b{
+    width: 100px;
+    display: inline-block;
+    padding-right: 15px;
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }

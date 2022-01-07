@@ -1,0 +1,24 @@
+.mat-row:nth-child(even){
+    background-color: rgb(195, 221, 230,0.1);
+}
+        
+.mat-row:nth-child(odd){
+    background-color: white	
+}
+.att_not_found{
+    text-align: center;
+    color: red;
+}
+.row_highlight{
+    background-color: #dcdcdc !important;
+}
+/* .att_main{
+    min-height: 307px;
+} */
+.mat-progress-spinner{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}

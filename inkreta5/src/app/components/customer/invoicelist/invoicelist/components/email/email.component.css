@@ -1,0 +1,32 @@
+.modal-header{
+    border-top: 4px solid var(--primary);
+    border-right: 4px solid var(--primary);    
+    border-left: 4px solid var(--primary);
+    border-bottom: 1px solid #ccc !important;
+    border-bottom: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px
+}
+.fotter{
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.main_div{
+    height: 270px;
+    width: 500px;
+    font-size: 12px;
+} 
+.recepient label{
+    /* color: #767676; */
+    font-size: 12px;
+}
+.email_inp{
+    border: none;
+}
+.email_inp :focus-visible{
+    border: none !important;
+}
+.border{
+    border: 1px solid #454545;
+}

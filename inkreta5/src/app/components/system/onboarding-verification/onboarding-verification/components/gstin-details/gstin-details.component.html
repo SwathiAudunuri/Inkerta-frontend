@@ -1,0 +1,87 @@
+<div>
+    <div class="col-md-12">
+        <div class="borderTopBox">
+            <div class="boxHeading">GSTIN Details</div>
+            <div class="borderTopBoxBody">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label><b>Company Name</b></label>
+                            <p>{{gstindetails?.partnerDetails?.companyName}}</p>
+                            <!-- <p>{{object.results.companyName}}</p> -->
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><b>GSTIN</b></label> 
+                            <p>hrllo</p>
+                        </div>
+                    </div> -->
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label><b>PAN NO</b></label> 
+                            <p>{{gstindetails?.partnerDetails?.panNo}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label><b>Nature Of Business</b></label><br/>
+                            <p>{{gstindetails?.partnerDetails?.natureOfBusiness}}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label><b>offeredServices</b></label> 
+                            <p>{{gstindetails?.partnerDetails?.offeredServices}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [edit_btn]="edit_btn" -->
+    <div>
+        <div class="borderTopBox">
+            <div class="boxHeading row gx-0 align-items-end ">
+                <div class="col-md-6 d-flex justify-content-between">
+                    GSTIN's 
+                </div>
+        
+            </div>
+            <div class="borderTopBoxBody">
+                <div>
+                    <table mat-table [dataSource]="dataSource" >
+        
+                        <ng-container matColumnDef="GSTIN">
+                          <th mat-header-cell *matHeaderCellDef style="width: 25%;" > GSTIN </th>
+                          <td mat-cell *matCellDef="let element"> {{element.gstin}} </td>
+                        </ng-container>
+                      
+                        <ng-container matColumnDef="Trade_Name" >
+                          <th mat-header-cell *matHeaderCellDef style="width: 25%;"> TRADE Name </th>
+                          <td mat-cell *matCellDef="let element"> {{element.tradename}} </td>
+                        </ng-container>
+                      
+                        <ng-container matColumnDef="Location">
+                          <th mat-header-cell *matHeaderCellDef style="width: 25%;"> Location </th>
+                          <td mat-cell *matCellDef="let element"> {{element.loc}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="NatureOfBusiness">
+                          <th mat-header-cell *matHeaderCellDef style="width: 25%;"> Nature Of Business </th>
+                          <td mat-cell *matCellDef="let element"> {{element.nba}} </td>
+                        </ng-container>
+                       
+                      
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      </table>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+

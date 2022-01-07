@@ -1,0 +1,13 @@
+<div class="piechart">
+<ngx-charts-pie-chart
+      [view]="[900, 400]"
+      [scheme]="{domain: ['#69d6c5', '#4b9af8', '#7c6ff1']}"
+      [results]="series"
+      [legend]="true"
+      [labels]="true"
+      [doughnut]="true"
+
+      [labelFormatting]="pieChartLabel.bind(this, series)"
+      [animations]="false"      >
+    </ngx-charts-pie-chart>
+</div>

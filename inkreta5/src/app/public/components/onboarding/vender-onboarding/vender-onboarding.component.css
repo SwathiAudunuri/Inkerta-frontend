@@ -1,0 +1,67 @@
+.mat-stepper-horizontal,
+.mat-stepper-vertical {
+  background-color: transparent;
+}
+.mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit{
+  width: 60px !important;
+  height: 60px !important;
+  margin-top: -15px !important;
+}
+.mat-icon {
+  font-size: 32px !important;
+  height: 32px !important;
+  width: 32px !important;
+}
+.supplierRegestration {
+  background: #fff;
+  width: 88%;
+  height: 100%;
+  margin: 0px auto;
+  box-shadow: 0px 1px 10px 0px rgb(0 0 0 / 50%);
+  padding: 8px 15px;
+  border-radius: 2px;
+  overflow-y: auto;
+  margin-top: 40px;
+  overflow-x: hidden;
+  min-height: 70vh;
+  max-height: 85vh;
+  min-width: 95%;  
+}
+.firtStep.supplierRegestration {
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 80vh;
+  min-width: 95%;
+  background-position: bottom right;
+  position: relative;
+}
+.step_buttons {
+  padding-top: 10px;
+  position: fixed;
+  bottom: 10px;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0px;
+}
+.step_buttons button {
+  margin: 10px;
+  min-width: 115px;
+}
+.Cancle-btn:hover {
+  background: #e54b4b !important;
+  color: #fff;
+}
+.save-btn:hover {
+  background: #4cae4c !important;
+  color: #fff;
+}
+.mat-step-header.cdk-keyboard-focused, .mat-step-header.cdk-program-focused, .mat-step-header:hover{
+  background: none !important;
+}
+
+/* .mat-form-field {
+  margin-right: 8px;
+} */

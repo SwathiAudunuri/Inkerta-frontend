@@ -1,0 +1,18 @@
+.icon{
+    margin-top: 3px;
+    font-size: 26px;
+}
+.heading{
+    border-bottom: 1px solid #e2e5e9;
+}
+.toggleRotate {
+    transform: rotate(180deg);
+    transition: 0.5s;
+} 
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}

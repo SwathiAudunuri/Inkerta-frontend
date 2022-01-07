@@ -1,0 +1,92 @@
+.form-control:focus{
+    border-color: #66afe9;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+  }
+  .todoForm_block{
+    overflow: hidden !important;
+    height: fit-content;
+  }
+  .divend_button{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e2e5e9;
+    height: 40px;
+  }
+  /* .form-group {
+    margin-bottom: 7px;
+  } */
+  .label_desc{
+    font-weight: 500;
+   }
+   /* .label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+  } */
+  .form-group{
+    margin-bottom: 10px;
+}
+  .form-group label{
+    color: #000;
+}
+.heading{
+    font-weight: 600;
+    font-size: medium;
+
+}
+fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+    margin-top: 30px !important;
+  }
+  
+  legend.scheduler-border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+    margin-top: -15px;
+    background-color: white;
+    color: black;
+  }
+
+  label{
+    font-size: 14px;
+    line-height: 9px;
+    min-width: 120px;
+    margin-right: 20px;
+  }
+  .form-inline p{
+    margin-bottom: 0px;
+  }
+   .form-inline{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .form-inline label{
+    white-space: nowrap;
+    margin-right: 6px;
+    /* margin-right: 21px; */
+      /* width: 152px; */
+      width: 117px;
+  }
+  .form-inline label span{
+    /* float: right; */
+    /* margin-left: 59px; */
+    margin-left: 15px;
+  }
+ 
+  .form-inline label.w-120{
+    min-width: 120px;
+    margin-right: 20px;
+  }

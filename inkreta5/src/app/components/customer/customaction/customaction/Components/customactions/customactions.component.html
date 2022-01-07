@@ -1,0 +1,61 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+<div style="margin-top: 3px;">
+    <div class="sort_bar">
+        <!-- <label style="margin-left: 77px;" class="sorting" (click)="onSort()"
+        [ngClass]="amountToggle === 1 ? 'sorting' : amountToggle === 2 ? 'sort_asc' : amountToggle === 3 ? 'sort_decs' : 'null'">
+        action_connector_type</label> -->
+     
+  
+        <label class="sorting" (click)="action_nameSort()" 
+        [ngClass]="dueDateToggle === 1 ? 'sorting' : dueDateToggle === 2 ? 'sort_asc' : dueDateToggle === 3 ? 'sort_decs' : 'null'">
+
+        Name & Connector Type</label>
+        <!-- <label style="margin-left: 78px;" class="sorting" (click)="connectorSort()"
+        [ngClass]="dateToggle === 1 ? 'sorting' : dateToggle === 2 ? 'sort_asc' : dateToggle === 3 ? 'sort_decs' : 'null'">
+
+ Webservice</label> -->
+            <label style="margin-left: 224px;" >Created By</label>
+         
+
+      </div>
+    <perfect-scrollbar>
+        <div class="bar" *ngFor="let item of actions | paginate:{id:'pagination',itemsPerPage: pageSize, currentPage: page} ;index as i "  [class]="item.action_id === action_id ? 'highlight':null" (click)="invoke_invoice(item)" >
+            <div class="icon circle" >
+                <!-- <mat-icon svgIcon="custom_action"> -->
+                <mat-icon *ngIf="item.action_connector_type==='WebService-REST'"> 
+                    <span >settings</span>
+                </mat-icon>
+                <mat-icon *ngIf="item.action_connector_type==='WebService-SOAP'"  class="soap"> 
+                    <span style="color: #f79535 ;" >settings</span>
+                </mat-icon>
+                <!-- <mat-icon svgIcon="custom_action" class="icon_soap" *ngIf="item.action_connector_type==='WebService-SOAP '"> 
+                
+                </mat-icon> -->
+           
+            
+                <!-- <img src="../../../../../../../assets/rest1.png" /> -->
+    
+            </div>
+            <div  style="width: 100%; padding: 5px;">
+                <div class="exec">
+                    <div><label>{{item.action_name}}</label></div>
+                    <div class="contentblock"> <label>{{item.createdbydisplayname}}</label></div>
+                   
+                </div>
+    
+                <div style="padding-left: 15px;"  class="contentblock"> 
+                    {{item.action_connector_type}}
+                    
+                </div>
+            </div>
+        </div>
+    </perfect-scrollbar>
+ 
+    <div  style="margin-top: 2px;">
+        <pagination-controls id="pagination" (pageChange)="page=$event"   ></pagination-controls>
+      </div>
+   
+  
+</div>

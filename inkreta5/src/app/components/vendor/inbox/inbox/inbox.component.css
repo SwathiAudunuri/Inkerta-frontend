@@ -1,0 +1,41 @@
+.grid_border{
+    border-bottom: 1px solid #ccc;
+    /* height: 55px; */
+    height: 63px;
+}
+.pagination{
+    align-self: center;
+    height: 7px;
+}
+.sidenav{
+    width: 55%;
+    padding: 10px;
+    border:1px solid #dfdfdf ;
+}
+.highlight{
+    /* background-color: #f4eeee; */
+    background-color: rgb(195, 221, 230,0.1);
+    border-left: 4px solid  var(--primary);
+}
+.grid_search{
+    position: relative;
+}
+.grid_search input{
+    padding-right: 40px;
+}
+.grid_search mat-icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.main_div{
+    height: 51px;
+    border-bottom: 1px solid #dedede;
+}
+.user_info{
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    padding: 0px 10px 18px 0px;
+}

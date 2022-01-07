@@ -1,0 +1,111 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="loading || loading1" [color]="'var(--primary)'">
+</mat-progress-spinner>
+
+<div>
+  <div class="modal-header">
+    <label class="modal-title" id="modal-basic-title">Send Reminder</label>
+    <button type="button" aria-label="Close" class="btn-close" (click)="close()"></button>
+  </div>
+
+  <perfect-scrollbar>
+    <div class="main_div p-2">
+      <div class="justify-content-between d-flex">
+        <div>
+
+        </div>
+        <div class="load_temp">
+          <p class="link" [matMenuTriggerFor]="menu">load templete <mat-icon class="btn-icon">arrow_drop_down</mat-icon></p>
+        <mat-menu #menu="matMenu">
+          <!-- <button mat-menu-item>Default template</button>
+          <button mat-menu-item>Mismatch template</button> -->
+          <button mat-menu-item *ngFor="let x of templatenames" (click)="get_details(x)" >{{x.template_name}}</button>
+        </mat-menu>
+        </div>
+      </div>
+      <!-- <div class="recepient d-flex">
+            <label>From : </label>
+            <p style="font-size: 14px;margin-left: 10px;">ashok_grandhi@tecnics.com</p>
+          </div> -->
+      <div class="recepient">
+        
+        <label>To <span style="color: red;">*</span> <span style="float: right; margin-right: 10px;">:</span> </label>  
+        <div class="border">
+          <mat-chip-list #chipList aria-label="Fruit selection">
+            <mat-chip *ngFor="let fruit of to" [selectable]="selectable" [removable]="removable"
+              (removed)="remove(fruit)">
+              {{fruit}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input placeholder="Type mail ..." class="email_inp" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+        </div>
+      </div>
+
+      <div class="recepient">
+        <label>CC <span style="color: red;">*</span> <span style="float: right; margin-right: 10px;">:</span> </label>
+        <div class="border">
+          <mat-chip-list #chipList aria-label="Fruit selection">
+            <mat-chip *ngFor="let fruit of cc" [selectable]="selectable" [removable]="removable"
+              (removed)="remove_cc(fruit)">
+              {{fruit}}
+              <!-- <button matChipRemove *ngIf="removable"> -->
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              <!-- </button> -->
+            </mat-chip>
+            <input placeholder="Type mail ..." class="email_inp" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add_cc($event)">
+          </mat-chip-list>
+        </div>
+      </div>
+
+      <div class="recepient">
+        <label>Subject <span style="color: red;">*</span> <span style="float: right; margin-right: 10px;">:</span> </label>
+        <div class="border">
+          <input value="email_inp" [(ngModel)]="subject" />
+        </div>
+      </div>
+      <!-- <div class="recepient">
+            <label>Subject : </label>
+            <div class="border">
+                <mat-chip-list  #chipList aria-label="Fruit selection">
+                    <mat-chip *ngFor="let fruit of bcc" [selectable]="selectable"
+                             [removable]="removable" (removed)="remove_bcc(fruit)">
+                      {{fruit}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                      
+                    </mat-chip>
+                    <input class="email_inp" 
+                           [matChipInputFor]="chipList"
+                           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                           [matChipInputAddOnBlur]="addOnBlur"
+                           (matChipInputTokenEnd)="add_bcc($event)">
+                  </mat-chip-list>
+            </div>
+        </div>  -->
+
+      <!-- <div class="recepient">
+            <div class="email_inp">
+                <textarea  [(ngModel)]="subject" style="width: 100%;"  rows="4"></textarea>
+            </div>
+        </div> -->
+      <div class="editors">
+        <ngx-editor-menu [editor]="editor" class="editor" [toolbar]="toolbar">
+        </ngx-editor-menu>
+        <ngx-editor [editor]="editor" [(ngModel)]="text">
+        </ngx-editor>
+      </div>
+    </div>
+  </perfect-scrollbar>
+  <div class="action_btn justify-content-between d-flex">
+    <div>
+
+    </div>
+    <div>
+      <button class="btn btn-light" (click)="close()" type="button">Cancel</button>
+      <button class="btn  btn_primary" style="margin-left: 10px;" type="button" (click)="submit()" [disabled]="!(to.length > 0 && cc.length > 0 && subject !== '' )">Submit</button>
+    </div>
+  </div>
+
+</div>

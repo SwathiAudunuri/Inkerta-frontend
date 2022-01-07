@@ -1,0 +1,68 @@
+<div>
+    <div  class="modal_header">
+        <div class="header">
+
+            <label  class="comment">  Comments</label>
+            <button type="button" aria-label="Close" class="btn-close btn-close-black close " (click)="close()"></button>
+
+        </div>
+    </div>
+    <div class="commentcontainer">
+        <form [formGroup]="CommentsForm" (ngSubmit)="onSubmit()">
+
+        <textarea type="text" class="form-control note"  rows="3" required="required" class="form-control" formControlName = "comments"></textarea>
+        <div class="flex-end btns mt-2">
+            <button type="submit" class="btn btn_primary ms-2" >Post</button>
+        </div>
+        </form>
+        <div style="height: 350px;">
+            <perfect-scrollbar>
+                <div *ngFor="let item of data ">
+                
+                    <div class="invoicebar d-flex zoom">
+                        <div class="icon">
+                            <label>S</label>
+                        </div>
+                        <div class ="innerblock" >
+                            <div class="content" >
+                                <label class="label_content">{{item.createdByDisplayName }}</label><br>
+                                <label class="label_content">{{item.comments }}</label>
+                                <label  class="date">
+                                    <b>Date : </b> {{item.createdOn |  date: 'yyyy-MM-dd'}} 
+                                </label>
+                            </div>
+                            <div>
+                                
+                                <div class="action">
+                                <button class="action_btn"   [matMenuTriggerFor]="menu" >             
+                                    <span class="material-icons" style="color:#3c8dbc">
+                                        more_horiz        
+                                        
+                                        <!-- arrow_drop_down -->
+                                        </span>
+                                </button>
+                                   
+                        
+                        <mat-menu #menu="matMenu">
+                          <button mat-menu-item class="action-item">element.action</button>
+                        </mat-menu>
+                            </div>
+                        
+                            </div>
+                        </div>
+                        </div>
+                </div>
+            </perfect-scrollbar>  
+        </div>
+        
+
+ 
+    </div>
+    <div >
+        <button class="more" (click)="more()">
+            <label>show more</label>
+
+        </button>
+    </div>
+    
+</div>

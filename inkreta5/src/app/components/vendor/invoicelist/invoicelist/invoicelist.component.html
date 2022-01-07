@@ -1,0 +1,47 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer [opened]="sidenav1" class="example-sidenav" class="example-sidenav" [ngClass]="sidenav ? 'sidenav':'full_sidenav' " mode="side" position="end"  >
+    <app-invoice-details-sidenav></app-invoice-details-sidenav>
+    <!-- <app-paid-invoice-sidenav></app-paid-invoice-sidenav> -->
+  </mat-drawer>
+  <div class="example-sidenav-content">
+    <div class="card invoice_main_div" >
+      <!-- <button class="btn btn-light btn-sm upload-icons1"  (click)="upload_invoice_form()"><mat-icon class="upload-icon">list_alt</mat-icon>Invoice Upload</button> -->
+
+      <button class="btn btn-light btn-sm upload-icons"  (click)="upload_invoice()"><mat-icon class="upload-icon">drive_folder_upload</mat-icon>Invoice Upload</button>
+      <button class="arrow_icon">
+        <mat-icon class=" Rotate"  [ngClass]="sidenav1 ? 'null' : 'toggleRotate' " (click)="sidenav1 ? left_sidenav_full() : left_sidenav_half()" >
+          <!-- unfold_more -->
+            chevron_right
+        </mat-icon>
+      </button>
+      
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <a ngbNavLink> <b>Unpaid</b></a>
+          <ng-template ngbNavContent> 
+            <app-search class="search_outer_box" (search)="search=$event"> </app-search>
+            <app-unpaidinvoices noofrows=8 tablewidth="100%" [search]="search"   (childEvent)="sidenav=$event" (index)="index=$event" (details)="details=$event" (invoicesidenav)="invoicesidenav=$event"></app-unpaidinvoices>
+          </ng-template>
+        </li>
+        <!-- <li [ngbNavItem]="2">
+          <a ngbNavLink>Paid</a>
+          <ng-template ngbNavContent>
+            <app-search class="search_outer_box" (search)="search=$event"> </app-search>
+            <app-paidinvoices (childEvent)="sidenav=$event" [search]="search"   (paid)="paid=$event" (details)="details=$event"></app-paidinvoices>
+          </ng-template>
+        </li> -->
+
+        <li [ngbNavItem]="2">
+          <a ngbNavLink><b>Queries</b></a>
+          <ng-template ngbNavContent>
+            <app-search class="search_outer_box" (search)="search=$event"> </app-search>
+            <app-queriesinvoice (childEvent)="sidenav=$event" [search]="search"   (paid)="paid=$event" (details)="details=$event"></app-queriesinvoice>
+          </ng-template>
+        </li>
+      </ul>
+      <div [ngbNavOutlet]="nav" class="mt-1"></div>
+    </div>
+  </div>
+</mat-drawer-container>
+
+

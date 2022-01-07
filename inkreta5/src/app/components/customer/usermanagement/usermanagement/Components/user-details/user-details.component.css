@@ -1,0 +1,17 @@
+.mat-progress-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}
+.role_btn{
+    /* background-color: rgb(207, 207, 207);
+    padding: 4px 15px; */
+    display: inline-block;
+    margin-right: 7px;
+}
+.update_img{
+    margin-left: 264px;
+    margin-top: 8px;
+}

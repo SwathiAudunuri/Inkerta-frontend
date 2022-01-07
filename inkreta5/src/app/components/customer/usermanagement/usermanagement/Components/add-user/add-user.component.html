@@ -1,0 +1,136 @@
+<mat-progress-spinner
+  [mode]="'indeterminate'" *ngIf="loading">
+</mat-progress-spinner> 
+
+<form [formGroup]="Add_user" (ngSubmit)="submit_adduser()">
+<div class="row mx-0 mt-4">
+    <div class="col-md-4">
+        <div class="text-center">
+            <img [src]="imgurl" class="mt-3 edit_image" />
+            <div class="upload_img mt-3" >
+                <input type="file" id="file" class="upload-box" (change)="profile_img($event)" />
+              <button mat-raised-button style="color: #3c8dbc;" type="button"><label for="file">
+                  <mat-icon style="font-size: 18px;vertical-align: sub;">file_upload</mat-icon>Upload New Avatar
+                </label></button>
+            </div>
+            <!-- <div class="d-flex justify-content-center my-4">
+                <span class="user_status active" *ngIf="this.updaterow.value.status === true">Active </span> 
+                <span class="user_status deactive" *ngIf="this.updaterow.value.status === false">Not Active </span> 
+                <mat-slide-toggle class="ms-2" formControlName="status" color="primary"></mat-slide-toggle>
+            </div>
+            <button type="button" class=" btn btn_primary" (click)="open(content)">Reset Password</button> -->
+        </div>
+    </div>
+    <div class="col-md-8">
+        
+        <div >
+            <label><b>First Name</b></label>
+            <input  class="form-control" formControlName="firstname"/>
+        </div>
+        <div class="mt-2">
+            <label><b>Last Name</b></label>
+            <input class="form-control" formControlName="lastname"/>
+        </div>
+        <div class="mt-2">
+            <label><b>User Alias Name</b></label>
+            <input class="form-control" formControlName="userAlias"/>
+        </div>
+        <div class="mt-2">
+            <label><b>Mobile Number</b></label>
+            <input class="form-control" formControlName="mobile_no" />
+        </div>
+        <div class="mt-2">
+            <label><b>Email</b></label>
+            <input class="form-control" formControlName="email"/>
+        </div>
+        <div class="mt-2">
+            <label><b>User ID</b></label>
+            <input class="form-control" formControlName="userid"/>
+        </div>
+        <div class="mt-2">
+            <label><b>Role</b></label>
+            <select class="form-select" formControlName="role" *ngIf="patnerid === 'BusinessPartner' ">
+                <option value="businesspartner_manager">businesspartner_manager</option>
+                <option value="businesspartner_admin">businesspartner_admin</option>
+                <option value="businesspartner_user">businesspartner_user</option>
+              </select>
+
+              <select class="form-select" formControlName="role" *ngIf="patnerid !== 'BusinessPartner' ">
+                <option value="customer_user">customer_user</option>
+                <option value="customer_admin">customer_admin</option>
+                <option value="customer_manager">customer_manager</option>
+              </select>
+              
+        </div>
+    </div>
+</div>
+<div class="action_btn">
+    <button type="button" class="btn btn-outline-dark">Cancel</button>
+    <button class=" btn btn_primary" type="submit">Create</button>
+</div>
+</form>
+<p style="color: red;">{{error}}</p>
+<!-- <form [formGroup]="Add_user" (ngSubmit)="submit_adduser()">
+  <div class="add_user">
+    <div class="modal-header">
+      <h4 class="modal-title mb-0" id="modal-basic-title">Create New User</h4>
+      <button type="button" class="btn-close" aria-label="Close" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-3 col-sm-5 text-center">
+          <div class="profile_pic">
+            <img style="border-radius: 50%;" [src]="imgurl" />
+            <div class="action_btn mt-4">
+              <input type="file" id="file" class="upload-box" (change)="profile_img($event)" />
+              <button mat-raised-button style="color: #3c8dbc;" type="button"><label for="file">
+                  <mat-icon style="font-size: 18px;vertical-align: sub;">file_upload</mat-icon>Upload New Avatar
+                </label></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9 col-sm-7">
+          <div class="row">
+            <div class="col-md-6">
+              <label>First Name</label>
+              <input class="form-control" formControlName="firstname" (ngModelChange)="onChange()" />
+            </div>
+            <div class="col-md-6">
+              <label>Last Name</label>
+              <input class="form-control" formControlName="lastname" (ngModelChange)="onChange()" />
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <label>Mobile Number</label>
+              <input class="form-control" formControlName="mobile_no" />
+            </div>
+            <div class="col-md-6">
+              <label>Email</label>
+              <input class="form-control" formControlName="email" />
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <label>User ID</label>
+              <input class="form-control" formControlName="userid" />
+            </div>
+            <div class="col-md-6">
+              <label>Role</label>
+              <select class="form-select" formControlName="role">
+                <option value="vender">Vender</option>
+                <option value="manager">Manager</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark">Cancel</button>
+      <button class=" btn btn_primary" type="submit">Create</button>
+    </div>
+  </div>
+</form> -->

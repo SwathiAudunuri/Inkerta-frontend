@@ -1,0 +1,52 @@
+.highrisk{
+    color: #a50202;
+    height: 20px;
+    width: 33px;
+    background-color: #f9c5bc;
+    padding: 0.5px
+}
+
+
+.hightriskstatus{
+    border-left: 3px solid #a50202;
+}
+.lowrisk{
+    color: #76a718;
+    height: 20px;
+    width: 33px;
+    background-color: #b9f5c9;
+}
+
+tr.mat-header-row {
+    background: #c5c5c52b;
+}
+th.mat-header-cell{
+    color: #7a7a7a !important;
+}
+.invnum{
+    color: var(--primary);
+}
+.partial{
+    border-left: 3px solid #f59d82;
+}
+.exception{
+    border-left: 3px solid #b56554;
+}
+.approved{
+    border-left: 3px solid #a8d5a6
+}
+.new{
+    border-left:3px solid #e6b7e7
+}
+.status{
+    height: 41px;
+    display: flex;
+    align-items: center;
+    padding-left: 3px;
+}
+th.mat-cell,td.mat-cell{
+    font-size: 13px !important;
+}
+td.mat-cell{
+    color: #858383;
+}

@@ -1,0 +1,44 @@
+<!-- <p>commapviewauto works!</p> -->
+<div class="todoForm_block">
+    <div class="d-flex  mt-3 form-inline">
+          <label><b>Connector Tag <span>:</span> </b></label>
+          <span class="ms-2">{{connectorType}} </span>
+      </div>
+      <div class="mt-3 d-flex form-inline">
+        <label><b>UserName <span>:</span></b></label>
+        <span class="ms-2">{{userName}}</span>
+      </div>
+      <div class="mt-3 d-flex form-inline">
+        <label><b>UserPassword <span>:</span></b></label>
+        <span class="ms-2">{{userPassword}}</span>
+      </div>
+      <div class="mt-3 d-flex form-inline">
+        <label><b>Url <span>:</span></b></label>
+        <span class="ms-2">{{url}}</span>
+      </div>
+      <div>
+        <label><b>Input Request <span style="margin: 0px 0px 0px 160px;">:</span></b></label>
+        <!-- <span class="ms-2 test">{{inputRequest | xml}}</span> -->
+        <div class="xml_div">
+          <perfect-scrollbar>
+            <div style="max-height: 148px;">
+              <pre>{{inputRequest }}</pre>
+            </div>
+          </perfect-scrollbar>
+        </div>
+        
+      
+      </div>
+      <div class="mt-3 d-flex form-inline">
+        <label><b>DocNumber <span>:</span></b></label>
+        <span class="ms-2">{{respDocNumberOnsuccessful}}</span>
+      </div>
+      <div class="mt-3 d-flex form-inline">
+        <label><b>Message <span>:</span></b></label>
+        <span class="ms-2">{{respMessage}}</span>
+      </div>
+      <div class="mt-3 d-flex form-inline">
+        <label><b>Op Action <span>:</span></b></label>
+        <span class="ms-2">{{operationAction}}</span>
+      </div>
+</div>

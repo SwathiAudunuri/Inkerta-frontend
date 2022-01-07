@@ -1,0 +1,11 @@
+.form-group{
+    margin-bottom: 10px;
+}
+  .form-group label{
+    color: #000;
+    font-weight: 500;
+}
+.mat-tab-body-content {
+  height: 100%;
+  overflow: hidden !important;
+}

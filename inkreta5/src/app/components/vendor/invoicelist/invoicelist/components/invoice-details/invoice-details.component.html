@@ -1,0 +1,141 @@
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="detailsloading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+<perfect-scrollbar>
+  <div>
+    <div class="justify-content-between d-flex">
+      <div></div>
+      <div class="d-flex inv_info1">
+        <div class="d-flex" style="margin-right: 13px;">
+            <p><b>Submitted On : </b></p>
+            <span>{{invoicedate | date: 'yyyy-MM-dd'}}</span>
+        </div>
+        <div class="d-flex">
+          <p><b>Status : </b></p>
+          <span>{{status1}}</span>
+      </div>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-sm-6 box">
+        <!-- <div class="box"> -->
+          <div>
+            <span>From</span>
+            <p><b>{{supplier_legal_name}}</b></p>
+            <span>{{dispatch_address1}},
+              {{dispatch_location}},
+              {{dispatch_address1}},
+              {{dispatch_pincode}}</span>
+  
+            <span>{{supplier_phone}}</span>
+            <span>{{supplier_email}}</span>
+          </div>
+        <!-- </div> -->
+        
+       
+      </div>
+      <div class="col-sm-6 box">
+        <!-- <div class="box"> -->
+          <div>
+            <span>To</span>
+            <p><b>{{billing_legal_name}}</b></p>
+            <span>{{shippingto_address1}},
+              {{shippingto_location}},
+              {{shippingto_address2}},
+              {{shippingto_pincode}}</span>
+  
+            <span>{{billing_phone}}</span>
+            <span>{{billing_email}}</span>
+          </div>
+        <!-- </div> -->
+        
+      </div> 
+      
+    </div>
+    <div class="d-flex">
+      <div class="inv_info col-sm-4">
+        <div class="d-flex">
+          <p><b>Invoice No <span style="float: right;">:</span> </b></p>
+          <span>#{{InvoiceNo}}</span>
+        </div>
+        <div class="d-flex">
+          <p><b>Invoice Date <span style="float: right;">:</span> </b></p>
+          <span>{{invoicedate | date: 'yyyy-MM-dd'}}</span>
+        </div>
+        
+      </div>
+
+      <div class="inv_info col-sm-4">
+        <div class="d-flex">
+          <p><b>Due Date <span style="float: right;">:</span> </b></p>
+          <span>{{invoicecreatedate | date: 'yyyy-MM-dd'}}</span>
+        </div>
+        <div class="d-flex">
+          <p><b>Po No <span style="float: right;">:</span> </b></p>
+          <span>#{{po_ref_num}}</span>
+        </div>
+        
+      </div>
+
+      <div class="inv_info col-sm-4">
+        <div class="d-flex">
+          <p><b>Currency <span style="float: right;">:</span> </b></p>
+          <span>{{invoicelistdetails?.invoiceDetails?.invoice_currency_code}}</span>
+        </div>
+        
+      </div>
+    </div>
+    <div>
+      <div class="heading_total">
+        <p><b>Totals</b></p>
+      </div>
+      <div class="inv_info ">
+        <div class="d-flex">
+          <div class="col-sm-4 d-flex">
+            <p><b>SGST <span style="float: right;">:</span> </b></p>
+            <span>{{igstvalue}}</span>
+          </div>
+          <div class="col-sm-4 d-flex">
+            <p><b>CGST <span style="float: right;">:</span> </b></p>
+            <span>{{igstvalue}}</span>
+          </div>
+          <div class="col-sm-4 d-flex">
+            <p><b>IGST <span style="float: right;">:</span> </b></p>
+            <span>{{igstvalue}}</span>
+          </div>
+        </div>
+        
+        <div class="d-flex">
+          <div class="col-sm-4 d-flex">
+            <p><b>Cess <span style="float: right;">:</span> </b></p>
+            <span>{{csessvalue}}</span>
+          </div>
+          <div class="col-sm-4 d-flex">
+            <p><b>StateCess <span style="float: right;">:</span> </b></p>
+            <span>{{csessvalue}}</span>
+          </div>
+          <div class="col-sm-4 d-flex">
+            <p><b>Discount <span style="float: right;">:</span> </b></p>
+            <span>{{total_invoice_value}}</span>
+          </div>
+        </div>
+        
+        <div class="totals col-sm-4">
+          <div class="d-flex" style="margin-top: 3px;">
+            <p><b>Total Assessable Value <span style="float: right;">:</span> </b></p>
+            <!-- <mat-icon class="currency_icon">{{icon[invoicelistdetails?.invoiceDetails?.invoice_currency_code]}}</mat-icon> -->
+            <span>{{ total_assessable_value | currency: invoicelistdetails?.invoiceDetails?.invoice_currency_code}}</span>
+          </div>
+          <div class="d-flex">
+            <p><b>Total Invoice Value <span style="float: right;">:</span> </b></p>
+            <!-- <mat-icon class="currency_icon">{{icon[invoicelistdetails?.invoiceDetails?.invoice_currency_code]}}</mat-icon> -->
+            <span>{{ total_invoice_value | currency:invoicelistdetails?.invoiceDetails?.invoice_currency_code}}</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+</perfect-scrollbar>
+

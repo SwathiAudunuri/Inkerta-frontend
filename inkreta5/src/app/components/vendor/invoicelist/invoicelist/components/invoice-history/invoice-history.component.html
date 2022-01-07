@@ -1,0 +1,64 @@
+<mat-progress-spinner
+[mode]="'indeterminate'" *ngIf="hisloading" [color]="'var(--primary)'">
+</mat-progress-spinner>
+
+<div *ngIf="!hisloading" class="his_main">
+
+  <div class="sort_bar">
+    <label style="margin-left: -16px;" class="sorting">
+    Status</label>
+    <label style="margin-left: 83px;" class="sorting">
+    Action By and Comments</label>
+
+  </div>
+  <perfect-scrollbar>
+    <div class="py-3 info_main" *ngIf="status">
+      
+      <div *ngFor="let x of historydata">
+        <div class="m-1 d-flex grid">
+          <div class="status">
+            <p>
+              <span class="user_status PAID" *ngIf="x.action === 'NEW' || x.action === 'New'">{{x.action}} </span> 
+              <span class="user_status OVERDUE" *ngIf="x.action === 'Voided'">{{x.action}} </span> 
+              <span class="user_status PARTIAL" *ngIf="x.action === 'AP Processing'">{{x.action}} </span>
+              <span class="user_status VIEWED" *ngIf=" x.action === 'Approved'">{{x.action}} </span>
+              <span class="user_status DRAFT" *ngIf="x.action === 'Pending'">{{x.action}} </span>
+              <span class="user_status PARTIAL" *ngIf="x.action === 'Acknowledged'">{{x.action}} </span>
+              <span class="user_status Exception" *ngIf=" x.action === 'Exception'">{{x.action}} </span>
+              <span class="user_status Posted" *ngIf="x.action === 'Posted for Payment'">{{x.action}} </span> 
+              <span class="user_status PARTIAL" *ngIf="x.action === 'Paid'">{{x.action}} </span>
+              <span class="user_status DRAFT" *ngIf="x.action === 'Draft'">{{x.action}} </span>
+              <span class="user_status Posted" *ngIf="x.action === 'Clam'">{{x.action}} </span> 
+              <span class="user_status DRAFT" *ngIf="x.action === 'Verify'">{{x.action}} </span>
+              <span class="user_status Posted" *ngIf="x.action === 'Approve'">{{x.action}} </span> 
+              <span class="user_status Exception" *ngIf=" x.action === 'Review'">{{x.action}} </span>
+
+              <span class="user_status Exception" *ngIf=" x.action === 'Claim'">{{x.action}} </span>
+              <span class="user_status Exception" *ngIf=" x.action === 'Release'">{{x.action}} </span>
+
+              <span class="user_status DRAFT" *ngIf="x.action === 'Partially Paid'">{{x.action}} </span>
+              <span class="user_status OVERDUE" *ngIf="x.action === 'Payment Reminder'">{{x.action}} </span> 
+
+              <span class="user_status PAID" *ngIf="x.action === 'Submit' || x.action === 'submit'">{{x.action}} </span> 
+            </p>
+          </div>
+          <div class="info">
+            <div class="top_info">
+              <p style="color: #000;">
+                {{x.actionByDisplayName}} 
+                On 
+                <span class="text">{{x.action_date | date: 'yyyy-MM-dd'}}</span>
+              </p>
+            </div>
+            <div class="bottom_info">
+              <p>{{x.action_comments}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </perfect-scrollbar>
+  <div *ngIf="!status" style="margin-top: 26%;">
+    <h3 class="his_not_found">History are not found for this invoice </h3>
+  </div>
+</div>
